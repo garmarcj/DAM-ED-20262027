@@ -17,13 +17,9 @@ theme:
     - search.suggest
     - toc.integrate
 nav:
-  - Presentación: index.md
-  - Bloque 1:
-    - Apartado 1: apuntes1.md
-    - Apartado 2: apuntes2.md
-  - Bloque 2:
-    - Apartado 3: apuntes3.md
-    - Apartado 4: apuntes4.md    
+  - Inicio: index.md
+  - Unidad 1: unidad1.md
+  - Unidad 2: unidad2.md
 markdown_extensions:
   - attr_list
   - admonition
