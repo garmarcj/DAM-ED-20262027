@@ -1,0 +1,39 @@
+site_name: Apuntes
+site_url: https://bpaterna.github.io/apuntes/
+site_author: Begoña Paterna
+theme:
+  name: material
+  language: es
+  palette:
+    scheme: default
+    primary: red
+  features:
+    - content.code.copy
+    - content.tabs.link
+    - navigation.instant
+    - navigation.top
+    - navigation.sections
+    - search.highlight
+    - search.suggest
+    - toc.integrate
+nav:
+  - Presentación: index.md
+  - Bloque 1:
+    - Apartado 1: apuntes1.md
+    - Apartado 2: apuntes2.md
+  - Bloque 2:
+    - Apartado 3: apuntes3.md
+    - Apartado 4: apuntes4.md    
+markdown_extensions:
+  - attr_list
+  - admonition
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed
+extra_css:
+  - stylesheets/extra.css
+use_directory_urls: false
