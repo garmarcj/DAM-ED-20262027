@@ -645,16 +645,6 @@ Alba Torres y Pau Ferrer abren IntelliJ en sus pantallas:
 
 ---
 
-### Resumen de la Sesión 3
-Al concluir estas dos horas:
-* Conoces el funcionamiento interno de Git mediante el modelo de instantáneas (*snapshots*).
-* Dominas los **tres estados locales** (*Working Directory*, *Staging Area* y *Local Repository*).
-* Sabes inspeccionar visualmente qué líneas añades o eliminas mediante la herramienta **Git Diff**.
-* Aplicas con rigor profesional el estándar internacional de **Conventional Commits** para asegurar la trazabilidad del código.
-
----
----
-
 # SEMANA 2 — SESIÓN 4 (Viernes, 25 de septiembre de 2026 — 1 hora lectiva)
 ### Bloque: Documentación técnica con Markdown (`.md`), memoria Scrum (ED-2) y panel de control en `README.md`
 * **Distribución horaria:** 20 minutos de teoría de marcado + 40 minutos de redacción técnica guiada.
