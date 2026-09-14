@@ -1,25 +1,22 @@
-# MÓDULO PROFESIONAL: ENTORNOS DE DESARROLLO (ED)
-
-## SPRINT 1. Ecosistema de desarrollo, marco ágil y repositorio digital (3 semanas | 9 horas)
+# Sprint 1. Ecosistema de desarrollo, marco ágil y repositorio digital
 
 ---
 
-# SEMANA 1 — SESIÓN 1 (Lunes, 14 de septiembre de 2026 — 2 horas lectivas)
-### Bloque: Fundamentos del software, ciclo de vida (SDLC) y puesta a punto del taller digital (IDE + JDK)
-* **Distribución horaria:** 1 hora de teoría conceptual y metodológica + 1 hora de laboratorio práctico guiado.
-* **Criterios de Evaluación vinculados:** RA1.a, RA1.b, RA1.e, RA1.f, RA2.a, RA2.b, RA2.c, RA2.d, RA2.g.
+## Semana 1. Fundamentos del software, ciclo de vida (SDLC) y puesta a punto del taller digital (IDE + JDK)
 
 ---
 
-## PARTE I. SESIÓN TEÓRICA (1 HORA): INGENIERÍA DEL SOFTWARE Y HERRAMIENTAS
+### Día 1 - 2 sesiones
 
-### 1. Caso práctico narrativo: El encargo en las oficinas de AzaharTech
+### Parte I. Sesión teórica. Ingeniería del software y herramientas
 
-Son las nueve de la mañana del lunes 14 de septiembre de 2026. Las oficinas de **AzaharTech**, consultora de desarrollo de software situada en el distrito tecnológico de Castellón de la Plana, bullen de actividad. Los miembros de la célula de desarrollo asignada a proyectos educativos y de gestión local ocupan sus puestos: **Alba Torres**, desarrolladora especializada en arquitectura de software; **Pau Ferrer**, técnico de desarrollo e integración de sistemas; y la supervisora del equipo, **Laia Claramunt**. Junto a ellos se sienta el nuevo desarrollador junior que acaba de incorporarse a la empresa (el estudiante).
+#### 1. Caso guía en AzaharTech
+
+Son las tres de la tarde del lunes 14 de septiembre de 2026. Las oficinas de **AzaharTech**, consultora de desarrollo de software situada en el distrito tecnológico de Castellón de la Plana, bullen de actividad. Los miembros de la célula de desarrollo asignada a proyectos educativos y de gestión local ocupan sus puestos: **Alba Torres**, desarrolladora especializada en arquitectura de software; **Pau Ferrer**, técnico de desarrollo e integración de sistemas; y la supervisora del equipo, **Laia Claramunt**. Junto a ellos se sienta el nuevo desarrollador junior que acaba de incorporarse a la empresa (el estudiante).
 
 En la pantalla táctil de la sala de reuniones, Laia proyecta una fotografía de la fachada del **IES El Caminàs**, emblemático centro educativo de la ciudad:
 
-> *«Equipo, bienvenidos al arranque del curso académico. Este trimestre tenemos un reto de primer nivel. El equipo directivo del IES El Caminàs nos ha contratado formalmente para digitalizar y automatizar el acceso al recinto escolar. Cada mañana, cientos de alumnos se agolpan en la entrada, provocando retrasos en el inicio de las clases y obligando a conserjería y a los profesores de guardia a anotar incidencias en listas de papel que tardan horas en llegar a jefatura de estudios.*
+> *«Equipo, bienvenidos al arranque del curso académico. Este trimestre tenemos un reto de primer nivel. El equipo directivo del IES El Caminàs nos ha contratado formalmente para digitalizar y automatizar el acceso al recinto escolar. Cada mañana, cientos de estudiantes se agolpan en la entrada, provocando retrasos en el inicio de las clases y obligando a conserjería y a los profesores de guardia a anotar incidencias en listas de papel que tardan horas en llegar a jefatura de estudios.*
 >
 > *Nos han encargado desarrollar un **sistema de control de asistencia mediante códigos QR dinámicos**. La solución mostrará un código QR variable en una gran pantalla situada en el vestíbulo principal, que los estudiantes escanearán desde su teléfono móvil al cruzar la puerta de entrada.*
 >
@@ -29,14 +26,14 @@ En la pantalla táctil de la sala de reuniones, Laia proyecta una fotografía de
 
 ---
 
-### 2. De la instrucción aislada al Sistema de Información
+#### 2. De la instrucción aislada al Sistema de Información
 
 En el argot popular es muy común escuchar términos como *programa*, *código*, *aplicación* o *sistema* como si fuesen sinónimos intercambiables. Sin embargo, en el ámbito de la ingeniería del software y el desarrollo de aplicaciones multiplataforma (DAM), establecer con rigor sus fronteras conceptuales es el primer paso obligatorio.
 
-#### A. Programa informático
+##### A. Programa informático
 Un **programa informático** es una secuencia estructurada, lógica y finita de instrucciones escritas en un lenguaje de programación formal, diseñada para que un procesador ejecute una serie de tareas concretas de cálculo o manipulación de datos. Por ejemplo: un algoritmo que recibe la hora actual y la hora oficial de entrada y calcula la diferencia en minutos es un programa informático.
 
-#### B. Sistema de Información (SI)
+##### B. Sistema de Información (SI)
 Un **Sistema de Información (SI)** es un ecosistema mucho más complejo, amplio y multidimensional. Se define como un conjunto organizado de elementos interactivos que recopilan, procesan, almacenan, aseguran y distribuyen datos para apoyar la toma de decisiones, la coordinación, el control y la operativa diaria de una organización o negocio.
 
 Un Sistema de Información no se limita al código fuente; está formado por **cinco componentes indispensables** que deben encajar con precisión:
@@ -51,7 +48,7 @@ Un Sistema de Información no se limita al código fuente; está formado por **c
 │                 │ terminales, procesadores y redes.│ del centro, teléfonos móviles.    │
 ├─────────────────┼──────────────────────────────────┼───────────────────────────────────┤
 │ 2. Software     │ Programas, aplicaciones y lógica │ Backend en Java, lectores QR,     │
-│                 │ ejecutada sobre el hardware.     │ interfaces gráficas Swing, bases. │
+│                 │ ejecutada sobre el hardware.     │ interfaz gráfica, bases de datos. │
 ├─────────────────┼──────────────────────────────────┼───────────────────────────────────┤
 │ 3. Datos        │ Materia prima de la información; │ Censos de alumnos, matrículas,    │
 │                 │ registros brutos sin procesar.   │ horas exactas de fichaje, grupos. │
@@ -68,7 +65,7 @@ Un Sistema de Información no se limita al código fuente; está formado por **c
 
 ---
 
-### 3. El Ciclo de Vida del Desarrollo de Software (SDLC)
+#### 3. El Ciclo de Vida del Desarrollo de Software (SDLC)
 
 El software no se fabrica como una pieza física en una cadena de montaje; el software se diseña, se modela, se implementa y evoluciona. La experiencia acumulada durante décadas en la industria informática demostró que lanzarse a programar sin una metodología previa desembocaba invariablemente en proyectos que duplicaban su presupuesto, se entregaban con meses de retraso o no cumplían lo que el cliente necesitaba.
 
@@ -86,29 +83,29 @@ Para garantizar la calidad técnica y la viabilidad económica de cualquier desa
   └──────────────┘     └──────────────┘     └──────────────────────┘
 ```
 
-#### Fase 1. Análisis de requisitos
+##### Fase 1. Análisis de requisitos
 Es la fase inicial y más crítica. Su objetivo es responder con absoluta claridad a la pregunta: **¿Qué debe hacer el software?**
 * Se mantienen entrevistas con el cliente (jefatura de estudios del IES El Caminàs).
 * Se redactan los **requisitos funcionales** (lo que el sistema debe hacer: *«generar un QR dinámico cada 10 segundos»*) y los **requisitos no funcionales** (restricciones de rendimiento, seguridad o tecnología: *«el sistema debe responder en menos de 1 segundo con 50 accesos simultáneos»*).
 * *Regla de oro de la ingeniería:* Un error detectado en la fase de análisis cuesta hasta 100 veces menos de solucionar que si se descubre cuando el programa ya está instalado en el cliente.
 
-#### Fase 2. Diseño de la arquitectura
+##### Fase 2. Diseño de la arquitectura
 Responde a la pregunta: **¿Cómo lo vamos a construir?**
 * Se divide el sistema en subsistemas y componentes independientes (módulo de generación visual, módulo de red, módulo de validación matemática).
 * Se eligen las tecnologías, se diseñan los esquemas de bases de datos, los diagramas de clases y los bocetos de las interfaces de usuario.
 
-#### Fase 3. Implementación (Codificación)
+##### Fase 3. Implementación (Codificación)
 Es la fase en la que los desarrolladores de AzaharTech traducen los modelos y especificaciones de diseño a código fuente legible utilizando el lenguaje de programación elegido (**Java**). Se aplican estándares de estilo, control de versiones y buenas prácticas de ingeniería.
 
-#### Fase 4. Pruebas y verificación (Testing)
+##### Fase 4. Pruebas y verificación (Testing)
 El código escrito no puede entregarse al cliente sin someterse a pruebas rigurosas.
 * Se ejecutan pruebas para detectar defectos de programación (*bugs*), fallos de seguridad y cuellos de botella de rendimiento.
 * Se comprueba que el software cumple estrictamente con los requisitos definidos en la Fase 1.
 
-#### Fase 5. Despliegue (Puesta en producción)
+##### Fase 5. Despliegue (Puesta en producción)
 El software se instala en el entorno real del cliente: se configuran los servidores del IES El Caminàs, se instala la aplicación que proyectará en la pantalla del vestíbulo y se capacita al personal (profesorado de guardia y conserjería) en el uso de la herramienta.
 
-#### Fase 6. Mantenimiento y evolución
+##### Fase 6. Mantenimiento y evolución
 Es la etapa más larga de todo el ciclo de vida (abarca años). Incluye cuatro vertientes de trabajo:
 * **Mantenimiento correctivo:** Arreglar errores imprevistos que surgen durante el uso diario.
 * **Mantenimiento adaptativo:** Modificar el software cuando cambia el entorno (por ejemplo, una actualización del sistema operativo de los servidores del centro educativo).
@@ -116,21 +113,21 @@ Es la etapa más larga de todo el ciclo de vida (abarca años). Incluye cuatro v
 
 ---
 
-### 4. Lenguajes de programación, paradigmas y la Máquina Virtual de Java (JVM)
+#### 4. Lenguajes de programación, paradigmas y la Máquina Virtual de Java (JVM)
 
 Para comunicarnos con el hardware, los desarrolladores escribimos texto en un archivo informático siguiendo las reglas sintácticas y semánticas de un lenguaje formal.
 
-#### A. Niveles de abstracción del software
+##### A. Niveles de abstracción del software
 1. **Lenguaje máquina (Bajo nivel absoluto):** Es el único lenguaje que los circuitos electrónicos de la CPU comprenden directamente. Está compuesto exclusivamente por secuencias de dígitos binarios (`0` y `1`). Cada modelo de procesador (Intel x86, AMD, ARM) tiene su propio juego de instrucciones máquina incompatible con los demás.
 2. **Lenguaje ensamblador (Bajo nivel simbólico):** Sustituye las cadenas binarias por códigos nemotécnicos legibles por humanos (`MOV`, `ADD`, `JMP`), pero sigue estando estrictamente acoplado a un procesador concreto.
 3. **Lenguajes de alto nivel (Java, C#, Python):** Permiten al programador expresar algoritmos utilizando palabras en inglés (`class`, `public`, `if`, `while`) y conceptos matemáticos abstractos, independizándose del procesador físico sobre el que se ejecute la aplicación.
 
-#### B. Paradigmas de programación
+##### B. Paradigmas de programación
 Un paradigma es la filosofía fundamental que determina cómo un desarrollador concibe y estructura la resolución de un problema mediante código:
 * **Paradigma Imperativo / Estructurado:** El programa es una secuencia ordenada de pasos, instrucciones y llamadas a funciones que modifican el estado de las variables en memoria.
 * **Paradigma Orientado a Objetos (POO):** El programa se concibe como una red de entidades independientes llamadas **objetos**, que encapsulan tanto sus características o datos internos (**atributos**) como las acciones o funciones que pueden realizar (**métodos**). En el caso de AzaharTech, modelaremos objetos como `Estudiante`, `TerminalQR`, `Fichaje` y `Incidencia`.
 
-#### C. El modelo de ejecución de Java: Código fuente, Bytecode y la JVM
+##### C. El modelo de ejecución de Java: código fuente, bytecode y la JVM
 En los lenguajes tradicionales compilados (como C o C++), el compilador traduce el código fuente directamente a código máquina específico del sistema operativo. Esto obliga a recompilar el programa para Windows, para Linux y para macOS.
 
 Java resolvió este problema introduciendo una capa intermedia de virtualización de software:
@@ -162,7 +159,7 @@ Java resolvió este problema introduciendo una capa intermedia de virtualizació
 
 ---
 
-### 5. Anatomía de un Entorno de Desarrollo Integrado (IDE)
+#### 5. Anatomía de un Entorno de Desarrollo Integrado (IDE)
 
 Un programador que pretenda desarrollar software profesional utilizando únicamente un bloc de notas y ejecutando comandos manuales en la terminal perdería hasta el 80 % de su tiempo en tareas mecánicas y propensas a errores.
 
@@ -195,11 +192,11 @@ En **AzaharTech** hemos estandarizado como IDE corporativo **IntelliJ IDEA Commu
 
 ---
 
-## PARTE II. LABORATORIO PRÁCTICO GUIADO (1 HORA): PUESTA A PUNTO DEL ENTORNO DE TRABAJO
+## Parte II. Laboratorio práctico guiado. Puesta a punto del entorno de trabajo
 
 ### Caso de laboratorio
 Alba Torres y Pau Ferrer acompañan al estudiante a su puesto de desarrollo:
-> *«Bienvenido a tu estación técnica en AzaharTech. Durante los próximos sesenta minutos vamos a verificar que tu equipo cuenta con las herramientas oficiales de la empresa: instalaremos el compilador OpenJDK 21, configuraremos IntelliJ IDEA Community y crearemos nuestro primer programa Java para comprobar que todo el engranaje de compilación y ejecución funciona a la perfección»*.
+> *«Bienvenido a tu puesto de trabajo en AzaharTech. Durante los próximos cincuenta minutos vamos a verificar que tu equipo cuenta con las herramientas oficiales de la empresa: instalaremos el compilador OpenJDK 21, configuraremos IntelliJ IDEA Community y crearemos nuestro primer programa Java para comprobar que todo el engranaje de compilación y ejecución funciona a la perfección»*.
 
 ---
 
@@ -228,15 +225,15 @@ El **JDK (Java Development Kit)** es el paquete indispensable que incluye el com
     * *Create Associations: .java* (Asociar archivos fuente Java al entorno).
 3. Abre IntelliJ IDEA por primera vez:
     * Selecciona el tema visual de interfaz de trabajo (*Dark* o *Light*, según tu comodidad visual).
-    * En la pantalla de bienvenida, dirígete a **Customize -> All settings...** (o *Settings* en Windows/Linux, *Preferences* en macOS).
-    * En la barra de búsqueda escribe `File Encodings` y asegúrate de que **Global Encoding**, **Project Encoding** y **Default encoding for properties files** estén configurados en **`UTF-8`**. Esto evitará problemas con caracteres acentuados o símbolos de la lengua valenciana/castellana.
+    * En la pantalla de bienvenida, dirígete a **Customize -> Settings...** (en GNU/Linux).
+    * En la barra de búsqueda escribe `File Encodings` y asegúrate de que **Global Encoding**, **Project Encoding** y **Default encoding for properties files** estén configurados en **`UTF-8`**. Esto evitará problemas con caracteres acentuados o símbolos del valenciano/castellano.
 
 ---
 
 #### Paso 3. Configuración del SDK (Software Development Kit) en IntelliJ
 1. En la ventana principal de IntelliJ IDEA, haz clic en el botón **New Project**.
 2. En el panel izquierdo del asistente, selecciona **Java**.
-3. En el desplegable denominado **JDK**, comprueba que IntelliJ detecta automáticamente la instalación de **OpenJDK 21**. Si aparece la opción *<No SDK>*, haz clic en *Add JDK...* y navega hasta el directorio donde se instaló el JDK en el Paso 1 (habitualmente `C:\Program Files\Eclipse Adoptium\jdk-21...` en Windows o `/usr/lib/jvm/...` en Linux).
+3. En el desplegable denominado **JDK**, comprueba que IntelliJ detecta automáticamente la instalación de **OpenJDK 21**. Si aparece la opción *<No SDK>*, haz clic en *Add JDK...* y navega hasta el directorio donde se instaló el JDK en el Paso 1 (habitualmente `/usr/lib/jvm/...` en GNU/Linux).
 4. Asigna como nombre temporal del proyecto: `VerificacionEntorno`.
 5. Pulsa en **Create**.
 
@@ -248,7 +245,7 @@ El **JDK (Java Development Kit)** es el paquete indispensable que incluye el com
 3. Escribe como nombre de la clase: `HolaAzaharTech` y presiona *Enter*.
 4. Observa cómo IntelliJ genera automáticamente la plantilla básica de la clase:
    ```java
-   public class HolaAzaharTech {
+   public class ControlAccesoQR {
    }
    ```
 5. Escribe dentro de las llaves de la clase el método principal. Puedes utilizar el atajo de teclado inteligente de IntelliJ: escribe `main` y presiona la tecla *Tabulador* o *Enter*. El IDE autocompletará la línea por ti.
@@ -260,7 +257,7 @@ El **JDK (Java Development Kit)** es el paquete indispensable que incluye el com
  * Programa de verificación técnica de puesto de trabajo.
  * AzaharTech Software Consulting - Castellón de la Plana.
  */
-public class HolaAzaharTech {
+public class ControlAccesoQR {
     public static void main(String[] args) {
         System.out.println("=================================================");
         System.out.println("   AZAHARTECH - CONSULTORÍA DE SOFTWARE          ");
@@ -284,33 +281,6 @@ public class HolaAzaharTech {
     * Ajusta la ventana de IntelliJ de manera que se visualice claramente el árbol de carpetas a la izquierda, el código fuente en el centro y la consola de ejecución con el mensaje de éxito en la parte inferior.
     * Realiza una captura de pantalla completa de tu monitor.
     * Guarda provisionalmente la imagen con el nombre exacto **`entorno.png`**. En la próxima sesión (Sesión 2 del viernes), crearemos la jerarquía de carpetas oficial y la subiremos al repositorio remoto de GitHub.
-
----
-
-### Resumen de la Sesión 1
-Al concluir estas dos horas:
-* Comprendes la diferencia sustancial entre un programa aislado y un **Sistema de Información integral**.
-* Conoces las seis etapas del **Ciclo de Vida del Software (SDLC)** y por qué el análisis previo ahorra costes en ingeniería.
-* Entiendes cómo la combinación de **Bytecode y la JVM** dota a Java de portabilidad multiplataforma.
-* Dispones en tu puesto de un entorno profesional plenamente configurado (**OpenJDK 21 + IntelliJ IDEA Community**) y has ejecutado con éxito tu primer programa Java.
-
-**No, en la respuesta anterior únicamente redacté la Semana 1 — Sesión 1 (Lunes, 2 horas)** con ese nivel exhaustivo de detalle (teoría extensa más el laboratorio guiado).
-
-Para completar las 3 semanas del **Sprint 1 de Entornos de Desarrollo (ED - 9 horas en total)** con este formato sesión a sesión, faltan las otras 5 sesiones:
-
-* **Semana 1:**
-    * ✅ *Sesión 1 (Lunes, 2 h): Fundamentos, SDLC, OpenJDK 21 e IntelliJ IDEA.* (Ya redactada en el mensaje anterior).
-    * ⏳ **Sesión 2 (Viernes, 1 h):** *Metodología Scrum, estructura corporativa y primer repositorio en GitHub.*
-* **Semana 2:**
-    * ⏳ **Sesión 3 (Lunes, 2 h):** *Los 3 estados de Git, Git Diff y estándar de Conventional Commits.*
-    * ⏳ **Sesión 4 (Viernes, 1 h):** *Documentación técnica con Markdown (`marco-scrum.md` y `README.md`).*
-* **Semana 3:**
-    * ⏳ **Sesión 5 (Lunes, 2 h):** *Ceremonias de cierre en Scrum e higiene técnica del repositorio (`.gitignore`).*
-    * ⏳ **Sesión 6 (Viernes, 1 h):** *Versionado formal con Git Tags (`v0.1.0-sprint1`) y entrega oficial.*
-
----
-
-Aquí tienes a continuación la **Sesión 2** para completar la primera semana:
 
 ---
 
