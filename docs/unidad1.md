@@ -1,4 +1,4 @@
-# Sprint 1. Ecosistema de desarrollo, marco ágil y repositorio digital
+ # Sprint 1. Ecosistema de desarrollo, marco ágil y repositorio digital
 
 ---
 
@@ -242,7 +242,7 @@ El **JDK (Java Development Kit)** es el paquete indispensable que incluye el com
 #### Paso 4. Creación del primer programa ejecutable
 1. En la barra lateral izquierda del IDE, despliega la carpeta del proyecto y localiza el directorio denominado **`src`** (código fuente).
 2. Haz clic derecho sobre la carpeta `src` y selecciona: **New -> Java Class**.
-3. Escribe como nombre de la clase: `HolaAzaharTech` y presiona *Enter*.
+3. Escribe como nombre de la clase: `ControlAccesoQR` y presiona *Enter*.
 4. Observa cómo IntelliJ genera automáticamente la plantilla básica de la clase:
    ```java
    public class ControlAccesoQR {
@@ -273,7 +273,7 @@ public class ControlAccesoQR {
 ---
 
 #### Paso 5. Compilación, ejecución y captura de evidencia oficial (Entregable ED-1)
-1. Haz clic en el icono del triángulo verde situado a la izquierda de la línea `public class HolaAzaharTech` o pulsa el atajo de teclado universal **`Ctrl + Shift + F10`** (o `Shift + F10`).
+1. Haz clic en el icono del triángulo verde situado a la izquierda de la línea `public class ControlAccesoQR` o pulsa el atajo de teclado universal **`Ctrl + Shift + F10`** (o `Shift + F10`).
 2. Observa cómo en la parte inferior del IDE se abre automáticamente la ventana **Run**:
     * El IDE invoca a `javac` en segundo plano para compilar el código fuente a Bytecode.
     * La JVM ejecuta la clase y la salida formateada aparece en la consola sin advertencias ni errores.
@@ -284,17 +284,12 @@ public class ControlAccesoQR {
 
 ---
 
-# SEMANA 1 — SESIÓN 2 (Viernes, 18 de septiembre de 2026 — 1 hora lectiva)
-### Bloque: Metodología ágil Scrum, estructura corporativa oficial y publicación del primer repositorio en GitHub
-* **Distribución horaria:** 20 minutos de teoría metodológica + 40 minutos de taller práctico en GitHub.
-* **Criterios de Evaluación vinculados:** RA1.g, RA2.b, RA4.f, RA4.h.
+### Día 1 - 2 sesiones
 
----
+### Parte I. Sesión teórica. El marco ágil y el repositorio digital
 
-## PARTE I. SESIÓN TEÓRICA (20 MINUTOS): EL MARCO ÁGIL Y EL REPOSITORIO DIGITAL
-
-### 1. Caso práctico narrativo
-Es viernes por la mañana en **AzaharTech**. En las pantallas de los puestos de trabajo, los estudiantes tienen abierto IntelliJ IDEA con la clase `HolaAzaharTech.java` compilada el lunes anterior y la captura `entorno.png` guardada en el escritorio.
+#### 1. Caso guía AzaharTech
+Es viernes por la tarde en **AzaharTech**. En las pantallas de los puestos de trabajo, los estudiantes tienen abierto IntelliJ IDEA con la clase `ControlAccesoQR.java` compilada el lunes anterior y la captura `entorno.png` guardada en el escritorio.
 
 **Laia Claramunt** inicia la reunión de los viernes:
 
@@ -304,7 +299,7 @@ Es viernes por la mañana en **AzaharTech**. En las pantallas de los puestos de 
 
 ---
 
-### 2. Fundamentos de Scrum y el Repositorio Digital
+#### 2. Fundamentos de Scrum y el Repositorio Digital
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -318,7 +313,7 @@ Es viernes por la mañana en **AzaharTech**. En las pantallas de los puestos de 
 └──────────────────────────┴─────────────────────────────┴───────────────────────────────┘
 ```
 
-#### A. Por qué Scrum frente al modelo en cascada (RA1.g)
+##### A. Por qué Scrum frente al modelo en cascada
 En los proyectos de software, los requisitos del cliente cambian con frecuencia. El modelo tradicional (*en cascada*) exigía cerrar todos los documentos al principio; si el cliente cambiaba de idea meses después, el proyecto fracasaba.
 
 **Scrum** es un marco de trabajo ágil e iterativo:
@@ -329,14 +324,14 @@ En los proyectos de software, los requisitos del cliente cambian con frecuencia.
     * **Scrum Master (Laia Claramunt):** Vela por la metodología, elimina bloqueos y guía al equipo.
     * **Developers (Alba, Pau y el estudiante):** Profesionales responsables del diseño técnico, código y pruebas.
 
-#### B. El Repositorio Remoto en GitHub como canal oficial de entregas (RA4.h)
+##### B. El Repositorio Remoto en GitHub como canal oficial de entregas (RA4.h)
 Un **repositorio** es una base de datos gestionada por Git que almacena el historial completo de cambios de un proyecto.
 * **Repositorio local:** Reside en el disco duro del estudiante.
 * **Repositorio remoto (GitHub):** Reside en los servidores en la nube de GitHub. Funciona como el **buzón oficial de entregas**, garantizando la autoría de cada línea de código y permitiendo al docente calificar el avance en tiempo real.
 
 ---
 
-## PARTE II. TALLER PRÁCTICO GUIADO (40 MINUTOS): ESTRUCTURA CORPORATIVA Y PRIMER PUSH
+## Parte II. Laboratorio práctico guiado. Estructura corporativa y primer push
 
 ### Caso de laboratorio
 Alba Torres y Pau Ferrer proyectan sus terminales:
@@ -373,7 +368,7 @@ azahartech/
 #### Paso 2. Creación del archivo de exclusiones `.gitignore`
 En los proyectos de desarrollo profesional **nunca se suben a GitHub los archivos compilados ni las carpetas privadas del IDE**.
 
-1. Dentro de tu carpeta personal (`azahartech/equipo-alfa/tu-nombre/`), crea un archivo de texto con el nombre exacto **`.gitignore`** (con el punto al principio y sin extensión).
+1. Dentro de tu carpeta personal (`azahartech/tu-equipo/tu-nombre/`), crea un archivo de texto con el nombre exacto **`.gitignore`** (con el punto al principio y sin extensión).
 2. Ábrelo con IntelliJ o un editor de texto y añade las siguientes reglas de exclusión universales:
 
 ```text
@@ -402,7 +397,7 @@ Thumbs.db
 
 ---
 
-#### Paso 4. Inicialización del repositorio local y primer Commit convencional (RA4.f)
+#### Paso 4. Inicialización del repositorio local y primer Commit convencional
 1. En el menú superior de IntelliJ IDEA, selecciona: **Git -> Create Git Repository...** (o *VCS -> Enable Version Control Integration*).
 2. Selecciona la carpeta raíz de tu espacio personal (`azahartech/equipo-alfa/tu-nombre/`) y pulsa **OK**.
 3. Abre el panel lateral **Commit** (`Alt + 0` o `Ctrl + K`):
@@ -416,7 +411,7 @@ Thumbs.db
 
 ---
 
-#### Paso 5. Publicación en GitHub (*Push*) y verificación web (RA4.h)
+#### Paso 5. Publicación en GitHub (*Push*) y verificación web
 1. En el menú superior de IntelliJ, selecciona: **Git -> GitHub -> Share Project on GitHub**.
 2. Configura los parámetros de publicación:
     * **Repository Name:** `DAM-AzaharTech-Proyecto-TuNombre` (sustituyendo *TuNombre* por tu nombre real).
@@ -427,14 +422,6 @@ Thumbs.db
 4. Abre tu navegador web, entra en tu perfil de GitHub y accede al nuevo repositorio:
     * Comprueba que la carpeta `ed/docs/entorno.png` está subida y se visualiza la imagen correctamente.
     * Comprueba que el mensaje del commit aparece reflejado con el prefijo `feat:`.
-
----
-
-### Resumen de la Semana 1 completada
-Al término de estas dos primeras sesiones (3 horas lectivas):
-* Has interiorizado los conceptos de **Sistema de Información**, **SDLC** y **Scrum**.
-* Cuentas con un entorno profesional plenamente operativo (**OpenJDK 21 + IntelliJ IDEA Community**).
-* Tu repositorio oficial en **GitHub** está publicado con la jerarquía corporativa de **AzaharTech**, completando el **Entregable ED-1**.
 
 ---
 
