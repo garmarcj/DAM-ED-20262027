@@ -8,11 +8,11 @@
 
 ### Día 1 - 2 sesiones
 
-### Parte I. Sesión teórica. Ingeniería del software y herramientas
+#### Sesión 1. Teoría. Ingeniería del software y herramientas
 
 #### 1. Caso guía en AzaharTech
 
-Son las tres de la tarde del lunes 14 de septiembre de 2026. Las oficinas de **AzaharTech**, consultora de desarrollo de software situada en el distrito tecnológico de Castellón de la Plana, bullen de actividad. Los miembros de la célula de desarrollo asignada a proyectos educativos y de gestión local ocupan sus puestos: **Alba Torres**, desarrolladora especializada en arquitectura de software; **Pau Ferrer**, técnico de desarrollo e integración de sistemas; y la supervisora del equipo, **Laia Claramunt**. Junto a ellos se sienta el nuevo desarrollador junior que acaba de incorporarse a la empresa (el estudiante).
+Son las tres de la tarde del lunes 14 de septiembre de 2026. Las oficinas de **AzaharTech**, consultora de desarrollo de software situada en el distrito tecnológico de Castellón de la Plana, bullen de actividad. Los miembros del equipo de desarrollo asignado a proyectos educativos y de gestión local ocupan sus puestos: **Alba Torres**, desarrolladora especializada en arquitectura de software; **Pau Ferrer**, técnico de desarrollo e integración de sistemas; y la supervisora del equipo, **Laia Claramunt**. Junto a ellos se sienta el nuevo desarrollador junior que acaba de incorporarse a la empresa (el estudiante).
 
 En la pantalla táctil de la sala de reuniones, Laia proyecta una fotografía de la fachada del **IES El Caminàs**, emblemático centro educativo de la ciudad:
 
@@ -192,15 +192,11 @@ En **AzaharTech** hemos estandarizado como IDE corporativo **IntelliJ IDEA Commu
 
 ---
 
-## Parte II. Laboratorio práctico guiado. Puesta a punto del entorno de trabajo
-
-### Caso de laboratorio
+#### Sesión 2. Laboratorio práctico guiado. Puesta a punto del entorno de trabajo
 Alba Torres y Pau Ferrer acompañan al estudiante a su puesto de desarrollo:
 > *«Bienvenido a tu puesto de trabajo en AzaharTech. Durante los próximos cincuenta minutos vamos a verificar que tu equipo cuenta con las herramientas oficiales de la empresa: instalaremos el compilador OpenJDK 21, configuraremos IntelliJ IDEA Community y crearemos nuestro primer programa Java para comprobar que todo el engranaje de compilación y ejecución funciona a la perfección»*.
 
 ---
-
-### Procedimiento técnico paso a paso
 
 #### Paso 1. Instalación y verificación del Java Development Kit (JDK 21)
 El **JDK (Java Development Kit)** es el paquete indispensable que incluye el compilador (`javac`), las librerías estándar de Java y la Máquina Virtual (`java`).
@@ -245,7 +241,7 @@ El **JDK (Java Development Kit)** es el paquete indispensable que incluye el com
 3. Escribe como nombre de la clase: `ControlAccesoQR` y presiona *Enter*.
 4. Observa cómo IntelliJ genera automáticamente la plantilla básica de la clase:
    ```java
-   public class ControlAccesoQR {
+public class ControlAccesoQR {
    }
    ```
 5. Escribe dentro de las llaves de la clase el método principal. Puedes utilizar el atajo de teclado inteligente de IntelliJ: escribe `main` y presiona la tecla *Tabulador* o *Enter*. El IDE autocompletará la línea por ti.
@@ -261,7 +257,7 @@ public class ControlAccesoQR {
     public static void main(String[] args) {
         System.out.println("=================================================");
         System.out.println("   AZAHARTECH - CONSULTORÍA DE SOFTWARE          ");
-        System.out.println("   Proyecto Guía: Control de Asistencia QR       ");
+        System.out.println("   Proyecto: Control de acceso mediante código QR");
         System.out.println("   Cliente:       IES El Caminàs                 ");
         System.out.println("=================================================");
         System.out.println("Estado del entorno: OpenJDK 21 + IntelliJ OK.");
@@ -284,9 +280,9 @@ public class ControlAccesoQR {
 
 ---
 
-### Día 1 - 2 sesiones
+### Día 2 - 1 sesión
 
-### Parte I. Sesión teórica. El marco ágil y el repositorio digital
+#### Teoría. El marco ágil y el repositorio digital
 
 #### 1. Caso guía AzaharTech
 Es viernes por la tarde en **AzaharTech**. En las pantallas de los puestos de trabajo, los estudiantes tienen abierto IntelliJ IDEA con la clase `ControlAccesoQR.java` compilada el lunes anterior y la captura `entorno.png` guardada en el escritorio.
@@ -331,15 +327,9 @@ Un **repositorio** es una base de datos gestionada por Git que almacena el histo
 
 ---
 
-## Parte II. Laboratorio práctico guiado. Estructura corporativa y primer push
-
-### Caso de laboratorio
+#### Laboratorio práctico guiado. Estructura corporativa y primer push
 Alba Torres y Pau Ferrer proyectan sus terminales:
 > *«Vamos a crear la estructura oficial de carpetas de AzaharTech en vuestros puestos. Moveremos la captura de pantalla del lunes a su carpeta definitiva, configuraremos el archivo `.gitignore` para no subir basura y haremos nuestro primer **commit y push** a GitHub»*.
-
----
-
-### Procedimiento técnico paso a paso
 
 #### Paso 1. Creación de la estructura oficial de carpetas corporativa
 1. Abre el explorador de archivos de tu sistema operativo o la terminal en tu directorio de trabajo personal.
@@ -347,8 +337,8 @@ Alba Torres y Pau Ferrer proyectan sus terminales:
 
 ```text
 azahartech/
-└── equipo-alfa/                        <-- Nombre de tu equipo asignado desde el día 1
-    └── laia-claramunt/                 <-- Tus apellidos y nombre (sin espacios ni acentos)
+└── nombre-equipo/                        <-- Nombre de tu equipo asignado desde el día 1
+    └── apellidos-nombre/                 <-- Tus apellidos y nombre (sin espacios ni acentos)
         ├── README.md                   <-- Archivo de portada (lo editaremos en la Semana 2)
         ├── .gitignore                 <-- Archivo de exclusión de temporales
         ├── ed/                         <-- Módulo Entornos de Desarrollo
@@ -368,7 +358,7 @@ azahartech/
 #### Paso 2. Creación del archivo de exclusiones `.gitignore`
 En los proyectos de desarrollo profesional **nunca se suben a GitHub los archivos compilados ni las carpetas privadas del IDE**.
 
-1. Dentro de tu carpeta personal (`azahartech/tu-equipo/tu-nombre/`), crea un archivo de texto con el nombre exacto **`.gitignore`** (con el punto al principio y sin extensión).
+1. Dentro de tu carpeta personal (`azahartech/nombre-equipo/apellidos-nombre/`), crea un archivo de texto con el nombre exacto **`.gitignore`** (con el punto al principio y sin extensión).
 2. Ábrelo con IntelliJ o un editor de texto y añade las siguientes reglas de exclusión universales:
 
 ```text
@@ -399,7 +389,7 @@ Thumbs.db
 
 #### Paso 4. Inicialización del repositorio local y primer Commit convencional
 1. En el menú superior de IntelliJ IDEA, selecciona: **Git -> Create Git Repository...** (o *VCS -> Enable Version Control Integration*).
-2. Selecciona la carpeta raíz de tu espacio personal (`azahartech/equipo-alfa/tu-nombre/`) y pulsa **OK**.
+2. Selecciona la carpeta raíz de tu espacio personal (`azahartech/nombre-equipo/apellidos-nombre/`) y pulsa **OK**.
 3. Abre el panel lateral **Commit** (`Alt + 0` o `Ctrl + K`):
     * Verás los archivos que acabas de estructurar (`.gitignore`, `ed/docs/entorno.png`, etc.).
     * Marca la casilla para incluir todos los archivos (*Stage*).
@@ -735,7 +725,7 @@ En cada ciclo de sprint se ejecutan de forma coordinada las fases de la ingenier
 
 ---
 
-## 3. Organización y Roles en la Célula de Trabajo
+## 3. Organización y Roles en el Equipo de Trabajo
 * **Product Owner:** Representa los intereses del cliente de nuestro proyecto, priorizando los requisitos en el *Product Backlog*.
 * **Scrum Master (Laia Claramunt):** Supervisa el cumplimiento de los tiempos de entrega, elimina bloqueos técnicos y vela por la calidad metodológica.
 * **Developer (El estudiante):** Responsable técnico del diseño algorítmico, implementación en Java, control de versiones en Git y documentación técnica.
@@ -752,7 +742,7 @@ En cada ciclo de sprint se ejecutan de forma coordinada las fases de la ingenier
 **Consultora de Desarrollo:** AzaharTech (Castellón de la Plana)  
 **Cliente:** [Nombre del Cliente de la Bolsa de Proyectos]  
 **Desarrollador/a:** [Tus Apellidos, Tu Nombre]  
-**Célula / Equipo:** [Nombre de tu equipo asignado]  
+**Equipo:** [Nombre de tu equipo asignado]  
 
 ---
 
@@ -1028,7 +1018,7 @@ Al concluir estas dos horas:
 ## PARTE I. SESIÓN TEÓRICA (20 MINUTOS): VERSIONADO SEMÁNTICO Y ETIQUETAS (*TAGS*)
 
 ### 1. Caso práctico narrativo
-Es viernes 2 de octubre por la mañana. Las tres semanas del Sprint 1 concluyen hoy formalmente. **Laia Claramunt** reúne por última vez en este sprint a toda la célula de desarrollo de AzaharTech:
+Es viernes 2 de octubre por la mañana. Las tres semanas del Sprint 1 concluyen hoy formalmente. **Laia Claramunt** reúne por última vez en este sprint a todo el equipo de desarrollo de AzaharTech:
 
 > *«Equipo, el lunes que viene comenzaremos el Sprint 2: modificaremos clases en Programación, cambiaremos la configuración de Maven en Entornos de Desarrollo y ampliaremos la documentación.*
 >
