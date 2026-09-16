@@ -1,4 +1,4 @@
- # Sprint 1. Ecosistema de desarrollo, marco ágil y repositorio digital
+# Sprint 1. Ecosistema de desarrollo, marco ágil y repositorio digital
 
 ---
 
