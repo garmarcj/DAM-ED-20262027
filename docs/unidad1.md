@@ -415,28 +415,21 @@ Thumbs.db
 
 ---
 
-# MÓDULO PROFESIONAL: ENTORNOS DE DESARROLLO (ED)
-
-## SPRINT 1. Ecosistema de desarrollo, marco ágil y repositorio digital (3 semanas | 9 horas)
+## Semana 2. Los tres estados de Git, inspección visual de diferencias (Git diff) y estándar de Conventional Commits
 
 ---
 
-# SEMANA 2 — SESIÓN 3 (Lunes, 21 de septiembre de 2026 — 2 horas lectivas)
-### Bloque: Los tres estados de Git, inspección visual de diferencias (Git Diff) y estándar de Conventional Commits
-* **Distribución horaria:** 1 hora de teoría conceptual y técnica + 1 hora de laboratorio práctico guiado en IntelliJ IDEA.
-* **Criterios de Evaluación vinculados:** RA1.f, RA4.f, RA4.h.
+### Día 1 - 2 sesiones
 
----
+#### Sesión 1. Teoría. La mecánica interna de Git y la trazabilidad
 
-## PARTE I. SESIÓN TEÓRICA (1 HORA): LA MECÁNICA INTERNA DE GIT Y LA TRAZABILIDAD
+#### 1. Caso guía en AzaharTech. El caos de los «cambios varios» en AzaharTech
 
-### 1. Caso práctico narrativo: El caos de los «cambios varios» en AzaharTech
-
-Es lunes por la mañana en **AzaharTech**. En la pantalla de la sala de desarrollo, **Laia Claramunt** tiene abierto el panel de actividad de GitHub del proyecto del **IES El Caminàs**. Mientras revisa los registros del fin de semana, frunce el ceño.
+Es lunes por la tarde en **AzaharTech**. En la pantalla de un ordenador de desarrollo, **Laia Claramunt** tiene abierto el panel de actividad de GitHub del proyecto del **IES El Caminàs**. Mientras revisa los registros del fin de semana, frunce el ceño.
 
 Llama a **Pau Ferrer**, a **Alba Torres** y al estudiante:
 
-> *«Mirad el registro de actividad de ayer a última hora. Hay tres confirmaciones seguidas de Pau con los siguientes mensajes: 'cambios', 'subiendo cosas que faltaban' y 'ahora sí que funciona'.*
+> *«Mirad el registro de actividad del viernes a última hora. Hay tres confirmaciones seguidas de Pau con los siguientes mensajes: 'cambios', 'subiendo cosas que faltaban' y 'ahora sí que funciona'.*
 >
 > *Si mañana el jefe de estudios del IES El Caminàs nos llama porque la aplicación no arranca o introduce un error de cálculo, ¿alguien es capaz de saber en cuál de esos tres commits se rompió el código? Ninguno de nosotros. Hemos convertido un registro de ingeniería en una caja negra opaca.*
 >
@@ -444,9 +437,9 @@ Llama a **Pau Ferrer**, a **Alba Torres** y al estudiante:
 
 ---
 
-### 2. El modelo de datos de Git: Instantáneas frente a diferencias
+#### 2. El modelo de datos de Git: instantáneas frente a diferencias
 
-La mayoría de los sistemas de control de versiones antiguos (como CVS o Subversion) almacenaban la información como una lista de archivos y los cambios de texto aplicados a cada uno a lo largo del tiempo (diferencias basadas en deltas).
+La mayoría de los sistemas de control de versiones anteriores a Git (como CVS o Subversion) almacenaban la información como una lista de archivos y los cambios de texto aplicados a cada uno a lo largo del tiempo (diferencias basadas en deltas).
 
 **Git no funciona así.** Git concibe la información como un conjunto de **instantáneas completas (*snapshots*)** de un sistema de archivos en miniatura:
 
@@ -462,29 +455,29 @@ Cada vez que realizas un *commit*, Git «hace una fotografía» del estado exact
 
 ---
 
-### 3. Los tres estados locales de un archivo en Git
+#### 3. Los tres estados locales de un archivo en Git
 
 Para tener control absoluto sobre qué entra y qué no entra en cada fotografía del proyecto, Git divide tu espacio de trabajo local en **tres zonas lógicas**:
 
 ```
-┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                         EL VIAJE DE UN ARCHIVO EN EL FLUJO LOCAL                       │
-├──────────────────────────┬─────────────────────────────┬───────────────────────────────┤
-│ 1. Working Directory     │ 2. Staging Area (Index)     │ 3. Local Repository           │
-│    (Directorio Trabajo)  │    (Área de Preparación)    │    (Repositorio Local)        │
-├──────────────────────────┼─────────────────────────────┼───────────────────────────────┤
-│ Archivos físicos en tu   │ Zona de preparación donde   │ Base de datos interna (.git/) │
-│ disco duro que editas    │ seleccionas con precisión   │ donde la instantánea queda    │
-│ en IntelliJ IDEA.        │ qué cambios irán al commit. │ registrada permanentemente.   │
-└────────────┬─────────────┴──────────────┬──────────────┴───────────────┬───────────────┘
-             │                            │                              │
-             │     git add <archivo>      │     git commit -m "msg"      │
-             │ ─────────────────────────► │ ───────────────────────────► │
-             │      (Stage / Preparar)    │      (Confirmar / Grabar)    │
-             │                            │                              │
-             │ ◄───────────────────────── │ ◄─────────────────────────── │
-             │    git restore / checkout  │         git reset            │
-             │      (Descartar cambios)   │    (Deshacer confirmación)   │
+┌───────────────────────────────────────────────────────────────────────────────────────────┐
+│                         EL VIAJE DE UN ARCHIVO EN EL FLUJO LOCAL                          │
+├─────────────────────────────┬─────────────────────────────┬───────────────────────────────┤
+│ 1. Working Directory        │ 2. Staging area (index)     │ 3. Local repository           │
+│    (Directorio de trabajo)  │    (Área de preparación)    │    (Repositorio local)        │
+├─────────────────────────────┼─────────────────────────────┼───────────────────────────────┤
+│ Archivos físicos en tu      │ Zona de preparación donde   │ Base de datos interna (.git/) │
+│ disco duro que editas       │ seleccionas con precisión   │ donde la instantánea queda    │
+│ en IntelliJ IDEA.           │ qué cambios irán al commit. │ registrada permanentemente.   │
+└────────────┬────────────────┴──────────────┬──────────────┴───────────────┬───────────────┘
+             │                               │                              │
+             │     git add <archivo>         │     git commit -m "msg"      │
+             │ ─────────────────────────►    │ ───────────────────────────► │
+             │      (Stage / Preparar)       │      (Confirmar / Grabar)    │
+             │                               │                              │
+             │ ◄─────────────────────────    │ ◄─────────────────────────── │
+             │    git restore / checkout     │         git reset            │
+             │      (Descartar cambios)      │    (Deshacer confirmación)   │
 ```
 
 #### Estado 1. Modificado (*Modified*) — En el Working Directory
@@ -493,14 +486,14 @@ Has editado un archivo existente (añadiendo código en Java o cambiando un text
 #### Estado 2. Preparado (*Staged*) — En el Staging Area
 Has seleccionado voluntariamente un archivo modificado y le has dicho a Git: *«Quiero que esta modificación concreta forme parte de mi próxima instantánea»*. El comando de consola equivalente es `git add <nombre-archivo>`.
 
-> **¿Por qué existe el Staging Area?** Imagina que has trabajado durante una hora y has modificado dos cosas distintas: has corregido un cálculo matemático en `Reto1Calculo.java` y has retocado el diseño del `README.md`. No debes mezclarlos en un único commit. El Staging Area te permite preparar primero `Reto1Calculo.java`, hacer su commit específico de código, y después preparar `README.md` para hacer su commit de documentación.
+> **¿Por qué existe el Staging Area?** Imagina que has trabajado durante una hora y has modificado dos cosas distintas: has corregido un cálculo matemático en `ControlAccesoQR.java` y has retocado el diseño del `README.md`. No debes mezclarlos en un único commit. El Staging Area te permite preparar primero `ControlAccesoQR.java`, hacer su commit específico de código, y después preparar `README.md` para hacer su commit de documentación.
 
 #### Estado 3. Confirmado (*Committed*) — En el Local Repository
 Los datos han quedado guardados de forma segura, comprimida y permanente en la base de datos interna de Git (la carpeta oculta `.git/` de tu proyecto). Cada commit genera un identificador alfanumérico único e irrepetible denominado **código hash SHA-1** (por ejemplo: `8f3a1b4c9e7...`), que actúa como la huella dactilar de esa versión.
 
 ---
 
-### 4. Inspección de cambios: La lectura del *Git Diff*
+#### 4. Inspección de cambios: la lectura del *Git Diff*
 
 Antes de preparar o confirmar un cambio, un ingeniero de software siempre inspecciona qué ha modificado mediante la herramienta **Git Diff** (comparador de diferencias).
 
@@ -523,9 +516,9 @@ Aprender a revisar el *diff* antes de hacer commit evita subir código experimen
 
 ---
 
-### 5. El estándar de calidad de la industria: *Conventional Commits*
+#### 5. El estándar de calidad de la industria: *Conventional Commits*
 
-Para erradicar los mensajes ambiguos en los equipos de desarrollo, se utiliza la especificación **Conventional Commits v1.0.0**, un estándar internacional que añade significado estructurado a los mensajes de confirmación:
+Para evitar los mensajes ambiguos en los equipos de desarrollo, se utiliza la especificación **Conventional Commits v1.0.0**, un estándar internacional que añade significado estructurado a los mensajes de confirmación:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -535,7 +528,7 @@ Para erradicar los mensajes ambiguos en los equipos de desarrollo, se utiliza la
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-#### Catálogo de tipos oficiales utilizados en AzaharTech:
+##### Catálogo de tipos oficiales utilizados en AzaharTech:
 * **`feat:`** (de *feature*). Se utiliza exclusivamente cuando se introduce una nueva funcionalidad en el software (*ejemplo: `feat(pr): calcular desglose horario en modulo de tiempos`*).
 * **`fix:`** Se emplea cuando se soluciona un error o defecto (*bug*) en el código fuente (*ejemplo: `fix(pr): corregir perdida de decimales en ratio de asistencia`*).
 * **`docs:`** Modificaciones que afectan únicamente a la documentación técnica, diagramas o manuales Markdown (*ejemplo: `docs(pi): documentar mapa de actores del reto`*).
@@ -543,7 +536,7 @@ Para erradicar los mensajes ambiguos en los equipos de desarrollo, se utiliza la
 * **`refactor:`** Cambios en el código que ni corrigen un bug ni añaden una funcionalidad nueva, sino que mejoran su legibilidad o estructura (*ejemplo: `refactor(pr): renombrar variables de tiempos a nomenclatura camelCase`*).
 * **`chore:`** Tareas auxiliares de configuración, mantenimiento de repositorios o actualización de herramientas que no modifican el código de producción (*ejemplo: `chore(git): anadir exclusion de temporales .DS_Store a gitignore`*).
 
-#### Las cuatro reglas de oro del mensaje:
+##### Las cuatro reglas de oro del mensaje:
 1. **Verbo en imperativo / presente:** Escribe *"añadir función"*, no *"añadida"* ni *"añadiendo"*.
 2. **Minúsculas tras los dos puntos:** No empieces la descripción con mayúscula.
 3. **Sin punto final:** Los mensajes de commit no llevan punto al final.
@@ -551,26 +544,22 @@ Para erradicar los mensajes ambiguos en los equipos de desarrollo, se utiliza la
 
 ---
 
-## PARTE II. LABORATORIO PRÁCTICO GUIADO (1 HORA): DOMINIO DEL FLUJO GIT EN INTELLIJ IDEA
-
-### Caso de laboratorio
+#### Sesión 2. Laboratorio práctico guiado. Dominio del flujo Git en IntelliJ IDEA
 Alba Torres y Pau Ferrer abren IntelliJ en sus pantallas:
 > *«Vamos a realizar un entrenamiento práctico en vuestro entorno. Crearemos archivos de prueba, observaremos cómo cambian de estado en tiempo real dentro del IDE, inspeccionaremos las diferencias con la vista Diff de dos columnas y realizaremos commits atómicos con el estándar de Conventional Commits»*.
 
 ---
 
-### Procedimiento técnico paso a paso
-
-#### Paso 1. Localización del panel visual de Git en IntelliJ
+##### Paso 1. Localización del panel visual de Git en IntelliJ
 1. Abre tu proyecto en **IntelliJ IDEA**.
-2. En la barra lateral izquierda, localiza y haz clic sobre el icono **Commit** (icono vertical con una marca de verificación) o pulsa el atajo de teclado universal: **`Alt + 0`** (en Windows/Linux) o **`Cmd + 0`** (en macOS).
+2. En la barra lateral izquierda, localiza y haz clic sobre el icono **Commit** (icono vertical con una marca de verificación) o pulsa el atajo de teclado universal: **`Alt + 0`** (en GNU/Linux).
 3. Verás la ventana de control de versiones dividida en dos secciones principales:
-    * **Changes / Unstaged:** Archivos físicos que tienen cambios en tu disco duro pero que aún no están listos para la instantánea.
+    * **Changes / Unstaged:** Archivos físicos que tienen cambios en tu disco duro, pero que aún no están listos para la instantánea.
     * **Staged:** Archivos que ya forman parte del área de preparación.
 
 ---
 
-#### Paso 2. Modificación de archivos y observación del estado *Modified*
+##### Paso 2. Modificación de archivos y observación del estado *Modified*
 1. Despliega tu carpeta `ed/docs/` y crea un archivo de texto plano provisional llamado `bitacora.txt`.
 2. Escribe dentro la siguiente línea:
    ```text
@@ -582,7 +571,7 @@ Alba Torres y Pau Ferrer abren IntelliJ en sus pantallas:
 
 ---
 
-#### Paso 3. Inspección visual con el visor Diff de dos columnas
+##### Paso 3. Inspección visual con el visor Diff de dos columnas
 1. Haz doble clic sobre el archivo `bitacora.txt` en el panel de Commit (o selecciónalo y pulsa `Ctrl + D`).
 2. Se abrirá la herramienta **Diff Viewer** de IntelliJ:
     * A la izquierda verás la versión anterior del repositorio (vacía, porque el archivo no existía).
@@ -597,7 +586,7 @@ Alba Torres y Pau Ferrer abren IntelliJ en sus pantallas:
 
 ---
 
-#### Paso 4. Preparación selectiva (*Staging*) y descarte de cambios
+##### Paso 4. Preparación selectiva (*Staging*) y descarte de cambios
 1. En el panel de Commit de IntelliJ, selecciona únicamente el archivo `.gitignore` marcando su casilla de verificación.
 2. Deja desmarcado el archivo `bitacora.txt`.
 3. Esto equivale exactamente al comando de consola:
@@ -608,10 +597,10 @@ Alba Torres y Pau Ferrer abren IntelliJ en sus pantallas:
 
 ---
 
-#### Paso 5. Redacción del Commit Convencional y confirmación local
+##### Paso 5. Redacción del Commit Convencional y confirmación local
 1. En el cuadro de texto inferior del panel de Commit (*Commit Message*), escribe:
    ```text
-   chore(git): anadir regla de exclusion para archivos de registro log
+   chore(git): añadir regla de exclusion para archivos de registro log
    ```
 2. Observa cómo IntelliJ analiza el mensaje: debe ser claro y no superar los 72 caracteres de longitud.
 3. Haz clic en el botón **Commit** (no en *Commit and Push* todavía).
@@ -619,33 +608,28 @@ Alba Torres y Pau Ferrer abren IntelliJ en sus pantallas:
 
 ---
 
-#### Paso 6. Descarte de cambios en el Directorio de Trabajo (*Rollback*)
+##### Paso 6. Descarte de cambios en el Directorio de Trabajo (*Rollback*)
 1. Supongamos que el archivo `bitacora.txt` era solo una prueba temporal que no queremos mantener en el proyecto.
 2. En IntelliJ, haz clic derecho sobre `bitacora.txt` en el panel de cambios y selecciona **Rollback...** (o pulsa `Ctrl + Alt + Z`).
 3. Confirma la acción: IntelliJ eliminará los cambios del archivo o lo borrará si era un archivo sin seguimiento, devolviendo tu directorio de trabajo a un estado 100 % limpio.
 
 ---
 
-#### Paso 7. Sincronización con el repositorio remoto (*Push*)
+##### Paso 7. Sincronización con el repositorio remoto (*Push*)
 1. Ve al menú superior: **Git -> Push...** (o pulsa `Ctrl + Shift + K`).
 2. Se abrirá un diálogo que te muestra la lista de commits locales pendientes de enviar a GitHub.
-3. Comprueba que aparece tu commit con el mensaje `chore(git): anadir regla de exclusion...`.
+3. Comprueba que aparece tu commit con el mensaje `chore(git): añadir regla de exclusion...`.
 4. Haz clic en el botón **Push**.
 5. Abre tu navegador web, entra en tu repositorio de GitHub y comprueba que en el historial (*Commits*) aparece tu nueva confirmación impecablemente registrada.
 
 ---
 
-# SEMANA 2 — SESIÓN 4 (Viernes, 25 de septiembre de 2026 — 1 hora lectiva)
-### Bloque: Documentación técnica con Markdown (`.md`), memoria Scrum (ED-2) y panel de control en `README.md`
-* **Distribución horaria:** 20 minutos de teoría de marcado + 40 minutos de redacción técnica guiada.
-* **Criterios de Evaluación vinculados:** RA1.b, RA1.g, RA4.g.
+### Día 2 - 1 sesión
 
----
+#### Teoría. El estándar markdown en la ingeniería del software
 
-## PARTE I. SESIÓN TEÓRICA (20 MINUTOS): EL ESTÁNDAR MARKDOWN EN LA INGENIERÍA DEL SOFTWARE
-
-### 1. Caso práctico narrativo
-Es viernes por la mañana en la sala técnica de **AzaharTech**. **Alba Torres** proyecta en la pantalla dos documentos técnicos: uno es un archivo `.docx` de Microsoft Word y el otro es un archivo `.md` de Markdown renderizado en GitHub:
+#### 1. Caso guía AzaharTech
+Es viernes por la tarde en la sala de desarrollo de **AzaharTech**. **Alba Torres** proyecta en la pantalla dos documentos técnicos: uno es un archivo `.docx` de Microsoft Word y el otro es un archivo `.md` de Markdown renderizado en GitHub:
 
 > *«Fijaos en la diferencia. En el archivo Word, para ver qué ha cambiado entre dos versiones hay que descargarlo, tener el programa de pago instalado y aceptar revisiones manuales. En cambio, el archivo **Markdown (`.md`)** es texto plano universal. Git puede ver cada coma modificada línea por línea y GitHub lo maqueta con tipografía profesional automáticamente.*
 >
@@ -653,7 +637,7 @@ Es viernes por la mañana en la sala técnica de **AzaharTech**. **Alba Torres**
 
 ---
 
-### 2. Sintaxis esencial de Markdown para documentación de software
+#### 2. Sintaxis esencial de Markdown para documentación de software
 
 Markdown fue creado para ser legible en su forma de texto plano sin procesar y convertirse limpiamente en documentos maquetados.
 
@@ -675,7 +659,7 @@ Markdown fue creado para ser legible en su forma de texto plano sin procesar y c
 └───────────────────────────────┴────────────────────────────────────────────────────────┘
 ```
 
-#### Tablas en Markdown:
+##### Tablas en Markdown:
 Las tablas se construyen mediante barras verticales (`|`) y una línea divisoria de guiones (`---`):
 ```markdown
 | Identificador | Tarea del Sprint | Módulo Responsable | Estado |
@@ -687,11 +671,8 @@ Las tablas se construyen mediante barras verticales (`|`) y una línea divisoria
 
 ---
 
-## PARTE II. TALLER PRÁCTICO GUIADO (40 MINUTOS): REDACCIÓN DE ED-2 Y PANEL README
-
-### Procedimiento técnico paso a paso
-
-#### Paso 1. Redacción de la Memoria Técnica Scrum: `ed/docs/marco-scrum.md` (Entregable ED-2)
+#### Laboratorio práctico guiado. Redacción de ED-2 y panel README
+##### Paso 1. Redacción de la memoria técnica Scrum: `ed/docs/marco-scrum.md` (Entregable ED-2)
 1. En tu proyecto de IntelliJ, navega hasta la carpeta `ed/docs/`.
 2. Haz clic derecho sobre `docs`: **New -> File** y nómbralo exactamente: `marco-scrum.md`.
 3. Redacta el documento técnico formal aplicando la sintaxis Markdown y adaptándolo a **tu proyecto elegido de la bolsa de proyectos**:
@@ -699,59 +680,59 @@ Las tablas se construyen mediante barras verticales (`|`) y una línea divisoria
 ```markdown
 # Memoria Técnica: Marco Metodológico y Ciclo de Vida del Software
 **Consultora:** AzaharTech Software Consulting  
-**Proyecto:** [Nombre de tu Proyecto Elegido de la Bolsa de Proyectos]  
-**Desarrollador/a:** [Tus Apellidos, Tu Nombre]  
+**Proyecto:** [nombre de tu proyecto elegido de la bolsa de proyectos]  
+**Desarrollador/a:** [tus apellidos, tu nombre]  
 **Fecha:** 25 de septiembre de 2026  
 **Versión:** 1.0 (Sprint 1)  
 
 ---
 
-## 1. Justificación del Modelo de Proceso: Cascada vs. Scrum
+## 1. Justificación del modelo de proceso: Cascada vs. Scrum
 Para el desarrollo de este proyecto se descarta el modelo tradicional en cascada debido a su rigidez ante los cambios de requisitos y a la dilatación en la entrega de resultados tangibles al cliente.
 
-Se adopta el marco de trabajo ágil **Scrum**, estructurado en ciclos iterativos de desarrollo (**Sprints de 3 semanas**). Al finalizar cada sprint, el equipo entrega un **Incremento de Software potencialmente desplegable**, permitiendo que el cliente valide el producto de forma continua y minimizando el riesgo de desviación temporal o económica.
+Se adopta el marco de trabajo ágil **Scrum**, estructurado en ciclos iterativos de desarrollo (**Sprints de 3 semanas**). Al finalizar cada sprint, el equipo entrega un **incremento de software potencialmente desplegable**, permitiendo que el cliente valide el producto de forma continua y minimizando el riesgo de desviación temporal o económica.
 
 ---
 
-## 2. Aplicación de las Fases del Ciclo de Vida del Software (SDLC)
+## 2. Aplicación de las fases del Ciclo de Vida del Software (SDLC)
 En cada ciclo de sprint se ejecutan de forma coordinada las fases de la ingeniería del software adaptadas a nuestro sistema:
 
-1. **Análisis:** Identificación de las necesidades del cliente y especificación de historias de usuario con criterios de aceptación claros.
-2. **Diseño:** Modelado de la arquitectura de la solución, diagramas funcionales en Proyecto Intermodular y definición de estructuras de datos.
-3. **Codificación:** Implementación de los algoritmos en lenguaje Java (OpenJDK 21) utilizando el entorno integrado IntelliJ IDEA Community.
-4. **Pruebas (Testing):** Verificación de casos límite, validación de trazas de memoria e inspección visual con depurador.
-5. **Despliegue:** Empaquetado y publicación de las entregas formales mediante etiquetas de versión (*Git Tags*) en el repositorio de GitHub.
-6. **Mantenimiento:** Refactorización continua del código y corrección de incidencias detectadas en revisiones de sprint.
+1. **Análisis.** Identificación de las necesidades del cliente y especificación de historias de usuario con criterios de aceptación claros.
+2. **Diseño.** Modelado de la arquitectura de la solución, diagramas funcionales en Proyecto Intermodular y definición de estructuras de datos.
+3. **Codificación.** Implementación de los algoritmos en lenguaje Java (OpenJDK 21) utilizando el entorno integrado IntelliJ IDEA Community.
+4. **Pruebas (Testing).** Verificación de casos límite, validación de trazas de memoria e inspección visual con depurador.
+5. **Despliegue.** Empaquetado y publicación de las entregas formales mediante etiquetas de versión (*Git Tags*) en el repositorio de GitHub.
+6. **Mantenimiento.** Refactorización continua del código y corrección de incidencias detectadas en revisiones de sprint.
 
 ---
 
 ## 3. Organización y Roles en el Equipo de Trabajo
-* **Product Owner:** Representa los intereses del cliente de nuestro proyecto, priorizando los requisitos en el *Product Backlog*.
-* **Scrum Master (Laia Claramunt):** Supervisa el cumplimiento de los tiempos de entrega, elimina bloqueos técnicos y vela por la calidad metodológica.
-* **Developer (El estudiante):** Responsable técnico del diseño algorítmico, implementación en Java, control de versiones en Git y documentación técnica.
+* **Product Owner.** Representa los intereses del cliente de nuestro proyecto, priorizando los requisitos en el *Product Backlog*.
+* **Scrum Master (Laia Claramunt).** Supervisa el cumplimiento de los tiempos de entrega, elimina bloqueos técnicos y vela por la calidad metodológica.
+* **Developer (El estudiante).** Responsable técnico del diseño algorítmico, implementación en Java, control de versiones en Git y documentación técnica.
 ```
 
 ---
 
-#### Paso 2. Transformación del `README.md` en Panel de Control del Proyecto
-1. Abre el archivo `README.md` situado en la raíz de tu carpeta personal (`azahartech/equipo-alfa/tu-nombre/README.md`).
+##### Paso 2. Transformación del `README.md` en panel de control del proyecto
+1. Abre el archivo `README.md` situado en la raíz de tu carpeta personal (`azahartech/nombre-equipo/apellidos-nombre/README.md`).
 2. Reemplaza su contenido para que actúe como la tarjeta de presentación oficial de tu espacio de trabajo:
 
 ```markdown
-# Sistema de Gestión: [Nombre de Tu Proyecto Propio]
+# Sistema de Gestión: [nombre de tu proyecto propio]
 **Consultora de Desarrollo:** AzaharTech (Castellón de la Plana)  
-**Cliente:** [Nombre del Cliente de la Bolsa de Proyectos]  
-**Desarrollador/a:** [Tus Apellidos, Tu Nombre]  
-**Equipo:** [Nombre de tu equipo asignado]  
+**Cliente:** [nombre del cliente de la bolsa de proyectos]  
+**Desarrollador/a:** [tus apellidos, tu nombre]  
+**Equipo:** [nombre de tu equipo asignado]  
 
 ---
 
-## 📌 Alcance del Proyecto
+## Alcance del proyecto
 Desarrollo de una solución informática multiplataforma para optimizar los procesos operativos y de control de nuestro cliente, integrando lógica de procesamiento en Java, gestión ágil de tareas y documentación técnica viva.
 
 ---
 
-## 🛠️ Taller Tecnológico
+## Taller tecnológico
 * **Lenguaje:** Java (OpenJDK 21 LTS)
 * **Entorno Integrado (IDE):** IntelliJ IDEA Community Edition
 * **Control de Versiones:** Git 2.x & GitHub
@@ -759,7 +740,7 @@ Desarrollo de una solución informática multiplataforma para optimizar los proc
 
 ---
 
-## 📋 Sprint Backlog 1 (14 sep - 2 oct) — Estado de Avance
+## Sprint Backlog 1 (14 sep - 2 oct) — Estado de avance
 
 ### Módulo: Entornos de Desarrollo (ED)
 - [x] Configuración de OpenJDK 21 e IntelliJ IDEA Community (`ed/docs/entorno.png`)
@@ -781,7 +762,7 @@ Desarrollo de una solución informática multiplataforma para optimizar los proc
 
 ---
 
-#### Paso 3. Confirmación atómica y sincronización con GitHub
+##### Paso 3. Confirmación atómica y sincronización con GitHub
 1. Abre el panel **Commit** en IntelliJ IDEA (`Alt + 0`).
 2. Selecciona los dos archivos modificados: `ed/docs/marco-scrum.md` y `README.md`.
 3. Escribe un mensaje de confirmación convencional riguroso:
@@ -792,22 +773,6 @@ Desarrollo de una solución informática multiplataforma para optimizar los proc
 5. Accede a tu repositorio en GitHub desde el navegador:
     * Comprueba que el `README.md` se muestra maquetado en la portada con sus casillas de verificación activas.
     * Entra en `ed/docs/marco-scrum.md` y comprueba que la memoria de Scrum se visualiza con títulos limpios, tablas y negritas.
-
----
-
-### Resumen de la Semana 2 completada
-Al concluir estas dos sesiones (3 horas lectivas):
-* Dominas los **tres estados de Git** y la inspección de cambios con **Git Diff**.
-* Aplicas de forma sistemática el estándar de **Conventional Commits** en tus mensajes.
-* Conoces y aplicas la sintaxis universal de **Markdown**.
-* Has completado el **Entregable ED-2 (`ed/docs/marco-scrum.md`)** y tu repositorio cuenta con un panel de control profesional en su `README.md`.
-
-**Todavía no: falta la Semana 3 (las sesiones 5 y 6)** para completar al 100 % el Sprint 1 de Entornos de Desarrollo.
-
-Hasta ahora llevamos:
-* ✅ **Semana 1 (Sesiones 1 y 2 — 3 h):** Fundamentos, SDLC, OpenJDK 21, IntelliJ IDEA y primer repositorio en GitHub.
-* ✅ **Semana 2 (Sesiones 3 y 4 — 3 h):** Tres estados de Git, Conventional Commits, sintaxis Markdown, `marco-scrum.md` y `README.md`.
-* ⏳ **Semana 3 (Sesiones 5 y 6 — 3 h):** *Las desarrollamos a continuación para cerrar definitivamente el Sprint 1.*
 
 ---
 
