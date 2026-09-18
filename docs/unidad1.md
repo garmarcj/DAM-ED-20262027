@@ -316,14 +316,14 @@ En los proyectos de software, los requisitos del cliente cambian con frecuencia.
 * El tiempo se divide en bloques fijos llamados **Sprints** (en nuestro curso, de **3 semanas**).
 * En cada sprint se diseña, se programa, se prueba y se entrega una parte terminada del sistema (**Incremento**).
 * **Los roles de AzaharTech:**
-    * **Product Owner:** Representa las necesidades del cliente (equipo directivo del IES El Caminàs).
-    * **Scrum Master (Laia Claramunt):** Vela por la metodología, elimina bloqueos y guía al equipo.
-    * **Developers (Alba, Pau y el estudiante):** Profesionales responsables del diseño técnico, código y pruebas.
+  * **Product Owner:** Representa las necesidades del cliente (equipo directivo del IES El Caminàs).
+  * **Scrum Master (Laia Claramunt):** Vela por la metodología, elimina bloqueos y guía al equipo.
+  * **Developers (Alba, Pau y el estudiante):** Profesionales responsables del diseño técnico, código y pruebas.
 
 ##### B. El Repositorio Remoto en GitHub como canal oficial de entregas (RA4.h)
 Un **repositorio** es una base de datos gestionada por Git que almacena el historial completo de cambios de un proyecto.
-* **Repositorio local:** Reside en el disco duro del estudiante.
-* **Repositorio remoto (GitHub):** Reside en los servidores en la nube de GitHub. Funciona como el **buzón oficial de entregas**, garantizando la autoría de cada línea de código y permitiendo al docente calificar el avance en tiempo real.
+* **Repositorio local,** Se almacena en el disco duro del estudiante.
+* **Repositorio remoto (GitHub):** Se almacena en los servidores en la nube de GitHub. Funciona como el **buzón oficial de entregas**, garantizando la autoría de cada línea de código y permitiendo al docente calificar el avance en tiempo real.
 
 ---
 
@@ -337,17 +337,17 @@ Alba Torres y Pau Ferrer proyectan sus terminales:
 
 ```text
 azahartech/
-└── nombre-equipo/                        <-- Nombre de tu equipo asignado desde el día 1
-    └── apellidos-nombre/                 <-- Tus apellidos y nombre (sin espacios ni acentos)
-        ├── README.md                   <-- Archivo de portada (lo editaremos en la Semana 2)
+└── nombre-equipo/                     <-- Nombre de tu equipo asignado desde el día 1
+    └── apellidos-nombre/              <-- Tus apellidos y nombre (sin espacios ni acentos)
+        ├── README.md                  <-- Archivo de portada (lo editaremos en la Semana 2)
         ├── .gitignore                 <-- Archivo de exclusión de temporales
-        ├── ed/                         <-- Módulo Entornos de Desarrollo
+        ├── ed/                        <-- Módulo Entornos de Desarrollo
         │   └── docs/
-        │       └── entorno.png         <-- Mueve aquí la captura guardada el lunes
-        ├── pr/                         <-- Módulo Programación
+        │       └── entorno.png        <-- Mueve aquí la captura guardada el lunes
+        ├── pr/                        <-- Módulo Programación
         │   ├── pseudocodigo/
         │   └── src/
-        └── pi/                         <-- Módulo Proyecto Intermodular
+        └── pi/                        <-- Módulo Proyecto Intermodular
             └── docs/
 ```
 
