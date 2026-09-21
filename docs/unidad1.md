@@ -419,7 +419,7 @@ Thumbs.db
 
 ---
 
-### Día 1 - 2 sesiones
+### Día 3 - 2 sesiones
 
 #### Sesión 1. Teoría. La mecánica interna de Git y la trazabilidad
 
@@ -624,7 +624,7 @@ Alba Torres y Pau Ferrer abren IntelliJ en sus pantallas:
 
 ---
 
-### Día 2 - 1 sesión
+### Día 4 - 1 sesión
 
 #### Teoría. El estándar markdown en la ingeniería del software
 
