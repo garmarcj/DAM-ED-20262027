@@ -6,7 +6,7 @@ theme:
   language: es
   palette:
     scheme: default
-    primary: blue
+    primary: magenta
   features:
     - content.code.copy
     - content.tabs.link
