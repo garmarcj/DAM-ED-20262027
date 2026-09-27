@@ -6,7 +6,7 @@ theme:
   language: es
   palette:
     scheme: default
-    primary: red
+    primary: blue
   features:
     - content.code.copy
     - content.tabs.link

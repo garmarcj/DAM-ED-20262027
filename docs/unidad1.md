@@ -16,7 +16,7 @@ Son las tres de la tarde del lunes 14 de septiembre de 2026. Las oficinas de **A
 
 En la pantalla táctil de la sala de reuniones, Laia proyecta una fotografía de la fachada del **IES El Caminàs**, emblemático centro educativo de la ciudad:
 
-> *«Equipo, bienvenidos al arranque del curso académico. Este trimestre tenemos un reto de primer nivel. El equipo directivo del IES El Caminàs nos ha contratado formalmente para digitalizar y automatizar el acceso al recinto escolar. Cada mañana, cientos de estudiantes se agolpan en la entrada, provocando retrasos en el inicio de las clases y obligando a conserjería y a los profesores de guardia a anotar incidencias en listas de papel que tardan horas en llegar a jefatura de estudios.*
+> *«Equipo, bienvenidos al arranque del curso académico. Este trimestre tenemos un proyecto de primer nivel. El equipo directivo del IES El Caminàs nos ha contratado formalmente para digitalizar y automatizar el acceso al recinto escolar. Cada mañana, cientos de estudiantes se agolpan en la entrada, provocando retrasos en el inicio de las clases y obligando a conserjería y a los profesores de guardia a anotar incidencias en listas de papel que tardan horas en llegar a jefatura de estudios.*
 >
 > *Nos han encargado desarrollar un **sistema de control de asistencia mediante códigos QR dinámicos**. La solución mostrará un código QR variable en una gran pantalla situada en el vestíbulo principal, que los estudiantes escanearán desde su teléfono móvil al cruzar la puerta de entrada.*
 >
@@ -531,7 +531,7 @@ Para evitar los mensajes ambiguos en los equipos de desarrollo, se utiliza la es
 ##### Catálogo de tipos oficiales utilizados en AzaharTech:
 * **`feat:`** (de *feature*). Se utiliza exclusivamente cuando se introduce una nueva funcionalidad en el software (*ejemplo: `feat(pr): calcular desglose horario en modulo de tiempos`*).
 * **`fix:`** Se emplea cuando se soluciona un error o defecto (*bug*) en el código fuente (*ejemplo: `fix(pr): corregir perdida de decimales en ratio de asistencia`*).
-* **`docs:`** Modificaciones que afectan únicamente a la documentación técnica, diagramas o manuales Markdown (*ejemplo: `docs(pi): documentar mapa de actores del reto`*).
+* **`docs:`** Modificaciones que afectan únicamente a la documentación técnica, diagramas o manuales Markdown (*ejemplo: `docs(pi): documentar mapa de actores del proyecto`*).
 * **`style:`** Cambios visuales de formato que no alteran la lógica del programa: indentación, espacios en blanco, punto y coma omitidos (*ejemplo: `style(pr): formatear espaciado segun guia oficial de Java`*).
 * **`refactor:`** Cambios en el código que ni corrigen un bug ni añaden una funcionalidad nueva, sino que mejoran su legibilidad o estructura (*ejemplo: `refactor(pr): renombrar variables de tiempos a nomenclatura camelCase`*).
 * **`chore:`** Tareas auxiliares de configuración, mantenimiento de repositorios o actualización de herramientas que no modifican el código de producción (*ejemplo: `chore(git): anadir exclusion de temporales .DS_Store a gitignore`*).
@@ -665,7 +665,7 @@ Las tablas se construyen mediante barras verticales (`|`) y una línea divisoria
 | Identificador | Tarea del Sprint | Módulo Responsable | Estado |
 | :--- | :--- | :---: | :---: |
 | T-01 | Configuración OpenJDK 21 | ED | Completada |
-| T-02 | Reto 1 en Java | PR | En curso |
+| T-02 | Proyecto en Java | PR | En curso |
 ```
 *(Los dos puntos `:` determinan la alineación: `:---` izquierda, `:---:` centrada, `---:` derecha).*
 
@@ -752,10 +752,10 @@ Desarrollo de una solución informática multiplataforma para optimizar los proc
 ### Módulo: Programación (PR)
 - [x] Declaración de variables y tipos primitivos de datos
 - [x] Operadores aritméticos, expresiones y conversiones de tipo (*casting*)
-- [ ] Algoritmo secuencial completo del Reto 1 integrado (Semana 3)
+- [ ] Algoritmo secuencial completo del proyecto (Semana 3)
 
 ### Módulo: Proyecto Intermodular (PI)
-- [x] Documento de especificación del reto y registro ético de IA (`pi/docs/analisis-reto.md`)
+- [x] Documento de especificación del proyecto y registro ético de IA (`pi/docs/analisis-proyecto.md`)
 - [x] Diagrama de bloques funcional y viabilidad técnica (`pi/docs/viabilidad-tecnica.md`)
 - [ ] Dossier técnico final y preparación de la Demo v0.1 (Semana 3)
 ```
@@ -776,18 +776,17 @@ Desarrollo de una solución informática multiplataforma para optimizar los proc
 
 ---
 
-# SEMANA 3 — SESIÓN 5 (Lunes, 28 de septiembre de 2026 — 2 horas lectivas)
-### Bloque: Ceremonias de cierre ágil (Sprint Review y Retrospective) e higiene técnica del repositorio (`.gitignore`)
-* **Distribución horaria:** 1 hora de teoría conceptual y metodológica + 1 hora de laboratorio práctico de auditoría y limpieza en IntelliJ IDEA.
-* **Criterios de Evaluación vinculados:** RA1.g, RA4.f, RA4.h.
+# Semana 3. Ceremonias de cierre ágil (Sprint Review y Retrospective) e higiene técnica del repositorio (`.gitignore`)
 
 ---
 
-## PARTE I. SESIÓN TEÓRICA (1 HORA): EL CIERRE DEL SPRINT Y LA CALIDAD DEL REPOSITORIO
+## Día 1 - 2 sesiones
 
-### 1. Caso práctico narrativo: La recta final del Sprint 1 en AzaharTech
+### Sesión 1. Teoría. El cierre del Sprint y la calidad del repositorio
 
-Es lunes 28 de septiembre por la mañana. Entramos en la última semana del primer ciclo de desarrollo. En la sala de reuniones de **AzaharTech**, **Pau Ferrer** y **Alba Torres** revisan el código de sus respectivos módulos con cierta euforia: el programa compila, las fórmulas matemáticas funcionan y los archivos están redactados en Markdown.
+### 1. Caso guía en AzaharTech. La recta final del Sprint 1
+
+Es lunes 28 de septiembre por la tarde. Entramos en la última semana del primer ciclo de desarrollo. En la sala de reuniones de **AzaharTech**, **Pau Ferrer** y **Alba Torres** revisan el código de sus respectivos módulos con cierta euforia: el programa compila, las fórmulas matemáticas funcionan y los archivos están redactados en Markdown.
 
 Pau comenta entusiasmado:
 > *«Por mi parte el Sprint 1 está terminado: ya he subido todo lo que tenía en mi ordenador a GitHub»*.
@@ -806,185 +805,268 @@ Pau comenta entusiasmado:
 En los modelos predictivos clásicos (*modelo en cascada*), los proyectos terminaban con una entrega masiva y fría de documentos al cabo de meses. Scrum introduce dos eventos de inspección y adaptación al término de cada ciclo de 3 semanas:
 
 ```
-┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                        COMPARATIVA DE LAS CEREMONIAS DE CIERRE                         │
-├───────────────────────────────┬────────────────────────────────────────────────────────┤
-│ SPRINT REVIEW (Revisión)      │ SPRINT RETROSPECTIVE (Retrospectiva)                   │
-├───────────────────────────────┼────────────────────────────────────────────────────────┤
-│ • Participan: Equipo + Cliente│ • Participan: Únicamente el equipo de desarrollo       │
-│ • Pregunta: ¿QUÉ se ha hecho? │ • Pregunta: ¿CÓMO hemos trabajado juntos?              │
-│ • Foco: El producto / software│ • Foco: Los procesos, las personas y las herramientas   │
-│ • Salida: Feedback del cliente│ • Salida: Compromisos de mejora interna para el Sprint 2│
-└───────────────────────────────┴────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────────┐
+│                        COMPARATIVA DE LAS CEREMONIAS DE CIERRE                          │
+├───────────────────────────────┬─────────────────────────────────────────────────────────┤
+│ SPRINT REVIEW (revisión)      │ SPRINT RETROSPECTIVE (retrospectiva)                    │
+├───────────────────────────────┼─────────────────────────────────────────────────────────┤
+│ • Participan: equipo + cliente│ • Participan: únicamente el equipo de desarrollo        │
+│ • Pregunta: ¿QUÉ se ha hecho? │ • Pregunta: ¿CÓMO hemos trabajado juntos?               │
+│ • Foco: el producto / software│ • Foco: los procesos, las personas y las herramientas   │
+│ • Salida: feedback del cliente│ • Salida: compromisos de mejora interna para el Sprint 2│
+└───────────────────────────────┴─────────────────────────────────────────────────────────┘
 ```
 
 #### A. La Revisión del Sprint (*Sprint Review*)
-* **Objetivo:** Inspeccionar el **Incremento de Software** completado durante las 3 semanas y adaptar el *Product Backlog* según las impresiones del cliente.
-* **Dinámica:** El equipo realiza una demostración en vivo del software funcionando (la clase `App.java` del caso guía o de su proyecto propio). Se explican las decisiones tomadas y se verifica si se ha cumplido la **Definición de Hecho (*Definition of Done - DoD*)**.
-* **El valor del feedback:** El cliente puede solicitar ajustes para el siguiente sprint (*ejemplo: «necesitamos que el tiempo de espera no supere los 5 segundos»*), los cuales se incorporan de forma natural al backlog del Sprint 2.
+* **Objetivo** Inspeccionar el **Incremento de Software** completado durante las 3 semanas y adaptar el *Product Backlog* según las impresiones del cliente.  
+* **Dinámica.** El equipo realiza una demostración en vivo del software funcionando (la clase `MiProyecto.java` del caso guía o de su proyecto propio). Se explican las decisiones tomadas y se verifica si se ha cumplido la **Definición de Hecho (*Definition of Done - DoD*)**.  
+* **El valor del feedback.** El cliente puede solicitar ajustes para el siguiente sprint (*ejemplo: «necesitamos que el tiempo de espera no supere los 5 segundos»*), los cuales se incorporan de forma natural al backlog del Sprint 2.  
 
 #### B. La Retrospectiva del Sprint (*Sprint Retrospective*)
-* **Objetivo:** Analizar la salud operativa del equipo de desarrollo, identificando qué prácticas han funcionado y qué obstáculos técnicos o humanos han frenado el ritmo de trabajo.
-* **El método de las 3 columnas de AzaharTech:**
-    1. **Mantener (*Keep*):** Buenas prácticas consolidadas (*ej. diseñar en PSeInt antes de picar Java ahorró errores; los commits convencionales facilitaron rastrear cambios*).
-    2. **Detener (*Stop*):** Prácticas perjudiciales que deben erradicarse (*ej. dejar la redacción de la memoria Markdown para la última noche; hacer commits gigantes con 15 archivos a la vez*).
-    3. **Comenzar (*Start*):** Nuevos hábitos o herramientas a incorporar en el Sprint 2 (*ej. revisar los mensajes de commit con los compañeros antes de hacer push; configurar atajos de teclado en el IDE*).
-
+* **Objetivo.** Analizar la salud operativa del equipo de desarrollo, identificando qué prácticas han funcionado y qué obstáculos técnicos o humanos han frenado el ritmo de trabajo.  
+* **El método de las 3 columnas de AzaharTech:**    
+    1. **Mantener (*Keep*).** Buenas prácticas consolidadas (*por ejemplo, diseñar en PSeInt antes de picar Java ahorraron errores; los commits convencionales facilitaron rastrear cambios*).  
+    2. **Detener (*Stop*).** Prácticas perjudiciales que deben erradicarse (*por ejemplo, dejar la redacción de la memoria Markdown para la última noche; hacer commits gigantes con 15 archivos a la vez*).  
+    3. **Comenzar (*Start*).** Nuevos hábitos o herramientas a incorporar en el Sprint 2 (*por ejemplo, revisar los mensajes de commit con los compañeros antes de hacer push; configurar atajos de teclado en el IDE*).
+    
 ---
 
-### 3. Principios de higiene técnica: El control estricto de `.gitignore`
+### 3. Principios de higiene técnica. El control estricto de `.gitignore`
 
-Uno de los errores más graves que comete un desarrollador novel al utilizar Git es confundir un **repositorio de código fuente** con una **carpeta compartida en la nube** (como Google Drive o Dropbox).
+Uno de los errores más graves que comete un desarrollador novel al utilizar Git es confundir un **repositorio de código fuente** con una **carpeta compartida en la nube** (como Google Drive o NextCloud).
 
 #### ¿Por qué jamás deben subirse archivos binarios o temporales al repositorio?
-1. **Contaminación del historial:** Los archivos compilados (`.class`, `.jar`, `.exe`) son binarios que cambian por completo cada vez que recompilas. Si los subes a Git, la base de datos del repositorio aumentará de tamaño de forma exponencial con información inútil.
-2. **Conflictos entre sistemas operativos:** Si subes la carpeta oculta `.idea/` o los archivos de configuración local de tu ordenador con Windows, cuando otro compañero (o el profesor que califica en Linux/macOS) clone el repositorio, el proyecto colapsará porque las rutas de disco no coincidirán.
-3. **Seguridad:** Los archivos temporales pueden contener credenciales de sesión, rutas absolutas privadas de tu disco duro o cachés del sistema.
+1. **Contaminación del historial.** Los archivos compilados (`.class`, `.jar`, `.exe`) son binarios que cambian por completo cada vez que recompilas. Si los subes a Git, la base de datos del repositorio aumentará de tamaño de forma exponencial con información inútil.
+2. **Conflictos entre sistemas operativos.** Si subes la carpeta oculta `.idea/` o los archivos de configuración local de tu ordenador con Windows, cuando otro compañero (o el profesor que califica en GNU/Linux) clone el repositorio, el proyecto colapsará porque las rutas de disco no coincidirán.
+3. **Seguridad.** Los archivos temporales pueden contener credenciales de sesión, rutas absolutas privadas de tu disco duro o cachés del sistema.
 
 ```
  [ REPOSITORIO PROFESIONAL LIMPIO ]             [ REPOSITORIO CONTAMINADO ]
  ├── ed/docs/marco-scrum.md   (Texto editable)   ├── ed/docs/marco-scrum.md
  ├── pr/src/App.java          (Código fuente)    ├── pr/src/App.java
- └── .gitignore               (Reglas activas)   ├── pr/src/App.class   ◄── [ERROR GRAVE: Binario]
-                                                 ├── out/production/... ◄── [ERROR GRAVE: Salida]
-                                                 └── .idea/workspace.xml◄── [ERROR GRAVE: Privado]
+ └── .gitignore               (Reglas activas)   ├── pr/src/App.class   ◄── [ERROR GRAVE: binario]
+                                                 ├── out/production/... ◄── [ERROR GRAVE: salida]
+                                                 └── .idea/workspace.xml◄── [ERROR GRAVE: privado]
 ```
 
-#### El archivo `.gitignore`: El guardián de la limpieza
+#### El archivo `.gitignore`: el guardián de la limpieza
 El archivo `.gitignore` situado en la raíz del proyecto le indica al motor de Git qué archivos y directorios debe **ignorar por completo**, impidiendo que aparezcan en el *Staging Area* aunque se modifiquen en el disco duro.
 
 * **Patrones y comodines estándar:**
-    * `*.class`: Ignora cualquier archivo que termine con esa extensión, en cualquier subcarpeta.
-    * `out/`: Ignora la carpeta de compilación de IntelliJ y todo su contenido.
-    * `.idea/`: Ignora las configuraciones privadas del IDE.
-    * `.DS_Store`: Ignora los archivos de previsualización ocultos de macOS.
+    * `*.class`: Ignora cualquier archivo que termine con esa extensión, en cualquier subcarpeta.  
+    * `out/`: Ignora la carpeta de compilación de IntelliJ y todo su contenido.  
+    * `.idea/`: Ignora las configuraciones privadas del IDE.  
+    * `.DS_Store`: Ignora los archivos de previsualización ocultos de macOS.  
 
 ---
 
-## PARTE II. LABORATORIO PRÁCTICO GUIADO (1 HORA): AUDITORÍA DE HIGIENE Y PURGA DEL REPOSITORIO
-
-### Caso de laboratorio
+### Sesión 2. Laboratorio práctico guiado. Auditoría de higiene y purga del repositorio
 Alba Torres y Pau Ferrer abren la terminal integrada de IntelliJ:
 > *«Ha llegado el momento de auditar nuestro repositorio antes de la entrega formal. Vamos a comprobar el estado de los archivos con Git, aprenderemos a eliminar del seguimiento cualquier archivo temporal que se haya colado por accidente y consolidaremos el archivo `.gitignore` definitivo de AzaharTech»*.
 
 ---
 
-### Procedimiento técnico paso a paso
-
-#### Paso 1. Auditoría de archivos mediante la terminal integrada
-1. Abre tu proyecto en **IntelliJ IDEA**.
-2. Abre la terminal de comandos integrada en el IDE pulsando el atajo **`Alt + F12`** (en Windows/Linux) o **`Option + F12`** (en macOS).
-3. Ejecuta el comando de diagnóstico general:
-   ```bash
-   git status
-   ```
-4. **Comprobación:** La terminal debe indicar:
-    * Que estás en la rama principal (`On branch main` o `master`).
-    * Qué archivos están modificados pendientes de commit o si el árbol de trabajo está limpio (*«nothing to commit, working tree clean»*).
-5. Ejecuta ahora el siguiente comando avanzado para listar **absolutamente todos los archivos que Git está rastreando en este momento**:
-   ```bash
-   git ls-files
-   ```
-6. Revisa la lista resultante en pantalla:
-    * Solo deben aparecer archivos fuente y de documentación: `.gitignore`, `README.md`, archivos `.md`, imágenes `.png`, archivos `.psc` y archivos `.java`.
-    * **⚠️ Alerta roja:** Si en esa lista aparece algún archivo que termine en `.class` o comience por `.idea/` u `out/`, ese archivo ha sido rastreado por error y debe purgarse de inmediato.
+Aquí tienes la reescritura completa de los cuatro pasos adaptada al entorno **100 % visual de IntelliJ IDEA**, sin utilizar ningún comando de terminal y empleando la nomenclatura en minúsculas:
 
 ---
 
-#### Paso 2. Procedimiento de purga de archivos no deseados (`git rm --cached`)
-Si durante las semanas anteriores cometiste el error de confirmar un archivo `.class` o la carpeta `.idea/` antes de configurar el `.gitignore`, el archivo seguirá rastreado aunque añadas la regla después.
+#### Paso 1. Auditoría visual de archivos en el árbol de proyectos de IntelliJ
 
-Para eliminarlo del historial de Git **sin borrar el archivo físico de tu disco duro**, ejecuta los siguientes comandos según el caso:
+1. Abre tu proyecto en **IntelliJ IDEA**.
+2. Despliega la ventana lateral del explorador de proyectos pulsando el atajo **`Alt + 1`**.
+3. Observa el código de colores que utiliza IntelliJ para indicar el estado de cada archivo respecto a Git:
+    * **Color gris o amarillo apagado.** Archivo o carpeta ignorada por la configuración de Git (estado correcto para archivos temporales).  
+    * **Color blanco o texto normal.:** Archivo versionado y confirmado en el repositorio local.  
+    * **Color azul.** Archivo existente modificado que aún no se ha confirmado.  
+    * **Color rojo.** Archivo nuevo detectado en el disco que todavía no está bajo control de versiones.  
+4. **Revisión de carpetas clave:**
+    * Despliega la carpeta `pr/src/`: solo deben aparecer archivos con extensión `.java`. No debe verse ningún archivo de color blanco que termine en `.class`.  
+    * Observa las carpetas `.idea/` y `out/`: deben aparecer en color grisáceo o atenuado.  
+    * **Alerta visual:** si las carpetas `.idea/`, `out/` o algún archivo `.class` aparecen con el nombre en texto blanco normal, significa que Git los está rastreando por error y deben retirarse del control de versiones.  
 
-* Si se ha colado un archivo `.class`:
-  ```bash
-  git rm --cached pr/src/*.class
-  ```
-* Si se ha colado la carpeta de compilación `out/`:
-  ```bash
-  git rm -r --cached out/
-  ```
-* Si se ha colado la carpeta privada del IDE `.idea/`:
-  ```bash
-  git rm -r --cached .idea/
-  ```
+---
+
+#### Paso 2. Retirada visual de archivos no deseados de Git (sin borrarlos del disco)
+
+Si en las semanas anteriores se confirmó por error una carpeta temporal o un archivo compilado, se puede corregir en tres pasos:
+
+1. **Borrar los archivos en IntelliJ.** Selecciona la carpeta `out/` o los archivos `.class` en el explorador de proyectos (`Alt + 1`) y pulsa la tecla `Supr` (Delete).  
+2. **Confirmar y subir la eliminación.** Abre el panel de Commit (`Ctrl + K`), escribe el mensaje `chore(git): eliminar archivos compilados del repositorio` y pulsa **Commit and Push**.  
+3. **Reconstruir el proyecto.** Ve al menú superior **Build -> Rebuild Project**. IntelliJ volverá a generar los archivos en tu disco duro para que el programa funcione, pero como la regla ya está en el `.gitignore`, ahora aparecerán en color grisáceo y Git no los volverá a rastrear.  
 
 ---
 
 #### Paso 3. Consolidación de las reglas universales en `.gitignore`
-1. Abre el archivo `.gitignore` situado en la raíz de tu proyecto en IntelliJ IDEA.
-2. Comprueba que contiene exactamente las siguientes directivas de exclusión estructuradas por bloques:
+
+1. Abre el archivo **`.gitignore`** situado en la raíz de tu proyecto haciendo doble clic sobre él en IntelliJ IDEA.
+2. Comprueba que contiene las directivas de exclusión estructuradas por bloques:
 
 ```text
 # ====================================================================
-# EXCLUSIONES OFICIALES DE AZAHARTECH SOFTWARE
+# exclusiones oficiales de azahartech software
 # ====================================================================
 
-# 1. Entorno de Desarrollo (IntelliJ IDEA)
+# 1. entorno de desarrollo (IntelliJ IDEA)
 .idea/
 *.iml
 *.iws
 *.ipr
 out/
 
-# 2. Compiladores y herramientas de construcción (Java / Maven)
 *.class
 target/
 build/
 *.jar
 *.war
 
-# 3. Archivos del Sistema Operativo
+# 3. archivos del sistema operativo
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# 4. Archivos de registro y temporales
+# 4. archivos de registro y temporales
 *.log
 *.tmp
 *.bak
 ```
 
-3. Guarda los cambios en el archivo (`Ctrl + S`).
+3. Guarda los cambios con el atajo **`Ctrl + S`**.
+4. Observa cómo, de forma instantánea, todas las carpetas y extensiones indicadas cambian automáticamente a color gris atenuado en el árbol del proyecto.
 
 ---
 
-#### Paso 4. Commit de mantenimiento y sincronización con GitHub
-1. Abre el panel lateral **Commit** de IntelliJ (`Alt + 0` o `Ctrl + K`).
-2. Comprueba que el archivo `.gitignore` (y las eliminaciones del índice si hubo purga) están seleccionados en el área de preparación (*Stage*).
-3. Redacta el mensaje de confirmación siguiendo el estándar convencional:
+#### Paso 4. Confirmación y sincronización visual con GitHub
+
+1. Abre el panel lateral **Commit** de IntelliJ mediante el atajo **`Ctrl + K`** (o pulsa en el icono verde de verificación en la barra lateral izquierda).
+2. En la lista de cambios preparados (*Staged* o *Changes*), comprueba que aparecen seleccionados:
+    * La modificación del archivo `.gitignore`.
+    * Las órdenes de retirada de archivos temporales si tuviste que aplicar el paso 2.
+3. En la caja de texto inferior, redacta el mensaje de confirmación siguiendo el estándar convencional:
    ```text
    chore(git): auditar higiene del repositorio y consolidar reglas de gitignore
    ```
-4. Haz clic en **Commit and Push**.
-5. Abre el navegador web, entra en tu repositorio de GitHub y comprueba:
+4. Despliega el botón azul inferior y pulsa **Commit and Push**.
+5. En la ventana emergente de confirmación, revisa el envío y pulsa **Push**.
+6. Abre tu navegador web, entra en tu repositorio de GitHub y comprueba:
     * Que en la raíz no existe ninguna carpeta `.idea/` ni `out/`.
-    * Que dentro de `pr/src/` solo existen los archivos fuente `.java`, sin ningún binario `.class`.
+    * Que dentro de `pr/src/` únicamente existen los archivos fuente con extensión `.java`.
 
 ---
 
-### Resumen de la Sesión 5
-Al concluir estas dos horas:
-* Conoces la finalidad e importancia de las ceremonias de **Sprint Review** y **Sprint Retrospective** en Scrum.
-* Comprendes por qué un repositorio profesional solo almacena código fuente editable y documentación.
-* Has auditado con comandos de consola (`git status`, `git ls-files`) el contenido exacto de tu proyecto.
-* Tu repositorio en GitHub cumple los estándares de higiene técnica más exigentes gracias a la configuración del `.gitignore`.
+## Día 6 - 1 sesión
 
----
----
+### Teoría. Versionado semántico y etiquetas (*TAGS*)
 
-# SEMANA 3 — SESIÓN 6 (Viernes, 2 de octubre de 2026 — 1 hora lectiva)
-### Bloque: Versionado formal con Git Tags (`v0.1.0-sprint1`), cierre del Sprint Backlog 1 y entrega final del sprint
-* **Distribución horaria:** 20 minutos de teoría de versionado semántico + 40 minutos de etiquetado y entrega oficial.
-* **Criterios de Evaluación vinculados:** RA4.f, RA4.h.
-
----
-
-## PARTE I. SESIÓN TEÓRICA (20 MINUTOS): VERSIONADO SEMÁNTICO Y ETIQUETAS (*TAGS*)
-
-### 1. Caso práctico narrativo
-Es viernes 2 de octubre por la mañana. Las tres semanas del Sprint 1 concluyen hoy formalmente. **Laia Claramunt** reúne por última vez en este sprint a todo el equipo de desarrollo de AzaharTech:
+### 1. Caso guía AzaharTech
+Es viernes 2 de octubre por la tarde. Las tres semanas del Sprint 1 concluyen hoy formalmente. **Laia Claramunt** reúne por última vez en este sprint a todo el equipo de desarrollo de AzaharTech:
 
 > *«Equipo, el lunes que viene comenzaremos el Sprint 2: modificaremos clases en Programación, cambiaremos la configuración de Maven en Entornos de Desarrollo y ampliaremos la documentación.*
 >
-> *Si el docente o el cliente entran dentro de dos semanas a nuestro repositorio para evaluar el Sprint 1, ¿cómo sab
+> *Si el docente o el cliente entran dentro de dos semanas a nuestro repositorio para evaluar el Sprint 1, ¿cómo sabrán exactamente qué archivos habíamos terminado hoy viernes 2 de octubre a las doce y cuáles pertenecen al trabajo posterior del Sprint 2?*
+>
+> *No podemos fiarnos de la memoria. En ingeniería del software los hitos no se guardan duplicando carpetas con nombres como 'Sprint1_Final_Bueno'. Se sellan en el historial mediante **etiquetas de versión (Git Tags)** bajo el estándar de **Versionado Semántico**. Hoy congelaremos nuestro primer incremento de software con la etiqueta oficial **`v0.1.0-sprint1`**»*.
+
+---
+
+### 2. Fundamentos del versionado semántico y las etiquetas en Git
+
+```
+ commit a1b2 (feat) ──► commit c3d4 (docs) ──► commit e5f6 (chore) ──► commit 7a8b (docs)
+                                                                            │
+                                                                 [ TAG: v0.1.0-sprint1 ]
+                                                                 (Puntero estático e inmutable)
+```
+
+#### A. ¿Qué es un Git Tag y en qué se diferencia de una rama?
+* **Etiqueta (*Tag*).** Es una marca fija, estática e inmutable que apunta a un commit específico del historial. Una vez creada, **jamás se mueve**. Aunque el proyecto continúe recibiendo cientos de commits en el futuro, el tag siempre permitirá recuperar el estado exacto del código en el instante preciso en que se creó.
+* **Rama (*Branch*).** Es un puntero móvil que avanza automáticamente cada vez que realizas un nuevo commit. Se utiliza para desarrollar tareas activas.
+
+#### B. El estándar de versionado semántico (*SemVer 2.0.0*)
+El estándar de la industria establece que las versiones del software deben seguir el formato numérico:
+
+```text
+v X . Y . Z
+  │   │   │
+  │   │   └──► PATCH (parche). Corrección de fallos menores manteniendo compatibilidad.
+  │   └──────► MINOR (menor). Nuevas funcionalidades que no rompen lo anterior.
+  └──────────► MAJOR (mayor). Cambios estructurales profundos incompatibles con lo previo.
+```
+
+* **Para nuestro Sprint 1.** Al tratarse del primer prototipo inicial del curso, adoptamos la versión base pre-lanzamiento: **`v0.1.0-sprint1`**.
+
+---
+
+### Laboratorio práctico guiado. Firma de la Release y entrega oficial
+#### Paso 1. Actualización final y cierre del Sprint Backlog 1 en `README.md`
+1. Abre tu proyecto en IntelliJ IDEA.
+2. Abre el archivo `README.md` situado en la raíz de tu carpeta personal.
+3. Edita la sección del backlog para marcar **todas las casillas al 100 % de cumplimiento** sustituyendo los espacios `[ ]` por una `x` minúscula `[x]`:
+
+```markdown
+## 📋 Sprint Backlog 1 (14 sep - 2 oct) — Estado final: 100% COMPLETADO
+
+### Módulo: Entornos de Desarrollo (ED)
+- [x] Configuración de OpenJDK 21 e IntelliJ IDEA Community (`ed/docs/entorno.png`)
+- [x] Elaboración de memoria técnica de marco Scrum y ciclo de vida (`ed/docs/marco-scrum.md`)
+- [x] Práctica del flujo de Git de 3 estados y estándar Conventional Commits
+- [x] Auditoría de limpieza e higiene técnica con `.gitignore` consolidado
+- [x] Etiquetado formal de release `v0.1.0-sprint1` publicado en GitHub
+
+### Módulo: Programación (PR)
+- [x] Declaración de variables y tipos primitivos de datos (`pr/src/`)
+- [x] Operadores aritméticos, expresiones y conversiones de tipo (*casting*)
+- [x] Programa secuencial completo del Reto 1 integrado con `printf`
+
+### Módulo: Proyecto Intermodular (PI)
+- [x] Documento de especificación del reto y registro ético de IA (`pi/docs/analisis-reto.md`)
+- [x] Diagrama de bloques funcional y viabilidad técnica (`pi/docs/viabilidad-tecnica.md`)
+- [x] Dossier técnico final y preparación de la Demo v0.1
+```
+
+4. Realiza el último commit de documentación del sprint desde el panel de Commit de IntelliJ:
+   ```text
+   docs: cerrar sprint backlog 1 al 100% de cumplimiento
+   ```
+5. Haz **Push** a GitHub.
+
+---
+
+#### Paso 2. Creación de la etiqueta de versión formal (*Git Tag*)
+1. En el menú superior de IntelliJ, ve a: **Git -> New Tag...**
+2. Se abrirá una ventana emergente:
+   * **Tag Name.** Escribe exactamente `v0.1.0-sprint1` (todo en minúsculas y sin espacios).
+   * **Commit.** Déjalo por defecto en `HEAD` (apunta al último commit que acabas de hacer).
+   * **Message.** Escribe la descripción de la entrega:
+     ```text
+     Release oficial del Sprint 1 - Incremento Base AzaharTech
+     ```
+3. Haz clic en el botón **Create Tag**.
+
+---
+
+#### Paso 3. Publicación del Tag en el servidor remoto de GitHub (*Push Tags*)
+Por defecto, cuando realizas un `git push`, Git solo envía los nuevos commits de las ramas, **pero no sube las etiquetas**. Para sincronizar los tags con GitHub:
+
+1. **Desde la interfaz de IntelliJ:**
+   * Ve al menú superior: **Git -> Push...** (o pulsa `Ctrl + Shift + K`).
+   * En la esquina inferior izquierda de la ventana emergente, marca obligatoriamente la casilla de verificación: **Push Tags: All** (o selecciona el tag `v0.1.0-sprint1`).
+   * Haz clic en **Push**.
+
+---
+
+#### Paso 4. Verificación final en la interfaz web de GitHub (lista de cotejo de la entrega)
+1. Abre tu navegador web y entra en la página principal de tu repositorio en GitHub.
+2. Realiza las siguientes cuatro comprobaciones visuales de calidad:
+   * **Portada (`README.md`).** Verifica que todas las tareas del Sprint Backlog 1 aparecen con su casilla marcada (`[x]`).
+   * **Sección Tags / Releases.** En la columna derecha de la pantalla de inicio de GitHub, comprueba que aparece la sección **Tags** y que al pulsar sobre ella se visualiza la etiqueta **`v0.1.0-sprint1`** con su fecha de creación.
+   * **Higiene.** Comprueba que en el listado de archivos no existen carpetas `.idea/`, ni `.class`, ni `out/`.
+   * **Estructura oficial.** Entra en `ed/docs/` y verifica que existen `entorno.png` (Entregable ED-1) y `marco-scrum.md` (Entregable ED-2).
+
+---
+
+### Resumen del Sprint 1 de Entornos de Desarrollo completado
+En estas 6 sesiones (9 horas lectivas en total):
+1. Has interiorizado los fundamentos de la **ingeniería del software (SDLC)** y el marco ágil **Scrum**.
+2. Cuentas con un taller de desarrollo profesional verificado (**OpenJDK 21 + IntelliJ IDEA**).
+3. Dominas el ciclo de vida de **Git** (los 3 estados, *Git Diff*, *Conventional Commits* y *Git Tags*).
+4. Tu repositorio en **GitHub** está impecablemente estructurado, documentado con **Markdown** y congelado bajo la versión oficial **`v0.1.0-sprint1`**, 100 % listo para ser calificado con la lista de cotejo de Entornos de Desarrollo.
