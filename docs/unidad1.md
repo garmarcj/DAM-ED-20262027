@@ -864,12 +864,6 @@ El archivo `.gitignore` situado en la raíz del proyecto le indica al motor de G
 Alba Torres y Pau Ferrer abren la terminal integrada de IntelliJ:
 > *«Ha llegado el momento de auditar nuestro repositorio antes de la entrega formal. Vamos a comprobar el estado de los archivos con Git, aprenderemos a eliminar del seguimiento cualquier archivo temporal que se haya colado por accidente y consolidaremos el archivo `.gitignore` definitivo de AzaharTech»*.
 
----
-
-Aquí tienes la reescritura completa de los cuatro pasos adaptada al entorno **100 % visual de IntelliJ IDEA**, sin utilizar ningún comando de terminal y empleando la nomenclatura en minúsculas:
-
----
-
 #### Paso 1. Auditoría visual de archivos en el árbol de proyectos de IntelliJ
 
 1. Abre tu proyecto en **IntelliJ IDEA**.
