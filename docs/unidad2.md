@@ -681,7 +681,7 @@ Pasamos al dojo de entrenamiento de herramientas, con tres **katas de auditoría
   5. Sincroniza la etiqueta con GitHub: menú **Git -> Push...**, marca la casilla **Push Tags: All** y pulsa **Push**.
   6. Abre tu navegador web, accede a tu repositorio de GitHub y verifica que en la sección lateral **Tags** aparece listada la versión `v0.2.0-sprint2`.
 
----
+--- 
 
 ##### Kata 3 (Cinturón negro / «Hacker AzaharTech»). Radiografía del Super POM mediante `mvn help:effective-pom`
 * **Contexto de arquitectura.** Inspeccionar la configuración completa real que la JVM y Maven aplican sobre el proyecto, combinando tu `pom.xml` con el Super POM heredado del sistema (CE 1.f).
