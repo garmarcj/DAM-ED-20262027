@@ -30,8 +30,8 @@ markdown_extensions:
   - pymdownx.tabbed
 plugins:
   - with-pdf:
-      output_path: pdf/programacion.pdf
+      output_path: pdf/entornosdedesarrollo.pdf
       cover: true
-      toc_title: "programación"
+      toc_title: "entornos de desarrollo"
       exclude_pages:
         - licencia.md
