@@ -32,6 +32,6 @@ plugins:
   - with-pdf:
       output_path: pdf/entornosdedesarrollo.pdf
       cover: true
-      toc_title: "entornos de desarrollo"
+      toc_title: "entornosdedesarrollo"
       exclude_pages:
         - licencia.md
