@@ -2,7 +2,7 @@
 
 ---
 
-## Semana 1. Código fuente, código objeto y tecnologías de virtualización
+## Semana 4. Código fuente, código objeto y tecnologías de virtualización
 
 ---
 
@@ -241,7 +241,7 @@ Pasamos al dojo de entrenamiento de herramientas, con tres **katas de ejecución
 
 ---
 
-## Semana 2. Herramientas de construcción y estandarización con Maven
+## Semana 5. Herramientas de construcción y estandarización con Maven
 
 ---
 
@@ -482,6 +482,10 @@ Pasamos al dojo de entrenamiento de herramientas, con tres **katas de gestión d
 
 ---
 
+## Semana 6. Gestion de dependencias y cierre del Sprint 2
+
+---
+
 ### Día 11 - 2 sesiones
 
 ---
@@ -697,5 +701,3 @@ Pasamos al dojo de entrenamiento de herramientas, con tres **katas de auditoría
      * El directorio por defecto de salida de clases: `<outputDirectory>.../target/classes</outputDirectory>`.
      * La versión interna del plugin de recursos: `maven-resources-plugin`.
   5. Redacta dos líneas de conclusión en tu libreta técnica: **¿por qué la herencia del Super POM ahorra cientos de líneas de configuración a los equipos de desarrollo de AzaharTech?**
-
----
