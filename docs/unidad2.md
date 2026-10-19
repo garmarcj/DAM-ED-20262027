@@ -295,9 +295,10 @@ proyecto-maven/
 
 ##### B. El archivo descriptor `pom.xml` y las coordenadas GAV
 El corazón de un proyecto Maven es el archivo **`pom.xml`** (*Project Object Model*). Es un archivo en formato XML que define la identidad del software mediante tres coordenadas universales (**GAV**):
-* **`groupId`.** Identificador de la organización o empresa, habitualmente en formato de dominio web invertido (*por ejemplo, `com.azahartech`*).
-* **`artifactId`.** Nombre del proyecto o módulo concreto en minúsculas y separado por guiones (*por ejemplo, `control-acceso-caminas`*).
-* **`version`.** Versión del desarrollo (*por ejemplo, `0.2.0-SNAPSHOT` para versiones en desarrollo*).
+
+* **`groupId`.** Identificador de la organización o empresa, habitualmente en formato de dominio web invertido (*por ejemplo, `com.azahartech`*).  
+* **`artifactId`.** Nombre del proyecto o módulo concreto en minúsculas y separado por guiones (*por ejemplo, `control-acceso-caminas`*).  
+* **`version`.** Versión del desarrollo (*por ejemplo, `0.2.0-SNAPSHOT` para versiones en desarrollo*).  
 
 ---
 
@@ -417,14 +418,16 @@ Es viernes por la tarde en **AzaharTech**. En la pantalla de pruebas, **Pau Ferr
 
 ##### A. La carpeta estándar `src/main/resources/`
 En el desarrollo profesional, los archivos que no son código Java (imágenes, audios, archivos de texto, plantillas o configuraciones) jamás se mezclan con las clases dentro de `src/main/java/`:
-* Se almacenan dentro del directorio reservado **`src/main/resources/`**.
-* Cuando ejecutas la fase **`compile`** en Maven, la herramienta invoca automáticamente un plugin interno (`maven-resources-plugin`) que toma todo el contenido de `resources/` y lo copia de forma transparente dentro de **`target/classes/`**.
-* De este modo, los recursos quedan empaquetados en la misma raíz que las clases y la JVM puede leerlos desde el *Classpath* sin importar en qué sistema operativo se ejecute la aplicación.
+
+* Se almacenan dentro del directorio reservado **`src/main/resources/`**.  
+* Cuando ejecutas la fase **`compile`** en Maven, la herramienta invoca automáticamente un plugin interno (`maven-resources-plugin`) que toma todo el contenido de `resources/` y lo copia de forma transparente dentro de **`target/classes/`**.  
+* De este modo, los recursos quedan empaquetados en la misma raíz que las clases y la JVM puede leerlos desde el *Classpath* sin importar en qué sistema operativo se ejecute la aplicación.  
 
 ##### B. El almacén mundial de software: Maven Central
 ¿Cómo sabe Maven de dónde descargar una librería cuando la necesitamos?
-* **Maven Central (`repo.maven.apache.org`).** Es el repositorio público oficial en la nube mantenido por la comunidad de software donde empresas y desarrolladores de todo el mundo publican sus librerías de Java certificadas.
-* Para localizar cualquier librería y conocer sus coordenadas exactas (**GAV**: `groupId`, `artifactId`, `version`), los desarrolladores consultamos el portal indexador oficial: **[mvnrepository.com](https://mvnrepository.com)**.
+
+* **Maven Central (`repo.maven.apache.org`).** Es el repositorio público oficial en la nube mantenido por la comunidad de software donde empresas y desarrolladores de todo el mundo publican sus librerías de Java certificadas.  
+* Para localizar cualquier librería y conocer sus coordenadas exactas (**GAV**: `groupId`, `artifactId`, `version`), los desarrolladores consultamos el portal indexador oficial: **[mvnrepository.com](https://mvnrepository.com)**.  
 
 ---
 
