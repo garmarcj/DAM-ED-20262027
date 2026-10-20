@@ -947,9 +947,9 @@ desktop.ini
 
 ---
 
-## Día 6 - 1 sesión
+### Día 6 - 1 sesión
 
-### Teoría. Versionado semántico y etiquetas (*TAGS*)
+#### Teoría. Versionado semántico y etiquetas (*TAGS*)
 
 #### 1. Caso guía AzaharTech
 Es viernes 2 de octubre por la tarde. Las tres semanas del Sprint 1 concluyen hoy formalmente. **Laia Claramunt** reúne por última vez en este sprint a todo el equipo de desarrollo de AzaharTech:
