@@ -2,7 +2,7 @@
 
 ---
 
-## Semana 4. Código fuente, código objeto y tecnologías de virtualización
+## Semana 4. Código fuente, bytecode y JVM
 
 ---
 
@@ -241,7 +241,7 @@ Pasamos al dojo de entrenamiento de herramientas, con tres **katas de ejecución
 
 ---
 
-## Semana 5. Herramientas de construcción y estandarización con Maven
+## Semana 5. Construcción y proyectos con Maven
 
 ---
 
@@ -485,7 +485,7 @@ Pasamos al dojo de entrenamiento de herramientas, con tres **katas de gestión d
 
 ---
 
-## Semana 6. Gestion de dependencias y cierre del Sprint 2
+## Semana 6. Gestión de dependencias y cierre
 
 ---
 

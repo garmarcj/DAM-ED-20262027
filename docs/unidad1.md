@@ -2,7 +2,7 @@
 
 ---
 
-## Semana 1. Fundamentos del software, ciclo de vida (SDLC) y puesta a punto del taller digital (IDE + JDK)
+## Semana 1. Ciclo de vida (SDLC) y taller IDE + JDK
 
 ---
 
@@ -415,7 +415,7 @@ Thumbs.db
 
 ---
 
-## Semana 2. Los tres estados de Git, inspección visual de diferencias (Git diff) y estándar de Conventional Commits
+## Semana 2. Estados de Git, diff visual y commits
 
 ---
 
@@ -776,7 +776,7 @@ Desarrollo de una solución informática multiplataforma para optimizar los proc
 
 ---
 
-## Semana 3. Ceremonias de cierre ágil (Sprint Review y Retrospective) e higiene técnica del repositorio (`.gitignore`)
+## Semana 3. Cierre de sprint e higiene (.gitignore)
 
 ---
 

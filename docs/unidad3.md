@@ -2,7 +2,7 @@
 
 ---
 
-## Semana 7. El depurador interactivo: puntos de ruptura (breakpoints), ejecución paso a paso e inspección de memoria
+## Semana 7. Depuracion interactiva e inspección de memoria
 
 ---
 
@@ -299,7 +299,7 @@ Durante los últimos 30 minutos de la sesión, cada estudiante pondrá a prueba 
 
 Al sonar el timbre, los estudiantes dejan confirmado su primer informe técnico de incidencia en Git. El código aún no es perfecto, pero el equipo dispone ya de los ojos de diagnóstico necesarios para abordar la construcción formal de casos de prueba y matrices de riesgo en las próximas semanas.
 
-## Semana 8. Diseño sistemático de pruebas: clases de equivalencia, análisis de valores límite y especificación de casos de prueba
+## Semana 8. Clases de equivalencia y cobertura
 
 ---
 
@@ -618,7 +618,7 @@ Cada alumno formaliza el estado de sus pruebas en el archivo `docs/pruebas/infor
 
 Con la ejecución confirmada y registrada en el control de versiones, el equipo dispone de un código verificado con métricas objetivas, sentando la base para las pruebas estructurales avanzadas y la depuración de algoritmos complejos de la próxima semana.
 
-## Semana 9. Pruebas estructurales, complejidad ciclomática y depuración de algoritmos complejos
+## Semana 9. Complejidad ciclomática y regresión
 
 ---
 
