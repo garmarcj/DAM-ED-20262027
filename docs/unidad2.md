@@ -1,4 +1,4 @@
-# Sprint 2. El viaje del código: compilación, máquinas virtuales y dependencias
+~~# Sprint 2. El viaje del código: compilación, máquinas virtuales y dependencias
 
 ---
 
@@ -493,121 +493,201 @@ Pasamos al dojo de entrenamiento de herramientas, con tres **katas de gestión d
 
 ---
 
-#### Sesion 1. Teoría. El infierno de las librerías frente a la gestión declarativa de dependencias
-
-#### 1. Caso guía en AzaharTech
-Son las tres de la tarde del lunes 19 de octubre de 2026. Entramos en la última semana del Sprint 2. En la sala de reuniones de **AzaharTech**, **Alba Torres** proyecta en la pantalla una nueva petición del equipo directivo del **IES El Caminàs**:
-
-> *«Equipo, el terminal de vestíbulo ya compila limpiamente bajo la estructura de Maven, pero ahora nos piden generar la imagen física del código QR para proyectarla en la pantalla. Ningún programador en el mundo escribe desde cero los miles de cálculos matemáticos necesarios para codificar una matriz de píxeles QR: para eso utilizamos **librerías de terceros** creadas y mantenidas por la comunidad.*
->
-> *En los proyectos de vuestros equipos ocurre exactamente lo mismo: **Aventura conversacional** y **Bóveda de contraseñas** necesitarán librerías para estructurar datos en formato JSON, **Motor de recomendación** requerirá herramientas para procesar texto avanzado y **Simulador de físicas 2D** necesitará funciones de cálculo vectorial.*
->
-> *Antiguamente, añadir una librería externa a un proyecto era una pesadilla técnica conocida como el 'infierno de las dependencias' (*Jar Hell*). Hoy aprenderemos cómo **Apache Maven automatiza la resolución declarativa de dependencias** y resuelve por nosotros las dependencias transitivas en cuestión de segundos»*.
+#### Sesión 1. Teoría. De la nada al código QR: Maven Central, dependencias declarativas y renderizado en memoria
 
 ---
 
-#### 2. El mecanismo de dependencias de Maven
+#### 1. Caso guía en AzaharTech
+
+Son las tres de la tarde del lunes 19 de octubre de 2026. Entramos en la última semana del **Sprint 2** en la sede de **AzaharTech** en Castellón de la Plana.
+
+En la pantalla de proyección, **Laia Claramunt** y **Alba Torres** muestran el nuevo requerimiento técnico enviado por la dirección del **IES El Caminàs**:
+
+> *«Equipo, el prototipo del instituto ya compila con la estructura estándar de Maven y gestiona limpiamente su ciclo de construcción. Pero hoy el cliente nos plantea un salto funcional determinante:*
+>
+> *El terminal de conserjería debe generar en pantalla el código QR del carné del estudiante para que el lector óptico del torno o el conserje puedan verificar su identidad en el acceso al centro.*
+>
+> *Programar un algoritmo de código QR desde cero requeriría meses implementando codificación binaria, máscaras de píxeles y corrección de errores Reed-Solomon. En la ingeniería de software profesional nadie reinventa la rueda.*
+>
+> *Para eso existe **Maven Central**: un repositorio público mundial con millones de librerías abiertas. Con solo declarar cuatro líneas en el archivo `pom.xml`, Maven descargará la librería industrial **ZXing Core** de Google, resolverá sus dependencias y nos permitirá generar una matriz QR real.*
+>
+> *Como todavía no hemos estudiado la gestión de ficheros en disco (que abordaremos más adelante en el curso), no guardaremos imágenes en carpetas: utilizaremos los bucles y condicionales que estáis aprendiendo en Programación para renderizar el código QR directamente en la consola con caracteres de texto. ¡Y será tan nítido que podréis escanearlo con la cámara de vuestro propio teléfono móvil apuntando a la pantalla del monitor!»*.
+
+---
+
+#### 2. El infierno de las librerías frente a la gestión declarativa de Maven
+
+Antes de la llegada de herramientas de construcción como Apache Maven, incorporar código de terceros era un proceso manual, frágil y propenso a errores conocido como el **Jar Hell** (*el infierno de los JARs*):
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│                        EL SISTEMA DE DEPENDENCIAS EN MAVEN             │
+│                   EVOLUCIÓN EN LA GESTIÓN DE LIBRERÍAS                 │
 ├───────────────────────────────────┬────────────────────────────────────┤
 │ Método artesanal antiguo          │ Gestión declarativa con Maven      │
 ├───────────────────────────────────┼────────────────────────────────────┤
-│ 1. Buscar el archivo .jar en webs │ 1. Añadir el bloque <dependency>   │
-│    inseguras en internet.         │    con las coordenadas GAV en el   │
-│ 2. Copiarlo a mano a una carpeta. │    archivo pom.xml.                │
-│ 3. Si requiere otra librería,     │ 2. Maven calcula el árbol de       │
-│    buscarla también a mano.       │    dependencias y descarga todo de │
-│ 4. Si falta una: fallo en runtime.│    forma automática y segura.      │
+│ 1. Buscar y descargar archivos    │ 1. Declarar coordenadas GAV en el  │
+│    .jar en páginas web diversas.  │    archivo pom.xml.                │
+│ 2. Copiarlos a mano en carpetas   │ 2. Maven descarga y valida         │
+│    locales del proyecto.          │    automáticamente los binarios    │
+│ 3. Si la librería necesita otra   │    desde Maven Central.            │
+│    librería secundaria, buscarla  │ 3. Resolución automática del árbol │
+│    manualmente a ciegas.          │    completo de dependencias        │
+│ 4. Errores de ClassNotFoundException│    transitivas en ~/.m2/repository.│
+│    en tiempo de ejecución.        │ 4. Integración transparente en el  │
+│                                   │    Classpath del IDE.              │
 └───────────────────────────────────┴────────────────────────────────────┘
 ```
 
-##### A. El bloque `<dependencies>` en el archivo `pom.xml`
-Para incorporar una librería externa certificada, el desarrollador no descarga ningún archivo manualmente; simplemente declara en su archivo `pom.xml` qué librería necesita utilizando sus coordenadas universales (**GAV**):
+##### Coordenadas GAV y dependencias transitivas
+Para solicitar una librería a Maven Central, únicamente debemos indicar sus tres coordenadas universales: **GroupId**, **ArtifactId** y **Version**:
+
+* **Dependencia directa:** Aquella que declaras explícitamente en el bloque `<dependencies>` de tu `pom.xml`.
+* **Dependencia transitiva:** Si la librería que has solicitado necesita a su vez otras librerías auxiliares para operar, Maven analiza el descriptor remoto de esa librería y descarga toda la cadena de dependencias de forma automática.
+
+```
+RESOLUCIÓN DECLARATIVA EN MAVEN:
+
+   Tu pom.xml ────► Solicita: [com.google.zxing:core:3.5.3]
+                           │
+                           ▼
+                    Maven Central
+                           │ (Descarga automática a caché local)
+                           ▼
+                 ~/.m2/repository/com/google/zxing/core/3.5.3/core-3.5.3.jar
+                           │
+                           ▼
+                Classpath de tu aplicación (Listo para usar en Java)
+```
+
+---
+
+#### 3. El caso guía en acción: Renderizado de QR en memoria y consola
+
+Pau Ferrer abre IntelliJ IDEA y muestra el procedimiento completo para dotar al proyecto del IES El Caminàs de su generador de códigos QR sin tocar el sistema de archivos:
+
+##### Paso 1: Declarar la dependencia en el `pom.xml`
+Abrimos el archivo de configuración de Maven y añadimos el bloque de dependencias:
 
 ```xml
 <dependencies>
+    <!-- Motor de cálculo y generación de matrices QR de Google -->
     <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-lang3</artifactId>
-        <version>3.14.0</version>
+        <groupId>com.google.zxing</groupId>
+        <artifactId>core</artifactId>
+        <version>3.5.3</version>
     </dependency>
 </dependencies>
 ```
 
-##### B. El concepto clave: dependencias transitivas (*Transitive dependencies*)
-¿Qué sucede si la librería que has añadido necesita a su vez otras dos librerías secundarias para funcionar?
-* En un proyecto sin herramientas de construcción, el programa fallaría en tiempo de ejecución con un error de tipo `NoClassDefFoundError`.
-* **La magia de Maven:** Maven lee los archivos `pom.xml` de las librerías que descargas, construye un **grafo de dependencias** en memoria y descarga automáticamente todas las librerías secundarias e indirectas que el software requiera.
+##### Paso 2: Sincronizar Maven en IntelliJ IDEA
+Tras editar el archivo, pulsamos el botón flotante con el icono de Maven (o el atajo **`Ctrl + Shift + O`**). IntelliJ contacta con Maven Central, descarga el archivo JAR en milisegundos y lo añade a las librerías del proyecto.
 
-##### C. El ámbito de las dependencias (*Scope*)
-No todas las librerías deben estar presentes en todos los momentos del ciclo de vida del software:
-* **`compile` (por defecto).** La librería es necesaria para compilar, probar y ejecutar el programa en producción.
-* **`test`.** La librería solo se necesita durante la ejecución de pruebas automatizadas y no se incluirá en el software final entregado al cliente (se profundizará en el Sprint 6 con JUnit).
-* **`provided`.** La librería se requiere para compilar, pero en producción la proporcionará el propio entorno o servidor.
+##### Paso 3: Dibujar la matriz en la consola
+Creamos la clase `GeneradorQRCaminas`. La librería externa realiza los cálculos matemáticos avanzados y nos entrega una matriz bidimensional de bits (`BitMatrix`). Nosotros nos limitamos a recorrerla con dos bucles anidados e imprimir caracteres de bloque en pantalla:
 
----
+```java
+package es.azahartech.caminas;
 
-#### 3. Actividad activa interactiva: Análisis del árbol de dependencias
-*Los estudiantes debaten y resuelven un problema de arquitectura de dependencias en papel antes de codificar:*
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 
-1. **El reto del conflicto de versiones:**
-    * Supongamos que en nuestro proyecto declaramos la *Librería A* (que internamente requiere la *Librería C en su versión 1.0*).
-    * Al mismo tiempo, añadimos la *Librería B* (que internamente requiere la misma *Librería C pero en su versión 2.0*).
-2. **Dinámica de análisis por parejas:**
-    * ¿Qué versión de la *Librería C* creéis que elegirá Maven para evitar duplicidades en el Classpath?
-    * *Regla de resolución de Maven:* Maven aplica la **regla del camino más corto (*Nearest Definition*)**: utiliza la versión que esté a menos niveles de distancia del `pom.xml` raíz. Si están al mismo nivel, prevalece la que se declaró primero en el archivo.
+public class GeneradorQRCaminas {
 
----
+    public static void main(String[] args) throws Exception {
+        String datosAlumno = "ALUMNO:12004217;CENTRO:IES_EL_CAMINAS;CURSO:1DAM";
 
-#### 4. Puesta en común y sincronización en IntelliJ IDEA
-* El docente muestra en pantalla cómo el IDE detecta inmediatamente cualquier modificación en el archivo `pom.xml`.
-* Se localiza el icono flotante de recarga de Maven (**Reload Changes** o atajo **`Ctrl + Shift + O`**) y se observa la barra de progreso inferior de IntelliJ mientras descarga los paquetes del repositorio central.
+        // 1. Invocamos a la librería externa para calcular la matriz QR
+        QRCodeWriter escritorQR = new QRCodeWriter();
+        // Generamos una matriz de 25x25 módulos en memoria
+        BitMatrix matriz = escritorQR.encode(datosAlumno, BarcodeFormat.QR_CODE, 25, 25);
+
+        System.out.println("=================================================");
+        System.out.println("  CÓDIGO QR EN CONSOLA - ACCESO IES EL CAMINÀS   ");
+        System.out.println("  Apunta con la cámara de tu móvil a la pantalla ");
+        System.out.println("=================================================\n");
+
+        // 2. Recorrido bidimensional de la matriz en memoria RAM (sin ficheros)
+        for (int y = 0; y < matriz.getHeight(); y++) {
+            for (int x = 0; x < matriz.getWidth(); x++) {
+                // Si la posición tiene bit activo pintamos doble bloque negro "██";
+                // si no, pintamos dos espacios en blanco "  "
+                if (matriz.get(x, y)) {
+                    System.out.print("██");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println(); // Salto a la siguiente fila
+        }
+
+        System.out.println("\n[OK] Código QR generado en memoria RAM y renderizado con éxito.");
+    }
+}
+```
+
+Al pulsar **Run (`Shift + F10`)**, la terminal de IntelliJ se transforma en un panel gráfico de texto: los estudiantes enfocan la consola con sus teléfonos móviles y la cámara reconoce al instante el texto codificado del instituto.
 
 ---
 
 #### Sesión 2. Dojo de entrenamiento y katas de herramientas
-Pasamos al dojo de entrenamiento de herramientas, con tres **katas de integración declarativa de dependencias, inspección de dependencias transitivas y gestión de ámbitos** para entrenar la integración de librerías profesionales:
+
+Pasamos a los puestos individuales. Cada alumno integrará una librería externa especializada de Maven Central en su proyecto de la bolsa para incorporar funciones profesionales sin necesidad de manipular ficheros:
 
 ---
 
-##### Kata 1 (Cinturón blanco / Nivel base). Declaración y uso de una librería oficial en el proyecto propio
-* **Objetivo.** Añadir una primera dependencia externa certificada al archivo `pom.xml` de tu proyecto propio, sincronizar Maven en IntelliJ IDEA y comprobar que sus clases quedan disponibles en el editor con autocompletado inteligente.
-* **Aplicación según tu proyecto elegido:**
-    * En **Aventura conversacional**. Abrir el `pom.xml` y añadir la librería **`org.apache.commons:commons-lang3:3.14.0`** para manipulación avanzada de textos y diálogos. Comprobar que en `MiProyecto.java` puedes invocar utilidades como `StringUtils`.
-    * En **Motor de recomendación**. Añadir la dependencia **`org.apache.commons:commons-lang3:3.14.0`** para formateo de matrices de afinidad y comprobar que el IDE resuelve las clases externas sin errores de compilación.
-    * En **Simulador de físicas 2D**. Añadir la librería matemática **`org.apache.commons:commons-math3:3.6.1`** (organización `org.apache.commons`) para futuros cálculos vectoriales de precisión y sincronizar el proyecto con `Ctrl + Shift + O`.
-    * En **Bóveda de contraseñas**. Añadir la dependencia **`org.apache.commons:commons-lang3:3.14.0`** para el tratamiento avanzado de caracteres y cadenas seguras, verificando que la librería se descarga en el repositorio local.
+##### Kata 1 (Cinturón blanco / Nivel base). El generador QR en tu entorno local
+
+* **Objetivo.** Integrar la dependencia `zxing:core` en el proyecto del caso guía, sincronizar el proyecto con Maven Central y renderizar un código QR funcional en la consola de tu equipo.
+* **Misión:**
+    1. Abre el archivo `pom.xml` e introduce el bloque `<dependencies>` con `com.google.zxing:core:3.5.3`.
+    2. Sincroniza el gestor con **`Ctrl + Shift + O`**.
+    3. Implementa la clase de renderizado en `src/main/java/` y ejecuta el programa.
+    4. Comprueba que el código QR aparece perfectamente cuadrado en la consola inferior de IntelliJ. Si se ve deformado, ajusta el ancho de los caracteres utilizando el doble bloque `"██"`.
+    5. Escanéalo con tu propio móvil y verifica que lee los datos del alumno correctamente.
 
 ---
 
-##### Kata 2 (Cinturón marrón / Nivel avanzado). Inspección visual del árbol de dependencias transitivas
-* **Contexto técnico.** Un desarrollador de software debe saber qué librerías secundarias ha introducido indirectamente en su proyecto para evitar problemas de licencias o vulnerabilidades de seguridad.
-* **Misión de la kata:**
-    1. Abre el panel lateral **Maven** en el margen derecho de IntelliJ IDEA.
-    2. Localiza y despliega la carpeta denominada **Dependencies**.
-    3. Comprueba que aparece la librería que declaraste en la Kata 1 y observa cómo debajo de ella se listan las librerías secundarias (*transitivas*) que Maven ha descargado automáticamente.
-    4. Abre la terminal integrada de IntelliJ (`Alt + F12`) en la raíz del proyecto y ejecuta el comando oficial de diagnóstico de dependencias de Maven:
-       ```bash
-       mvn dependency:tree
-       ```
-    5. Inspecciona el árbol resultante en texto plano y localiza en qué rama del árbol reside cada componente descargado.
+##### Kata 2 (Cinturón marrón / Nivel avanzado). Inyección de superpoderes Maven en tu proyecto propio
+
+* **Contexto técnico.** En la industria del software seleccionamos librerías consolidadas para dotar a nuestros programas de capacidades avanzadas en memoria sin escribir código redundante.
+* **Misión según tu proyecto de la bolsa:**
+
+    * **En Aventura conversacional:**
+        * *Librería:* **`com.github.freva:ascii-table:1.8.0`** (Generador de tablas formateadas en consola).
+        * *Aplicación:* Declara la dependencia en tu `pom.xml` y utiliza su API para sustituir los textos planos del menú por una tabla alineada en consola que muestre las estadísticas del personaje (Nivel, Puntos de Vida `HP`, Puntos de Magia `MP` y Oro) con bordes dobles profesionales.
+
+    * **En Motor de recomendación:**
+        * *Librería:* **`org.apache.commons:commons-math3:3.6.1`** (Matemáticas avanzadas de Apache).
+        * *Aplicación:* Declara la dependencia en tu `pom.xml` e instancia dos objetos `ArrayRealVector` para representar las valoraciones numéricas de dos usuarios. Utiliza el método `.cosine(otroVector)` para calcular la similitud coseno entre ambos en una sola línea de código e imprime el porcentaje de afinidad por consola.
+
+    * **En Simulador de físicas 2D:**
+        * *Librería:* **`org.joml:joml:1.10.5`** (Álgebra vectorial en memoria).
+        * *Aplicación:* Declara la dependencia y sustituye las variables primitivas de posición y aceleración por un objeto `Vector2f`. Aplica la aceleración sobre la velocidad mediante el método vectorial `velocidad.add(aceleracion)` e imprime las nuevas coordenadas resultantes en la consola.
+
+    * **En Bóveda de contraseñas:**
+        * *Librería:* **`org.mindrot:jbcrypt:0.4`** (Algoritmo de cifrado y derivación de claves BCrypt).
+        * *Aplicación:* Declara la dependencia y utiliza `BCrypt.hashpw(passwordPlana, BCrypt.gensalt(12))` para generar en memoria un hash criptográfico real de 60 caracteres. Imprime el resultado en consola y comprueba mediante `BCrypt.checkpw()` cómo la librería valida si una contraseña introducida coincide o no sin necesidad de descifrarla.
 
 ---
 
-##### Kata 3 (Cinturón negro / «Hacker AzaharTech»). Aislamiento de dependencias mediante ámbitos (`<scope>`)
-* **Contexto de arquitectura.** Comprender cómo la etiqueta `<scope>` permite aislar librerías de prueba para que no se filtren por descuido en el código de producción de la aplicación.
-* **Misión de la kata:**
-    1. En tu archivo `pom.xml`, edita la dependencia añadida en la Kata 1 e introduce la etiqueta de ámbito de pruebas:
-       ```xml
-       <scope>test</scope>
-       ```
-    2. Sincroniza Maven con el atajo `Ctrl + Shift + O`.
-    3. Abre tu clase de código fuente en `src/main/java/MiProyecto.java` e intenta importar alguna clase de esa librería (por ejemplo, `import org.apache.commons.lang3.StringUtils;`).
-    4. Observa cómo IntelliJ resalta la línea en rojo con un error de compilación: **la librería existe en el disco duro, pero el ámbito `test` le prohíbe al código principal acceder a ella**.
-    5. Elimina la etiqueta `<scope>test</scope>` (o devuélvela a su valor por defecto `compile`) y vuelve a sincronizar para restaurar la visibilidad en todo el proyecto.
-    6. Redacta dos líneas en tu cuaderno técnico: **¿por qué aislar dependencias según su ámbito mejora la seguridad y reduce el peso del software en producción?**
+##### Kata 3 (Cinturón negro / «Hacker AzaharTech»). Radiografía de Maven Central y confirmación visual en Git
+
+* **Contexto de arquitectura.** Un desarrollador senior debe auditar físicamente dónde residen los binarios descargados y confirmar las modificaciones en el repositorio respetando las buenas prácticas del equipo.
+* **Misión:**
+    1. **Inspección de la caché local (.m2):**
+        * Localiza en el explorador de archivos de tu sistema operativo la carpeta oculta de Maven en tu directorio de usuario: `~/.m2/repository/` (o `%USERPROFILE%\.m2\repository\` en Windows).
+        * Navega hasta la carpeta correspondiente a tu librería (por ejemplo, `com/google/zxing/core/3.5.3/`) y comprueba que Maven ha descargado el archivo `.jar` compilado y su archivo descriptor `.pom`.
+    2. **Auditoría visual de dependencias en IntelliJ:**
+        * Abre la pestaña lateral derecha **Maven**.
+        * Despliega la rama **Dependencies** de tu proyecto y confirma que la librería aparece con su icono azul vinculada al proyecto.
+    3. **Commit visual en IntelliJ IDEA (sin consola):**
+        * Pulsa **`Ctrl + K`** (o abre la pestaña lateral izquierda *Commit*).
+        * En el visor de diferencias (*Diff Viewer*), haz doble clic sobre `pom.xml` para comprobar visualmente que solo se han añadido las etiquetas de dependencias.
+        * Marca con visto bueno (`[x]`) los archivos modificados (`pom.xml` y la nueva clase Java).
+        * Escribe en el cuadro de texto el mensaje estructurado:
+          `feat(core): incorporada libreria externa maven y renderizado en memoria`
+        * Haz clic en el botón azul **Commit**.
 
 ---
 
@@ -615,92 +695,147 @@ Pasamos al dojo de entrenamiento de herramientas, con tres **katas de integraci�
 
 ---
 
-#### Teoria. Auditoría de proyecto Maven y registro de release v0.2.0
-
-#### 1. Caso guía en AzaharTech
-Es viernes 23 de octubre por la tarde en la sede de **AzaharTech**. Las tres semanas de trabajo del **Sprint 2** concluyen hoy formalmente. 
-
-En la sala de reuniones, **Laia Claramunt** proyecta el estado del repositorio corporativo del caso guía del **IES El Caminàs**:
-> *«Equipo, contemplad el salto de ingeniería que hemos dado en este segundo ciclo de desarrollo. En el Sprint 1 teníamos archivos de código sueltos compilados a mano; hoy disponemos de un proyecto industrial estandarizado bajo **Apache Maven**, con su jerarquía oficial `src/main/java` y `src/main/resources`, gobernado por un archivo descriptor `pom.xml`, con resolución automática de dependencias y plenamente verificado en la máquina virtual.*
->
-> *En los proyectos de vuestros equipos (**Aventura conversacional**, **Motor de recomendación**, **Simulador de físicas 2D** y **Bóveda de contraseñas**) habéis logrado la misma madurez técnica.*
->
-> *Hoy cerraremos este hito aplicando las buenas prácticas de la empresa: auditaremos que el archivo `.gitignore` mantiene el repositorio limpio de compilados en la carpeta `target/`, actualizaremos el panel de tareas del `README.md` y congelaremos el segundo incremento de software mediante la etiqueta formal de versión **`v0.2.0-sprint2`**»*.
+#### Taller de consolidación: ciclo de vida de Maven, higiene de repositorio y cierre formal del Sprint 2
 
 ---
 
-#### 2. Micro-exposición docente: Versionado semántico y herencia del Super POM
+#### 1. Caso guía en AzaharTech
+
+Viernes 23 de octubre de 2026. Son las cuatro de la tarde en la oficina de **AzaharTech** en Castellón de la Plana. La jornada marca el cierre definitivo del **Sprint 2: «El viaje del código: compilación, máquinas virtuales y dependencias»**.
+
+En las pantallas de los puestos de desarrollo, el generador de códigos QR del **IES El Caminàs** y los cuatro proyectos singulares de la bolsa (**Aventura conversacional**, **Motor de recomendación**, **Simulador de físicas 2D** y **Bóveda de contraseñas**) se ejecutan con fluidez: cada uno incorpora ya librerías externas de primer nivel gestionadas por Maven Central y renderizadas limpiamente en memoria RAM sin necesidad de ensuciar el disco con ficheros temporales.
+
+**Laia Claramunt** y **Pau Ferrer** reúnen al equipo frente al proyector para la sesión de cierre:
+
+> *«Equipo, en este segundo sprint habéis conquistado un terreno técnico crucial: sabéis cómo el compilador genera bytecode, cómo la JVM lo interpreta en cualquier plataforma y cómo Maven descarga y enlaza dependencias industriales en cuestión de segundos.*
+>
+> *Sin embargo, antes de dar un sprint por completado en AzaharTech, todo software debe superar dos controles de calidad indispensables:*
+> 1. *Validar que el ciclo de vida de Maven ejecuta las fases de limpieza y compilación sin depender de configuraciones manuales del IDE.*
+> 2. *Auditar la higiene estricta de Git: verificar que la carpeta `target/` y los metadatos internos del sistema jamás contaminen el repositorio remoto en GitHub.*
+>
+> *Hoy cerraremos formalmente el Sprint 2 ejecutando el ciclo de vida de Maven desde la interfaz de IntelliJ IDEA y realizando el commit y push visual definitivo antes de encarar el lunes el Sprint 3: el laberinto de la lógica, las pruebas formales y la depuración interactiva»*.
+
+---
+
+#### 2. La prueba de fuego: ciclo de vida visual de Maven en IntelliJ
+
+Cuando un proyecto integra librerías externas, la compilación no se limita a invocar al compilador `javac`: Maven debe verificar la integridad de las dependencias alojadas en `~/.m2/repository` y enlazarlas en el *Classpath* de compilación.
+
+Para comprobar que el proyecto compila de forma reproducible y autónoma, los desarrolladores ejecutan las fases del ciclo de vida utilizando la **ventana lateral de Maven** de IntelliJ IDEA:
+
+```
+                  VENTANA LATERAL DE MAVEN EN INTELLIJ IDEA
+                  
+       ┌────────────────────────────────────────────────────────┐
+       │ Maven                                              [-] │
+       ├────────────────────────────────────────────────────────┤
+       │ ▼ mi-proyecto                                          │
+       │   ▼ Lifecycle                                          │
+       │       clean     ◄── (1. Doble clic: borra target/)     │
+       │       validate                                         │
+       │       compile   ◄── (2. Doble clic: compila + .m2)     │
+       │       test                                             │
+       │       package                                          │
+       │   ► Plugins                                            │
+       │   ► Dependencies (Librerías externas enlazadas)        │
+       └────────────────────────────────────────────────────────┘
+```
+
+##### Verificación en dos pasos:
+1. **Fase `clean`:**
+    * Haz doble clic sobre **clean** dentro del menú *Lifecycle*.
+    * Observa cómo la carpeta de salida `target/` desaparece instantáneamente del árbol del proyecto, garantizando que no queden restos de compilaciones previas.
+2. **Fase `compile`:**
+    * Haz doble clic sobre **compile**.
+    * Maven analiza el archivo `pom.xml`, valida las dependencias externas (como `zxing-core`), compila todo el código fuente de `src/main/java/` y genera de nuevo la estructura binaria en `target/classes/`.
+    * La consola inferior de Maven debe culminar con el mensaje en verde:
+      `[INFO] BUILD SUCCESS`.
+
+---
+
+#### 3. Auditoría de higiene del repositorio: el archivo `.gitignore`
+
+Uno de los errores más graves de un desarrollador júnior es versionar en Git los archivos binarios compilados o los archivos de configuración local de su propio ordenador.
+
+En un proyecto gestionado con Maven, el código fuente (`src/`) y la receta de construcción (`pom.xml`) son los **únicos** elementos necesarios para reconstruir el software en cualquier máquina del mundo.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│                        EVOLUCIÓN DEL VERSIONADO SEMÁNTICO              │
-├───────────────────────────────┬────────────────────────────────────────┤
-│ Tag Sprint 1: v0.1.0-sprint1  │ Tag Sprint 2: v0.2.0-sprint2           │
-├───────────────────────────────┼────────────────────────────────────────┤
-│ • Esqueleto de código secuencial│ • Migración a estructura Maven       │
-│ • Compilación manual en IDE   │ • Compilación automatizada en lifecycle│
-│ • Taller digital básico       │ • Gestión declarativa de dependencias  │
-└───────────────────────────────┴────────────────────────────────────────┘
+│                   MAPA DE HIGIENE TÉCNICA DEL REPOSITORIO              │
+├────────────────────────────┬─────────────┬─────────────────────────────┤
+│ Elemento / Directorio      │ ¿Va a Git?  │ Justificación técnica       │
+├────────────────────────────┼─────────────┼─────────────────────────────┤
+│ src/                       │ SÍ          │ Código fuente y recursos.   │
+│ pom.xml                    │ SÍ          │ Declaración del proyecto.   │
+│ README.md                  │ SÍ          │ Documentación del software. │
+├────────────────────────────┼─────────────┼─────────────────────────────┤
+│ target/                    │ NUNCA       │ Bytecode autogenerado.      │
+│ .idea/ y *.iml             │ NUNCA       │ Configuración de tu IDE.    │
+│ .DS_Store / Thumbs.db      │ NUNCA       │ Basura del sistema operativo│
+└────────────────────────────┴─────────────┴─────────────────────────────┘
 ```
 
-##### A. El incremento del dígito menor (*Minor version*)
-Siguiendo el estándar internacional **SemVer 2.0.0**:
-* Avanzamos de la versión `0.1.0` a la **`0.2.0`**.
-* Se incrementa el dígito central (*Minor*) porque hemos incorporado una nueva infraestructura completa (Apache Maven, dependencias externas y recursos empaquetados) manteniendo la compatibilidad con el código previo del Sprint 1.
+##### Inspección visual en el árbol de IntelliJ IDEA
+Cada estudiante abre el archivo `.gitignore` situado en la raíz del proyecto y confirma que contiene las exclusiones estándar de la empresa:
 
-##### B. El concepto del Super POM en Maven
-¿Por qué nuestro archivo `pom.xml` solo tiene 20 líneas pero es capaz de ejecutar tareas tan complejas?
-* Maven utiliza el principio de **herencia de configuración**: todo archivo `pom.xml` hereda de forma invisible de un archivo maestro del sistema llamado **Super POM**.
-* El Super POM define las versiones por defecto de los plugins del compilador (`maven-compiler-plugin`), las rutas universales de carpetas y los repositorios remotos oficiales como Maven Central.
+```gitignore
+# Directorio de construcción y binarios de Maven
+target/
 
----
+# Metadatos del entorno de desarrollo (IntelliJ IDEA)
+.idea/
+*.iml
+out/
 
-#### Dojo de entrenamiento y katas de herramientas
+# Archivos de índices del sistema operativo
+.DS_Store
+Thumbs.db
+```
 
-Pasamos al dojo de entrenamiento de herramientas, con tres **katas de auditoría técnica de Maven, etiquetado de versión en Git y análisis del Super POM** para registrar con rigor el segundo sprint del curso:
-
----
-
-##### Kata 1 (Cinturón blanco / Nivel base). Auditoría de proyecto Maven y actualización del panel README
-* **Objetivo.** Comprobar que el proyecto Maven compila limpiamente desde el ciclo de vida de IntelliJ IDEA, verificar que la carpeta `target/` no se sube a GitHub gracias al `.gitignore` y actualizar el checklist del Sprint 2 en el archivo `README.md`.
-* **Aplicación según tu proyecto elegido:**
-  * En **Aventura conversacional**. Abrir el panel de Maven en IntelliJ, ejecutar la fase `clean` seguida de `compile`, verificar que el `README.md` describe la integración de Maven y comprobar que el árbol de trabajo de Git permanece limpio.
-  * En **Motor de recomendación**. Verificar que la carpeta `target/` aparece en color gris atenuado en el árbol de proyectos, asegurando que los archivos `.class` compilados no se subirán a la nube.
-  * En **Simulador de físicas 2D**. Comprobar que los recursos en `src/main/resources/` se copian correctamente a `target/classes/` tras compilar y actualizar las tareas del Sprint 2 como completadas (`- [x]`) en el `README.md`.
-  * En **Bóveda de contraseñas**. Realizar una compilación limpia del proyecto con su dependencia declarada y confirmar que el archivo `pom.xml` está guardado sin advertencias de sintaxis XML.
+> **Comprobación visual de Pau Ferrer:** En el panel del explorador de proyectos de IntelliJ, la carpeta `target/` debe mostrarse con una tipografía de **color naranja oscuro o gris atenuado** (*ignored*). Si aparece en color blanco, azul o rojo, Git la está vigilando por error y debe regularizarse de inmediato antes del commit.
 
 ---
 
-##### Kata 2 (Cinturón marrón / Nivel avanzado). Congelación y etiquetado oficial de la release (`v0.2.0-sprint2`)
-* **Contexto técnico.** En la ingeniería del software profesional, cada entrega validada de sprint se sella en el historial de Git mediante una etiqueta de versión inmutable para que el cliente y el docente puedan auditar el incremento exacto.
-* **Misión de la kata:**
-  1. En IntelliJ IDEA, abre el panel de confirmación visual de Git (**`Ctrl + K`**).
-  2. Comprueba que están seleccionados únicamente los cambios de documentación (`README.md` y `pom.xml`) y escribe el mensaje convencional de cierre:
-     ```text
-     docs(ed): cerrar sprint 2 con estructura maven y dependencias integradas
-     ```
-  3. Pulsa **Commit and Push**.
-  4. Crea la etiqueta de versión oficial desde la interfaz visual de IntelliJ:
-     * Menú superior: **Git -> New Tag...**
-     * **Tag Name:** `v0.2.0-sprint2`
-     * **Message:** `Release oficial del sprint 2 - Proyecto Maven con dependencias AzaharTech`
-     * Pulsa **Create Tag**.
-  5. Sincroniza la etiqueta con GitHub: menú **Git -> Push...**, marca la casilla **Push Tags: All** y pulsa **Push**.
-  6. Abre tu navegador web, accede a tu repositorio de GitHub y verifica que en la sección lateral **Tags** aparece listada la versión `v0.2.0-sprint2`.
+#### 4. Cierre formal del Sprint 2 mediante Commit y Push visual
 
---- 
+Siguiendo el estándar pedagógico de AzaharTech, el cierre del sprint se formaliza **exclusivamente a través de la interfaz gráfica de IntelliJ IDEA**, sin recurrir a la terminal de comandos:
 
-##### Kata 3 (Cinturón negro / «Hacker AzaharTech»). Radiografía del Super POM mediante `mvn help:effective-pom`
-* **Contexto de arquitectura.** Inspeccionar la configuración completa real que la JVM y Maven aplican sobre el proyecto, combinando tu `pom.xml` con el Super POM heredado del sistema (CE 1.f).
-* **Misión de la kata:**
-  1. Abre la terminal integrada de IntelliJ (`Alt + F12`) en el directorio donde reside tu archivo `pom.xml`.
-  2. Ejecuta el comando de diagnóstico avanzado de Maven:
-     ```bash
-     mvn help:effective-pom
-     ```
-  3. Observa cómo la terminal genera un documento XML de cientos de líneas: es el **POM Efectivo**.
-  4. Localiza dentro de la salida los siguientes tres elementos heredados que tú no tuviste que escribir:
-     * La URL oficial del repositorio central: `https://repo.maven.apache.org/maven2`.
-     * El directorio por defecto de salida de clases: `<outputDirectory>.../target/classes</outputDirectory>`.
-     * La versión interna del plugin de recursos: `maven-resources-plugin`.
-  5. Redacta dos líneas de conclusión en tu libreta técnica: **¿por qué la herencia del Super POM ahorra cientos de líneas de configuración a los equipos de desarrollo de AzaharTech?**
+```
+                VENTANA VISUAL DE COMMIT EN INTELLIJ IDEA (Ctrl + K)
+                
+ ┌────────────────────────────────────────────────────────────────────────┐
+ │ Commit: Local Changes                                                  │
+ ├────────────────────────────────────────────────────────────────────────┤
+ │ Changes (2 files)                                                      │
+ │  [x] pom.xml                        (dependencia zxing/externa)        │
+ │  [x] src/main/java/.../App.java     (renderizado de QR / lógica)      │
+ ├────────────────────────────────────────────────────────────────────────┤
+ │ Mensaje de confirmación:                                               │
+ │ ┌────────────────────────────────────────────────────────────────────┐ │
+ │ │ feat(core): integradas dependencias maven y renderizado en memoria │ │
+ │ └────────────────────────────────────────────────────────────────────┘ │
+ │                                                                        │
+ │ [ Commit v ]  ──► Desplegar flecha: [ Commit and Push... ]            │
+ └────────────────────────────────────────────────────────────────────────┘
+```
+
+##### Pasos visuales paso a paso:
+1. **Abrir la herramienta visual de cambios:**
+    * Pulsa el atajo universal **`Ctrl + K`** (en Windows/Linux) o haz clic en la pestaña vertical izquierda **Commit** (`Alt + 0`).
+2. **Revisión de diferencias (*Diff Viewer*):**
+    * Haz doble clic sobre `pom.xml` en la lista de cambios. Comprueba en el panel comparativo que las etiquetas `<dependency>` se han introducido de forma limpia.
+    * Haz doble clic sobre la clase Java para certificar que el código recorre la matriz en memoria sin dependencias de ficheros.
+3. **Selección de archivos:**
+    * Marca con visto bueno (`[x]`) únicamente los archivos modificados que deben formar parte del repositorio (`pom.xml`, `.gitignore` y clases Java bajo `src/main/java/`).
+    * Cerciórate de que ningún fichero dentro de `target/` aparece seleccionado.
+4. **Redacción del mensaje de commit:**
+    * Escribe en el cuadro de texto el mensaje formal de cierre:
+      `feat(core): integradas dependencias maven y renderizado en memoria`
+5. **Confirmación y sincronización con GitHub (*Commit and Push*):**
+    * Haz clic sobre la flecha desplegable del botón azul y selecciona **Commit and Push...** (o pulsa **`Ctrl + Alt + K`**).
+    * En la ventana emergente de confirmación de subida (*Push Commits*), revisa que la rama de destino sea tu repositorio personal en GitHub y haz clic en el botón azul **Push**.
+
+Al mostrarse la notificación emergente verde en la esquina inferior derecha (*«Pushed 1 commit to origin/main»*), el **Sprint 2: «El viaje del código: compilación, máquinas virtuales y dependencias»** queda oficialmente completado y sellado.
+
+El equipo domina la construcción automatizada, el enlace de librerías de Maven Central y la higiene del repositorio digital. El próximo lunes arrancará el **Sprint 3**, donde utilizaremos el depurador interactivo de IntelliJ para aprender a congelar la ejecución y cazar los errores de nuestras estructuras de control algorítmicas.
+
