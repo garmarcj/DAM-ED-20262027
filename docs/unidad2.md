@@ -331,8 +331,21 @@ El corazón de un proyecto Maven es el archivo **`pom.xml`** (*Project Object Mo
 
 ---
 
-#### 4. Puesta en común de coordenadas en la pizarra
-* Validación cruzada: varios alumnos indican en voz alta las coordenadas GAV diseñadas para verificar que cumplen las normas de nomenclatura técnica (sin mayúsculas, sin espacios y con identificadores claros).
+#### 4. Puesta a punto de proyectos con estructura de directorios de Maven modificada
+La estructura de directorios de los proyectos realizados por los equipos es diferente de la estructura básica de Maven. 
+
+Para que Maven pueda reconocer cada proyecto como propio, se debe añadir al pom.xml las siguientes líneas (dentro de la etiqueta project):
+
+```xml
+    <build>
+        <sourceDirectory>pr/src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>pr/src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
+```
 
 ---
 
