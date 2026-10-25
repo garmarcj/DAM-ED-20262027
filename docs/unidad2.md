@@ -682,6 +682,24 @@ Pasamos a los puestos individuales. Cada alumno integrará una librería externa
         * *Librería:* **`org.mindrot:jbcrypt:0.4`** (Algoritmo de cifrado y derivación de claves BCrypt).
         * *Aplicación:* Declara la dependencia y utiliza `BCrypt.hashpw(passwordPlana, BCrypt.gensalt(12))` para generar en memoria un hash criptográfico real de 60 caracteres. Imprime el resultado en consola y comprueba mediante `BCrypt.checkpw()` cómo la librería valida si una contraseña introducida coincide o no sin necesidad de descifrarla.
 
+* **Misión alternativa según tu proyecto de la bolsa:**
+
+    * **En Aventura conversacional:**
+        * *Librería:* **`com.diogonunes.JColor:5.5.1`** (Colores en el texto).
+        * *Aplicación:* Colorear las estadísticas fijas del héroe: la salud en verde brillante, el nombre del enemigo en rojo y las monedas en amarillo.
+
+    * **En Motor de recomendación:**
+        * *Librería:* **`net.datafaker.datafaker:2.4.2`** (Generar datos del mundo real).
+        * *Aplicación:* Generar automáticamente un título de película ficticia con faker.book().title() y una valoración decimal aleatoria para calcular su afinidad.
+
+    * **En Simulador de físicas 2D:**
+        * *Librería:* **`com.diogonunes.JColor:5.5.1`** (Colores en el texto).
+        * *Aplicación:* Destacar los vectores cinemáticos en la salida formateada: velocidad inicial en azul y aceleración gravitatoria en magenta.
+
+    * **En Bóveda de contraseñas:**
+        * *Librería:* **`net.datafaker.datafaker:2.4.2`** (Generar datos del mundo real).
+        * *Aplicación:* Instanciar faker.internet().password(12, 16, true, true) para generar una contraseña candidata de alta entropía y medir su longitud con métodos de String.
+
 ---
 
 ##### Kata 3 (Cinturón negro / «Hacker AzaharTech»). Radiografía de Maven Central y confirmación visual en Git
