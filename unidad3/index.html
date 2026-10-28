@@ -1,0 +1,1502 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Cristian Garcia">
+      
+      
+        <link rel="canonical" href="https://garmarcj.github.io/DAM-ED-20262027/unidad3/">
+      
+      
+        <link rel="prev" href="../unidad2/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Unidad 3 - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sprint-3-el-ciclo-del-error-pruebas-y-depuracion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unidad 3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unidad1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unidad2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 3
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#semana-7-depuracion-interactiva-e-inspeccion-de-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 7. Depuracion interactiva e inspección de memoria
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 7. Depuracion interactiva e inspección de memoria">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-13-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 13 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-14-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 14 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semana-8-clases-de-equivalencia-y-cobertura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 8. Clases de equivalencia y cobertura
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 8. Clases de equivalencia y cobertura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-15-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 15 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-16-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 16 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semana-9-complejidad-ciclomatica-y-regresion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 9. Complejidad ciclomática y regresión
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 9. Complejidad ciclomática y regresión">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-17-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 17 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-18-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 18 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#semana-7-depuracion-interactiva-e-inspeccion-de-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 7. Depuracion interactiva e inspección de memoria
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 7. Depuracion interactiva e inspección de memoria">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-13-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 13 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-14-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 14 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semana-8-clases-de-equivalencia-y-cobertura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 8. Clases de equivalencia y cobertura
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 8. Clases de equivalencia y cobertura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-15-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 15 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-16-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 16 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semana-9-complejidad-ciclomatica-y-regresion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 9. Complejidad ciclomática y regresión
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 9. Complejidad ciclomática y regresión">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-17-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 17 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-18-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 18 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sprint-3-el-ciclo-del-error-pruebas-y-depuracion">Sprint 3. El ciclo del error: pruebas y depuración<a class="headerlink" href="#sprint-3-el-ciclo-del-error-pruebas-y-depuracion" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="semana-7-depuracion-interactiva-e-inspeccion-de-memoria">Semana 7. Depuracion interactiva e inspección de memoria<a class="headerlink" href="#semana-7-depuracion-interactiva-e-inspeccion-de-memoria" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="dia-13-2-sesiones">Día 13 - 2 sesiones<a class="headerlink" href="#dia-13-2-sesiones" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="sesion-1-teoria-la-radiografia-del-codigo-en-ejecucion-del-print-casero-a-la-depuracion-interactiva">Sesión 1. Teoría. La radiografía del código en ejecución: del print casero a la depuración interactiva<a class="headerlink" href="#sesion-1-teoria-la-radiografia-del-codigo-en-ejecucion-del-print-casero-a-la-depuracion-interactiva" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="1-caso-guia-en-azahartech">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech" title="Permanent link">&para;</a></h4>
+<p>Son las tres de la tarde del lunes 26 de octubre de 2026. En la sede de <strong>AzaharTech</strong> en Castellón de la Plana, arranca formalmente la primera jornada del <strong>Sprint 3</strong>.</p>
+<p>Tras haber consolidado la gestión de paquetes, compilación y dependencias con Maven en el Sprint anterior, el equipo se reúne en la sala principal. En la pantalla de proyección, <strong>Laia Claramunt</strong> muestra una captura del panel de incidencias enviado de urgencia a primera hora de la mañana por el coordinador TIC del <strong>IES El Caminàs</strong>:</p>
+<blockquote>
+<p><em>«Equipo, entramos de lleno en el corazón de la lógica de programación. Durante estas semanas, en el módulo de Programación estáis implementando estructuras de control complejas: bucles anidados (<code>for</code>, <code>while</code>), bifurcaciones condicionales (<code>if</code>/<code>else</code>, <code>switch</code>) y control de excepciones.</em></p>
+<p><em>La aplicación del IES El Caminàs ya cuenta con su primer prototipo de validación de códigos QR en bucle continuo para procesar la cola de alumnos en el vestíbulo. Sin embargo, esta mañana el sistema ha entrado en un bloqueo total: tras procesar al décimo alumno, la aplicación se congela consumiendo el 100 % de la CPU de los terminales de conserjería, o bien asigna faltas injustificadas a estudiantes que sí habían registrado el código.</em></p>
+<p><em>El impulso natural de un programador principiante es llenar el código de sentencias <code>System.out.println("Pasa por aquí 1")</code>, <code>System.out.println("Variable x = " + x)</code> y <code>System.out.println("Pasa por aquí 2")</code>. En la industria del software profesional, esa práctica es un antipatrón ineficiente, peligroso y que ensucia el repositorio.</em></p>
+<p><em>Tanto en el caso del IES El Caminàs como en los proyectos singulares de vuestros equipos (<strong>Aventura conversacional</strong>, <strong>Motor de recomendación</strong>, <strong>Simulador de físicas 2D</strong> o <strong>Bóveda de contraseñas</strong>), hoy aprenderemos a congelar el tiempo: usaremos el</em> <em>depurador interactivo (Debugger)</em> <em>de IntelliJ IDEA para pausar la ejecución de la JVM, examinar la memoria RAM en vivo y alterar el comportamiento del programa sin tocar una sola línea de código fuente»</em>.</p>
+</blockquote>
+<hr />
+<h4 id="2-la-naturaleza-de-los-errores-y-las-limitaciones-del-print-debugging">2. La naturaleza de los errores y las limitaciones del «Print Debugging»<a class="headerlink" href="#2-la-naturaleza-de-los-errores-y-las-limitaciones-del-print-debugging" title="Permanent link">&para;</a></h4>
+<p>En el ciclo de vida del software, encontrar errores no es una anomalía, sino una certeza estadística. Sin embargo, para erradicarlos con rigor técnico, primero debemos categorizarlos:</p>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                          TAXONOMÍA DE ERRORES EN EL SOFTWARE                           │
+├─────────────────────┬─────────────────────────────────┬────────────────────────────────┤
+│ Tipo de error       │ ¿Cuándo se manifiesta?          │ Comportamiento / Detección     │
+├─────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ 1. De compilación   │ Durante la fase de construcción │ El compilador (javac) detecta  │
+│    (Sintaxis/Tipos) │ con Maven o en el propio IDE.   │ faltas sintácticas y no genera │
+│                     │                                 │ el archivo .class.             │
+├─────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ 2. De ejecución     │ Con el programa ya en marcha    │ La JVM interrumpe el flujo     │
+│    (Runtime / Crash)│ dentro de la máquina virtual.   │ lanzando una excepción fatal   │
+│                     │                                 │ (NullPointerException, etc.).  │
+├─────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ 3. Lógico           │ El programa compila y corre sin │ El software hace exactamente   │
+│    (Semántico)      │ romperse, pero da un resultado  │ lo que se escribió, pero no lo │
+│                     │ funcional incorrecto o cuelgue. │ que el negocio requería.       │
+└─────────────────────┴─────────────────────────────────┴────────────────────────────────┘
+</code></pre></div>
+<h5 id="el-problema-del-print-debugging">El problema del «Print Debugging»<a class="headerlink" href="#el-problema-del-print-debugging" title="Permanent link">&para;</a></h5>
+<p>Llenar el código con instrucciones de consola para rastrear variables presenta graves desventajas de ingeniería:
+1. <strong>Contaminación de código:</strong> Obliga a modificar el archivo fuente, rompiendo la trazabilidad limpia de commits en Git.
+2. <strong>Coste temporal:</strong> Requiere recompilar con Maven y relanzar la JVM cada vez que queremos observar una variable diferente.
+3. <strong>Pérdida de contexto:</strong> Un <code>System.out.println</code> muestra una foto aislada en texto plano, pero oculta la pila de llamadas (<em>Call Stack</em>), los objetos en segundo plano y el estado global de la memoria.
+4. <strong>Riesgo en producción:</strong> Olvidar trazas de depuración en despliegues reales puede filtrar contraseñas, tokens y saturar los ficheros de log de la empresa.</p>
+<div class="highlight"><pre><span></span><code>COMPARATIVA METODOLÓGICA:
+
+A) Depuración primitiva (Print Debugging):
+   [Modificar código] ──► [Recompilar] ──► [Ejecutar] ──► [Leer consola] ──► [Borrar print]
+   (Ciclo lento, destructivo y ciego ante bucles complejos)
+
+B) Depuración interactiva profesional (IDE Debugger):
+   [Poner Breakpoint] ──► [Lanzar Debug] ──► [Congelar JVM] ──► [Inspeccionar / Modificar RAM]
+   (Sin tocar código, inspección multidimensional e inmediata)
+</code></pre></div>
+<hr />
+<h4 id="3-anatomia-del-depurador-interactivo-en-intellij-idea">3. Anatomía del depurador interactivo en IntelliJ IDEA<a class="headerlink" href="#3-anatomia-del-depurador-interactivo-en-intellij-idea" title="Permanent link">&para;</a></h4>
+<p>Cuando lanzamos nuestro software mediante el botón de depuración (<strong>Debug</strong> o <code>Shift + F9</code>), IntelliJ no invoca a la JVM de forma estándar: la arranca comunicándose mediante el protocolo <strong>JDWP</strong> (<em>Java Debug Wire Protocol</em>). Esto permite al IDE tomar el control absoluto del hilo de ejecución.</p>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────┐
+│                   MANDOS DEL DEPURADOR EN INTELLIJ IDEA                │
+├──────────────┬──────────────┬──────────────────────────────────────────┤
+│ Acción       │ Atajo        │ Propósito técnico                        │
+├──────────────┼──────────────┼──────────────────────────────────────────┤
+│ Step Over    │ F8           │ Avanza a la siguiente línea del método   │
+│              │              │ actual sin entrar dentro de funciones.   │
+├──────────────┼──────────────┼──────────────────────────────────────────┤
+│ Step Into    │ F7           │ Entra al interior del método invocado    │
+│              │              │ en la línea actual para ver su lógica.   │
+├──────────────┼──────────────┼──────────────────────────────────────────┤
+│ Step Out     │ Shift + F8   │ Sale del método actual y regresa a la    │
+│              │              │ línea del método llamador.               │
+├──────────────┼──────────────┼──────────────────────────────────────────┤
+│ Resume       │ F9           │ Reanuda la ejecución libre hasta topar   │
+│ Program      │              │ con el siguiente punto de ruptura.       │
+├──────────────┼──────────────┼──────────────────────────────────────────┤
+│ Evaluate     │ Alt + F8     │ Abre una consola para evaluar fórmulas y │
+│ Expression   │              │ métodos en caliente contra la RAM real.  │
+└──────────────┴──────────────┴──────────────────────────────────────────┘
+</code></pre></div>
+<h5 id="puntos-de-ruptura-breakpoints">Puntos de ruptura (<em>Breakpoints</em>)<a class="headerlink" href="#puntos-de-ruptura-breakpoints" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Punto de ruptura estándar:</strong> Se activa haciendo clic en el canal lateral izquierdo (<em>gutter</em>) junto al número de línea. Marca una línea donde la JVM suspenderá el hilo de ejecución justo <strong>antes</strong> de procesarla.</li>
+<li><strong>Punto de ruptura condicional:</strong> Clic derecho sobre el punto rojo del breakpoint. Permite definir una expresión lógica booleana en Java (por ejemplo, <code>alumnoId == 10</code> o <code>intentos &gt; 3</code>). El programa solo se detendrá cuando la condición sea verdadera, evitando pulsar manualmente <em>Step Over</em> cientos de veces en bucles largos.</li>
+</ul>
+<hr />
+<h4 id="4-actividad-activa-interactiva-caza-visual-del-bug-en-la-pizarra">4. Actividad activa interactiva: Caza visual del bug en la pizarra<a class="headerlink" href="#4-actividad-activa-interactiva-caza-visual-del-bug-en-la-pizarra" title="Permanent link">&para;</a></h4>
+<p>Alba Torres y Pau Ferrer proyectan un extracto de código con la lógica de control del vestíbulo del IES El Caminàs que presenta una anomalía en un bucle:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">totalLecturasValidas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">marcasHorarias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">480</span><span class="p">,</span><span class="w"> </span><span class="mi">482</span><span class="p">,</span><span class="w"> </span><span class="mi">485</span><span class="p">,</span><span class="w"> </span><span class="mi">495</span><span class="p">,</span><span class="w"> </span><span class="mi">510</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// Minutos desde medianoche (8:00 a 8:30)</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">limiteRetraso</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">485</span><span class="p">;</span><span class="w"> </span><span class="c1">// 8:05 h</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">marcasHorarias</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">marcasHorarias</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">limiteRetraso</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Acceso registrado con retraso."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">totalLecturasValidas</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><em>Los estudiantes analizan el fragmento durante 3 minutos en su libreta técnica:</em>
+1. <strong>Identificación de defectos:</strong>
+    - ¿Qué excepción arrojará la JVM en la última iteración del bucle? Un error de desbordamiento: <code>ArrayIndexOutOfBoundsException</code> provocado por la condición de parada incorrecta <code>i &lt;= marcasHorarias.length</code> en lugar de <code>i &lt; marcasHorarias.length</code>.
+2. <strong>Trazado de variables en tabla mental:</strong>
+    - ¿Qué valor acumulado tiene <code>totalLecturasValidas</code> en el instante inmediatamente anterior a que el programa colapse?
+3. <strong>Puesta en común:</strong> Un estudiante voluntario marca en la pizarra en qué línea colocaría el punto de ruptura estratégico para interceptar el error antes de que la aplicación aborte la ejecución.</p>
+<hr />
+<h4 id="sesion-2-dojo-de-entrenamiento-y-katas-de-herramientas">Sesión 2. Dojo de entrenamiento y katas de herramientas<a class="headerlink" href="#sesion-2-dojo-de-entrenamiento-y-katas-de-herramientas" title="Permanent link">&para;</a></h4>
+<p>Pasamos al dojo de herramientas. Afrontaremos tres <strong>katas de depuración interactiva, control de ejecución paso a paso e inspección de memoria</strong> sobre el proyecto propio de cada equipo, trabajando la sinergia directa con las estructuras algorítmicas de control:</p>
+<hr />
+<h5 id="kata-1-cinturon-blanco-nivel-base-diagnostico-con-puntos-de-ruptura-e-inspeccion-de-variables-en-tu-proyecto-propio">Kata 1 (Cinturón blanco / Nivel base). Diagnóstico con puntos de ruptura e inspección de variables en tu proyecto propio<a class="headerlink" href="#kata-1-cinturon-blanco-nivel-base-diagnostico-con-puntos-de-ruptura-e-inspeccion-de-variables-en-tu-proyecto-propio" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Objetivo.</strong> Iniciar tu proyecto bajo el control del depurador, fijar puntos de ruptura estratégicos en bucles o bloques condicionales y auditar el valor de los datos almacenados en las variables locales desde la pestaña <strong>Variables</strong> de IntelliJ IDEA sin recurrir a impresiones por consola.</li>
+<li><strong>Aplicación según tu proyecto de la bolsa:</strong><ul>
+<li>En <strong>Aventura conversacional</strong>. Colocar un punto de ruptura al inicio del bucle del menú de decisiones del jugador. Verificar en el panel <em>Variables</em> cómo cambian los puntos de vida (<code>hp</code>) y el objeto seleccionado en el inventario antes de ramificar la escena.</li>
+<li>En <strong>Motor de recomendación</strong>. Situar el breakpoint en el bucle que recorre la matriz de valoraciones de ítems. Observar en tiempo real la variación del sumatorio de afinidad y el identificador de usuario activo en cada iteración.</li>
+<li>En <strong>Simulador de físicas 2D</strong>. Marcar un punto de ruptura dentro del bucle de cálculo temporal (<code>dt</code>). Comprobar la evolución de las componentes de velocidad <code>vx</code>, <code>vy</code> y las coordenadas <code>x</code>, <code>y</code> del cuerpo en colisión.</li>
+<li>En <strong>Bóveda de contraseñas</strong>. Poner el breakpoint en el bucle que valida la política de seguridad (longitud, caracteres especiales, mayúsculas). Constatar cómo cambian las banderas booleanas (<code>tieneMayuscula</code>, <code>tieneNumero</code>) al evaluar cada carácter.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h5 id="kata-2-cinturon-marron-nivel-avanzado-navegacion-tactica-step-over-step-into-y-evaluacion-de-expresiones-al-vuelo-alt-f8">Kata 2 (Cinturón marrón / Nivel avanzado). Navegación táctica (Step Over / Step Into) y evaluación de expresiones al vuelo (<code>Alt + F8</code>)<a class="headerlink" href="#kata-2-cinturon-marron-nivel-avanzado-navegacion-tactica-step-over-step-into-y-evaluacion-de-expresiones-al-vuelo-alt-f8" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto técnico.</strong> Cuando un algoritmo falla en una rama condicional interna o en una llamada auxiliar, avanzar ciegamente es inútil. El desarrollador debe dominar la entrada y salida de funciones y calcular predicados lógicos sin reiniciar el software.</li>
+<li><strong>Misión de la kata:</strong><ol>
+<li>En una zona de bifurcaciones (<code>if</code>/<code>else</code> o <code>switch</code>), coloca un punto de ruptura justo en la cabecera de la condición.</li>
+<li>Arranca en modo depuración (<code>Shift + F9</code>).</li>
+<li>Utiliza <strong>Step Over (<code>F8</code>)</strong> para seguir el avance secuencial. Al llegar a una invocación a un método de cálculo o validación, pulsa <strong>Step Into (<code>F7</code>)</strong> para zambullirte en su interior y comprobar qué parámetros recibe.</li>
+<li>Una vez verificada la primera línea, utiliza <strong>Step Out (<code>Shift + F8</code>)</strong> para retornar al flujo principal limpiamente.</li>
+<li>En una línea con variables numéricas o booleanas, abre la herramienta de evaluación interactiva mediante <strong><code>Alt + F8</code> (Evaluate Expression)</strong>.</li>
+<li>Escribe en el cuadro de diálogo una consulta en vivo (por ejemplo, comprobar si una cadena cumple cierta condición o calcular una operación aritmética con las variables actuales). Verifica que IntelliJ evalúa y devuelve el resultado exacto consultando directamente la RAM del hilo en pausa.</li>
+<li>Convierte uno de tus breakpoints en <strong>Breakpoint condicional</strong> (clic derecho sobre el punto rojo) para que la ejecución solo se congele cuando el contador de iteraciones supere un valor determinado (por ejemplo, <code>i == 3</code> o <code>reintentos &gt; 2</code>).</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h5 id="kata-3-cinturon-negro-hacker-azahartech-mutacion-de-variables-en-memoria-en-caliente-set-value-y-depuracion-de-excepciones-sin-tocar-codigo">Kata 3 (Cinturón negro / «Hacker AzaharTech»). Mutación de variables en memoria en caliente (<em>Set Value</em>) y depuración de excepciones sin tocar código<a class="headerlink" href="#kata-3-cinturon-negro-hacker-azahartech-mutacion-de-variables-en-memoria-en-caliente-set-value-y-depuracion-de-excepciones-sin-tocar-codigo" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto de arquitectura.</strong> Reproducir fallos intermitentes de red, límites de desbordamiento o entradas anómalas en el cliente puede requerir horas de simulación. Un desarrollador senior altera el estado interno de la memoria durante la propia ejecución para someter al software a pruebas de estrés inmediatas.</li>
+<li><strong>Misión de la kata:</strong><ol>
+<li>Pausa tu programa en un punto de ruptura antes de una bifurcación crítica (por ejemplo, la condición de si el usuario es administrador o si una cola de datos está llena).</li>
+<li>En el panel <strong>Variables</strong>, haz clic derecho sobre la variable objetivo y selecciona <strong>Set Value...</strong> (o pulsa <strong><code>F2</code></strong>).</li>
+<li>Modifica su valor directamente en la RAM (por ejemplo, cambia un valor <code>false</code> a <code>true</code>, o un identificador numérico por un límite negativo <code>-1</code>).</li>
+<li>Pulsa <code>Intro</code> y avanza con <code>F8</code>: observa cómo el programa toma la rama lógica alternativa sin que hayas tenido que reescribir código ni recompilar el proyecto con Maven.</li>
+<li><strong>Configuración de un Exception Breakpoint:</strong><ul>
+<li>Abre el gestor de puntos de ruptura (<strong><code>Ctrl + Shift + F8</code></strong> o Menú <em>Run -&gt; View Breakpoints...</em>).</li>
+<li>Pulsa el icono <code>+</code> (Add) en la esquina superior izquierda y selecciona <strong>Java Exception Breakpoint</strong>.</li>
+<li>Escribe en el buscador <code>java.lang.NullPointerException</code> (o la excepción que desees monitorizar) y confirma.</li>
+<li>Retira todos los demás puntos de ruptura de tu código y pulsa <strong>Resume Program (<code>F9</code>)</strong>.</li>
+</ul>
+</li>
+<li>Comprueba que, en caso de desencadenarse dicha excepción en cualquier rincón del código, la JVM se congelará de forma quirúrgica en la línea exacta que originó el fallo antes de abortar el programa, permitiéndote examinar la pila de llamadas (<em>Frames</em>) con total precisión.</li>
+</ol>
+</li>
+</ul>
+<h3 id="dia-14-1-sesion">Día 14 - 1 sesión<a class="headerlink" href="#dia-14-1-sesion" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="sesion-unica-taller-practico-navegacion-por-la-pila-de-llamadas-call-stack-y-protocolo-de-informe-tecnico-de-incidencias-bug-report">Sesión única. Taller práctico: Navegación por la pila de llamadas (<em>Call Stack</em>) y protocolo de informe técnico de incidencias (<em>Bug Report</em>)<a class="headerlink" href="#sesion-unica-taller-practico-navegacion-por-la-pila-de-llamadas-call-stack-y-protocolo-de-informe-tecnico-de-incidencias-bug-report" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="1-caso-guia-en-azahartech_1">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_1" title="Permanent link">&para;</a></h4>
+<p>Es la mañana del miércoles 28 de octubre de 2026. En la sala de integración de <strong>AzaharTech</strong>, el desarrollador junior se encuentra frente a la pantalla con el semblante desencajado: la consola de IntelliJ IDEA acaba de escupir una cascada de más de treinta líneas de texto en color rojo brillante tras procesar un lote de prueba de carnés digitales del <strong>IES El Caminàs</strong>.</p>
+<p><strong>Pau Ferrer</strong> se acerca con una sonrisa comprensiva y apoya una taza de café sobre la mesa:</p>
+<blockquote>
+<p><em>«No te asustes. El primer reflejo al ver una traza roja es cerrar la terminal o hacer scroll frenético buscando una palabra conocida. Los programadores novatos ven un error catastrófico; los profesionales vemos una autopsia perfecta.</em></p>
+<p><em>Ese bloque de texto no es ruido: es el mapa exacto del hilo de ejecución. Nos indica qué método llamó a qué otro método y en qué línea exacta la máquina virtual se quedó sin instrucciones válidas. Hoy aprenderemos a viajar hacia atrás en el tiempo utilizando el panel de marcos de ejecución (<strong>Frames / Call Stack</strong>) de IntelliJ y a redactar un informe formal de incidencia técnica. Porque en un equipo de consultoría como AzaharTech, un bug que no se puede reproducir ni documentar con rigor simplemente no existe»</em>.</p>
+</blockquote>
+<hr />
+<h4 id="2-la-pila-de-llamadas-call-stack-viajando-entre-dimensiones-del-codigo">2. La Pila de Llamadas (<em>Call Stack</em>): Viajando entre dimensiones del código<a class="headerlink" href="#2-la-pila-de-llamadas-call-stack-viajando-entre-dimensiones-del-codigo" title="Permanent link">&para;</a></h4>
+<p>Cuando un programa Java se ejecuta, la JVM gestiona la memoria de ejecución mediante una estructura de pila <strong>LIFO</strong> (<em>Last In, First Out</em>). Cada vez que un método invoca a otro, se apila un nuevo <strong>marco de pila (<em>Stack Frame</em>)</strong> que contiene sus parámetros, variables locales y el contador de programa. Cuando el método termina con un <code>return</code>, su marco se destruye y el control regresa al nivel inmediatamente inferior.</p>
+<div class="highlight"><pre><span></span><code>       FLUJO DE APILAMIENTO EN LA JVM (CALL STACK)
+
+       ┌──────────────────────────────────────────┐  ▲  Cima de la pila
+       │  Frame 3: ValidadorQR.esFormatoValido()  │  │  (Lugar exacto del fallo)
+       ├──────────────────────────────────────────┤  │
+       │  Frame 2: GestorAcceso.registrarEntrada()│  │  (Método intermedio)
+       ├──────────────────────────────────────────┤  │
+       │  Frame 1: Main.main(String[] args)       │  │  (Punto de entrada)
+       └──────────────────────────────────────────┘  │
+
+       ◄─── Retorno del control / Destrucción del frame
+</code></pre></div>
+<h5 id="navegacion-interactiva-en-el-panel-frames-de-intellij">Navegación interactiva en el panel <em>Frames</em> de IntelliJ<a class="headerlink" href="#navegacion-interactiva-en-el-panel-frames-de-intellij" title="Permanent link">&para;</a></h5>
+<p>Cuando la ejecución está pausada en un punto de ruptura (o interceptada por un <em>Exception Breakpoint</em>):
+1. <strong>La columna izquierda de la pestaña Debug muestra los <em>Frames</em>:</strong> En la parte superior aparece el método en el que estamos detenidos en este milisegundo; debajo, el método que lo invocó, y así sucesivamente hasta llegar al <code>main</code>.
+2. <strong>Viaje en el tiempo sin alterar el flujo:</strong> Si haces clic en <code>Frame 2</code> o <code>Frame 1</code>, el editor de código saltará automáticamente a esa línea y el panel <strong>Variables</strong> se actualizará al instante para mostrar cómo estaban las variables en ese método superior, permitiéndote comprobar qué argumentos le envió al método fallido.</p>
+<hr />
+<h4 id="3-estandar-azahartech-para-el-registro-de-incidencias-tecnicas">3. Estándar AzaharTech para el Registro de Incidencias Técnicas<a class="headerlink" href="#3-estandar-azahartech-para-el-registro-de-incidencias-tecnicas" title="Permanent link">&para;</a></h4>
+<p>En el ciclo de desarrollo profesional regulado por metodologías ágiles, cualquier error detectado durante las sesiones de depuración que no pueda subsanarse en el acto debe registrarse formalmente en el sistema de seguimiento de incidencias (<em>Issue Tracker</em> del repositorio Git).</p>
+<p>Un informe técnico de incidencia (<em>Bug Report</em>) riguroso debe responder al siguiente estándar:</p>
+<div class="highlight"><pre><span></span><code><span class="gu">### [BUG] Desbordamiento de índice al escanear lote con identificador vacío</span>
+
+<span class="gs">**1. Entorno de ejecución:**</span>
+<span class="k">-</span><span class="w"> </span>Versión del software: v0.1-sprint3 (commit <span class="sb">`a4f82bc`</span>)
+<span class="k">-</span><span class="w"> </span>Entorno: OpenJDK 21 LTS / IntelliJ IDEA 2026.2 / Linux x86_64
+<span class="k">-</span><span class="w"> </span>Módulo afectado: Núcleo de validación de accesos
+
+<span class="gs">**2. Descripción concisa:**</span>
+La aplicación aborta de forma inesperada cuando la cola de escaneo procesa un registro
+cuyo campo de datos biométricos o identificador de matrícula contiene una cadena vacía.
+
+<span class="gs">**3. Pasos precisos para reproducir (Steps to Reproduce):**</span>
+<span class="k">1.</span> Iniciar la aplicación en modo Debug con el dataset de prueba <span class="sb">`test_alumnos_v1.csv`</span>.
+<span class="k">2.</span> Introducir por consola la opción 2 ("Validación por lotes").
+<span class="k">3.</span> Asignar un tamaño de lote de 5 elementos incluyendo un registro sin identificador.
+
+<span class="gs">**4. Comportamiento observado (Actual Behavior):**</span>
+La JVM lanza una excepción <span class="sb">`StringIndexOutOfBoundsException: Index 0 out of bounds for length 0`</span>
+y la aplicación finaliza abruptamente.
+
+<span class="gs">**5. Comportamiento esperado (Expected Behavior):**</span>
+El sistema debería capturar la anomalía, marcar el registro como inválido en el log
+y continuar procesando los restantes alumnos de la cola sin abortar.
+
+<span class="gs">**6. Diagnóstico técnico y Call Stack:**</span>
+<span class="k">-</span><span class="w"> </span>Punto de interrupción: <span class="sb">`ValidadorQR.java:38`</span>
+<span class="k">-</span><span class="w"> </span>Pila de llamadas:
+    <span class="sb">`at es.azahartech.caminas.ValidadorQR.comprobarPrefijo(ValidadorQR.java:38)`</span>
+    <span class="sb">`at es.azahartech.caminas.GestorAcceso.procesarRegistro(GestorAcceso.java:74)`</span>
+    <span class="sb">`at es.azahartech.caminas.Main.main(Main.java:21)`</span>
+<span class="k">-</span><span class="w"> </span>Inspección de memoria: Variable <span class="sb">`qrData = ""`</span> (longitud 0).
+</code></pre></div>
+<hr />
+<h4 id="4-dinamica-de-laboratorio-simulacion-de-fallo-en-cascada-y-auditoria-cruzada">4. Dinámica de laboratorio: Simulación de fallo en cascada y auditoría cruzada<a class="headerlink" href="#4-dinamica-de-laboratorio-simulacion-de-fallo-en-cascada-y-auditoria-cruzada" title="Permanent link">&para;</a></h4>
+<p>Durante los últimos 30 minutos de la sesión, cada estudiante pondrá a prueba la solidez de las estructuras de control que ha estado programando durante la semana:</p>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        FASES DEL LABORATORIO PRÁCTICO (DÍA 14)                         │
+├──────────────┬──────────────────┬──────────────────────────────────────────────────────┤
+│ Tiempo       │ Fase             │ Operación técnica requerida                          │
+├──────────────┼──────────────────┼──────────────────────────────────────────────────────┤
+│ Min 00 – 10  │ 1. Provocación   │ Forzar deliberadamente una excepción de ejecución en │
+│              │    del fallo     │ un método auxiliar profundo (por ejemplo, enviando   │
+│              │                  │ un parámetro nulo, una cadena vacía o índice fuera). │
+├──────────────┼──────────────────┼──────────────────────────────────────────────────────┤
+│ Min 10 – 20  │ 2. Exploración   │ Pausar con *Exception Breakpoint*, navegar hacia     │
+│              │    de Frames     │ atrás por los 3 primeros marcos en el panel *Frames* │
+│              │                  │ y localizar en qué línea se originó el dato corrupto.│
+├──────────────┼──────────────────┼──────────────────────────────────────────────────────┤
+│ Min 20 – 30  │ 3. Redacción     │ Crear el fichero `docs/incidencias/INCIDENCIA-01.md` │
+│              │    del informe   │ en el repositorio con la plantilla formal de bug.    │
+└──────────────┴──────────────────┴──────────────────────────────────────────────────────┘
+</code></pre></div>
+<h5 id="adaptacion-inmediata-segun-el-proyecto-de-la-bolsa">Adaptación inmediata según el proyecto de la bolsa:<a class="headerlink" href="#adaptacion-inmediata-segun-el-proyecto-de-la-bolsa" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>En Aventura conversacional:</strong> Provocar un fallo al intentar acceder a la posición <code>[0]</code> de un inventario vacío dentro del método <code>consultarPrimerObjeto()</code>. Utilizar el panel <em>Frames</em> para retroceder hasta la llamada en <code>procesarAccionJugador()</code> y comprobar qué comando escribió el usuario.</li>
+<li><strong>En Motor de recomendación:</strong> Provocar una división por cero (<code>ArithmeticException</code>) o un cálculo indefinido al promediar valoraciones de un usuario sin histórico. Rastrear en los marcos de pila qué filtro condicional falló en validar el divisor.</li>
+<li><strong>En Simulador de físicas 2D:</strong> Forzar un parámetro de tiempo transcurrido negativo (<code>dt &lt; 0</code>) y verificar a través de los <em>Frames</em> qué método de la física propagó el valor erróneo antes de que el motor actualizara las coordenadas de pantalla.</li>
+<li><strong>En Bóveda de contraseñas:</strong> Generar un puntero nulo (<code>NullPointerException</code>) al intentar cifrar una contraseña que no ha sido inicializada en el formulario de registro. Inspeccionar el marco del método llamador para comprobar por qué el objeto llegó sin instanciar.</li>
+</ul>
+<p>Al sonar el timbre, los estudiantes dejan confirmado su primer informe técnico de incidencia en Git. El código aún no es perfecto, pero el equipo dispone ya de los ojos de diagnóstico necesarios para abordar la construcción formal de casos de prueba y matrices de riesgo en las próximas semanas.</p>
+<h2 id="semana-8-clases-de-equivalencia-y-cobertura">Semana 8. Clases de equivalencia y cobertura<a class="headerlink" href="#semana-8-clases-de-equivalencia-y-cobertura" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="dia-15-2-sesiones">Día 15 - 2 sesiones<a class="headerlink" href="#dia-15-2-sesiones" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="sesion-1-teoria-la-ingenieria-del-caso-de-prueba-como-probar-sin-perderse-en-el-infinito">Sesión 1. Teoría. La ingeniería del caso de prueba: cómo probar sin perderse en el infinito<a class="headerlink" href="#sesion-1-teoria-la-ingenieria-del-caso-de-prueba-como-probar-sin-perderse-en-el-infinito" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="1-caso-guia-en-azahartech_2">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_2" title="Permanent link">&para;</a></h4>
+<p>Lunes 2 de noviembre de 2026. Tras una primera semana de inmersión en el depurador interactivo, el equipo de primer curso de DAM regresa a las instalaciones de <strong>AzaharTech</strong> en Castellón de la Plana.</p>
+<p>En la pantalla de la sala de reuniones, <strong>Laia Claramunt</strong> proyecta un formulario simple de la aplicación del <strong>IES El Caminàs</strong>: la ventana de registro de carnés temporales de visitante. El formulario solicita dos campos: la <strong>edad del visitante</strong> (de 12 a 99 años para acceder sin acompañante adulto) y un <strong>código PIN de seguridad</strong> de 4 dígitos (de <code>1000</code> a <code>9999</code>).</p>
+<p>Laia mira a los estudiantes y lanza una pregunta directa:</p>
+<blockquote>
+<p><em>«Si quisiéramos demostrar matemáticamente que esta pequeña pantalla no tiene ningún fallo lógico, ¿cuántas combinaciones tendríamos que probar a mano?</em></p>
+<p><em>La edad admite teóricamente cualquier número entero de 32 bits en memoria (más de cuatro mil millones de valores), y el PIN tiene 9000 combinaciones válidas más infinitas cadenas alfanuméricas inválidas. Probar todas las entradas posibles por fuerza bruta (<strong>exhaustion testing</strong>) requeriría semanas de trabajo humano o miles de horas de computación inútil.</em></p>
+<p><em>En la industria del software no probamos al azar ni probamos todo: aplicamos técnicas formales de ingeniería para seleccionar el conjunto mínimo de datos que garantice la máxima detección de defectos. Hoy dejaremos de cazar bugs a ciegas y aprenderemos a diseñar</em> <em>casos de prueba profesionales</em> <em>utilizando dos pilares de las pruebas de caja negra:</em> <em>las clases de equivalencia</em> <em>y</em> <em>el análisis de valores límite»</em>.</p>
+</blockquote>
+<hr />
+<h4 id="2-metodologia-de-caja-negra-particion-de-clases-de-equivalencia">2. Metodología de caja negra: Partición de Clases de Equivalencia<a class="headerlink" href="#2-metodologia-de-caja-negra-particion-de-clases-de-equivalencia" title="Permanent link">&para;</a></h4>
+<p>En las pruebas de <strong>caja negra</strong> (<em>Black-Box Testing</em>), nos centramos exclusivamente en las entradas y salidas del sistema según sus especificaciones funcionales, sin preocuparnos por cómo está escrito el código fuente por dentro.</p>
+<div class="highlight"><pre><span></span><code>                   MODELO DE CAJA NEGRA (BLACK-BOX)
+
+                     ┌───────────────────────────┐
+  [Datos de Entrada] │    Módulo / Algoritmo     │ [Resultado Observado]
+  ──────────────────►│  (Lógica interna oculta)  ├──────────────────────►
+                     └───────────────────────────┘
+                                   │
+                                   ▼
+             ¿Coincide el resultado con la especificación?
+</code></pre></div>
+<h5 id="particion-en-clases-de-equivalencia-equivalence-partitioning">Partición en clases de equivalencia (<em>Equivalence Partitioning</em>)<a class="headerlink" href="#particion-en-clases-de-equivalencia-equivalence-partitioning" title="Permanent link">&para;</a></h5>
+<p>Esta técnica asume que el conjunto total de entradas posibles puede dividirse en grupos llamados <strong>clases de equivalencia</strong>. Si el programa trata correctamente un valor representativo de una clase, con alta probabilidad tratará igual a todos los demás valores de esa misma clase.</p>
+<p>Para cada dato de entrada debemos identificar dos tipos de clases:
+1. <strong>Clases de equivalencia válidas:</strong> Valores que cumplen las reglas de negocio y deben procesarse satisfactoriamente.
+2. <strong>Clases de equivalencia inválidas:</strong> Valores incorrectos, fuera de rango o con formatos anómalos que el sistema debe rechazar de forma controlada (sin abortar el hilo de ejecución).</p>
+<div class="highlight"><pre><span></span><code>DIVISIÓN DE ESPACIO DE ENTRADAS (Ejemplo: Edad válida entre 12 y 99 años):
+
+    Clase Inválida 1          Clase Válida            Clase Inválida 2
+    (Menores de 12)        (Rango permitido)           (Mayores de 99)
+◄─────────────────────────┬──────────────────────────┬────────────────────────►
+ ... -5, 0, 1, ..., 11    │   12, 13, ..., 98, 99    │ 100, 101, 150 ...
+                          │                          │
+  Representante: 8        │   Representante: 25      │ Representante: 105
+  (Espera: Rechazo)       │   (Espera: Aceptado)     │ (Espera: Rechazo)
+</code></pre></div>
+<hr />
+<h4 id="3-analisis-de-valores-limite-boundary-value-analysis-bva">3. Análisis de Valores Límite (<em>Boundary Value Analysis - BVA</em>)<a class="headerlink" href="#3-analisis-de-valores-limite-boundary-value-analysis-bva" title="Permanent link">&para;</a></h4>
+<p>La experiencia en ingeniería del software demuestra que la inmensa mayoría de los defectos lógicos no ocurren en el centro de las clases de equivalencia (probar la edad <code>25</code> rara vez hace fallar a un algoritmo), sino <strong>justo en los bordes de decisión</strong>.</p>
+<p>En Programación, los fallos en estructuras condicionales suelen deberse a confusiones sintácticas entre operadores: escribir <code>&lt;</code> en lugar de <code>&lt;=</code>, o arrancar un bucle en <code>0</code> en vez de <code>1</code> (<em>errores off-by-one</em>).</p>
+<p>El <strong>análisis de valores límite</strong> complementa a las clases de equivalencia obligando a probar:
+* El valor mínimo y el valor máximo permitidos en la frontera.
+* Los valores inmediatamente adyacentes a cada frontera (justo por debajo y justo por encima).</p>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        MAPA DE VALORES LÍMITE (RANGO [12, 99])                         │
+├─────────────────────┬───────────────┬──────────────────────┬───────────────────────────┤
+│ Posición del límite │ Valor probado │ Tipo de clase        │ Resultado esperado        │
+├─────────────────────┼───────────────┼──────────────────────┼──────────────────────────┤
+│ Límite inferior - 1 │ 11            │ Inválida (demasiado  │ Error: "Menor de edad no  │
+│                     │               │ joven)               │ autorizado"               │
+├─────────────────────┼───────────────┼──────────────────────┼──────────────────────────┤
+│ Límite inferior     │ 12            │ Válida (mínimo legal)│ Registro admitido         │
+├─────────────────────┼───────────────┼──────────────────────┼──────────────────────────┤
+│ Límite inferior + 1 │ 13            │ Válida (interior)    │ Registro admitido         │
+├─────────────────────┼───────────────┼──────────────────────┼──────────────────────────┤
+│ Límite superior - 1 │ 98            │ Válida (interior)    │ Registro admitido         │
+├─────────────────────┼───────────────┼──────────────────────┼──────────────────────────┤
+│ Límite superior     │ 99            │ Válida (máximo legal)│ Registro admitido         │
+├─────────────────────┼───────────────┼──────────────────────┼──────────────────────────┤
+│ Límite superior + 1 │ 100           │ Inválida (edad fuera │ Error: "Edad excede el    │
+│                     │               │ de rango operativo)  │ límite del sistema"       │
+└─────────────────────┴───────────────┴──────────────────────┴───────────────────────────┘
+</code></pre></div>
+<hr />
+<h4 id="4-estructura-formal-de-un-caso-de-prueba-test-case">4. Estructura formal de un Caso de Prueba (<em>Test Case</em>)<a class="headerlink" href="#4-estructura-formal-de-un-caso-de-prueba-test-case" title="Permanent link">&para;</a></h4>
+<p>En el estándar corporativo de AzaharTech, cada prueba formal de caja negra se documenta como un registro trazable con los siguientes atributos:</p>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        PLANTILLA DE ESPECIFICACIÓN DE CASO DE PRUEBA                   │
+├──────────────────────┬─────────────────────────────────────────────────────────────────┤
+│ Identificador (ID)   │ CP-ACC-001 (Código unívoco vinculado al módulo funcional)       │
+├──────────────────────┼─────────────────────────────────────────────────────────────────┤
+│ Nombre / Descripción │ Validación de acceso en frontera inferior de edad permitida     │
+├──────────────────────┼─────────────────────────────────────────────────────────────────┤
+│ Precondiciones       │ Base de datos del IES El Caminàs iniciada; terminal en espera   │
+├──────────────────────┼─────────────────────────────────────────────────────────────────┤
+│ Datos de entrada     │ edad = 12; pin = 5540                                           │
+├──────────────────────┼─────────────────────────────────────────────────────────────────┤
+│ Pasos de ejecución   │ 1. Arrancar el validador. 2. Introducir valores. 3. Pulsar OK.  │
+├──────────────────────┼─────────────────────────────────────────────────────────────────┤
+│ Resultado esperado   │ El sistema responde `ACCESO_CONCEDIDO` y genera un pase temporal│
+├──────────────────────┼─────────────────────────────────────────────────────────────────┤
+│ Criterio de éxito    │ Salida real idéntica al resultado esperado; sin excepciones JVM │
+└──────────────────────┴─────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h4 id="5-actividad-activa-interactiva-caza-de-fronteras-en-la-pizarra">5. Actividad activa interactiva: Caza de fronteras en la pizarra<a class="headerlink" href="#5-actividad-activa-interactiva-caza-de-fronteras-en-la-pizarra" title="Permanent link">&para;</a></h4>
+<p>Alba Torres plantea en la pizarra el requisito del identificador temporal de visitante para el IES El Caminàs:</p>
+<blockquote>
+<p><em>«El sistema genera una clave de acceso temporal de 4 cifras numéricas. Para evitar códigos triviales de prueba de fábrica, el valor del PIN debe estar comprendido estrictamente entre <code>1000</code> y <code>9999</code> (ambos inclusive)»</em>.</p>
+</blockquote>
+<p>Durante 5 minutos, los alumnos debaten y completan en la pizarra la tabla de valores críticos:
+1. ¿Cuáles son los <strong>valores límite</strong> exactos que hay que probar? (<code>999</code>, <code>1000</code>, <code>1001</code>, <code>9998</code>, <code>9999</code>, <code>10000</code>).
+2. ¿Qué ocurre con los casos especiales de frontera cualitativa? (por ejemplo, valor nulo <code>null</code>, cadena vacía <code>""</code> o texto con letras <code>"100A"</code>).
+3. Conclusión guiada: <em>«Con solo 6 pruebas numéricas y 2 cualitativas cubrimos con rigor técnico el comportamiento de miles de combinaciones posibles»</em>.</p>
+<hr />
+<h4 id="sesion-2-dojo-de-entrenamiento-y-katas-de-herramientas_1">Sesión 2. Dojo de entrenamiento y katas de herramientas<a class="headerlink" href="#sesion-2-dojo-de-entrenamiento-y-katas-de-herramientas_1" title="Permanent link">&para;</a></h4>
+<p>Nos trasladamos a los puestos de trabajo para ejecutar las katas prácticas de diseño formal de pruebas sobre los módulos que cada estudiante está construyendo en su proyecto individual:</p>
+<hr />
+<h5 id="kata-1-cinturon-blanco-nivel-base-matriz-de-clases-de-equivalencia-de-tu-modulo-de-logica">Kata 1 (Cinturón blanco / Nivel base). Matriz de clases de equivalencia de tu módulo de lógica<a class="headerlink" href="#kata-1-cinturon-blanco-nivel-base-matriz-de-clases-de-equivalencia-de-tu-modulo-de-logica" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Objetivo.</strong> Tomar una función crítica de validación o cálculo de tu proyecto y definir formalmente en un documento Markdown (<code>docs/pruebas/matriz-equivalencia.md</code>) todas las clases válidas e inválidas posibles, asignando un dato representativo para cada una.</li>
+<li><strong>Aplicación según tu proyecto de la bolsa:</strong><ul>
+<li>En <strong>Aventura conversacional.</strong> Analizar la función que procesa la compra de pociones en la tienda del juego. Parámetro: <code>oroDisponible</code> (debe ser mayor o igual al coste del ítem). Definir clases: saldo suficiente ($&gt; coste$), saldo exacto ($== coste$), saldo insuficiente ($&lt; coste$) y saldo negativo anómalo ($&lt; 0$).</li>
+<li>En <strong>Motor de recomendación.</strong> Analizar la función de asignación de puntuaciones de afinidad (escala de 1 a 5 estrellas). Identificar clases válidas (rango entero $[1, 5]$) e inválidas (números $&lt; 1$, números $&gt; 5$, decimales o cadenas de texto no parseables).</li>
+<li>En <strong>Simulador de físicas 2D.</strong> Analizar la función que calcula el rebote elástico. Parámetro: coeficiente de restitución <code>e</code> (válido en el intervalo real $[0.0, 1.0]$). Definir clases válidas (rebote inelástico a elástico perfecto) e inválidas ($e &lt; 0.0$ o $e &gt; 1.0$).</li>
+<li>En <strong>Bóveda de contraseñas.</strong> Analizar la regla de longitud mínima y máxima para la contraseña maestra (longitud válida entre 8 y 32 caracteres). Definir clases válidas (longitud entre 8 y 32) e inválidas (longitud $&lt; 8$, longitud $&gt; 32$, cadena vacía y <code>null</code>).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h5 id="kata-2-cinturon-marron-nivel-avanzado-bateria-formal-de-casos-de-prueba-con-analisis-de-valores-limite-bva">Kata 2 (Cinturón marrón / Nivel avanzado). Batería formal de casos de prueba con análisis de valores límite (BVA)<a class="headerlink" href="#kata-2-cinturon-marron-nivel-avanzado-bateria-formal-de-casos-de-prueba-con-analisis-de-valores-limite-bva" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto técnico.</strong> Una vez delimitadas las clases de equivalencia, el desarrollador debe aterrizar los valores frontera en una tabla técnica de casos de prueba ejecutables, detallando entradas exactas y salidas esperadas.</li>
+<li><strong>Misión de la kata:</strong><ol>
+<li>Diseña una tabla en Markdown dentro de <code>docs/pruebas/casos-de-prueba.md</code> con un mínimo de <strong>6 casos de prueba</strong> derivados del análisis de valores límite de tu regla de negocio (tres para el límite inferior y tres para el límite superior).</li>
+<li>Cada caso de prueba debe incluir: <code>ID</code>, <code>Entrada</code>, <code>Tipo de Límite (Inferior / Superior)</code>, <code>Resultado Esperado</code> y <code>Estado (Pendiente / Pasado / Fallido)</code>.</li>
+<li>Ejecuta manualmente en tu programa cada uno de los casos diseñados introduciendo los valores por teclado o mediante llamadas en tu método <code>main</code>.</li>
+<li>Anota con precisión quirúrgica el resultado obtenido. Si encuentras una discrepancia (por ejemplo, el programa acepta la longitud <code>7</code> cuando la especificación marcaba mínimo <code>8</code>), marca el caso como <strong>Fallido</strong> y no toques el código fuente todavía: el fallo ha sido formalmente acorralado.</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h5 id="kata-3-cinturon-negro-hacker-azahartech-trazabilidad-de-frontera-en-memoria-con-depurador-y-aserciones">Kata 3 (Cinturón negro / «Hacker AzaharTech»). Trazabilidad de frontera en memoria con depurador y aserciones<a class="headerlink" href="#kata-3-cinturon-negro-hacker-azahartech-trazabilidad-de-frontera-en-memoria-con-depurador-y-aserciones" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto de arquitectura.</strong> Comprobar los valores límite por consola puede enmascarar si el programa superó la condición por el camino lógico correcto o por casualidad. En esta kata combinamos el depurador de la Semana 7 con la batería de pruebas de la Semana 8.</li>
+<li><strong>Misión de la kata:</strong><ol>
+<li>Abre el archivo Java donde reside la condición lógica evaluada en tu batería de pruebas.</li>
+<li>Coloca un <strong>punto de ruptura condicional</strong> en la línea exacta del <code>if</code>. Configúralo para que se pause únicamente cuando la variable evaluada coincida con los valores límite críticos (por ejemplo: <code>longitud == 8 || longitud == 7</code>).</li>
+<li>Lanza el programa en modo depuración (<strong>Debug</strong>, <code>Shift + F9</code>) y suministra el caso de prueba del límite conflictivo.</li>
+<li>Cuando la ejecución se congele en la línea del <code>if</code>, abre la consola de evaluación (<strong><code>Alt + F8</code></strong>) y evalúa la expresión booleana completa de la condición.</li>
+<li>Inspecciona paso a paso (<strong><code>F8</code></strong>) si el salto condicional entra por la rama verdadera o la rama falsa.</li>
+<li>Si detectas un error de frontera (un clásico <code>&lt;</code> en vez de <code>&lt;=</code>), documenta el diagnóstico en la columna de observaciones de tu batería de pruebas, corrige el operador en el código fuente, recompila con Maven y vuelve a ejecutar la prueba para certificar que el caso cambia de <strong>Fallido</strong> a <strong>Pasado</strong>.</li>
+<li>Haz commit en tu repositorio Git de los nuevos documentos de pruebas y de la corrección realizada bajo el mensaje:
+   <code>fix(core): corregido error off-by-one en validacion de frontera segun CP-002</code>.</li>
+</ol>
+</li>
+</ul>
+<h3 id="dia-16-1-sesion">Día 16 - 1 sesión<a class="headerlink" href="#dia-16-1-sesion" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="sesion-unica-taller-practico-medicion-del-cubrimiento-de-codigo-code-coverage-y-procedimiento-de-ejecucion-de-pruebas">Sesión única. Taller práctico: Medición del cubrimiento de código (<em>Code Coverage</em>) y procedimiento de ejecución de pruebas<a class="headerlink" href="#sesion-unica-taller-practico-medicion-del-cubrimiento-de-codigo-code-coverage-y-procedimiento-de-ejecucion-de-pruebas" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="1-caso-guia-en-azahartech_3">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_3" title="Permanent link">&para;</a></h4>
+<p>Miércoles 4 de noviembre de 2026. En el ecuador de la segunda semana del <strong>Sprint 3</strong>, el equipo de desarrollo se concentra en la sala de operaciones de <strong>AzaharTech</strong>.</p>
+<p>Los estudiantes tienen sobre sus pantallas las baterías de casos de prueba diseñadas el lunes mediante partición de equivalencia y valores límite. <strong>Alba Torres</strong> se sitúa junto a la mesa del desarrollador junior y revisa el documento de pruebas del validador de accesos del <strong>IES El Caminàs</strong>:</p>
+<blockquote>
+<p><em>«Habéis hecho un trabajo excelente acorralando los límites de entrada: el código ya no revienta con edades de 11 o 100 años ni con contraseñas vacías. Sin embargo, os hago una pregunta crítica de aseguramiento de la calidad (QA):</em></p>
+<p><em>¿Estáis seguros de que vuestros casos de prueba han obligado a la JVM a pasar por todas las ramas de vuestro código? ¿O tenéis bloques de sentencias enteras dentro de los <code>else</code> o de los <code>catch</code> que jamás se han ejecutado en la realidad?</em></p>
+<p><em>Si una línea de código no se ejecuta durante las pruebas, es código en la sombra: una bomba de relojería esperando a que un usuario real entre por ese camino en producción. Hoy utilizaremos el motor de</em> <em>cubrimiento de código (Code Coverage)</em> <em>integrado en IntelliJ IDEA para iluminar visualmente qué partes de nuestro software están blindadas y cuáles permanecen completamente a oscuras»</em>.</p>
+</blockquote>
+<hr />
+<h4 id="2-fundamentos-del-cubrimiento-de-codigo-code-coverage">2. Fundamentos del cubrimiento de código (<em>Code Coverage</em>)<a class="headerlink" href="#2-fundamentos-del-cubrimiento-de-codigo-code-coverage" title="Permanent link">&para;</a></h4>
+<p>El <strong>cubrimiento de código</strong> es una métrica de <strong>caja blanca</strong> (<em>White-Box Testing</em>) que cuantifica el porcentaje de código fuente ejecutado cuando se somete una aplicación a una batería de pruebas.</p>
+<p>No todas las métricas de cobertura ofrecen el mismo nivel de garantía:</p>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        NIVELES DE CUBRIMIENTO DE CÓDIGO                                │
+├─────────────────────┬─────────────────────────────────┬────────────────────────────────┤
+│ Métrica             │ ¿Qué mide exactamente?          │ Nivel de rigor técnico         │
+├─────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ 1. Cubrimiento de   │ Porcentaje de líneas de código  │ BÁSICO: Garantiza que la JVM   │
+│    sentencias/líneas│ que han sido ejecutadas al      │ ha pisado la instrucción, pero │
+│    (Line Coverage)  │ menos una vez.                  │ ignora si se probaron todos los│
+│                     │                                 │ caminos de una decisión.       │
+├─────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ 2. Cubrimiento de   │ Porcentaje de ramas evaluadas en│ MEDIO-ALTO: En un `if (A)`,    │
+│    ramas/decisiones │ estructuras condicionales       │ comprueba que se han probado   │
+│    (Branch Coverage)│ (`if`, `switch`, bucles).       │ tanto el camino TRUE como el   │
+│                     │                                 │ camino FALSE.                  │
+├─────────────────────┼─────────────────────────────────┼────────────────────────────────┤
+│ 3. Cubrimiento de   │ Porcentaje de todas las         │ EXHAUSTIVO: En condiciones     │
+│    condiciones      │ combinaciones booleanas         │ complejas `if (A &amp;&amp; B)`, exige │
+│    múltiples        │ posibles dentro de cada rama.   │ probar todas las combinaciones │
+│                     │                                 │ de verdad de A y B.            │
+└─────────────────────┴─────────────────────────────────┴────────────────────────────────┘
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>ILUSTRACIÓN DE LA TRAMPA DEL CUBRIMIENTO DE LÍNEAS:
+
+    if (esFinDeSemana &amp;&amp; carnetCaducado) {   ◄─── Línea evaluada
+        denegarAcceso();                     ◄─── Línea ejecutada (100% Line Coverage)
+    }
+
+    * Si solo probamos el caso (TRUE &amp;&amp; TRUE), la cobertura de líneas dirá 100%.
+    * Pero la cobertura de ramas alertará: "Falta probar qué ocurre cuando es FALSE".
+</code></pre></div>
+<blockquote>
+<p><strong>Axioma de calidad de Laia Claramunt:</strong>
+<em>«Un cubrimiento de código del 100 % no demuestra que un programa carezca de fallos: no puede detectar requisitos que olvidaste programar. Sin embargo, un cubrimiento del 40 % demuestra matemáticamente que el 60 % de tu software es un territorio desconocido y sin control»</em>.</p>
+</blockquote>
+<hr />
+<h4 id="3-el-mapa-visual-de-cobertura-en-intellij-idea">3. El mapa visual de cobertura en IntelliJ IDEA<a class="headerlink" href="#3-el-mapa-visual-de-cobertura-en-intellij-idea" title="Permanent link">&para;</a></h4>
+<p>IntelliJ IDEA incorpora un motor nativo de instrumentación de bytecode que monitoriza cada instrucción ejecutada por la JVM.</p>
+<h5 id="como-lanzar-la-ejecucion-con-cobertura">Cómo lanzar la ejecución con cobertura<a class="headerlink" href="#como-lanzar-la-ejecucion-con-cobertura" title="Permanent link">&para;</a></h5>
+<p>En lugar del botón habitual de <em>Run</em> (<code>Shift + F10</code>) o <em>Debug</em> (<code>Shift + F9</code>), seleccionamos la opción <strong>Run '...' with Coverage</strong> (icono del triángulo verde superpuesto sobre un pequeño escudo de seguridad).</p>
+<p>Al finalizar la ejecución, el editor de IntelliJ activa su semáforo de cobertura en el margen lateral izquierdo (<em>gutter</em>):</p>
+<div class="highlight"><pre><span></span><code>       CÓDIGO DE COLORES EN EL EDITOR DE INTELLIJ IDEA
+
+       ┌───┬────────────────────────────────────────────────────────┐
+  Verde│   │ if (puntosVida &gt; 0) {                                  │ ◄── Rama completamente cubierta
+       │   │     personaje.continuarAventura();                     │
+       ├───┼────────────────────────────────────────────────────────┤
+Amarillo│   │ if (intentosRestantes &gt; 0 &amp;&amp; servidorActivo) {         │ ◄── Rama parcialmente cubierta
+       │   │     reintentarConexion();                              │     (solo se probó una condición)
+       ├───┼────────────────────────────────────────────────────────┤
+   Rojo│   │ } else {                                               │
+       │   │     notificarAdministradorEmergencia();                 │ ◄── Código no ejecutado
+       │   │     bloquearTerminal();                                │     (0% cubrimiento / Punto ciego)
+       └───┴────────────────────────────────────────────────────────┘
+</code></pre></div>
+<p>Además, IntelliJ despliega la ventana acoplable <strong>Coverage</strong>, que desglosa el porcentaje exacto de cobertura por paquetes, clases, métodos y líneas de todo el proyecto.</p>
+<hr />
+<h4 id="4-dinamica-de-laboratorio-cierre-de-angulos-muertos-30-minutos">4. Dinámica de laboratorio: Cierre de ángulos muertos (30 minutos)<a class="headerlink" href="#4-dinamica-de-laboratorio-cierre-de-angulos-muertos-30-minutos" title="Permanent link">&para;</a></h4>
+<p>Durante la segunda mitad de la sesión, los estudiantes auditan su propio software aplicando la técnica de <strong>pruebas dirigidas por cobertura (<em>Coverage-Driven Testing</em>)</strong>:</p>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        FASES DEL LABORATORIO DE COBERTURA (DÍA 16)                     │
+├──────────────┬──────────────────┬──────────────────────────────────────────────────────┤
+│ Tiempo       │ Fase             │ Tarea técnica requerida                              │
+├──────────────┼──────────────────┼──────────────────────────────────────────────────────┤
+│ Min 00 – 10  │ 1. Ejecución con │ Lanzar la clase principal o módulo de validación con │
+│              │    Coverage      │ **Run with Coverage**. Registrar el % inicial de     │
+│              │                  │ cobertura de líneas en el cuaderno de bitácora.      │
+├──────────────┼──────────────────┼──────────────────────────────────────────────────────┤
+│ Min 10 – 20  │ 2. Detección de  │ Inspeccionar los bloques marcados en **rojo** o      │
+│              │    bloques rojos │ **amarillo**. Identificar qué rama lógica jamás fue  │
+│              │                  │ alcanzada por los casos de prueba del Día 15.        │
+├──────────────┼──────────────────┼──────────────────────────────────────────────────────┤
+│ Min 20 – 30  │ 3. Diseño del    │ Crear un nuevo caso de prueba específico para        │
+│              │    caso de cierre│ forzar la ejecución del bloque rojo y conseguir que  │
+│              │                  │ todo el margen del editor se ilumine en **verde**.   │
+└──────────────┴──────────────────┴──────────────────────────────────────────────────────┘
+</code></pre></div>
+<h5 id="casuistica-segun-el-proyecto-de-la-bolsa">Casuística según el proyecto de la bolsa:<a class="headerlink" href="#casuistica-segun-el-proyecto-de-la-bolsa" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>En Aventura conversacional:</strong> Identificar si la rama que gestiona la muerte del jugador (<code>hp &lt;= 0</code>) o el rechazo de comandos desconocidos en el <code>default</code> del <code>switch</code> está en rojo. Diseñar un caso de prueba con un comando inválido (ej. <code>"VOLAR"</code>) para teñir la rama de verde.</li>
+<li><strong>En Motor de recomendación:</strong> Comprobar si el bloque de control que gestiona usuarios sin ninguna valoración previa (<em>cold start</em>) está desatendido. Introducir un vector de valoraciones vacío para verificar que el mensaje de cortesía se ejecuta correctamente.</li>
+<li><strong>En Simulador de físicas 2D:</strong> Verificar si las ramas que controlan la parada por fricción total (<code>velocidad &lt; 0.001f</code>) o el choque contra el techo del escenario están sin cobertura. Diseñar una prueba que simule una caída libre prolongada para activar los límites de parada.</li>
+<li><strong>En Bóveda de contraseñas:</strong> Comprobar si la rama que captura cadenas con caracteres de escape o espacios en blanco quedó sin evaluar en el bucle de validación. Suministrar una contraseña de prueba con espacios intermedios (ej. <code>"Admin 2026*"</code>) para forzar la ejecución del rechazo.</li>
+</ul>
+<h5 id="entregable-de-cierre-de-sesion">Entregable de cierre de sesión<a class="headerlink" href="#entregable-de-cierre-de-sesion" title="Permanent link">&para;</a></h5>
+<p>Cada alumno formaliza el estado de sus pruebas en el archivo <code>docs/pruebas/informe-cobertura.md</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="gu">### Registro de Ejecución y Cubrimiento de Pruebas (Sprint 3 - Semana 8)</span>
+
+<span class="k">-</span><span class="w"> </span><span class="gs">**Módulo auditado:**</span> Validador de reglas de negocio
+<span class="k">-</span><span class="w"> </span><span class="gs">**Cubrimiento inicial de líneas:**</span> 68% (Ramas <span class="sb">`else`</span> y excepciones no cubiertas)
+<span class="k">-</span><span class="w"> </span><span class="gs">**Ángulo muerto detectado:**</span> La excepción de argumento inválido nunca se disparaba.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Acción correctora:**</span> Se añadió el caso de prueba <span class="sb">`CP-VAL-007`</span> con entrada nula.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Cubrimiento final alcanzado:**</span> 92% de líneas / 85% de ramas.
+</code></pre></div>
+<p>Con la ejecución confirmada y registrada en el control de versiones, el equipo dispone de un código verificado con métricas objetivas, sentando la base para las pruebas estructurales avanzadas y la depuración de algoritmos complejos de la próxima semana.</p>
+<h2 id="semana-9-complejidad-ciclomatica-y-regresion">Semana 9. Complejidad ciclomática y regresión<a class="headerlink" href="#semana-9-complejidad-ciclomatica-y-regresion" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="dia-17-2-sesiones">Día 17 - 2 sesiones<a class="headerlink" href="#dia-17-2-sesiones" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="sesion-1-teoria-desmontando-el-laberinto-grafos-de-flujo-metrica-de-mccabe-y-depuracion-no-invasiva">Sesión 1. Teoría. Desmontando el laberinto: grafos de flujo, métrica de McCabe y depuración no invasiva<a class="headerlink" href="#sesion-1-teoria-desmontando-el-laberinto-grafos-de-flujo-metrica-de-mccabe-y-depuracion-no-invasiva" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="1-caso-guia-en-azahartech_4">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_4" title="Permanent link">&para;</a></h4>
+<p>Lunes 9 de noviembre de 2026. Arranca la tercera y última semana del <strong>Sprint 3</strong> en la sede de <strong>AzaharTech</strong> en Castellón de la Plana.</p>
+<p>En los módulos troncales, la exigencia técnica se encuentra en su punto álgido: en Programación, los alumnos están implementando algoritmos con bucles anidados (<code>for</code>, <code>while</code>), menús ramificados con <code>switch</code> y filtros encadenados con múltiples operadores lógicos (<code>&amp;&amp;</code>, <code>||</code>).</p>
+<p>Sobre la pizarra de la sala técnica, <strong>Alba Torres</strong> y <strong>Pau Ferrer</strong> han transcrito el método principal del módulo de cálculo de sanciones y retrasos acumulados del <strong>IES El Caminàs</strong>. El código ocupa casi setenta líneas repletas de bifurcaciones anidadas:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">calcularEstadoAsistencia</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">minutosRetraso</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">esJustificado</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">faltasPrevias</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">esReincidente</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">estado</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">minutosRetraso</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">esJustificado</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">minutosRetraso</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">estado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"FALTA_GRAVE"</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">estado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"RETRASO_LEVE"</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">faltasPrevias</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">esReincidente</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">estado</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">"_CON_EXPEDIENTE"</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">estado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"JUSTIFICADO"</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">estado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"PUNTUAL"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">estado</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Laia Claramunt</strong> toma el rotulador y rodea el método:</p>
+<blockquote>
+<p><em>«Mirad este bloque. Cuando las condiciones se anidan, la mente humana tiende a colapsar: es el temido 'bloqueo algorítmico'. Es fácil perder la pista de qué camino toma la ejecución cuando se combinan variables booleanas y contadores numéricos.</em></p>
+<p><em>A mediados de los años setenta, el matemático y científico de la computación Thomas McCabe formuló una regla que sigue siendo el estándar de oro en la ingeniería de software: la</em> <em>Complejidad Ciclomática</em>.*</p>
+<p><em>Hoy aprenderemos a traducir cualquier fragmento de código a un</em> <em>Grafo de Flujo de Control (CFG)</em> <em>para saber exactamente cuántos caminos independientes existen en un algoritmo. Y para no volvernos locos depurando bucles que se repiten cientos de veces, utilizaremos dos herramientas avanzadas de IntelliJ IDEA que no alteran el código:</em> <em>las variables monitorizadas (Watches)</em> <em>y</em> <em>los puntos de traza silenciosos (Logpoints)»</em>.</p>
+</blockquote>
+<hr />
+<h4 id="2-grafos-de-flujo-de-control-cfg-y-complejidad-ciclomatica-de-mccabe">2. Grafos de Flujo de Control (CFG) y Complejidad Ciclomática de McCabe<a class="headerlink" href="#2-grafos-de-flujo-de-control-cfg-y-complejidad-ciclomatica-de-mccabe" title="Permanent link">&para;</a></h4>
+<p>El <strong>Grafo de Flujo de Control</strong> (<em>Control Flow Graph</em> o CFG) es una representación gráfica de todos los caminos que puede atravesar un programa durante su ejecución.
+* <strong>Nodos ($N$):</strong> Representan bloques de código secuencial (sin saltos ni bifurcaciones).
+* <strong>Aristas ($E$):</strong> Flechas dirigidas que representan la transferencia de control entre instrucciones.</p>
+<div class="highlight"><pre><span></span><code>       CONVERSIÓN DE ESTRUCTURAS DE CONTROL A GRAFO (CFG)
+
+          BIFURCACIÓN CONDICIONAL (IF)                 BUCLE (WHILE / FOR)
+                     ┌───┐                                    ┌───┐
+                     │ 1 │ (Condición)                        │ 1 │◄─────┐
+                     └─┬─┘                                    └─┬─┘      │
+                   TRUE│  ▲FALSE                            TRUE│  ▲     │
+              ┌────────┘  └────────┐                       ┌────┘  │     │
+              ▼                    ▼                       ▼       │Itera│
+            ┌───┐                ┌───┐                   ┌───┐     │     │
+            │ 2 │ (Rama Then)    │ 3 │ (Rama Else)       │ 2 │(Cuerpo)───┘
+            └───┬┘               ┌───┘                   └───┬┘
+                │   ┌───┐        │                      FALSE│
+                └──►│ 4 │◄───────┘                           ▼
+                    └───┘ (Fin If)                         ┌───┐
+                                                           │ 3 │ (Salida)
+                                                           └───┘
+</code></pre></div>
+<h5 id="la-formula-de-thomas-mccabe">La fórmula de Thomas McCabe<a class="headerlink" href="#la-formula-de-thomas-mccabe" title="Permanent link">&para;</a></h5>
+<p>La <strong>Complejidad Ciclomática</strong> ($V(G)$) cuantifica la complejidad lógica de un método y determina el número de <strong>caminos linealmente independientes</strong> que lo forman. Esto define el número mínimo de casos de prueba necesarios para garantizar que cada instrucción se ejecuta al menos una vez.</p>
+<p>Se puede calcular de dos formas equivalentes:
+1. <strong>Fórmula topológica:</strong>
+   $$V(G) = E - N + 2P$$
+   <em>(Donde $E$ es el número de aristas, $N$ el de nodos y $P$ el número de componentes conexos, normalmente $P = 1$ para un único método).</em>
+2. <strong>Regla de las regiones o puntos de decisión:</strong>
+   $$V(G) = \text{Número de puntos de decisión} + 1$$
+   <em>(Cada <code>if</code>, <code>while</code>, <code>for</code>, <code>case</code> o condición booleana compuesta con <code>&amp;&amp;</code> o <code>||</code> añade un punto de decisión).</em></p>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        ESCALA DE RIESGO DE LA COMPLEJIDAD CICLOMÁTICA                  │
+├──────────────┬──────────────────┬──────────────────────┬───────────────────────────────┤
+│ Valor V(G)   │ Nivel de riesgo  │ Mantenibilidad       │ Recomendación técnica         │
+├──────────────┼──────────────────┼──────────────────────┼───────────────────────────────┤
+│ 1 – 10       │ Código simple    │ Alta mantenibilidad  │ Módulo bien estructurado.     │
+│              │ (Riesgo bajo)    │ Fácil de probar      │ Diseño limpio y legible.      │
+├──────────────┼──────────────────┼──────────────────────┼───────────────────────────────┤
+│ 11 – 20      │ Complejidad      │ Moderada dificultad  │ Requiere atención. Conviene   │
+│              │ moderada         │ de seguimiento       │ extraer métodos auxiliares.   │
+├──────────────┼──────────────────┼──────────────────────┼───────────────────────────────┤
+│ 21 – 50      │ Alta complejidad │ Código inestable     │ ALERTA: Muy difícil de testear│
+│              │ (Riesgo alto)    │ Propensión a bugs    │ Refactorización prioritaria.  │
+├──────────────┼──────────────────┼──────────────────────┼───────────────────────────────┤
+│ &gt; 50         │ Inasumible       │ Intesteable          │ Código no aceptable según los │
+│              │ (Riesgo crítico) │ "Código espagueti"   │ estándares de AzaharTech.     │
+└──────────────┴──────────────────┴──────────────────────┴───────────────────────────────┘
+</code></pre></div>
+<hr />
+<h4 id="3-herramientas-avanzadas-del-depurador-para-algoritmos-complejos">3. Herramientas avanzadas del depurador para algoritmos complejos<a class="headerlink" href="#3-herramientas-avanzadas-del-depurador-para-algoritmos-complejos" title="Permanent link">&para;</a></h4>
+<p>Cuando un algoritmo ejecuta bucles de decenas o cientos de iteraciones, pulsar <code>F8</code> repetidamente es inviable. Para estos escenarios, IntelliJ IDEA ofrece dos herramientas de inspección no invasiva:</p>
+<h5 id="a-variables-y-expresiones-monitorizadas-watches">A) Variables y expresiones monitorizadas (<em>Watches</em>)<a class="headerlink" href="#a-variables-y-expresiones-monitorizadas-watches" title="Permanent link">&para;</a></h5>
+<p>En la pestaña <strong>Variables</strong> del panel Debug, podemos pulsar el icono <code>+</code> (<strong>New Watch...</strong>) para escribir expresiones dinámicas complejas que queramos vigilar constantemente (por ejemplo: <code>listaAlumnos.size()</code>, <code>i * factorEscala</code> o <code>persona != null &amp;&amp; persona.esActivo()</code>).
+* A diferencia de inspeccionar una variable estática, el <strong>Watch</strong> reevalúa la fórmula matemática o lógica en cada micro-paso de la ejecución, destacando en color azul cualquier cambio de valor.</p>
+<h5 id="b-puntos-de-traza-silenciosos-logpoints-tracepoints">B) Puntos de traza silenciosos (<em>Logpoints / Tracepoints</em>)<a class="headerlink" href="#b-puntos-de-traza-silenciosos-logpoints-tracepoints" title="Permanent link">&para;</a></h5>
+<p>Los <strong>Logpoints</strong> resuelven de raíz la tentación de meter sentencias <code>System.out.println</code> en el código fuente:
+1. Coloca un punto de ruptura normal en el margen lateral.
+2. Haz clic derecho sobre el punto rojo para abrir sus propiedades avanzadas.
+3. <strong>Desmarca</strong> la casilla <strong>Suspend</strong> (para que la JVM <strong>no detenga</strong> la ejecución del programa).
+4. <strong>Marca</strong> la casilla <strong>Evaluate and log</strong> (o <em>Breakpoint hit message</em>) y escribe una expresión Java entrecomillada o una variable:
+   <code>"Iteración: " + i + " | Minutos acumulados: " + totalMinutos</code>
+5. Al ejecutar con Debug, IntelliJ imprimirá ese mensaje directamente en la consola de depuración cada vez que el hilo pase por esa línea, a máxima velocidad y sin haber modificado ni una sola coma del archivo fuente.</p>
+<div class="highlight"><pre><span></span><code>VENTANA DE CONFIGURACIÓN DE UN LOGPOINT EN INTELLIJ:
+
+    ┌────────────────────────────────────────────────────────┐
+    │ Breakpoint: GestorAcceso.java:45                       │
+    ├────────────────────────────────────────────────────────┤
+    │ [ ] Suspend   ◄── (Desmarcado: NO detiene el programa) │
+    │                                                        │
+    │ Log:                                                   │
+    │ [x] "Breakpoint hit" message                           │
+    │ [x] Evaluate and log:                                  │
+    │     ┌────────────────────────────────────────────┐     │
+    │     │ "Alumno: " + id + " -&gt; Estado: " + estado  │     │
+    │     └────────────────────────────────────────────┘     │
+    └────────────────────────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h4 id="4-actividad-activa-interactiva-calculo-de-caminos-en-la-pizarra">4. Actividad activa interactiva: Cálculo de caminos en la pizarra<a class="headerlink" href="#4-actividad-activa-interactiva-calculo-de-caminos-en-la-pizarra" title="Permanent link">&para;</a></h4>
+<p>Alba Torres retoma el método <code>calcularEstadoAsistencia</code> presentado al inicio.
+Los estudiantes analizan los puntos de decisión del código:
+1. Condición 1: <code>if (minutosRetraso &gt; 0)</code> (+1)
+2. Condición 2: <code>if (!esJustificado)</code> (+1)
+3. Condición 3: <code>if (minutosRetraso &gt; 30)</code> (+1)
+4. Condición 4: <code>if (faltasPrevias &gt;= 3 || esReincidente)</code> (Contiene un operador <code>||</code>, sumando dos caminos booleanos: +2)</p>
+<ul>
+<li><strong>Cálculo:</strong>
+  $$\text{Puntos de decisión} = 1 + 1 + 1 + 2 = 5$$
+  $$V(G) = 5 + 1 = 6$$</li>
+<li><strong>Conclusión técnica:</strong> <em>«Para tener una cobertura completa de caminos independientes de este método, necesitamos exactamente 6 casos de prueba distintos. Ni 5, ni 20: seis casos bien dirigidos garantizan que ningún recoveco quede sin auditar»</em>.</li>
+</ul>
+<hr />
+<h4 id="sesion-2-dojo-de-entrenamiento-y-katas-de-herramientas_2">Sesión 2. Dojo de entrenamiento y katas de herramientas<a class="headerlink" href="#sesion-2-dojo-de-entrenamiento-y-katas-de-herramientas_2" title="Permanent link">&para;</a></h4>
+<p>Pasamos a los puestos de trabajo para aplicar las técnicas de análisis estructural y depuración avanzada sobre los algoritmos individuales de cada proyecto:</p>
+<hr />
+<h5 id="kata-1-cinturon-blanco-nivel-base-grafo-de-flujo-y-calculo-de-vg-de-tu-algoritmo-central">Kata 1 (Cinturón blanco / Nivel base). Grafo de flujo y cálculo de $V(G)$ de tu algoritmo central<a class="headerlink" href="#kata-1-cinturon-blanco-nivel-base-grafo-de-flujo-y-calculo-de-vg-de-tu-algoritmo-central" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Objetivo.</strong> Seleccionar el método más complejo desarrollado hasta la fecha en tu proyecto propio (aquel que combine bucles y estructuras condicionales), dibujar su grafo de flujo de control elemental y calcular formalmente su Complejidad Ciclomática $V(G)$.</li>
+<li><strong>Aplicación según tu proyecto de la bolsa:</strong><ul>
+<li>En <strong>Aventura conversacional.</strong> Analizar el método del bucle de combate o de resolución de acertijos (evaluación de vida del monstruo, tiradas de dados, estado de aturdimiento y huida).</li>
+<li>En <strong>Motor de recomendación.</strong> Analizar el algoritmo de ordenación o filtrado condicional por umbral de similitud (bucle que compara vectores de usuarios con condiciones múltiples).</li>
+<li>En <strong>Simulador de físicas 2D.</strong> Analizar el algoritmo de detección y respuesta de colisiones contra los cuatro bordes de la ventana y otros obstáculos rígidos.</li>
+<li>En <strong>Bóveda de contraseñas.</strong> Analizar la función de cálculo del nivel de entropía o fortaleza de contraseña (bucle que recorre la cadena comprobando caracteres contiguos repetidos, símbolos y números).</li>
+</ul>
+</li>
+<li><strong>Entregable:</strong> Registrar en <code>docs/pruebas/complejidad-algoritmo.md</code> el fragmento de código, el desglose de los puntos de decisión identificados y el valor resultante de $V(G)$.</li>
+</ul>
+<hr />
+<h5 id="kata-2-cinturon-marron-nivel-avanzado-pruebas-de-camino-basico-basis-path-testing-e-instrumentacion-con-logpoints">Kata 2 (Cinturón marrón / Nivel avanzado). Pruebas de camino básico (<em>Basis Path Testing</em>) e instrumentación con Logpoints<a class="headerlink" href="#kata-2-cinturon-marron-nivel-avanzado-pruebas-de-camino-basico-basis-path-testing-e-instrumentacion-con-logpoints" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto técnico.</strong> Una vez determinado que un método tiene $V(G) = k$, debemos definir exactamente $k$ caminos independientes que garanticen que cada arista del grafo se recorre al menos una vez, verificando su ejecución mediante <em>Logpoints</em>.</li>
+<li><strong>Misión de la kata:</strong><ol>
+<li>A partir del valor $V(G)$ obtenido en la Kata 1, define en Markdown la lista de los caminos básicos independientes enumerando los nodos que recorre cada uno (por ejemplo: <em>Camino 1: Inicio -&gt; Entrada no válida -&gt; Fin</em>; <em>Camino 2: Inicio -&gt; Entrada válida -&gt; Rama A -&gt; Fin</em>, etc.).</li>
+<li>En el archivo fuente Java, sustituye cualquier sentencia <code>System.out.println</code> de prueba que tuvieras por <strong>Logpoints silenciosos</strong> de IntelliJ IDEA (con la opción <em>Suspend</em> desmarcada).</li>
+<li>Configura el mensaje del Logpoint para que imprima en cada iteración:
+   <code>"[TRACE] Camino activo: " + nombreVariableEstado + " | Valor: " + variableControl</code></li>
+<li>Ejecuta sucesivamente las entradas diseñadas para cada camino básico y comprueba en la pestaña <strong>Debugger Console</strong> cómo se generan las trazas limpias sin ensuciar la salida estándar del programa.</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h5 id="kata-3-cinturon-negro-hacker-azahartech-deteccion-de-bucles-infinitos-en-caliente-y-salida-forzada-force-return">Kata 3 (Cinturón negro / «Hacker AzaharTech»). Detección de bucles infinitos en caliente y salida forzada (<em>Force Return</em>)<a class="headerlink" href="#kata-3-cinturon-negro-hacker-azahartech-deteccion-de-bucles-infinitos-en-caliente-y-salida-forzada-force-return" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto de arquitectura.</strong> El mayor riesgo de programar bucles complejos en el Sprint 3 es el bucle infinito: el programa deja de responder, la CPU se satura y el programador suele verse obligado a forzar el cierre violento del proceso perdiendo los datos de la sesión. Los desarrolladores senior interceptan y desarman bucles infinitos en caliente con el depurador.</li>
+<li><strong>Misión de la kata:</strong><ol>
+<li>En una rama experimental de tu proyecto, simula intencionadamente una condición de parada defectuosa en un bucle <code>while</code> (por ejemplo, omitiendo el incremento del contador o estableciendo una condición inalcanzable).</li>
+<li>Arranca el programa en modo depuración (<strong>Debug</strong>, <code>Shift + F9</code>).</li>
+<li>Introduce los datos para activar el bucle infinito: observa cómo la aplicación se queda congelada y no devuelve el control a la consola.</li>
+<li>En la barra de herramientas del depurador de IntelliJ, pulsa el botón <strong>Pause Program</strong> (icono de dos barras verticales de pausa). La JVM suspenderá inmediatamente el hilo en la línea exacta del bucle donde se encuentra atrapado.</li>
+<li>En el panel <strong>Variables</strong>, crea un <strong>Watch</strong> (<code>+</code>) con la condición de salida del bucle para entender por qué nunca se vuelve falsa.</li>
+<li><strong>Maniobra de rescate (<em>Force Return</em>):</strong><ul>
+<li>En el panel <strong>Frames</strong>, haz clic derecho sobre el marco del método actual atascado en el bucle.</li>
+<li>Selecciona la opción <strong>Force Return</strong>.</li>
+<li>Si el método devuelve un valor, introduce un retorno seguro (por ejemplo, <code>false</code>, <code>0</code> o <code>null</code>).</li>
+</ul>
+</li>
+<li>Observa cómo el depurador aborta la ejecución del bucle anómalo y devuelve el control al método llamador sin que la aplicación se caiga ni se corrompa el proceso de depuración.</li>
+<li>Restaura la condición correcta en el código fuente, recompila con Maven y haz commit de las pruebas estructurales bajo el mensaje:
+   <code>test(core): verificado conjunto de caminos basicos y complejidad ciclomática VG=X</code>.</li>
+</ol>
+</li>
+</ul>
+<h3 id="dia-18-1-sesion">Día 18 - 1 sesión<a class="headerlink" href="#dia-18-1-sesion" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="sesion-unica-taller-de-consolidacion-el-ciclo-de-vida-del-defecto-bug-lifecycle-verificacion-de-regresion-y-cierre-formal-del-sprint-3">Sesión única. Taller de consolidación: El ciclo de vida del defecto (<em>Bug Lifecycle</em>), verificación de regresión y cierre formal del Sprint 3<a class="headerlink" href="#sesion-unica-taller-de-consolidacion-el-ciclo-de-vida-del-defecto-bug-lifecycle-verificacion-de-regresion-y-cierre-formal-del-sprint-3" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="1-caso-guia-en-azahartech_5">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_5" title="Permanent link">&para;</a></h4>
+<p>Viernes 13 de noviembre de 2026. Son las cuatro de la tarde en las oficinas de <strong>AzaharTech</strong> en Castellón de la Plana. La jornada representa un hito fundamental del primer trimestre: hoy concluye formalmente el <strong>Sprint 3: «El ciclo del error: pruebas y depuración»</strong>.</p>
+<p>A lo largo de las últimas tres semanas, el equipo ha dado un salto cualitativo en su madurez técnica: ha dejado atrás la depuración artesanal basada en imprimir mensajes por consola para dominar el depurador interactivo de IntelliJ IDEA, la inspección de variables en memoria RAM, el análisis de la pila de llamadas (<em>Frames</em>), el diseño de pruebas de caja negra (clases de equivalencia y valores límite), la medición de cubrimiento (<em>Coverage</em>) y el cálculo de la complejidad ciclomática de McCabe.</p>
+<p>En la pantalla principal, <strong>Laia Claramunt</strong> y <strong>Pau Ferrer</strong> abren el tablero del proyecto del <strong>IES El Caminàs</strong>. Todos los módulos que la semana pasada provocaban bloqueos en los bucles o excepciones por valores fuera de rango se encuentran ahora corregidos.</p>
+<p>Laia se dirige a los desarrolladores del equipo:</p>
+<blockquote>
+<p><em>«Habéis transformado un código frágil e inestable en un producto predecible y blindado contra entradas inesperadas. Sin embargo, en el desarrollo profesional de software corporativo existe una regla inquebrantable:</em> <em>un fallo no está solucionado simplemente porque el programador que lo escribió diga 'en mi ordenador ya no falla'»</em> [10, 12].</p>
+<p><em>Para dar por cerrado un defecto, debemos someterlo a una</em> <em>prueba de regresión</em> <em>—garantizando que el arreglo no ha destruido accidentalmente una funcionalidad previa—, verificarlo mediante una auditoría técnica cruzada con otro compañero de consultoría y actualizar formalmente su estado en el ciclo de vida de la incidencia.</em></p>
+<p><em>Hoy cerraremos el ciclo completo del Sprint 3: formalizaremos la</em> <em>matriz de trazabilidad de pruebas</em>, <em>auditaremos por parejas los módulos desarrollados y utilizaremos la</em> <em>interfaz gráfica de IntelliJ IDEA</em> <em>para realizar el commit y push visual definitivo que dejará el repositorio sellado antes de iniciar el lunes el Sprint 4: la programación orientada a objetos propia y la gestión de ramas en Git»</em> [4, 11].</p>
+</blockquote>
+<hr />
+<h4 id="2-el-ciclo-de-vida-del-defecto-bug-lifecycle-y-las-pruebas-de-regresion">2. El Ciclo de Vida del Defecto (<em>Bug Lifecycle</em>) y las Pruebas de Regresión<a class="headerlink" href="#2-el-ciclo-de-vida-del-defecto-bug-lifecycle-y-las-pruebas-de-regresion" title="Permanent link">&para;</a></h4>
+<p>En la ingeniería de software profesional regulada por estándares de calidad, un error o defecto técnico (<em>bug</em>) no es una simple anotación en una libreta: es una entidad con ciclo de vida propio que atraviesa estados unívocos desde que se detecta hasta que se certifica su corrección definitiva [3, 4].</p>
+<div class="highlight"><pre><span></span><code>                  EL CICLO DE VIDA FORMAL DE UNA INCIDENCIA
+
+        ┌─────────────┐         ┌──────────────┐         ┌───────────────┐
+   ────►│    NUEVO    ├────────►│  ASIGNADO    ├────────►│ EN RESOLUCIÓN │
+        │   (Open)    │         │  (Assigned)  │         │ (In Progress) │
+        └─────────────┘         └──────────────┘         └───────┬───────┘
+                                                                 │
+                                                                 ▼
+        ┌─────────────┐         ┌──────────────┐         ┌───────────────┐
+   ◄────┤   CERRADO   │◄────────┤  VERIFICADO  │◄────────┤   RESUELTO    │
+        │  (Closed)   │ (Pasa)  │ (Regression) │ (Fix)   │  (Resolved)   │
+        └─────────────┘         └───────┬──────┘         └───────────────┘
+                                        │
+                                        │ (Falla)
+                                        ▼
+                                ┌──────────────┐
+                                │  REABIERTO   │
+                                │  (Reopened)  │
+                                └──────────────┘
+</code></pre></div>
+<h5 id="los-estados-de-una-incidencia-tecnica">Los estados de una incidencia técnica<a class="headerlink" href="#los-estados-de-una-incidencia-tecnica" title="Permanent link">&para;</a></h5>
+<ol>
+<li><strong>Nuevo (<em>Open</em>):</strong> La anomalía ha sido detectada y registrada formalmente con su plantilla de informe técnico (<em>Bug Report</em>), detallando pasos para reproducirla y captura del comportamiento observado.</li>
+<li><strong>Asignado (<em>Assigned</em>):</strong> El equipo asigna la incidencia al desarrollador responsable de ese componente de software.</li>
+<li><strong>En resolución (<em>In Progress</em>):</strong> El desarrollador analiza el fallo con el depurador, identifica la causa raíz en memoria y modifica la lógica algorítmica.</li>
+<li><strong>Resuelto (<em>Resolved</em>):</strong> Se ha aplicado una corrección técnica en el código que supera el caso de prueba conflictivo.</li>
+<li><strong>Verificado (<em>Verified / Re-test</em>):</strong> Un segundo desarrollador (auditor de aseguramiento de calidad) reproduce de nuevo la prueba de forma independiente para certificar la corrección.</li>
+<li><strong>Cerrado (<em>Closed</em>):</strong> El defecto se archiva formalmente en el sistema documental tras superar las pruebas de regresión.</li>
+<li><strong>Reabierto (<em>Reopened</em>):</strong> Si la verificación falla o la corrección introduce nuevos fallos colaterales, la incidencia vuelve a asignarse al programador.</li>
+</ol>
+<h5 id="las-pruebas-de-regresion-regression-testing">Las Pruebas de Regresión (<em>Regression Testing</em>)<a class="headerlink" href="#las-pruebas-de-regresion-regression-testing" title="Permanent link">&para;</a></h5>
+<p>Cuando se altera una línea de código para subsanar un fallo (por ejemplo, corregir un operador relacional <code>&lt;</code> por <code>&lt;=</code> en una condición de parada), existe siempre el peligro inminente de causar <strong>regresión</strong>: romper caminos lógicos o casos de uso que antes funcionaban a la perfección.</p>
+<p>Una <strong>prueba de regresión</strong> consiste en volver a ejecutar de forma íntegra <strong>toda</strong> la batería de casos de prueba previamente aprobados tras aplicar el parche. Solo si se cumplen dos condiciones simultáneas se valida el cambio:
+* El nuevo caso de prueba que antes fallaba ahora se ejecuta con éxito.
+* Todos los casos de prueba históricos antiguos continúan pasando sin ninguna alteración ni degradación.</p>
+<hr />
+<h4 id="3-matriz-de-trazabilidad-de-pruebas-traceability-matrix">3. Matriz de Trazabilidad de Pruebas (<em>Traceability Matrix</em>)<a class="headerlink" href="#3-matriz-de-trazabilidad-de-pruebas-traceability-matrix" title="Permanent link">&para;</a></h4>
+<p>Para certificar ante el cliente (en nuestro caso, el IES El Caminàs) que el software cumple los estándares contractuales, AzaharTech exige estructurar la <strong>matriz de trazabilidad bidireccional</strong>, vinculando cada Requisito Funcional (<strong>RF</strong>) con sus Casos de Prueba (<strong>CP</strong>) y sus Incidencias resueltas (<strong>INC</strong>) [2, 3]:</p>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        MATRIZ DE TRAZABILIDAD (SPRINT 3 - AZAHARTECH)                  │
+├──────────────┬────────────────────────┬──────────────┬───────────────┬─────────────────┤
+│ Requisito    │ Descripción Funcional  │ Caso Prueba  │ Incidencia    │ Estado técnico  │
+├──────────────┼────────────────────────┼──────────────┼───────────────┼─────────────────┤
+│ RF-CAM-01    │ Validación de carné    │ CP-ACC-001   │ INC-01 (Crash │ CERRADO         │
+│              │ de visitante [12-99]   │ CP-ACC-002   │ por nulo)     │ y verificado    │
+├──────────────┼────────────────────────┼──────────────┼───────────────┼─────────────────┤
+│ RF-CAM-02    │ Control horario de     │ CP-HOR-001   │ INC-02 (Bucle │ CERRADO         │
+│              │ retraso lectivo        │ CP-HOR-002   │ off-by-one)   │ y verificado    │
+├──────────────┼────────────────────────┼──────────────┼───────────────┼─────────────────┤
+│ RF-CAM-03    │ Notificación tras 3    │ CP-SAN-001   │ Ninguna       │ VERIFICADO      │
+│              │ faltas consecutivas    │              │ detectada     │ (sin defectos)  │
+└──────────────┴────────────────────────┴──────────────┴───────────────┴─────────────────┘
+</code></pre></div>
+<hr />
+<h4 id="4-dinamica-de-laboratorio-auditoria-tecnica-cruzada-por-pares-30-minutos">4. Dinámica de laboratorio: Auditoría técnica cruzada por pares (30 minutos)<a class="headerlink" href="#4-dinamica-de-laboratorio-auditoria-tecnica-cruzada-por-pares-30-minutos" title="Permanent link">&para;</a></h4>
+<p>Durante la parte práctica de la sesión, los desarrolladores trabajan por parejas intercambiando sus puestos de trabajo para realizar una <strong>Auditoría Técnica Cruzada (<em>Peer QA Review</em>)</strong>:</p>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        FASES DE LA AUDITORÍA CRUZADA (DÍA 18)                          │
+├──────────────┬──────────────────┬──────────────────────────────────────────────────────┤
+│ Tiempo       │ Fase             │ Operación técnica requerida                          │
+├──────────────┼──────────────────┼──────────────────────────────────────────────────────┤
+│ Min 00 – 10  │ 1. Inspección de │ Abrir en IntelliJ IDEA el proyecto del compañero.    │
+│              │    incidencias   │ Abrir el archivo `docs/incidencias/INCIDENCIA-01.md`. │
+│              │                  │ Reproducir bajo depuración el fallo originalmente    │
+│              │                  │ documentado para verificar el punto de ruptura.      │
+├──────────────┼──────────────────┼──────────────────────────────────────────────────────┤
+│ Min 10 – 20  │ 2. Prueba de     │ Ejecutar toda la batería de casos de prueba del      │
+│              │    regresión     │ compañero con la herramienta **Run with Coverage**.  │
+│              │                  │ Comprobar que no hay regresiones y que las líneas    │
+│              │                  │ críticas se mantienen en verde.                      │
+├──────────────┼──────────────────┼──────────────────────────────────────────────────────┤
+│ Min 20 – 30  │ 3. Firma del     │ Redactar conjuntamente el informe de cierre técnico  │
+│              │    acta de cierre│ en `docs/pruebas/cierre-sprint3.md` con las métricas │
+│              │                  │ finales consolidadas.                                │
+└──────────────┴──────────────────┴──────────────────────────────────────────────────────┘
+</code></pre></div>
+<h5 id="guia-de-verificacion-segun-el-proyecto-de-la-bolsa">Guía de verificación según el proyecto de la bolsa:<a class="headerlink" href="#guia-de-verificacion-segun-el-proyecto-de-la-bolsa" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>En Aventura conversacional:</strong> El auditor introduce el valor de daño crítico exacto que reduce la vida del personaje a <code>0</code> puntos. Comprueba que el juego redirige a la escena de derrota limpiamente, sin excepciones de puntero nulo y confirmando que el inventario no se desborda en el bucle principal.</li>
+<li><strong>En Motor de recomendación:</strong> El auditor ejecuta el cálculo de afinidad suministrando un vector de usuario con <code>0</code> valoraciones coincidentes. Verifica que el algoritmo maneja la división sin generar valores indefinidos (<code>NaN</code>) y que la lista ordenada final no se rompe.</li>
+<li><strong>En Simulador de físicas 2D:</strong> El auditor simula una partícula impactando a velocidad máxima contra la esquina superior derecha ($x_{max}, y_{max}$). Confirma bajo el depurador que las dos componentes de aceleración y rebote se recalculan simultáneamente sin atrapar la simulación en un bucle infinito de colisión.</li>
+<li><strong>En Bóveda de contraseñas:</strong> El auditor introduce una contraseña de prueba con la longitud máxima permitida (32 caracteres exactos). Verifica que el algoritmo de cifrado no trunca la cadena ni genera excepciones de desbordamiento de índice en memoria.</li>
+</ul>
+<h5 id="plantilla-de-cierre-tecnico">Plantilla de cierre técnico<a class="headerlink" href="#plantilla-de-cierre-tecnico" title="Permanent link">&para;</a></h5>
+<p>Cada pareja consolida el informe de calidad en el archivo <code>docs/pruebas/cierre-sprint3.md</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="gu">### Acta de Cierre Técnico de Pruebas y Depuración (Sprint 3)</span>
+
+<span class="k">-</span><span class="w"> </span><span class="gs">**Desarrollador responsable:**</span> [Nombre del Alumno]
+<span class="k">-</span><span class="w"> </span><span class="gs">**Auditor de calidad asignado:**</span> [Nombre del Compañero]
+<span class="k">-</span><span class="w"> </span><span class="gs">**Estado de incidencias registradas:**</span> 100% resueltas y verificadas (0 incidencias abiertas).
+<span class="k">-</span><span class="w"> </span><span class="gs">**Métrica de cubrimiento alcanzada:**</span> &gt;= 85% de líneas / &gt;= 80% de ramas.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Complejidad Ciclomática máxima auditada:**</span> V(G) &lt;= 6 (Módulo estructurado según estándares).
+<span class="k">-</span><span class="w"> </span><span class="gs">**Resultado de pruebas de regresión:**</span> SATISFACTORIO (Sin efectos colaterales detectados).
+<span class="k">-</span><span class="w"> </span><span class="gs">**Dictamen técnico final:**</span> APTO para integración en Sprint 4.
+</code></pre></div>
+<hr />
+<h4 id="5-cierre-formal-mediante-commit-y-push-visual-en-intellij-idea">5. Cierre formal mediante Commit y Push visual en IntelliJ IDEA<a class="headerlink" href="#5-cierre-formal-mediante-commit-y-push-visual-en-intellij-idea" title="Permanent link">&para;</a></h4>
+<p>En cumplimiento de las directrices metodológicas de AzaharTech para los primeros sprints, <strong>todas las operaciones de control de versiones con Git se realizan exclusivamente a través del entorno gráfico de IntelliJ IDEA</strong>, utilizándolo como un buzón visual de subida seguro y trazable [10]:</p>
+<div class="highlight"><pre><span></span><code>                VENTANA VISUAL DE COMMIT EN INTELLIJ IDEA (Ctrl + K)
+
+ ┌────────────────────────────────────────────────────────────────────────┐
+ │ Commit: Local Changes                                                  │
+ ├────────────────────────────────────────────────────────────────────────┤
+ │ Changes (3 files)                                                      │
+ │  [x] docs/pruebas/cierre-sprint3.md       (acta de cierre y auditoría) │
+ │  [x] docs/incidencias/INCIDENCIA-01.md    (estado cambiado a CERRADO)  │
+ │  [x] src/core/ValidadorLogica.java        (algoritmo blindado final)   │
+ ├────────────────────────────────────────────────────────────────────────┤
+ │ Mensaje de confirmación:                                               │
+ │ ┌────────────────────────────────────────────────────────────────────┐ │
+ │ │ docs(qa): auditoria cruzada completada y cierre formal del sprint 3│ │
+ │ └────────────────────────────────────────────────────────────────────┘ │
+ │                                                                        │
+ │ [ Commit v ]  ──► Desplegar flecha: [ Commit and Push... ]            │
+ └────────────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h5 id="pasos-visuales-paso-a-paso">Pasos visuales paso a paso:<a class="headerlink" href="#pasos-visuales-paso-a-paso" title="Permanent link">&para;</a></h5>
+<ol>
+<li><strong>Abrir el panel de confirmación:</strong><ul>
+<li>Pulsa el atajo universal <strong><code>Ctrl + K</code></strong> (en Windows/Linux) o haz clic directo en la pestaña vertical izquierda <strong>Commit</strong> (<code>Alt + 0</code>).</li>
+</ul>
+</li>
+<li><strong>Auditoría visual de diferencias (<em>Diff Viewer</em>):</strong><ul>
+<li>En la lista de archivos modificados (<em>Changes</em>), haz doble clic sobre <code>cierre-sprint3.md</code> y <code>ValidadorLogica.java</code>. Comprueba en el panel comparativo que las líneas agregadas coinciden con el acta y las correcciones de frontera.</li>
+</ul>
+</li>
+<li><strong>Selección de casillas de verificación:</strong><ul>
+<li>Marca con un visto bueno (<code>[x]</code>) los archivos documentales y de código validados durante la sesión.</li>
+</ul>
+</li>
+<li><strong>Redacción del mensaje de commit:</strong><ul>
+<li>En la caja de texto inferior escribe el mensaje estructurado de cierre:
+  <code>docs(qa): auditoria cruzada completada y cierre formal del sprint 3</code></li>
+</ul>
+</li>
+<li><strong>Confirmación y sincronización con GitHub (<em>Commit and Push</em>):</strong><ul>
+<li>Haz clic sobre la pequeña flecha desplegable situada en el botón azul inferior de <strong>Commit</strong> y selecciona la opción <strong>Commit and Push...</strong> (o pulsa <strong><code>Ctrl + Alt + K</code></strong>).</li>
+<li>Se abrirá el cuadro de diálogo de confirmación de subida (<em>Push Commits</em>). Verifica que el destino sea tu repositorio remoto personal en GitHub y pulsa el botón azul <strong>Push</strong>.</li>
+</ul>
+</li>
+</ol>
+<p>Al aparecer la notificación flotante de confirmación en verde en la esquina inferior del IDE (<em>«Pushed 1 commit to origin/main»</em>), el <strong>Sprint 3: «El ciclo del error: pruebas y depuración»</strong> queda oficialmente completado y auditado [10, 11]. El equipo está preparado para comenzar el próximo lunes el <strong>Sprint 4</strong>, donde nos adentraremos en el diseño de clases orientadas a objetos propias y el flujo de ramas de Git [4, 11].</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.top", "navigation.sections", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="https://unpkg.com"></script>
+      
+    
+  </body>
+</html>

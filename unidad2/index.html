@@ -1,0 +1,1475 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Cristian Garcia">
+      
+      
+        <link rel="canonical" href="https://garmarcj.github.io/DAM-ED-20262027/unidad2/">
+      
+      
+        <link rel="prev" href="../unidad1/">
+      
+      
+        <link rel="next" href="../unidad3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Unidad 2 - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#semana-4-codigo-fuente-bytecode-y-jvm" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unidad 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unidad1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 2
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#semana-4-codigo-fuente-bytecode-y-jvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 4. Código fuente, bytecode y JVM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 4. Código fuente, bytecode y JVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-7-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 7 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-8-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 8 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semana-5-construccion-y-proyectos-con-maven" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 5. Construcción y proyectos con Maven
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 5. Construcción y proyectos con Maven">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-9-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 9 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-10-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 10 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semana-6-gestion-de-dependencias-y-cierre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 6. Gestión de dependencias y cierre
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 6. Gestión de dependencias y cierre">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-11-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 11 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-12-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 12 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unidad3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#semana-4-codigo-fuente-bytecode-y-jvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 4. Código fuente, bytecode y JVM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 4. Código fuente, bytecode y JVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-7-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 7 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-8-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 8 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semana-5-construccion-y-proyectos-con-maven" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 5. Construcción y proyectos con Maven
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 5. Construcción y proyectos con Maven">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-9-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 9 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-10-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 10 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semana-6-gestion-de-dependencias-y-cierre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 6. Gestión de dependencias y cierre
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 6. Gestión de dependencias y cierre">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-11-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 11 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-12-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 12 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Unidad 2</h1>
+
+<p>~~# Sprint 2. El viaje del código: compilación, máquinas virtuales y dependencias</p>
+<hr />
+<h2 id="semana-4-codigo-fuente-bytecode-y-jvm">Semana 4. Código fuente, bytecode y JVM<a class="headerlink" href="#semana-4-codigo-fuente-bytecode-y-jvm" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="dia-7-2-sesiones">Día 7 - 2 sesiones<a class="headerlink" href="#dia-7-2-sesiones" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="primera-sesion-teoria-la-transformacion-del-software-de-las-palabras-humanas-al-bytecode-universal">Primera sesión: teoría. La transformación del software: de las palabras humanas al bytecode universal<a class="headerlink" href="#primera-sesion-teoria-la-transformacion-del-software-de-las-palabras-humanas-al-bytecode-universal" title="Permanent link">&para;</a></h4>
+<h4 id="1-caso-guia-en-azahartech">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech" title="Permanent link">&para;</a></h4>
+<p>Son las tres de la tarde del lunes 5 de octubre de 2026. En la sede de <strong>AzaharTech</strong> en Castellón de la Plana, el equipo de desarrollo inicia la primera jornada del <strong>Sprint 2</strong>. </p>
+<p>Tras haber cerrado el primer sprint con las bases algorítmicas secuenciales y el taller digital con Git, <strong>Laia Claramunt</strong> conecta su equipo al proyector de la sala de reuniones. En la pantalla aparece un correo del responsable técnico del <strong>IES El Caminàs</strong>:</p>
+<blockquote>
+<p><em>«Equipo, entramos en una nueva etapa del proyecto. El coordinador de informática del IES El Caminàs nos plantea una duda fundamental: en el centro educativo tienen servidores con Linux, ordenadores de gestión en conserjería con Windows y terminales portátiles variados. Nos preguntan si tendremos que programar tres versiones distintas de la aplicación para que funcione en cada uno de sus sistemas.</em></p>
+<p><em>La respuesta es un no rotundo, y la razón técnica reside en <strong>cómo viaja y se transforma el código en Java</strong>.</em></p>
+<p><em>En los proyectos que vuestros equipos están desarrollando de la bolsa de proyectos ocurre lo mismo: tanto si estáis con la <strong>Aventura conversacional</strong>, el <strong>Motor de recomendación</strong>, el <strong>Simulador de físicas 2D</strong> o la <strong>Bóveda de contraseñas</strong>, el software debe ser independiente de la máquina física.</em></p>
+<p><em>Hoy aprenderemos a diferenciar con precisión el <strong>código fuente</strong>, el <strong>código objeto (bytecode)</strong> y el <strong>código máquina ejecutable</strong>. Descubriremos qué hace realmente el compilador cuando pulsamos un botón y miraremos por primera vez dentro de un archivo compilado»</em>.</p>
+</blockquote>
+<hr />
+<h4 id="2-la-cadena-de-transformacion-del-codigo">2. La cadena de transformación del código<a class="headerlink" href="#2-la-cadena-de-transformacion-del-codigo" title="Permanent link">&para;</a></h4>
+<p>Para que una orden escrita en lenguaje humano llegue a mover los circuitos electrónicos de un procesador, el software atraviesa tres estados claramente diferenciados:</p>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────┬─────────────────────────┬─────────────────────────┐
+│ 1. Código fuente        │ 2. Código objeto        │ 3. Código ejecutable    │
+│    (Source Code)        │    (Bytecode intermedio)│    (Machine Code)       │
+├─────────────────────────┼─────────────────────────┼─────────────────────────┤
+│ Texto plano en inglés   │ Instrucciones binarias  │ Instrucciones binarias  │
+│ comprensible por el     │ optimizadas para una    │ nativas ejecutadas por  │
+│ desarrollador (.java).  │ máquina virtual (.class)│ la CPU física (0 y 1).  │
+└────────────┬────────────┴────────────┬────────────┴────────────┬────────────┘
+│                         │                         │
+│   Compilación (javac)   │   Interpretación / JVM  │
+└────────────────────────►│────────────────────────►│
+</code></pre></div>
+<h5 id="a-codigo-fuente-source-code">A. Código fuente (<em>Source code</em>)<a class="headerlink" href="#a-codigo-fuente-source-code" title="Permanent link">&para;</a></h5>
+<p>Es el archivo de texto editable que escribe el programador en el IDE (<code>ControlAccesoQR.java</code> o <code>MiProyecto.java</code>). Contiene palabras reservadas (<code>public</code>, <code>class</code>, <code>int</code>, <code>double</code>), identificadores y comentarios. La CPU no puede ejecutar este archivo directamente porque no entiende texto plano.</p>
+<h5 id="b-codigo-objeto-intermedio-bytecode">B. Código objeto intermedio (<em>Bytecode</em>)<a class="headerlink" href="#b-codigo-objeto-intermedio-bytecode" title="Permanent link">&para;</a></h5>
+<p>Es el resultado de someter el código fuente al proceso de compilación mediante la herramienta <code>javac</code>.
+* No es código máquina específico de Intel, AMD o ARM.
+* Es un conjunto de instrucciones binarias compactas diseñadas para un procesador abstracto e ideal: la <strong>Máquina Virtual de Java</strong>.
+* Se almacena en archivos con extensión <strong><code>.class</code></strong>.</p>
+<h5 id="c-codigo-ejecutable-machine-code">C. Código ejecutable (<em>Machine code</em>)<a class="headerlink" href="#c-codigo-ejecutable-machine-code" title="Permanent link">&para;</a></h5>
+<p>Es el código binario final formado por ceros y unos (<code>0</code> y <code>1</code>) que la arquitectura física de una CPU concreta (x86_64, ARM) sabe descodificar en sus registros electrónicos.</p>
+<hr />
+<h4 id="3-tecnologias-de-virtualizacion-por-que-java-no-compila-a-binario-directo">3. Tecnologías de virtualización: ¿por qué Java no compila a binario directo?<a class="headerlink" href="#3-tecnologias-de-virtualizacion-por-que-java-no-compila-a-binario-directo" title="Permanent link">&para;</a></h4>
+<p>Los lenguajes tradicionales como C o C++ compilan el código fuente directamente a código máquina nativo del sistema operativo donde se compila.</p>
+<div class="highlight"><pre><span></span><code>MODELO TRADICIONAL (C / C++):
+[ Código C ] ──(Compilador Windows)──► [ ejecutable.exe (Solo funciona en Windows) ]
+[ Código C ] ──(Compilador Linux)────► [ binario_elf   (Solo funciona en Linux)   ]
+
+MODELO DE VIRTUALIZACIÓN (Java):
+[ Código Java (.java) ] ──(javac)──► [ Bytecode (.class) ] ──(Universal)
+                                              │
+                    ┌─────────────────────────┼─────────────────────────┐
+                    ▼                         ▼                         ▼
+          [ JVM para Windows ]       [ JVM para Linux ]        [ JVM para macOS ]
+</code></pre></div>
+<ul>
+<li><strong>El problema del modelo tradicional.</strong> Para que el IES El Caminàs pudiera usar el software en distintos equipos, habría que mantener compiladores distintos y adaptar llamadas al sistema operativo en cada plataforma.</li>
+<li><strong>La solución de la virtualización (JVM).</strong> Java introduce la <strong>Máquina Virtual de Java (Java Virtual Machine - JVM)</strong> como capa intermedia de software:<ol>
+<li>El desarrollador compila una sola vez y genera el archivo <strong><code>.class</code></strong>.</li>
+<li>Ese mismo archivo <code>.class</code> viaja a cualquier ordenador del mundo.</li>
+<li>La JVM instalada en el ordenador del cliente lee el Bytecode y lo traduce en tiempo real a las instrucciones de su CPU local.</li>
+<li>Así se cumple el principio fundamental: <strong>«Write Once, Run Anywhere»</strong> (Escribe una vez, ejecuta en cualquier parte).</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h4 id="4-laboratorio-practico-guiado-inspeccion-de-las-tripas-de-un-archivo-class">4. Laboratorio práctico guiado. Inspección de las tripas de un archivo <code>.class</code><a class="headerlink" href="#4-laboratorio-practico-guiado-inspeccion-de-las-tripas-de-un-archivo-class" title="Permanent link">&para;</a></h4>
+<p>Vas a comprobar con tus propios ojos la diferencia física entre código fuente y Bytecode:  </p>
+<ol>
+<li>En el explorador de archivos o en IntelliJ IDEA, localizad la carpeta donde el entorno guarda los archivos compilados:
+   <code>out/production/Proyecto/</code></li>
+<li>Abrid con un visor de texto plano el archivo <strong><code>ControlAccesoQR.class</code></strong>:<ul>
+<li>¿Qué se visualiza? Veréis caracteres extraños, símbolos binarios y, en las cuatro primeras posiciones hexadecimales, la firma mágica histórica con la que comienzan todos los archivos de Java en el mundo: <strong><code>0xCAFEBABE</code></strong>.</li>
+</ul>
+</li>
+<li><strong>Uso del desensamblador del JDK (<code>javap</code>):</strong><ul>
+<li>El JDK incluye una herramienta oficial para traducir el Bytecode a mnemónicos legibles por los informaticos.</li>
+<li>Abrid la terminal integrada de IntelliJ (<code>Alt + F12</code>) y ejecutad:
+  <div class="highlight"><pre><span></span><code>javap<span class="w"> </span>-c<span class="w"> </span>out/production/*/ControlAccesoQR.class
+</code></pre></div></li>
+<li>Observad la salida en pantalla: veréis las instrucciones internas reales de la máquina virtual de Java que generó vuestro código (mnemónicos como <code>iload</code>, <code>bipush</code>, <code>imul</code>, <code>invokevirtual</code>).</li>
+<li><em>Pregunta para el grupo:</em> ¿Identificáis las operaciones de multiplicación (<code>imul</code>) y el número 60 (<code>bipush 60</code>) que programamos la semana pasada para el cálculo de estancia? El código que escribimos en Java se ha convertido en esas órdenes exactas.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4 id="sesion-2-dojo-de-entrenamiento-y-katas-de-herramientas">Sesion 2. Dojo de entrenamiento y katas de herramientas<a class="headerlink" href="#sesion-2-dojo-de-entrenamiento-y-katas-de-herramientas" title="Permanent link">&para;</a></h4>
+<p>Pasamos al dojo de entrenamiento de herramientas, con tres <strong>katas de compilación, ejecución y análisis de máquina virtual</strong> para entrenar la independencia del software respecto al entorno de desarrollo, el desacoplamiento de binarios y la inspección de bajo nivel de la JVM:</p>
+<hr />
+<h5 id="kata-1-cinturon-blanco-nivel-base-compilacion-y-ejecucion-multi-entorno-de-tu-proyecto-propio">Kata 1 (Cinturón blanco / Nivel base). Compilación y ejecución multi-entorno de tu proyecto propio<a class="headerlink" href="#kata-1-cinturon-blanco-nivel-base-compilacion-y-ejecucion-multi-entorno-de-tu-proyecto-propio" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Objetivo.</strong> Demostrar empíricamente que el código fuente de tu proyecto no depende de IntelliJ IDEA y es capaz de compilarse y ejecutarse limpiamente desde la consola del sistema operativo utilizando únicamente las herramientas del JDK (<code>javac</code> y <code>java</code>).</li>
+<li><strong>Aplicación según tu proyecto elegido:</strong><ul>
+<li>En <strong>Aventura conversacional</strong>. Compilar manualmente <code>MiProyecto.java</code> desde la terminal en <code>pr/src/</code>, verificar la generación del archivo <code>MiProyecto.class</code>, ejecutarlo comprobando la captura de datos del personaje y limpiar después el archivo binario residual generado en <code>src/</code>.</li>
+<li>En <strong>Motor de recomendación</strong>. Compilar manualmente <code>MiProyecto.java</code> desde la terminal en <code>pr/src/</code>, verificar que la JVM ejecuta el cálculo de afinidad y comprobar que la salida por consola es idéntica a la obtenida dentro del IDE.</li>
+<li>En <strong>Simulador de físicas 2D</strong>. Compilar manualmente <code>MiProyecto.java</code> desde la terminal en <code>pr/src/</code>, ejecutar la simulación cinemática introduciendo valores de prueba y certificar la independencia del entorno de ejecución.</li>
+<li>En <strong>Bóveda de contraseñas</strong>. Compilar manualmente <code>MiProyecto.java</code> desde la terminal en <code>pr/src/</code>, verificar que la máquina virtual ejecuta la captura de credenciales y purgar el archivo <code>.class</code> del directorio de código fuente para mantener la higiene de Git.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h5 id="kata-2-cinturon-marron-nivel-avanzado-compilacion-desacoplada-con-directorio-de-destino-d-y-gestion-de-classpath-cp">Kata 2 (Cinturón marrón / Nivel avanzado). Compilación desacoplada con directorio de destino (<code>-d</code>) y gestión de Classpath (<code>-cp</code>)<a class="headerlink" href="#kata-2-cinturon-marron-nivel-avanzado-compilacion-desacoplada-con-directorio-de-destino-d-y-gestion-de-classpath-cp" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto técnico.</strong> En proyectos profesionales nunca se compilan los archivos <code>.class</code> mezclados dentro de la misma carpeta donde reside el código fuente (<code>src/</code>), ya que contamina el repositorio y dificulta el empaquetado.</li>
+<li><strong>Misión de la kata:</strong><ol>
+<li>En la raíz de tu proyecto, crea una carpeta llamada <code>bin/</code> destinada exclusivamente a almacenar binarios:
+   <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>bin
+</code></pre></div></li>
+<li>Compila tu archivo fuente utilizando la bandera <strong><code>-d</code></strong> (<em>destination</em>) de <code>javac</code> para indicarle al compilador que deposite el archivo <code>.class</code> dentro de <code>bin/</code> sin tocar <code>pr/src/</code>:
+   <div class="highlight"><pre><span></span><code>javac<span class="w"> </span>-d<span class="w"> </span>bin<span class="w"> </span>pr/src/MiProyecto.java
+</code></pre></div></li>
+<li>Comprueba mediante <code>ls -la bin/</code> que el archivo <code>MiProyecto.class</code> se ha creado dentro de <code>bin/</code> y que <code>pr/src/</code> permanece completamente limpio.</li>
+<li>Intenta ejecutar <code>java MiProyecto</code> desde la raíz. Comprobarás que la JVM emite un error de tipo <code>ClassNotFoundException</code>.</li>
+<li>Soluciona el error utilizando el parámetro <strong><code>-cp</code></strong> (<em>Classpath</em>), indicándole a la máquina virtual dónde debe buscar los archivos compilados:
+   <div class="highlight"><pre><span></span><code>java<span class="w"> </span>-cp<span class="w"> </span>bin<span class="w"> </span>MiProyecto
+</code></pre></div></li>
+<li>Redacta dos líneas de comentario en tu libreta técnica explicando por qué ocurre esto: <strong>la JVM necesita que el parámetro Classpath le indique la ruta exacta del sistema de archivos donde residen los paquetes y clases compiladas</strong>.</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h5 id="kata-3-cinturon-negro-hacker-azahartech-telemetria-de-la-jvm-con-verboseclass-e-ingenieria-inversa-de-memoria">Kata 3 (Cinturón negro / «Hacker AzaharTech»). Telemetría de la JVM con <code>-verbose:class</code> e ingeniería inversa de memoria<a class="headerlink" href="#kata-3-cinturon-negro-hacker-azahartech-telemetria-de-la-jvm-con-verboseclass-e-ingenieria-inversa-de-memoria" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto de arquitectura.</strong> Comprender cómo la Máquina Virtual de Java gestiona el ciclo de vida de carga de clases en memoria RAM y analizar la tabla de constantes del Bytecode mediante herramientas del JDK.</li>
+<li><strong>Misión de la kata:</strong><ol>
+<li>Ejecuta tu programa desde la terminal activando la bandera de telemetría detallada del cargador de clases (<em>ClassLoader</em>):
+   <div class="highlight"><pre><span></span><code>java<span class="w"> </span>-cp<span class="w"> </span>bin<span class="w"> </span>-verbose:class<span class="w"> </span>MiProyecto
+</code></pre></div></li>
+<li>Observa la avalancha de información en la consola antes de que aparezca tu primera línea de salida. Cuenta aproximadamente cuántas clases del sistema operativo y del núcleo de Java carga la JVM en la memoria RAM antes de llegar a ejecutar tu método <code>main</code> (descubrirás que carga más de 400 clases base).</li>
+<li>Ejecuta el desensamblador oficial del JDK en modo exhaustivo (<em>verbose</em>):
+   <div class="highlight"><pre><span></span><code>javap<span class="w"> </span>-v<span class="w"> </span>bin/MiProyecto.class
+</code></pre></div></li>
+<li>Localiza en la salida el bloque <strong><code>Constant Pool</code> (Piscina de constantes)</strong>. Identifica en qué líneas ha guardado Java los textos literales y constantes <code>final</code> que definiste en tu proyecto.</li>
+<li>Anota en tu cuaderno qué valores tienen los campos <code>stack</code> (tamaño máximo de la pila de operandos de tu método <code>main</code>) y <code>locals</code> (número de ranuras de memoria reservadas para las variables locales).</li>
+<li>Realiza una prueba de estrés de memoria simulando un entorno embebido ultrarrestringido, limitando el montículo (<em>heap</em>) de la JVM a solo 8 megabytes mediante la bandera de configuración de memoria:
+   <div class="highlight"><pre><span></span><code>java<span class="w"> </span>-cp<span class="w"> </span>bin<span class="w"> </span>-Xmx8m<span class="w"> </span>MiProyecto
+</code></pre></div></li>
+</ol>
+</li>
+</ul>
+<hr />
+<h3 id="dia-8-1-sesion">Día 8 - 1 sesión<a class="headerlink" href="#dia-8-1-sesion" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="teoria-comparacion-de-entornos-de-desarrollo">Teoría. Comparación de entornos de desarrollo<a class="headerlink" href="#teoria-comparacion-de-entornos-de-desarrollo" title="Permanent link">&para;</a></h4>
+<h4 id="1-caso-guia-en-azahartech_1">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_1" title="Permanent link">&para;</a></h4>
+<p>Es viernes por la tarde en la sede de <strong>AzaharTech</strong>. En la pantalla de la sala de reuniones, <strong>Laia Claramunt</strong> proyecta una consulta técnica remitida por el equipo de soporte del <strong>IES El Caminàs</strong>:</p>
+<blockquote>
+<p><em>«Equipo, el coordinador de informática del centro nos traslada una situación real: en las aulas de informática disponen de equipos con IntelliJ IDEA, pero en los ordenadores portátiles prefieren utilizar la herramienta  <strong>Visual Studio Code</strong>.</em></p>
+<p><em>Nos preguntan si abrir el proyecto con otro entorno de desarrollo diferente puede corromper el software o provocar incompatibilidades en el código.</em></p>
+<p><em>Hoy comprobaremos de forma práctica que un código bien estructurado no pertenece a un fabricante de software concreto. En vuestros proyectos de la bolsa (<strong>Aventura conversacional</strong>, <strong>Motor de recomendación</strong>, <strong>Simulador de físicas 2D</strong> o <strong>Bóveda de contraseñas</strong>) el núcleo de Java debe comportarse con absoluta fidelidad tanto si lo editamos en un entorno libre como en un entorno propietario»</em>.</p>
+</blockquote>
+<hr />
+<h4 id="2-el-ecosistema-de-herramientas-de-desarrollo">2. El ecosistema de herramientas de desarrollo<a class="headerlink" href="#2-el-ecosistema-de-herramientas-de-desarrollo" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>El IDE completo frente al editor modular extensible:</strong></li>
+<li><em>IntelliJ IDEA Community.</em> Entorno de desarrollo integrado completo y libre diseñado específicamente para la máquina virtual de Java. Incluye de serie compilador, depurador, analizador de código y soporte nativo sin necesidad de plugins externos.</li>
+<li><em>Visual Studio Code.</em> Editor de texto plano ligero y modular. Para trabajar con Java requiere instalar extensiones que se comuniquen con el JDK mediante el protocolo estándar de servidores de lenguaje (<em>Language Server Protocol - LSP</em>).</li>
+<li><strong>Software libre frente a software con telemetría/propietario:</strong></li>
+<li>IntelliJ IDEA Community cuenta con licencia de código abierto (<em>Apache 2.0</em>).</li>
+<li>VS Code utiliza una base libre (<em>VSCodium</em>), pero el instalador oficial de Microsoft incluye componentes y telemetría bajo licencia privativa.</li>
+<li><strong>Independencia del código fuente:</strong></li>
+<li>Ambos entornos utilizan el mismo compilador subyacente (<code>javac</code>) y la misma máquina virtual (<code>java</code>) instalados en el sistema operativo. El código no cambia; lo que cambia es la ergonomía y el consumo de recursos de la herramienta.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────┐
+│                   COMPARATIVA DE ARQUITECTURA DE ENTORNOS              │
+├───────────────────────────────┬────────────────────────────────────────┤
+│ IntelliJ IDEA Community       │ Visual Studio Code                     │
+├───────────────────────────────┼────────────────────────────────────────┤
+│ • Todas las funciones nativas │ • Requiere Extension Pack for Java     │
+│ • Licencia libre Apache 2.0   │ • Binario oficial con telemetría       │
+└───────────────────────────────┴────────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h4 id="dojo-de-entrenamiento-y-katas-de-herramientas">Dojo de entrenamiento y katas de herramientas<a class="headerlink" href="#dojo-de-entrenamiento-y-katas-de-herramientas" title="Permanent link">&para;</a></h4>
+<p>Pasamos al dojo de entrenamiento de herramientas, con tres <strong>katas de ejecución multi-entorno, análisis de rendimiento y compatibilidad de versiones</strong> para entrenar la independencia técnica del software y la evaluación comparativa de herramientas:</p>
+<hr />
+<h5 id="kata-1-cinturon-blanco-nivel-base-ejecucion-de-tu-proyecto-propio-en-un-segundo-entorno-vs-code">Kata 1 (Cinturón blanco / Nivel base). Ejecución de tu proyecto propio en un segundo entorno (VS Code)<a class="headerlink" href="#kata-1-cinturon-blanco-nivel-base-ejecucion-de-tu-proyecto-propio-en-un-segundo-entorno-vs-code" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Objetivo.</strong> Abrir, compilar y ejecutar el archivo maestro de tu proyecto propio en <strong>Visual Studio Code</strong> (o en un editor modular secundario con el paquete de extensiones de Java), demostrando que la aplicación produce exactamente los mismos resultados en consola que en IntelliJ IDEA.</li>
+<li><strong>Aplicación según tu proyecto elegido:</strong><ul>
+<li>En <strong>Aventura conversacional</strong>. Abrir la carpeta del proyecto en VS Code, comprobar que el editor reconoce el método <code>main</code>, ejecutar la captura de datos del personaje y verificar que los textos con caracteres especiales no se desconfiguran.</li>
+<li>En <strong>Motor de recomendación</strong>. Ejecutar el cálculo secuencial de afinidad dentro del panel de terminal de VS Code y certificar que la salida en pantalla coincide al céntimo con la obtenida en IntelliJ.</li>
+<li>En <strong>Simulador de físicas 2D</strong>. Comprobar la compilación de las variables cinemáticas en el entorno secundario y validar que el compilador no genera advertencias sintácticas.</li>
+<li>En <strong>Bóveda de contraseñas</strong>. Verificar la captura interactiva de datos de credenciales desde la consola integrada del nuevo entorno y confirmar que el código fuente permanece 100 % inalterado.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h5 id="kata-2-cinturon-marron-nivel-avanzado-auditoria-de-consumo-de-recursos-y-huella-en-memoria-ram">Kata 2 (Cinturón marrón / Nivel avanzado). Auditoría de consumo de recursos y huella en memoria RAM<a class="headerlink" href="#kata-2-cinturon-marron-nivel-avanzado-auditoria-de-consumo-de-recursos-y-huella-en-memoria-ram" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto técnico.</strong> Un desarrollador debe saber qué impacto tienen sus herramientas sobre el hardware del cliente para elegir el entorno idóneo según los recursos disponibles.</li>
+<li><strong>Misión de la kata:</strong><ol>
+<li>Con ambos entornos abiertos en tu equipo (IntelliJ IDEA y VS Code con el mismo proyecto cargado), abre el monitor del sistema operativo:<ul>
+<li>En Windows: <em>Administrador de tareas</em> (<code>Ctrl + Shift + Esc</code>).</li>
+<li>En Linux: <em>Monitor del sistema</em> o comando <code>top</code> / <code>htop</code> en la terminal.</li>
+</ul>
+</li>
+<li>Localiza los procesos correspondientes a cada herramienta y anota los siguientes datos:<ul>
+<li>Memoria RAM consumida por IntelliJ IDEA en reposo (habitualmente entre 800 MB y 1,5 GB).</li>
+<li>Memoria RAM consumida por VS Code con sus extensiones activas (habitualmente entre 300 MB y 600 MB).</li>
+</ul>
+</li>
+<li>Redacta dos líneas de conclusión técnica en tu libreta: <strong>¿en qué escenarios reales del IES El Caminàs recomendarías instalar IntelliJ IDEA y en cuáles sería técnicamente más viable desplegar VS Code?</strong></li>
+</ol>
+</li>
+</ul>
+<hr />
+<h5 id="kata-3-cinturon-negro-hacker-azahartech-diagnostico-del-error-unsupportedclassversionerror">Kata 3 (Cinturón negro / «Hacker AzaharTech»). Diagnóstico del error <code>UnsupportedClassVersionError</code><a class="headerlink" href="#kata-3-cinturon-negro-hacker-azahartech-diagnostico-del-error-unsupportedclassversionerror" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto de arquitectura.</strong> Comprender qué ocurre cuando un archivo <code>.class</code> compilado con una versión moderna de Java intenta ejecutarse en una máquina virtual antigua.</li>
+<li><strong>Misión de la kata:</strong><ol>
+<li>Cada versión del JDK asigna un número de versión mayor al Bytecode que genera (Java 8 = versión 52, Java 17 = versión 61, Java 21 = versión 65).</li>
+<li>Ejecuta el desensamblador oficial del JDK para averiguar el número de versión interna de tu archivo compilado:
+   <div class="highlight"><pre><span></span><code>javap<span class="w"> </span>-v<span class="w"> </span>out/production/*/ControlAccesoQR.class<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">"major version"</span>
+</code></pre></div>
+   <em>(En Windows PowerShell: <code>javap -v out/production/Proyecto/ControlAccesoQR.class | Select-String "major version"</code>).</em></li>
+<li>Comprueba que la salida muestra: <code>major version: 65</code> (correspondiente a Java 21).</li>
+<li>Deduce y anota en tu cuaderno técnico: <strong>¿qué error emitirá la JVM si intentamos ejecutar este archivo en un servidor del instituto que tenga instalado únicamente Java 17?</strong> (Anota el nombre de la excepción: <code>java.lang.UnsupportedClassVersionError</code>).</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h2 id="semana-5-construccion-y-proyectos-con-maven">Semana 5. Construcción y proyectos con Maven<a class="headerlink" href="#semana-5-construccion-y-proyectos-con-maven" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="dia-9-2-sesiones">Día 9 - 2 sesiones<a class="headerlink" href="#dia-9-2-sesiones" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="sesion-1-teoria-el-problema-de-la-escala-y-el-principio-de-convencion-sobre-configuracion">Sesion 1. Teoría. El problema de la escala y el principio de convención sobre configuración<a class="headerlink" href="#sesion-1-teoria-el-problema-de-la-escala-y-el-principio-de-convencion-sobre-configuracion" title="Permanent link">&para;</a></h4>
+<h4 id="1-caso-guia-en-azahartech_2">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_2" title="Permanent link">&para;</a></h4>
+<p>Son las tres de la tarde del lunes 12 de octubre de 2026. En la sede de <strong>AzaharTech</strong>, el equipo de desarrollo inicia la segunda semana del Sprint 2.</p>
+<p><strong>Laia Claramunt</strong> proyecta en la pantalla el estado actual del repositorio del <strong>IES El Caminàs</strong>:</p>
+<blockquote>
+<p><em>«La semana pasada aprendimos a compilar manualmente con <code>javac</code> y entendimos el papel de la máquina virtual. Sin embargo, en el mundo real una aplicación no se queda en un archivo único de 50 líneas. El sistema de acceso por QR va a incorporar paquetes con controladores de red, clases de validación de tokens y módulos de almacenamiento.</em></p>
+<p><em>En los proyectos de vuestros equipos ocurre lo mismo: <strong>Aventura conversacional</strong> necesitará estructurar escenas y personajes, <strong>Motor de recomendación</strong> dividirá su lógica de cálculo de afinidad de la gestión de ítems, <strong>Simulador de físicas 2D</strong> requerirá separar las fórmulas cinemáticas del motor gráfico, y <strong>Bóveda de contraseñas</strong> separará el evaluador de entropía del cifrado.</em></p>
+<p><em>Si tuviéramos que compilar veinte clases a mano con la terminal indicando rutas una por una, pasaríamos más tiempo gestionando comandos que programando. Para solucionar esto, la industria utiliza <strong>herramientas de automatización de la construcción (<em>build tools</em>)</strong>. Hoy conoceremos el estándar mundial del ecosistema Java: <strong>Apache Maven</strong>»</em>.</p>
+</blockquote>
+<hr />
+<h4 id="2-el-porque-de-maven-y-la-arquitectura-estandar">2. El porqué de Maven y la arquitectura estándar<a class="headerlink" href="#2-el-porque-de-maven-y-la-arquitectura-estandar" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────┐
+│                        ¿QUÉ RESUELVE APACHE MAVEN?                     │
+├──────────────────────────┬─────────────────────────────────────────────┤
+│ Problema tradicional     │ Solución estandarizada con Maven            │
+├──────────────────────────┼─────────────────────────────────────────────┤
+│ Cada desarrollador crea  │ Convención sobre configuración:             │
+│ carpetas con nombres     │ Estructura universal idéntica en cualquier  │
+│ distintos (bin, code...) │ empresa del mundo (src/main/java).          │
+├──────────────────────────┼─────────────────────────────────────────────┤
+│ Compilación manual       │ Ciclo de vida automatizado:                 │
+│ propensa a errores con   │ Fases estándar para limpiar y compilar con  │
+│ comandos interminables.  │ un solo clic (clean, compile).              │
+└──────────────────────────┴─────────────────────────────────────────────┘
+</code></pre></div>
+<h5 id="a-el-principio-de-convencion-sobre-configuracion-convention-over-configuration">A. El principio de «Convención sobre configuración» (<em>Convention over Configuration</em>)<a class="headerlink" href="#a-el-principio-de-convencion-sobre-configuracion-convention-over-configuration" title="Permanent link">&para;</a></h5>
+<p>Maven asume que todos los proyectos Java profesionales deben compartir la misma estructura física. Si el desarrollador respeta esa convención, no necesita escribir ningún script para explicarle al compilador dónde buscar el código:</p>
+<div class="highlight"><pre><span></span><code>proyecto-maven/
+├── pom.xml                     &lt;-- Archivo descriptor del proyecto
+└── src/
+    └── main/
+        ├── java/               &lt;-- Código fuente Java oficial (.java)
+        └── resources/          &lt;-- Archivos de configuración, textos e imágenes
+</code></pre></div>
+<h5 id="b-el-archivo-descriptor-pomxml-y-las-coordenadas-gav">B. El archivo descriptor <code>pom.xml</code> y las coordenadas GAV<a class="headerlink" href="#b-el-archivo-descriptor-pomxml-y-las-coordenadas-gav" title="Permanent link">&para;</a></h5>
+<p>El corazón de un proyecto Maven es el archivo <strong><code>pom.xml</code></strong> (<em>Project Object Model</em>). Es un archivo en formato XML que define la identidad del software mediante tres coordenadas universales (<strong>GAV</strong>):</p>
+<ul>
+<li><strong><code>groupId</code>.</strong> Identificador de la organización o empresa, habitualmente en formato de dominio web invertido (<em>por ejemplo, <code>com.azahartech</code></em>).  </li>
+<li><strong><code>artifactId</code>.</strong> Nombre del proyecto o módulo concreto en minúsculas y separado por guiones (<em>por ejemplo, <code>control-acceso-caminas</code></em>).  </li>
+<li><strong><code>version</code>.</strong> Versión del desarrollo (<em>por ejemplo, <code>0.2.0-SNAPSHOT</code> para versiones en desarrollo</em>).  </li>
+</ul>
+<hr />
+<h4 id="3-actividad-activa-interactiva-analisis-y-diseno-del-pomxml">3. Actividad activa interactiva: Análisis y diseño del <code>pom.xml</code><a class="headerlink" href="#3-actividad-activa-interactiva-analisis-y-diseno-del-pomxml" title="Permanent link">&para;</a></h4>
+<p><em>Los estudiantes analizan la sintaxis XML y definen en su libreta las coordenadas oficiales de su proyecto propio:</em></p>
+<ol>
+<li><strong>Lectura de la plantilla mínima de Maven:</strong>
+   <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;project</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span>
+<span class="w">         </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="w">         </span><span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 </span>
+<span class="s">         http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>com.azahartech.proyectos<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>nombre-de-tu-proyecto<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>0.2.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;properties&gt;</span>
+<span class="w">        </span><span class="nt">&lt;maven.compiler.source&gt;</span>21<span class="nt">&lt;/maven.compiler.source&gt;</span>
+<span class="w">        </span><span class="nt">&lt;maven.compiler.target&gt;</span>21<span class="nt">&lt;/maven.compiler.target&gt;</span>
+<span class="w">        </span><span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/properties&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div></li>
+<li><strong>Diseño de coordenadas para los cuatro proyectos:</strong><ul>
+<li>Cada estudiante anota en su libreta el bloque <code>&lt;groupId&gt;</code> y <code>&lt;artifactId&gt;</code> correspondiente a su reto de la bolsa.</li>
+<li><em>Pregunta de análisis:</em> ¿Por qué especificamos <code>&lt;maven.compiler.source&gt;21&lt;/maven.compiler.source&gt;</code>? Para garantizar que Maven rechace compilar si alguien utiliza una versión del JDK obsoleta en su máquina.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4 id="4-puesta-a-punto-de-proyectos-con-estructura-de-directorios-de-maven-modificada">4. Puesta a punto de proyectos con estructura de directorios de Maven modificada<a class="headerlink" href="#4-puesta-a-punto-de-proyectos-con-estructura-de-directorios-de-maven-modificada" title="Permanent link">&para;</a></h4>
+<p>La estructura de directorios de los proyectos realizados por los equipos es diferente de la estructura básica de Maven. </p>
+<p>Para que Maven pueda reconocer cada proyecto como propio, se debe añadir al pom.xml las siguientes líneas (dentro de la etiqueta project):</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">&lt;build&gt;</span>
+<span class="w">        </span><span class="nt">&lt;sourceDirectory&gt;</span>pr/src/main/java<span class="nt">&lt;/sourceDirectory&gt;</span>
+<span class="w">        </span><span class="nt">&lt;resources&gt;</span>
+<span class="w">            </span><span class="nt">&lt;resource&gt;</span>
+<span class="w">                </span><span class="nt">&lt;directory&gt;</span>pr/src/main/resources<span class="nt">&lt;/directory&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/resource&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/resources&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/build&gt;</span>
+</code></pre></div>
+<hr />
+<h4 id="sesion-2-dojo-de-entrenamiento-y-katas-de-herramientas_1">Sesion 2. Dojo de entrenamiento y katas de herramientas<a class="headerlink" href="#sesion-2-dojo-de-entrenamiento-y-katas-de-herramientas_1" title="Permanent link">&para;</a></h4>
+<p>Pasamos al dojo de entrenamiento de herramientas, con tres <strong>katas de construcción, estandarización de directorios y ciclo de compilación con Maven</strong> para entrenar la transición del proyecto básico a la arquitectura profesional:</p>
+<hr />
+<h5 id="kata-1-cinturon-blanco-nivel-base-inicializacion-del-proyecto-maven-y-migracion-del-codigo-fuente">Kata 1 (Cinturón blanco / Nivel base). Inicialización del proyecto Maven y migración del código fuente<a class="headerlink" href="#kata-1-cinturon-blanco-nivel-base-inicializacion-del-proyecto-maven-y-migracion-del-codigo-fuente" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Objetivo.</strong> Crear el proyecto gestionado por Maven en IntelliJ IDEA dentro de tu espacio de trabajo oficial, configurar el archivo <code>pom.xml</code> mínimo para OpenJDK 21 y migrar la clase única de tu proyecto propio a la ruta estándar <code>src/main/java/</code>.</li>
+<li><strong>Aplicación según tu proyecto elegido:</strong><ul>
+<li>En <strong>Aventura conversacional</strong>. Crear el proyecto Maven con el artifactId <code>aventura-conversacional</code>, ubicar <code>MiProyecto.java</code> en <code>src/main/java/</code> y verificar que el editor reconoce la nueva estructura estándar de carpetas.</li>
+<li>En <strong>Motor de recomendación</strong>. Configurar las propiedades de compilación para Java 21 en el <code>pom.xml</code>, mover el código a <code>src/main/java/</code> y sincronizar los cambios de Maven mediante el atajo <code>Ctrl + Shift + O</code>.</li>
+<li>En <strong>Simulador de físicas 2D</strong>. Inicializar el proyecto con Maven, estructurar la carpeta de recursos vacía <code>src/main/resources/</code> para futuras tablas de datos cinemáticos y comprobar que el código fuente compila sin errores.</li>
+<li>En <strong>Bóveda de contraseñas</strong>. Migrar el código del proyecto propio a la carpeta <code>src/main/java/</code> y verificar en el árbol de proyectos que IntelliJ asigna el icono de paquete azul oficial a la carpeta <code>java</code>.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h5 id="kata-2-cinturon-marron-nivel-avanzado-el-ciclo-de-vida-de-maven-ejecucion-visual-de-las-fases-clean-y-compile">Kata 2 (Cinturón marrón / Nivel avanzado). El ciclo de vida de Maven: ejecución visual de las fases <code>clean</code> y <code>compile</code><a class="headerlink" href="#kata-2-cinturon-marron-nivel-avanzado-el-ciclo-de-vida-de-maven-ejecucion-visual-de-las-fases-clean-y-compile" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto técnico.</strong> En proyectos profesionales no se compila invocando a <code>javac</code> manualmente; se utiliza el ciclo de vida de construcción estándar gestionado por el entorno.</li>
+<li><strong>Misión de la kata:</strong><ol>
+<li>En el margen derecho de IntelliJ IDEA, despliega la ventana lateral <strong>Maven</strong> (icono vertical de la 'm').</li>
+<li>Localiza la sección <strong>Lifecycle</strong> del proyecto:<ul>
+<li>Haz doble clic sobre la fase <strong><code>compile</code></strong>.</li>
+<li>Observa en la consola inferior cómo Maven ejecuta automáticamente el compilador y comprueba en el árbol de proyectos que se ha generado la carpeta <strong><code>target/classes/</code></strong> conteniendo el archivo compilado <code>.class</code>.</li>
+</ul>
+</li>
+<li>Haz doble clic sobre la fase <strong><code>clean</code></strong>:<ul>
+<li>Comprueba en el árbol de proyectos cómo Maven elimina físicamente toda la carpeta <code>target/</code> de forma instantánea.</li>
+</ul>
+</li>
+<li>Ejecuta de forma combinada <strong><code>clean</code></strong> y a continuación <strong><code>compile</code></strong>.</li>
+<li>Redacta dos líneas de conclusión en tu libreta técnica: <strong>¿por qué es una buena práctica ejecutar la fase <code>clean</code> antes de una compilación importante?</strong> (Para asegurar que no quedan archivos binarios residuales de clases eliminadas o renombradas).</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h5 id="kata-3-cinturon-negro-hacker-azahartech-auditoria-de-dependencias-internas-y-directorio-local-m2">Kata 3 (Cinturón negro / «Hacker AzaharTech»). Auditoría de dependencias internas y directorio local <code>.m2</code><a class="headerlink" href="#kata-3-cinturon-negro-hacker-azahartech-auditoria-de-dependencias-internas-y-directorio-local-m2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto de arquitectura.</strong> Comprender cómo Maven descarga y almacena en el disco duro del sistema operativo los plugins necesarios para compilar el código.</li>
+<li><strong>Misión de la kata:</strong><ol>
+<li>Abre la terminal integrada de IntelliJ (<code>Alt + F12</code>) en la raíz donde reside el archivo <code>pom.xml</code>.</li>
+<li>Ejecuta una compilación forzando el modo de diagnóstico detallado (<em>debug</em>):
+   <div class="highlight"><pre><span></span><code>mvn<span class="w"> </span>compile<span class="w"> </span>-X
+</code></pre></div>
+   <em>(En caso de no tener el comando global configurado, utiliza el menú contextual de Maven en IntelliJ: botón derecho sobre <code>compile</code> -&gt; Run Maven Build with Debugging).</em></li>
+<li>Observa la salida técnica de la consola: identifica las líneas donde Maven invoca al plugin oficial de compilación: <code>maven-compiler-plugin</code>.</li>
+<li>Localiza en tu sistema operativo la carpeta oculta donde Maven guarda en caché todos los componentes descargados:<ul>
+<li>En Windows: <code>C:\Users\tu-usuario\.m2\repository\</code></li>
+<li>En Linux: <code>/home/tu-usuario/.m2/repository/</code></li>
+</ul>
+</li>
+<li>Abre esa carpeta y comprueba cómo Maven almacena los plugins ordenados por carpetas según su <code>groupId</code>. Anota en tu cuaderno técnico: <strong>¿por qué esta caché local evita tener que descargar las herramientas cada vez que creas un proyecto nuevo?</strong></li>
+</ol>
+</li>
+</ul>
+<hr />
+<h3 id="dia-10-1-sesion">Día 10 - 1 sesión<a class="headerlink" href="#dia-10-1-sesion" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="teoria-recursos-del-proyecto-y-busqueda-en-maven-central">Teoria. Recursos del proyecto y búsqueda en Maven Central<a class="headerlink" href="#teoria-recursos-del-proyecto-y-busqueda-en-maven-central" title="Permanent link">&para;</a></h4>
+<h4 id="1-caso-guia-en-azahartech_3">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_3" title="Permanent link">&para;</a></h4>
+<p>Es viernes por la tarde en <strong>AzaharTech</strong>. En la pantalla de pruebas, <strong>Pau Ferrer</strong> muestra la estructura del proyecto Maven que el equipo configuró el lunes pasado. La compilación de clases en <code>src/main/java/</code> funciona sin fallos, pero <strong>Alba Torres</strong> plantea un nuevo requerimiento del cliente:</p>
+<blockquote>
+<p><em>«El terminal del <strong>IES El Caminàs</strong> no solo va a ejecutar código Java puro. Necesitamos incluir archivos no ejecutables: un archivo de texto con el mensaje legal de bienvenida para el vestíbulo, los datos de configuración del centro y el logotipo institucional que se mostrará en pantalla.</em></p>
+<p><em>¿Dónde se guardan estos archivos dentro de la estructura estándar de Maven para que no se pierdan al compilar? Y lo que es más importante: la semana que viene añadiremos librerías externas para generar códigos QR reales y procesar datos en vuestros proyectos (<strong>Aventura conversacional</strong>, <strong>Motor de recomendación</strong>, <strong>Simulador de físicas 2D</strong> y <strong>Bóveda de contraseñas</strong>). ¿De dónde saca Maven esas librerías?</em></p>
+<p><em>Hoy aprenderemos a gestionar la carpeta <strong><code>src/main/resources/</code></strong> y descubriremos el gran almacén mundial de software del que se nutre nuestra herramienta: el repositorio <strong>Maven Central</strong>»</em>.</p>
+</blockquote>
+<hr />
+<h4 id="2-recursos-del-proyecto-y-el-ecosistema-maven-central">2. Recursos del proyecto y el ecosistema Maven Central<a class="headerlink" href="#2-recursos-del-proyecto-y-el-ecosistema-maven-central" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────┐
+│                   EL VIAJE DE LOS RECURSOS EN MAVEN                    │
+├───────────────────────────────────┬────────────────────────────────────┤
+│ 1. Carpeta de origen (desarrollo) │ 2. Carpeta de destino (compilado)  │
+├───────────────────────────────────┼────────────────────────────────────┤
+│ src/main/resources/               │ target/classes/                    │
+│   ├── config.properties           │   ├── config.properties            │
+│   └── banner.txt                  │   └── banner.txt                   │
+├───────────────────────────────────┴────────────────────────────────────┤
+│ Maven copia automáticamente los recursos junto al Bytecode (.class)   │
+│ para que la JVM pueda encontrarlos en tiempo de ejecución.             │
+└────────────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h5 id="a-la-carpeta-estandar-srcmainresources">A. La carpeta estándar <code>src/main/resources/</code><a class="headerlink" href="#a-la-carpeta-estandar-srcmainresources" title="Permanent link">&para;</a></h5>
+<p>En el desarrollo profesional, los archivos que no son código Java (imágenes, audios, archivos de texto, plantillas o configuraciones) jamás se mezclan con las clases dentro de <code>src/main/java/</code>:</p>
+<ul>
+<li>Se almacenan dentro del directorio reservado <strong><code>src/main/resources/</code></strong>.  </li>
+<li>Cuando ejecutas la fase <strong><code>compile</code></strong> en Maven, la herramienta invoca automáticamente un plugin interno (<code>maven-resources-plugin</code>) que toma todo el contenido de <code>resources/</code> y lo copia de forma transparente dentro de <strong><code>target/classes/</code></strong>.  </li>
+<li>De este modo, los recursos quedan empaquetados en la misma raíz que las clases y la JVM puede leerlos desde el <em>Classpath</em> sin importar en qué sistema operativo se ejecute la aplicación.  </li>
+</ul>
+<h5 id="b-el-almacen-mundial-de-software-maven-central">B. El almacén mundial de software: Maven Central<a class="headerlink" href="#b-el-almacen-mundial-de-software-maven-central" title="Permanent link">&para;</a></h5>
+<p>¿Cómo sabe Maven de dónde descargar una librería cuando la necesitamos?</p>
+<ul>
+<li><strong>Maven Central (<code>repo.maven.apache.org</code>).</strong> Es el repositorio público oficial en la nube mantenido por la comunidad de software donde empresas y desarrolladores de todo el mundo publican sus librerías de Java certificadas.  </li>
+<li>Para localizar cualquier librería y conocer sus coordenadas exactas (<strong>GAV</strong>: <code>groupId</code>, <code>artifactId</code>, <code>version</code>), los desarrolladores consultamos el portal indexador oficial: <strong><a href="https://mvnrepository.com">mvnrepository.com</a></strong>.  </li>
+</ul>
+<hr />
+<h4 id="dojo-de-entrenamiento-y-katas-de-herramientas_1">Dojo de entrenamiento y katas de herramientas<a class="headerlink" href="#dojo-de-entrenamiento-y-katas-de-herramientas_1" title="Permanent link">&para;</a></h4>
+<p>Pasamos al dojo de entrenamiento de herramientas, con tres <strong>katas de gestión de recursos, exploración en Maven Central y filtrado de propiedades</strong> para entrenar la arquitectura de proyectos industriales:</p>
+<h5 id="kata-1-cinturon-blanco-nivel-base-integracion-de-recursos-del-proyecto-propio-en-srcmainresources">Kata 1 (Cinturón blanco / Nivel base). Integración de recursos del proyecto propio en <code>src/main/resources/</code><a class="headerlink" href="#kata-1-cinturon-blanco-nivel-base-integracion-de-recursos-del-proyecto-propio-en-srcmainresources" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Objetivo.</strong> Crear un archivo de recursos plano dentro de la ruta estándar <code>src/main/resources/</code>, compilar el proyecto con Maven y comprobar que el archivo se transfiere automáticamente a <code>target/classes/</code> junto al Bytecode compilado.</li>
+<li><strong>Aplicación según tu proyecto elegido:</strong></li>
+<li>En <strong>Aventura conversacional</strong>. Crear el archivo <code>src/main/resources/bienvenida.txt</code> con la ambientación introductoria del juego, ejecutar la fase <code>compile</code> desde el panel de Maven y verificar en el árbol de proyectos que el archivo de texto aparece duplicado en <code>target/classes/bienvenida.txt</code>.</li>
+<li>En <strong>Motor de recomendación</strong>. Crear el archivo <code>src/main/resources/categorias.txt</code> con el catálogo base de géneros de ocio y validar que Maven gestiona el recurso sin errores de compilación.</li>
+<li>En <strong>Simulador de físicas 2D</strong>. Crear el archivo <code>src/main/resources/constantes-universo.properties</code> definiendo valores de gravedad y fricción simulada, comprobando su despliegue en la carpeta de clases de salida.</li>
+<li>En <strong>Bóveda de contraseñas</strong>. Crear el archivo <code>src/main/resources/politicas-seguridad.txt</code> con los requisitos de longitud y caracteres para las contraseñas, verificando la sincronización de recursos con Maven.</li>
+</ul>
+<hr />
+<h5 id="kata-2-cinturon-marron-nivel-avanzado-exploracion-tecnica-de-dependencias-en-maven-central">Kata 2 (Cinturón marrón / Nivel avanzado). Exploración técnica de dependencias en Maven Central<a class="headerlink" href="#kata-2-cinturon-marron-nivel-avanzado-exploracion-tecnica-de-dependencias-en-maven-central" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto técnico.</strong> Un desarrollador de AzaharTech no descarga archivos <code>.jar</code> sueltos desde páginas web dudosas; busca las coordenadas oficiales en el repositorio central de Maven para garantizar la seguridad y autenticidad del software.</li>
+<li><strong>Misión de la kata:</strong></li>
+<li>Abre tu navegador web y accede al portal oficial de búsqueda de dependencias: <strong><a href="https://mvnrepository.com">https://mvnrepository.com</a></strong>.</li>
+<li>Localiza una librería estándar del ecosistema Java representativa según la temática de tu proyecto propio:<ul>
+<li>Para <strong>Aventura conversacional</strong> o <strong>Bóveda de contraseñas</strong>: busca la librería <strong><code>JSON-java</code></strong> (coordenadas de la organización <code>org.json</code>).</li>
+<li>Para <strong>Motor de recomendación</strong>: busca la librería de utilidades de colecciones y cadenas <strong><code>Apache Commons Lang</code></strong> (organización <code>org.apache.commons</code>).</li>
+<li>Para <strong>Simulador de físicas 2D</strong>: busca la librería matemática y de matrices <strong><code>Apache Commons Math</code></strong> (organización <code>org.apache.commons</code>).</li>
+</ul>
+</li>
+<li>Selecciona la versión estable más reciente y haz clic sobre la pestaña de configuración para <strong>Maven</strong>.</li>
+<li>Copia en tu libreta técnica el bloque XML <code>&lt;dependency&gt;</code> resultante, identificando claramente cuáles son sus tres coordenadas (<strong><code>groupId</code></strong>, <strong><code>artifactId</code></strong> y <strong><code>version</code></strong>).</li>
+<li><em>Pregunta de investigación:</em> ¿Qué diferencia hay entre una versión marcada como <em>Release</em> y una marcada como <em>SNAPSHOT</em> o <em>Alpha</em>? Anota en tu cuaderno por qué en producción solo debemos usar versiones estables <em>Release</em>.</li>
+</ul>
+<hr />
+<h5 id="kata-3-cinturon-negro-hacker-azahartech-filtrado-automatico-de-variables-resource-filtering-en-el-pomxml">Kata 3 (Cinturón negro / «Hacker AzaharTech»). Filtrado automático de variables (<em>Resource Filtering</em>) en el <code>pom.xml</code><a class="headerlink" href="#kata-3-cinturon-negro-hacker-azahartech-filtrado-automatico-de-variables-resource-filtering-en-el-pomxml" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto de arquitectura.</strong> Automatizar que Maven inyecte información de la versión del proyecto directamente dentro de un archivo de texto en tiempo de compilación sin escribirla a mano.</li>
+<li><strong>Misión de la kata:</strong></li>
+<li>En tu archivo <code>src/main/resources/info.txt</code>, escribe el siguiente contenido utilizando la sintaxis de variables de Maven:
+     <div class="highlight"><pre><span></span><code>Aplicación: ${project.artifactId}
+Versión oficial: ${project.version}
+Entorno de compilación: Java ${maven.compiler.target}
+</code></pre></div></li>
+<li>Si compilas ahora, Maven copiará el archivo tal cual, mostrando literalmente el texto <code>${project.version}</code>.</li>
+<li>Para activar la sustitución dinámica de variables, abre tu archivo <strong><code>pom.xml</code></strong> y añade dentro de la etiqueta <code>&lt;build&gt;</code> la instrucción de filtrado de recursos:
+     <div class="highlight"><pre><span></span><code><span class="nt">&lt;build&gt;</span>
+<span class="w">    </span><span class="nt">&lt;resources&gt;</span>
+<span class="w">        </span><span class="nt">&lt;resource&gt;</span>
+<span class="w">            </span><span class="nt">&lt;directory&gt;</span>src/main/resources<span class="nt">&lt;/directory&gt;</span>
+<span class="w">            </span><span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/resource&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/resources&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</code></pre></div></li>
+<li>Sincroniza los cambios de Maven en IntelliJ (<code>Ctrl + Shift + O</code>) y ejecuta la fase <strong><code>compile</code></strong>.</li>
+<li>Abre el archivo resultante en <code>target/classes/info.txt</code> y comprueba la magia de la automatización: Maven habrá reemplazado las variables por los valores reales de tu proyecto (<em>por ejemplo, <code>Versión oficial: 0.2.0-SNAPSHOT</code></em>).</li>
+</ul>
+<hr />
+<h2 id="semana-6-gestion-de-dependencias-y-cierre">Semana 6. Gestión de dependencias y cierre<a class="headerlink" href="#semana-6-gestion-de-dependencias-y-cierre" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="dia-11-2-sesiones">Día 11 - 2 sesiones<a class="headerlink" href="#dia-11-2-sesiones" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="sesion-1-teoria-de-la-nada-al-codigo-qr-maven-central-dependencias-declarativas-y-renderizado-en-memoria">Sesión 1. Teoría. De la nada al código QR: Maven Central, dependencias declarativas y renderizado en memoria<a class="headerlink" href="#sesion-1-teoria-de-la-nada-al-codigo-qr-maven-central-dependencias-declarativas-y-renderizado-en-memoria" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="1-caso-guia-en-azahartech_4">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_4" title="Permanent link">&para;</a></h4>
+<p>Son las tres de la tarde del lunes 19 de octubre de 2026. Entramos en la última semana del <strong>Sprint 2</strong> en la sede de <strong>AzaharTech</strong> en Castellón de la Plana.</p>
+<p>En la pantalla de proyección, <strong>Laia Claramunt</strong> y <strong>Alba Torres</strong> muestran el nuevo requerimiento técnico enviado por la dirección del <strong>IES El Caminàs</strong>:</p>
+<blockquote>
+<p><em>«Equipo, el prototipo del instituto ya compila con la estructura estándar de Maven y gestiona limpiamente su ciclo de construcción. Pero hoy el cliente nos plantea un salto funcional determinante:</em></p>
+<p><em>El terminal de conserjería debe generar en pantalla el código QR del carné del estudiante para que el lector óptico del torno o el conserje puedan verificar su identidad en el acceso al centro.</em></p>
+<p><em>Programar un algoritmo de código QR desde cero requeriría meses implementando codificación binaria, máscaras de píxeles y corrección de errores Reed-Solomon. En la ingeniería de software profesional nadie reinventa la rueda.</em></p>
+<p><em>Para eso existe <strong>Maven Central</strong>: un repositorio público mundial con millones de librerías abiertas. Con solo declarar cuatro líneas en el archivo <code>pom.xml</code>, Maven descargará la librería industrial <strong>ZXing Core</strong> de Google, resolverá sus dependencias y nos permitirá generar una matriz QR real.</em></p>
+<p><em>Como todavía no hemos estudiado la gestión de ficheros en disco (que abordaremos más adelante en el curso), no guardaremos imágenes en carpetas: utilizaremos los bucles y condicionales que estáis aprendiendo en Programación para renderizar el código QR directamente en la consola con caracteres de texto. ¡Y será tan nítido que podréis escanearlo con la cámara de vuestro propio teléfono móvil apuntando a la pantalla del monitor!»</em>.</p>
+</blockquote>
+<hr />
+<h4 id="2-el-infierno-de-las-librerias-frente-a-la-gestion-declarativa-de-maven">2. El infierno de las librerías frente a la gestión declarativa de Maven<a class="headerlink" href="#2-el-infierno-de-las-librerias-frente-a-la-gestion-declarativa-de-maven" title="Permanent link">&para;</a></h4>
+<p>Antes de la llegada de herramientas de construcción como Apache Maven, incorporar código de terceros era un proceso manual, frágil y propenso a errores conocido como el <strong>Jar Hell</strong> (<em>el infierno de los JARs</em>):</p>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────┐
+│                   EVOLUCIÓN EN LA GESTIÓN DE LIBRERÍAS                 │
+├───────────────────────────────────┬────────────────────────────────────┤
+│ Método artesanal antiguo          │ Gestión declarativa con Maven      │
+├───────────────────────────────────┼────────────────────────────────────┤
+│ 1. Buscar y descargar archivos    │ 1. Declarar coordenadas GAV en el  │
+│    .jar en páginas web diversas.  │    archivo pom.xml.                │
+│ 2. Copiarlos a mano en carpetas   │ 2. Maven descarga y valida         │
+│    locales del proyecto.          │    automáticamente los binarios    │
+│ 3. Si la librería necesita otra   │    desde Maven Central.            │
+│    librería secundaria, buscarla  │ 3. Resolución automática del árbol │
+│    manualmente a ciegas.          │    completo de dependencias        │
+│ 4. Errores de ClassNotFoundException│    transitivas en ~/.m2/repository.│
+│    en tiempo de ejecución.        │ 4. Integración transparente en el  │
+│                                   │    Classpath del IDE.              │
+└───────────────────────────────────┴────────────────────────────────────┘
+</code></pre></div>
+<h5 id="coordenadas-gav-y-dependencias-transitivas">Coordenadas GAV y dependencias transitivas<a class="headerlink" href="#coordenadas-gav-y-dependencias-transitivas" title="Permanent link">&para;</a></h5>
+<p>Para solicitar una librería a Maven Central, únicamente debemos indicar sus tres coordenadas universales: <strong>GroupId</strong>, <strong>ArtifactId</strong> y <strong>Version</strong>:</p>
+<ul>
+<li><strong>Dependencia directa:</strong> Aquella que declaras explícitamente en el bloque <code>&lt;dependencies&gt;</code> de tu <code>pom.xml</code>.</li>
+<li><strong>Dependencia transitiva:</strong> Si la librería que has solicitado necesita a su vez otras librerías auxiliares para operar, Maven analiza el descriptor remoto de esa librería y descarga toda la cadena de dependencias de forma automática.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>RESOLUCIÓN DECLARATIVA EN MAVEN:
+
+   Tu pom.xml ────► Solicita: [com.google.zxing:core:3.5.3]
+                           │
+                           ▼
+                    Maven Central
+                           │ (Descarga automática a caché local)
+                           ▼
+                 ~/.m2/repository/com/google/zxing/core/3.5.3/core-3.5.3.jar
+                           │
+                           ▼
+                Classpath de tu aplicación (Listo para usar en Java)
+</code></pre></div>
+<hr />
+<h4 id="3-el-caso-guia-en-accion-renderizado-de-qr-en-memoria-y-consola">3. El caso guía en acción: Renderizado de QR en memoria y consola<a class="headerlink" href="#3-el-caso-guia-en-accion-renderizado-de-qr-en-memoria-y-consola" title="Permanent link">&para;</a></h4>
+<p>Pau Ferrer abre IntelliJ IDEA y muestra el procedimiento completo para dotar al proyecto del IES El Caminàs de su generador de códigos QR sin tocar el sistema de archivos:</p>
+<h5 id="paso-1-declarar-la-dependencia-en-el-pomxml">Paso 1: Declarar la dependencia en el <code>pom.xml</code><a class="headerlink" href="#paso-1-declarar-la-dependencia-en-el-pomxml" title="Permanent link">&para;</a></h5>
+<p>Abrimos el archivo de configuración de Maven y añadimos el bloque de dependencias:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;dependencies&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- Motor de cálculo y generación de matrices QR de Google --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;dependency&gt;</span>
+<span class="w">        </span><span class="nt">&lt;groupId&gt;</span>com.google.zxing<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>core<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">        </span><span class="nt">&lt;version&gt;</span>3.5.3<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+</code></pre></div>
+<h5 id="paso-2-sincronizar-maven-en-intellij-idea">Paso 2: Sincronizar Maven en IntelliJ IDEA<a class="headerlink" href="#paso-2-sincronizar-maven-en-intellij-idea" title="Permanent link">&para;</a></h5>
+<p>Tras editar el archivo, pulsamos el botón flotante con el icono de Maven (o el atajo <strong><code>Ctrl + Shift + O</code></strong>). IntelliJ contacta con Maven Central, descarga el archivo JAR en milisegundos y lo añade a las librerías del proyecto.</p>
+<h5 id="paso-3-dibujar-la-matriz-en-la-consola">Paso 3: Dibujar la matriz en la consola<a class="headerlink" href="#paso-3-dibujar-la-matriz-en-la-consola" title="Permanent link">&para;</a></h5>
+<p>Creamos la clase <code>GeneradorQRCaminas</code>. La librería externa realiza los cálculos matemáticos avanzados y nos entrega una matriz bidimensional de bits (<code>BitMatrix</code>). Nosotros nos limitamos a recorrerla con dos bucles anidados e imprimir caracteres de bloque en pantalla:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">es.azahartech.caminas</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.google.zxing.BarcodeFormat</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.google.zxing.common.BitMatrix</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.google.zxing.qrcode.QRCodeWriter</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GeneradorQRCaminas</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">datosAlumno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"ALUMNO:12004217;CENTRO:IES_EL_CAMINAS;CURSO:1DAM"</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// 1. Invocamos a la librería externa para calcular la matriz QR</span>
+<span class="w">        </span><span class="n">QRCodeWriter</span><span class="w"> </span><span class="n">escritorQR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QRCodeWriter</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// Generamos una matriz de 25x25 módulos en memoria</span>
+<span class="w">        </span><span class="n">BitMatrix</span><span class="w"> </span><span class="n">matriz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">escritorQR</span><span class="p">.</span><span class="na">encode</span><span class="p">(</span><span class="n">datosAlumno</span><span class="p">,</span><span class="w"> </span><span class="n">BarcodeFormat</span><span class="p">.</span><span class="na">QR_CODE</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"================================================="</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"  CÓDIGO QR EN CONSOLA - ACCESO IES EL CAMINÀS   "</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"  Apunta con la cámara de tu móvil a la pantalla "</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"=================================================\n"</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 2. Recorrido bidimensional de la matriz en memoria RAM (sin ficheros)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">matriz</span><span class="p">.</span><span class="na">getHeight</span><span class="p">();</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">matriz</span><span class="p">.</span><span class="na">getWidth</span><span class="p">();</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Si la posición tiene bit activo pintamos doble bloque negro "██";</span>
+<span class="w">                </span><span class="c1">// si no, pintamos dos espacios en blanco "  "</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">matriz</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"██"</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"  "</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span><span class="w"> </span><span class="c1">// Salto a la siguiente fila</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"\n[OK] Código QR generado en memoria RAM y renderizado con éxito."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Al pulsar <strong>Run (<code>Shift + F10</code>)</strong>, la terminal de IntelliJ se transforma en un panel gráfico de texto: los estudiantes enfocan la consola con sus teléfonos móviles y la cámara reconoce al instante el texto codificado del instituto.</p>
+<hr />
+<h4 id="sesion-2-dojo-de-entrenamiento-y-katas-de-herramientas_2">Sesión 2. Dojo de entrenamiento y katas de herramientas<a class="headerlink" href="#sesion-2-dojo-de-entrenamiento-y-katas-de-herramientas_2" title="Permanent link">&para;</a></h4>
+<p>Pasamos a los puestos individuales. Cada alumno integrará una librería externa especializada de Maven Central en su proyecto de la bolsa para incorporar funciones profesionales sin necesidad de manipular ficheros:</p>
+<hr />
+<h5 id="kata-1-cinturon-blanco-nivel-base-el-generador-qr-en-tu-entorno-local">Kata 1 (Cinturón blanco / Nivel base). El generador QR en tu entorno local<a class="headerlink" href="#kata-1-cinturon-blanco-nivel-base-el-generador-qr-en-tu-entorno-local" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Objetivo.</strong> Integrar la dependencia <code>zxing:core</code> en el proyecto del caso guía, sincronizar el proyecto con Maven Central y renderizar un código QR funcional en la consola de tu equipo.</li>
+<li><strong>Misión:</strong><ol>
+<li>Abre el archivo <code>pom.xml</code> e introduce el bloque <code>&lt;dependencies&gt;</code> con <code>com.google.zxing:core:3.5.3</code>.</li>
+<li>Sincroniza el gestor con <strong><code>Ctrl + Shift + O</code></strong>.</li>
+<li>Implementa la clase de renderizado en <code>src/main/java/</code> y ejecuta el programa.</li>
+<li>Comprueba que el código QR aparece perfectamente cuadrado en la consola inferior de IntelliJ. Si se ve deformado, ajusta el ancho de los caracteres utilizando el doble bloque <code>"██"</code>.</li>
+<li>Escanéalo con tu propio móvil y verifica que lee los datos del alumno correctamente.</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h5 id="kata-2-cinturon-marron-nivel-avanzado-inyeccion-de-superpoderes-maven-en-tu-proyecto-propio">Kata 2 (Cinturón marrón / Nivel avanzado). Inyección de superpoderes Maven en tu proyecto propio<a class="headerlink" href="#kata-2-cinturon-marron-nivel-avanzado-inyeccion-de-superpoderes-maven-en-tu-proyecto-propio" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto técnico.</strong> En la industria del software seleccionamos librerías consolidadas para dotar a nuestros programas de capacidades avanzadas en memoria sin escribir código redundante.</li>
+<li>
+<p><strong>Misión según tu proyecto de la bolsa:</strong></p>
+<ul>
+<li>
+<p><strong>En Aventura conversacional:</strong></p>
+<ul>
+<li><em>Librería:</em> <strong><code>com.github.freva:ascii-table:1.8.0</code></strong> (Generador de tablas formateadas en consola).</li>
+<li><em>Aplicación:</em> Declara la dependencia en tu <code>pom.xml</code> y utiliza su API para sustituir los textos planos del menú por una tabla alineada en consola que muestre las estadísticas del personaje (Nivel, Puntos de Vida <code>HP</code>, Puntos de Magia <code>MP</code> y Oro) con bordes dobles profesionales.</li>
+</ul>
+</li>
+<li>
+<p><strong>En Motor de recomendación:</strong></p>
+<ul>
+<li><em>Librería:</em> <strong><code>org.apache.commons:commons-math3:3.6.1</code></strong> (Matemáticas avanzadas de Apache).</li>
+<li><em>Aplicación:</em> Declara la dependencia en tu <code>pom.xml</code> e instancia dos objetos <code>ArrayRealVector</code> para representar las valoraciones numéricas de dos usuarios. Utiliza el método <code>.cosine(otroVector)</code> para calcular la similitud coseno entre ambos en una sola línea de código e imprime el porcentaje de afinidad por consola.</li>
+</ul>
+</li>
+<li>
+<p><strong>En Simulador de físicas 2D:</strong></p>
+<ul>
+<li><em>Librería:</em> <strong><code>org.joml:joml:1.10.5</code></strong> (Álgebra vectorial en memoria).</li>
+<li><em>Aplicación:</em> Declara la dependencia y sustituye las variables primitivas de posición y aceleración por un objeto <code>Vector2f</code>. Aplica la aceleración sobre la velocidad mediante el método vectorial <code>velocidad.add(aceleracion)</code> e imprime las nuevas coordenadas resultantes en la consola.</li>
+</ul>
+</li>
+<li>
+<p><strong>En Bóveda de contraseñas:</strong></p>
+<ul>
+<li><em>Librería:</em> <strong><code>org.mindrot:jbcrypt:0.4</code></strong> (Algoritmo de cifrado y derivación de claves BCrypt).</li>
+<li><em>Aplicación:</em> Declara la dependencia y utiliza <code>BCrypt.hashpw(passwordPlana, BCrypt.gensalt(12))</code> para generar en memoria un hash criptográfico real de 60 caracteres. Imprime el resultado en consola y comprueba mediante <code>BCrypt.checkpw()</code> cómo la librería valida si una contraseña introducida coincide o no sin necesidad de descifrarla.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Misión alternativa según tu proyecto de la bolsa:</strong></p>
+<ul>
+<li>
+<p><strong>En Aventura conversacional:</strong></p>
+<ul>
+<li><em>Librería:</em> <strong><code>com.diogonunes.JColor:5.5.1</code></strong> (Colores en el texto).</li>
+<li><em>Aplicación:</em> Colorear las estadísticas fijas del héroe: la salud en verde brillante, el nombre del enemigo en rojo y las monedas en amarillo.</li>
+</ul>
+</li>
+<li>
+<p><strong>En Motor de recomendación:</strong></p>
+<ul>
+<li><em>Librería:</em> <strong><code>net.datafaker.datafaker:2.4.2</code></strong> (Generar datos del mundo real).</li>
+<li><em>Aplicación:</em> Generar automáticamente un título de película ficticia con faker.book().title() y una valoración decimal aleatoria para calcular su afinidad.</li>
+</ul>
+</li>
+<li>
+<p><strong>En Simulador de físicas 2D:</strong></p>
+<ul>
+<li><em>Librería:</em> <strong><code>com.diogonunes.JColor:5.5.1</code></strong> (Colores en el texto).</li>
+<li><em>Aplicación:</em> Destacar los vectores cinemáticos en la salida formateada: velocidad inicial en azul y aceleración gravitatoria en magenta.</li>
+</ul>
+</li>
+<li>
+<p><strong>En Bóveda de contraseñas:</strong></p>
+<ul>
+<li><em>Librería:</em> <strong><code>net.datafaker.datafaker:2.4.2</code></strong> (Generar datos del mundo real).</li>
+<li><em>Aplicación:</em> Instanciar faker.internet().password(12, 16, true, true) para generar una contraseña candidata de alta entropía y medir su longitud con métodos de String.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h5 id="kata-3-cinturon-negro-hacker-azahartech-radiografia-de-maven-central-y-confirmacion-visual-en-git">Kata 3 (Cinturón negro / «Hacker AzaharTech»). Radiografía de Maven Central y confirmación visual en Git<a class="headerlink" href="#kata-3-cinturon-negro-hacker-azahartech-radiografia-de-maven-central-y-confirmacion-visual-en-git" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto de arquitectura.</strong> Un desarrollador senior debe auditar físicamente dónde residen los binarios descargados y confirmar las modificaciones en el repositorio respetando las buenas prácticas del equipo.</li>
+<li><strong>Misión:</strong><ol>
+<li><strong>Inspección de la caché local (.m2):</strong><ul>
+<li>Localiza en el explorador de archivos de tu sistema operativo la carpeta oculta de Maven en tu directorio de usuario: <code>~/.m2/repository/</code> (o <code>%USERPROFILE%\.m2\repository\</code> en Windows).</li>
+<li>Navega hasta la carpeta correspondiente a tu librería (por ejemplo, <code>com/google/zxing/core/3.5.3/</code>) y comprueba que Maven ha descargado el archivo <code>.jar</code> compilado y su archivo descriptor <code>.pom</code>.</li>
+</ul>
+</li>
+<li><strong>Auditoría visual de dependencias en IntelliJ:</strong><ul>
+<li>Abre la pestaña lateral derecha <strong>Maven</strong>.</li>
+<li>Despliega la rama <strong>Dependencies</strong> de tu proyecto y confirma que la librería aparece con su icono azul vinculada al proyecto.</li>
+</ul>
+</li>
+<li><strong>Commit visual en IntelliJ IDEA (sin consola):</strong><ul>
+<li>Pulsa <strong><code>Ctrl + K</code></strong> (o abre la pestaña lateral izquierda <em>Commit</em>).</li>
+<li>En el visor de diferencias (<em>Diff Viewer</em>), haz doble clic sobre <code>pom.xml</code> para comprobar visualmente que solo se han añadido las etiquetas de dependencias.</li>
+<li>Marca con visto bueno (<code>[x]</code>) los archivos modificados (<code>pom.xml</code> y la nueva clase Java).</li>
+<li>Escribe en el cuadro de texto el mensaje estructurado:
+  <code>feat(core): incorporada libreria externa maven y renderizado en memoria</code></li>
+<li>Haz clic en el botón azul <strong>Commit</strong>.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h3 id="dia-12-1-sesion">Día 12 - 1 sesión<a class="headerlink" href="#dia-12-1-sesion" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="taller-de-consolidacion-ciclo-de-vida-de-maven-higiene-de-repositorio-y-cierre-formal-del-sprint-2">Taller de consolidación: ciclo de vida de Maven, higiene de repositorio y cierre formal del Sprint 2<a class="headerlink" href="#taller-de-consolidacion-ciclo-de-vida-de-maven-higiene-de-repositorio-y-cierre-formal-del-sprint-2" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="1-caso-guia-en-azahartech_5">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_5" title="Permanent link">&para;</a></h4>
+<p>Viernes 23 de octubre de 2026. Son las cuatro de la tarde en la oficina de <strong>AzaharTech</strong> en Castellón de la Plana. La jornada marca el cierre definitivo del <strong>Sprint 2: «El viaje del código: compilación, máquinas virtuales y dependencias»</strong>.</p>
+<p>En las pantallas de los puestos de desarrollo, el generador de códigos QR del <strong>IES El Caminàs</strong> y los cuatro proyectos singulares de la bolsa (<strong>Aventura conversacional</strong>, <strong>Motor de recomendación</strong>, <strong>Simulador de físicas 2D</strong> y <strong>Bóveda de contraseñas</strong>) se ejecutan con fluidez: cada uno incorpora ya librerías externas de primer nivel gestionadas por Maven Central y renderizadas limpiamente en memoria RAM sin necesidad de ensuciar el disco con ficheros temporales.</p>
+<p><strong>Laia Claramunt</strong> y <strong>Pau Ferrer</strong> reúnen al equipo frente al proyector para la sesión de cierre:</p>
+<blockquote>
+<p><em>«Equipo, en este segundo sprint habéis conquistado un terreno técnico crucial: sabéis cómo el compilador genera bytecode, cómo la JVM lo interpreta en cualquier plataforma y cómo Maven descarga y enlaza dependencias industriales en cuestión de segundos.</em></p>
+<p><em>Sin embargo, antes de dar un sprint por completado en AzaharTech, todo software debe superar dos controles de calidad indispensables:</em>
+1. <em>Validar que el ciclo de vida de Maven ejecuta las fases de limpieza y compilación sin depender de configuraciones manuales del IDE.</em>
+2. <em>Auditar la higiene estricta de Git: verificar que la carpeta <code>target/</code> y los metadatos internos del sistema jamás contaminen el repositorio remoto en GitHub.</em></p>
+<p><em>Hoy cerraremos formalmente el Sprint 2 ejecutando el ciclo de vida de Maven desde la interfaz de IntelliJ IDEA y realizando el commit y push visual definitivo antes de encarar el lunes el Sprint 3: el laberinto de la lógica, las pruebas formales y la depuración interactiva»</em>.</p>
+</blockquote>
+<hr />
+<h4 id="2-la-prueba-de-fuego-ciclo-de-vida-visual-de-maven-en-intellij">2. La prueba de fuego: ciclo de vida visual de Maven en IntelliJ<a class="headerlink" href="#2-la-prueba-de-fuego-ciclo-de-vida-visual-de-maven-en-intellij" title="Permanent link">&para;</a></h4>
+<p>Cuando un proyecto integra librerías externas, la compilación no se limita a invocar al compilador <code>javac</code>: Maven debe verificar la integridad de las dependencias alojadas en <code>~/.m2/repository</code> y enlazarlas en el <em>Classpath</em> de compilación.</p>
+<p>Para comprobar que el proyecto compila de forma reproducible y autónoma, los desarrolladores ejecutan las fases del ciclo de vida utilizando la <strong>ventana lateral de Maven</strong> de IntelliJ IDEA:</p>
+<div class="highlight"><pre><span></span><code>                  VENTANA LATERAL DE MAVEN EN INTELLIJ IDEA
+
+       ┌────────────────────────────────────────────────────────┐
+       │ Maven                                              [-] │
+       ├────────────────────────────────────────────────────────┤
+       │ ▼ mi-proyecto                                          │
+       │   ▼ Lifecycle                                          │
+       │       clean     ◄── (1. Doble clic: borra target/)     │
+       │       validate                                         │
+       │       compile   ◄── (2. Doble clic: compila + .m2)     │
+       │       test                                             │
+       │       package                                          │
+       │   ► Plugins                                            │
+       │   ► Dependencies (Librerías externas enlazadas)        │
+       └────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h5 id="verificacion-en-dos-pasos">Verificación en dos pasos:<a class="headerlink" href="#verificacion-en-dos-pasos" title="Permanent link">&para;</a></h5>
+<ol>
+<li><strong>Fase <code>clean</code>:</strong><ul>
+<li>Haz doble clic sobre <strong>clean</strong> dentro del menú <em>Lifecycle</em>.</li>
+<li>Observa cómo la carpeta de salida <code>target/</code> desaparece instantáneamente del árbol del proyecto, garantizando que no queden restos de compilaciones previas.</li>
+</ul>
+</li>
+<li><strong>Fase <code>compile</code>:</strong><ul>
+<li>Haz doble clic sobre <strong>compile</strong>.</li>
+<li>Maven analiza el archivo <code>pom.xml</code>, valida las dependencias externas (como <code>zxing-core</code>), compila todo el código fuente de <code>src/main/java/</code> y genera de nuevo la estructura binaria en <code>target/classes/</code>.</li>
+<li>La consola inferior de Maven debe culminar con el mensaje en verde:
+  <code>[INFO] BUILD SUCCESS</code>.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4 id="3-auditoria-de-higiene-del-repositorio-el-archivo-gitignore">3. Auditoría de higiene del repositorio: el archivo <code>.gitignore</code><a class="headerlink" href="#3-auditoria-de-higiene-del-repositorio-el-archivo-gitignore" title="Permanent link">&para;</a></h4>
+<p>Uno de los errores más graves de un desarrollador júnior es versionar en Git los archivos binarios compilados o los archivos de configuración local de su propio ordenador.</p>
+<p>En un proyecto gestionado con Maven, el código fuente (<code>src/</code>) y la receta de construcción (<code>pom.xml</code>) son los <strong>únicos</strong> elementos necesarios para reconstruir el software en cualquier máquina del mundo.</p>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────────────┐
+│                   MAPA DE HIGIENE TÉCNICA DEL REPOSITORIO              │
+├────────────────────────────┬─────────────┬─────────────────────────────┤
+│ Elemento / Directorio      │ ¿Va a Git?  │ Justificación técnica       │
+├────────────────────────────┼─────────────┼─────────────────────────────┤
+│ src/                       │ SÍ          │ Código fuente y recursos.   │
+│ pom.xml                    │ SÍ          │ Declaración del proyecto.   │
+│ README.md                  │ SÍ          │ Documentación del software. │
+├────────────────────────────┼─────────────┼─────────────────────────────┤
+│ target/                    │ NUNCA       │ Bytecode autogenerado.      │
+│ .idea/ y *.iml             │ NUNCA       │ Configuración de tu IDE.    │
+│ .DS_Store / Thumbs.db      │ NUNCA       │ Basura del sistema operativo│
+└────────────────────────────┴─────────────┴─────────────────────────────┘
+</code></pre></div>
+<h5 id="inspeccion-visual-en-el-arbol-de-intellij-idea">Inspección visual en el árbol de IntelliJ IDEA<a class="headerlink" href="#inspeccion-visual-en-el-arbol-de-intellij-idea" title="Permanent link">&para;</a></h5>
+<p>Cada estudiante abre el archivo <code>.gitignore</code> situado en la raíz del proyecto y confirma que contiene las exclusiones estándar de la empresa:</p>
+<div class="highlight"><pre><span></span><code># Directorio de construcción y binarios de Maven
+target/
+
+# Metadatos del entorno de desarrollo (IntelliJ IDEA)
+.idea/
+*.iml
+out/
+
+# Archivos de índices del sistema operativo
+.DS_Store
+Thumbs.db
+</code></pre></div>
+<blockquote>
+<p><strong>Comprobación visual de Pau Ferrer:</strong> En el panel del explorador de proyectos de IntelliJ, la carpeta <code>target/</code> debe mostrarse con una tipografía de <strong>color naranja oscuro o gris atenuado</strong> (<em>ignored</em>). Si aparece en color blanco, azul o rojo, Git la está vigilando por error y debe regularizarse de inmediato antes del commit.</p>
+</blockquote>
+<hr />
+<h4 id="4-cierre-formal-del-sprint-2-mediante-commit-y-push-visual">4. Cierre formal del Sprint 2 mediante Commit y Push visual<a class="headerlink" href="#4-cierre-formal-del-sprint-2-mediante-commit-y-push-visual" title="Permanent link">&para;</a></h4>
+<p>Siguiendo el estándar pedagógico de AzaharTech, el cierre del sprint se formaliza <strong>exclusivamente a través de la interfaz gráfica de IntelliJ IDEA</strong>, sin recurrir a la terminal de comandos:</p>
+<div class="highlight"><pre><span></span><code>                VENTANA VISUAL DE COMMIT EN INTELLIJ IDEA (Ctrl + K)
+
+ ┌────────────────────────────────────────────────────────────────────────┐
+ │ Commit: Local Changes                                                  │
+ ├────────────────────────────────────────────────────────────────────────┤
+ │ Changes (2 files)                                                      │
+ │  [x] pom.xml                        (dependencia zxing/externa)        │
+ │  [x] src/main/java/.../App.java     (renderizado de QR / lógica)      │
+ ├────────────────────────────────────────────────────────────────────────┤
+ │ Mensaje de confirmación:                                               │
+ │ ┌────────────────────────────────────────────────────────────────────┐ │
+ │ │ feat(core): integradas dependencias maven y renderizado en memoria │ │
+ │ └────────────────────────────────────────────────────────────────────┘ │
+ │                                                                        │
+ │ [ Commit v ]  ──► Desplegar flecha: [ Commit and Push... ]            │
+ └────────────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h5 id="pasos-visuales-paso-a-paso">Pasos visuales paso a paso:<a class="headerlink" href="#pasos-visuales-paso-a-paso" title="Permanent link">&para;</a></h5>
+<ol>
+<li><strong>Abrir la herramienta visual de cambios:</strong><ul>
+<li>Pulsa el atajo universal <strong><code>Ctrl + K</code></strong> (en Windows/Linux) o haz clic en la pestaña vertical izquierda <strong>Commit</strong> (<code>Alt + 0</code>).</li>
+</ul>
+</li>
+<li><strong>Revisión de diferencias (<em>Diff Viewer</em>):</strong><ul>
+<li>Haz doble clic sobre <code>pom.xml</code> en la lista de cambios. Comprueba en el panel comparativo que las etiquetas <code>&lt;dependency&gt;</code> se han introducido de forma limpia.</li>
+<li>Haz doble clic sobre la clase Java para certificar que el código recorre la matriz en memoria sin dependencias de ficheros.</li>
+</ul>
+</li>
+<li><strong>Selección de archivos:</strong><ul>
+<li>Marca con visto bueno (<code>[x]</code>) únicamente los archivos modificados que deben formar parte del repositorio (<code>pom.xml</code>, <code>.gitignore</code> y clases Java bajo <code>src/main/java/</code>).</li>
+<li>Cerciórate de que ningún fichero dentro de <code>target/</code> aparece seleccionado.</li>
+</ul>
+</li>
+<li><strong>Redacción del mensaje de commit:</strong><ul>
+<li>Escribe en el cuadro de texto el mensaje formal de cierre:
+  <code>feat(core): integradas dependencias maven y renderizado en memoria</code></li>
+</ul>
+</li>
+<li><strong>Confirmación y sincronización con GitHub (<em>Commit and Push</em>):</strong><ul>
+<li>Haz clic sobre la flecha desplegable del botón azul y selecciona <strong>Commit and Push...</strong> (o pulsa <strong><code>Ctrl + Alt + K</code></strong>).</li>
+<li>En la ventana emergente de confirmación de subida (<em>Push Commits</em>), revisa que la rama de destino sea tu repositorio personal en GitHub y haz clic en el botón azul <strong>Push</strong>.</li>
+</ul>
+</li>
+</ol>
+<p>Al mostrarse la notificación emergente verde en la esquina inferior derecha (<em>«Pushed 1 commit to origin/main»</em>), el <strong>Sprint 2: «El viaje del código: compilación, máquinas virtuales y dependencias»</strong> queda oficialmente completado y sellado.</p>
+<p>El equipo domina la construcción automatizada, el enlace de librerías de Maven Central y la higiene del repositorio digital. El próximo lunes arrancará el <strong>Sprint 3</strong>, donde utilizaremos el depurador interactivo de IntelliJ para aprender a congelar la ejecución y cazar los errores de nuestras estructuras de control algorítmicas.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.top", "navigation.sections", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="https://unpkg.com"></script>
+      
+    
+  </body>
+</html>
