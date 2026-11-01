@@ -205,15 +205,15 @@ Al concluir el trabajo en el dojo, debes dejar consolidada la preparación de tu
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
 │                               ENTREGABLES DEL DÍA 13                                   │
 ├─────────────────────┬──────────────────────────────────────────────────────────────────┤
-│ Archivo modificado  │ src/main/java/... (Clase principal o validadora de tu proyecto)  │
+│ Archivo modificado  │ src/main/java/... (Clase de tu proyecto)                         │
 ├─────────────────────┼──────────────────────────────────────────────────────────────────┤
-│ Trabajo exigido     │ 1. Limpieza de código: erradicar cualquier sentencia residual de │
-│ (Mínimo obligatorio)│    "System.out.println" utilizada como depuración improvisada.   │
+│ Qué contiene        │ 1. Limpieza de código: erradicar cualquier sentencia de          │
+│                     │    "System.out.println" utilizada como depuración.               │
 │                     │ 2. Modularización: asegurar que la condición lógica principal    │
 │                     │    está encapsulada en un método auxiliar para permitir la       │
 │                     │    navegación con Step Into (F7).                                │
 ├─────────────────────┼──────────────────────────────────────────────────────────────────┤
-│ Operación en el IDE │ Commit visual en IntelliJ IDEA (Ctrl + K):                       │
+│ Operación en el IDE │ Commit en IntelliJ IDEA (Ctrl + K)                               │
 │                     │ Mensaje: refactor(core): modularizada seleccion condicional      │
 │                     │          para depuracion interactiva                             │
 └─────────────────────┴──────────────────────────────────────────────────────────────────┘
@@ -221,7 +221,7 @@ Al concluir el trabajo en el dojo, debes dejar consolidada la preparación de tu
 
 ##### Pasos visuales paso a paso en IntelliJ IDEA:
 1. Pulsa **`Ctrl + K`** (o abre la pestaña lateral vertical **Commit** / `Alt + 0`).
-2. En la lista de archivos modificados, haz doble clic sobre tu clase Java para verificar con el visor comparativo (*Diff Viewer*) que se han eliminado las impresiones provisionales de consola.
+2. En la lista de archivos modificados, haz doble clic sobre tu clase Java para verificar con el visor comparativo (*Diff viewer*) que se han eliminado, si había, las impresiones de depuración de consola.
 3. Marca únicamente la casilla de verificación de tu archivo fuente Java.
 4. Redacta el mensaje formal estructurado:
    `refactor(core): modularizada seleccion condicional para depuracion interactiva`
@@ -233,7 +233,7 @@ Al concluir el trabajo en el dojo, debes dejar consolidada la preparación de tu
 
 ---
 
-#### Sesión única. Taller práctico: La pila de llamadas (*Call Stack*), diagnóstico de excepciones y registro del primer defecto técnico
+#### Sesión única. Taller práctico: la pila de llamadas (*Call Stack*), diagnóstico de excepciones y registro del primer defecto técnico
 
 ---
 
@@ -281,28 +281,31 @@ Cuando un programa Java se ejecuta, la máquina virtual gestiona la memoria de e
 
 ##### Navegación interactiva por Frames en IntelliJ IDEA
 Cuando la ejecución está detenida en un punto de ruptura o interceptada por una excepción:
-1. **La columna izquierda de la pestaña Debug lista los Frames:** En la parte superior aparece el método en el que estamos detenidos en este milisegundo; debajo, el método que lo invocó, y así sucesivamente hasta llegar al `main`.
-2. **Viaje en el tiempo sin alterar el flujo:** Si haces clic en `Frame 2` o `Frame 1`, el editor de código saltará automáticamente a esa línea y el panel **Variables** se actualizará al instante para mostrar cómo estaban las variables en ese método superior, permitiéndote comprobar qué argumentos le envió al método que falló.
+
+1. **La columna izquierda de la pestaña Debug lista los Frames:** En la parte superior aparece el método en el que estamos detenidos en este milisegundo; debajo, el método que lo invocó, y así sucesivamente hasta llegar al `main`.  
+2. **Viaje en el tiempo sin alterar el flujo:** Si haces clic en `Frame 2` o `Frame 1`, el editor de código saltará automáticamente a esa línea y el panel **Variables** se actualizará al instante para mostrar cómo estaban las variables en ese método superior, permitiéndote comprobar qué argumentos le envió al método que falló.  
 
 ---
 
 #### 3. Laboratorio práctico. Provocación de fallo y auditoría en tu proyecto
 
 > **Dinámica de laboratorio:**
-> * La **actividad principal (diagnóstico y redacción del informe)** es obligatoria para todos los alumnos.
-> * **Ampliación para quienes terminen antes:** Configura filtros en la pestaña Debug de IntelliJ (*Settings -> Build, Execution, Deployment -> Debugger -> Stepping*) para activar *Do not step into library classes* y omite automáticamente clases internas de Java (`java.*`, `javax.*`), observando cómo se limpia la vista de frames.
+> 
+> * La **actividad principal (diagnóstico y redacción del informe)** es obligatoria para todos los alumnos.  
+> * **Ampliación para quienes terminen antes:** Configura filtros en la pestaña Debug de IntelliJ (*Settings -> Build, Execution, Deployment -> Debugger -> Stepping*) para activar *Do not step into library classes* y omite automáticamente clases internas de Java (`java.*`, `javax.*`), observando cómo se limpia la vista de frames.  
 
 Durante los primeros 20 minutos de la sesión, provoca deliberadamente una excepción en tu software suministrando una entrada inesperada por teclado para auditarla mediante el depurador:
-* **En Aventura conversacional:** Pulsa directamente la tecla Intro sin escribir ningún comando en la selección de acción del menú. Pausa la ejecución con el depurador y diagnostica en el panel *Frames* por qué `comando.charAt(0)` falla cuando la cadena está vacía.
-* **En Motor de recomendación:** Introduce texto alfabético en un campo numérico procesado con `Integer.parseInt(teclado.nextLine())`. Rastrear en el *Call Stack* qué método de captura originó el `NumberFormatException`.
-* **En Simulador de físicas 2D:** Pasa un valor nulo o no inicializado a una función cinemática y comprueba en los marcos de pila qué método propagó el cálculo erróneo.
-* **En Bóveda de contraseñas:** Genera un fallo al evaluar la longitud de una contraseña nula o vacía (`password.length()`) y examina las variables del método llamador.
+
+* **En Aventura conversacional:** Pulsa directamente la tecla Intro sin escribir ningún comando en la selección de acción del menú. Pausa la ejecución con el depurador y diagnostica en el panel *Frames* por qué `comando.charAt(0)` falla cuando la cadena está vacía.  
+* **En Motor de recomendación:** Introduce texto alfabético en un campo numérico procesado con `Integer.parseInt(teclado.nextLine())`. Rastrear en el *Call Stack* qué método de captura originó el `NumberFormatException`.  
+* **En Simulador de físicas 2D:** Pasa un valor nulo o no inicializado a una función cinemática y comprueba en los marcos de pila qué método propagó el cálculo erróneo.  
+* **En Bóveda de contraseñas:** Genera un fallo al evaluar la longitud de una contraseña nula o vacía (`password.length()`) y examina las variables del método llamador.  
 
 ---
 
-#### Entregables de la sesión (Día 14)
+#### Entregables de la sesión
 
-En esta sesión **todo el alumnado debe crear obligatoriamente** en su repositorio el documento técnico oficial del Sprint 3: **`ed/docs/ciclo-error.md`**, y redactar su primer apartado formal:
+En esta sesión debes crear en tu repositorio el documento técnico del Sprint 3: **`ed/docs/ciclo-error.md`**, y redactar su primer apartado:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -310,13 +313,13 @@ En esta sesión **todo el alumnado debe crear obligatoriamente** en su repositor
 ├─────────────────────┬──────────────────────────────────────────────────────────────────┤
 │ Archivo creado      │ ed/docs/ciclo-error.md                                           │
 ├─────────────────────┼──────────────────────────────────────────────────────────────────┤
-│ Ubicación exacta    │ azahartech/tu-equipo/tus-apellidos-nombre/ed/docs/ciclo-error.md │
+│ Ubicación           │ azahartech/tu-equipo/tus-apellidos-nombre/ed/docs/ciclo-error.md │
 ├─────────────────────┼──────────────────────────────────────────────────────────────────┤
 │ Apartado a redactar │ APARTADO 1: Ficha técnica de la incidencia (Bug Report)          │
-│ (Obligatorio)       │ Completar la ficha técnica oficial del fallo detectado (INC-01): │
+│                     │ Completar la ficha técnica oficial del fallo detectado (INC-01): │
 │                     │ • Entorno técnico (OpenJDK 21, IntelliJ IDEA, Maven).            │
 │                     │ • Pasos exactos para reproducir el fallo.                        │
-│                     │ • Comportamiento observado vs. comportamiento esperado.          │
+│                     │ • Comportamiento observado VS comportamiento esperado.           │
 │                     │ • Diagnóstico del Call Stack (Frames inspeccionados).            │
 │                     │ • Estado actual de la incidencia: EN RESOLUCIÓN (In Progress).   │
 ├─────────────────────┼──────────────────────────────────────────────────────────────────┤
@@ -366,7 +369,7 @@ En esta sesión **todo el alumnado debe crear obligatoriamente** en su repositor
    `docs(qa): creado ciclo-error.md con apartado 1 de incidencia tecnica INC-01`
 4. Haz clic en el botón azul **Commit**.
 
-El primer defecto técnico queda así formalmente registrado y diagnosticado en la memoria de ingeniería del proyecto. La próxima semana (Semana 8) diseñaremos formalmente la batería de pruebas de caja negra (clases de equivalencia y valores límite) para blindar el código de forma sistemática.
+El primer defecto técnico queda así formalmente registrado y diagnosticado en la memoria del proyecto.
 
 ## Semana 8. Clases de equivalencia y cobertura
 
