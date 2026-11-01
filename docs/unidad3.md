@@ -2,7 +2,7 @@
 
 ---
 
-## Semana 7. Depuración interactiva y Call Stack
+## Semana 7. Depuración interactiva e inspección de memoria
 
 ---
 
@@ -22,11 +22,11 @@ Tras haber consolidado la estructura estándar del proyecto, la compilación y l
 
 > *«Equipo, entramos en una de las fases más decisivas de la ingeniería de software: el diagnóstico y control del error. La aplicación de control de acceso al centro (`ControlAccesoQR`) ha incorporado lógica de decisión condicional (`if-else`, operadores lógicos combinados y bifurcaciones con `switch`) para evaluar a los visitantes en los tornos del vestíbulo.*
 >
-> *Sin embargo, esta mañana el sistema ha comenzado a fallar de forma errática: personas con temperatura corporal normal y DNI válido están siendo rechazadas en pantalla con el aviso de 'Fiebre o lectura anómala', mientras que en otros momentos el terminal franquea el torno aunque el aforo del edificio figure como completamente agotado.*
+> *Sin embargo, esta mañana el sistema ha comenzado a fallar de forma errática: personas con temperatura corporal normal y DNI válido están siendo rechazadas en pantalla con el aviso de 'Fiebre o lectura anómala', mientras que en otros momentos el terminal abre el torno aunque el aforo del edificio figure como completamente agotado.*
 >
 > *El impulso natural del desarrollador principiante ante un fallo lógico es llenar el código fuente de impresiones por consola: `System.out.println("Pasa por el if 1")`, `System.out.println("Variable temp = " + temp)` y `System.out.println("Pasa por aquí 2")`. En la industria del software profesional, esa práctica es un antipatrón ineficiente, peligroso y sucio que degrada el repositorio y no permite interactuar con la máquina virtual.*
 >
-> *Tanto en el sistema del IES El Caminàs como en vuestros proyectos singulares (**Aventura conversacional**, **Motor de recomendación**, **Simulador de físicas 2D** y **Bóveda de contraseñas**), hoy aprenderemos a congelar el tiempo: utilizaremos el* *depurador interactivo (Debugger)* *de IntelliJ IDEA para detener la JVM, examinar el estado exacto de la memoria RAM, evaluar predicados lógicos en caliente y alterar variables sin modificar ni una sola línea de código fuente»*.
+> *Hoy veremos cómo a congelar el tiempo: utilizaremos el* *depurador interactivo (Debugger)* *de IntelliJ IDEA para detener la JVM, examinar el estado exacto de la memoria RAM, evaluar predicados lógicos en caliente y alterar variables sin modificar ni una sola línea de código fuente»*.
 
 ---
 
@@ -56,10 +56,11 @@ En el ciclo de vida del software, los fallos no son accidentes aislados: son una
 
 ##### Las cuatro trampas de ingeniería del «Print Debugging»
 Llenar el código con instrucciones de consola para rastrear variables presenta graves problemas en el entorno profesional:
-1. **Contaminación del repositorio:** Obliga a modificar archivos fuente funcionales solo para depurar, ensuciando los commits con líneas provisionales que luego hay que recordar borrar a mano.
-2. **Coste temporal de recompilación:** Cada vez que queremos inspeccionar una variable nueva o cambiar el texto de un print, debemos guardar, reconstruir el proyecto con Maven y reiniciar la ejecución desde cero.
-3. **Pérdida de dimensionalidad y contexto:** Un `System.out.println` muestra únicamente una foto plana de texto en la consola, pero oculta la pila de llamadas (*Call Stack*), los objetos en segundo plano y el estado global de la memoria.
-4. **Riesgo crítico de fuga de datos en producción:** Olvidar trazas de depuración en despliegues reales puede filtrar contraseñas en texto plano, datos personales de usuarios o saturar el almacenamiento de logs del servidor.
+
+1. **Contaminación del repositorio.** Obliga a modificar archivos fuente funcionales solo para depurar, ensuciando los commits con líneas provisionales que luego hay que recordar borrar a mano.  
+2. **Coste temporal de recompilación.** Cada vez que queremos inspeccionar una variable nueva o cambiar el texto de un print, debemos guardar, reconstruir el proyecto con Maven y reiniciar la ejecución desde cero.  
+3. **Pérdida de dimensionalidad y contexto.** Un `System.out.println` muestra únicamente una foto plana de texto en la consola, pero oculta la pila de llamadas (*Call Stack*), los objetos en segundo plano y el estado global de la memoria.  
+4. **Riesgo crítico de fuga de datos en producción.** Olvidar trazas de depuración en despliegues reales puede filtrar contraseñas en texto plano, datos personales de usuarios o saturar el almacenamiento de logs del servidor.  
 
 ```
 COMPARATIVA METODOLÓGICA EN INGENIERÍA:
@@ -103,8 +104,8 @@ Cuando lanzamos nuestro software mediante el botón de depuración (**Debug** o 
 ```
 
 ##### Tipos de puntos de ruptura (*Breakpoints*)
-* **Punto de ruptura estándar:** Se activa haciendo clic en el canal lateral izquierdo (*gutter*) junto al número de línea. Marca una línea donde la JVM suspenderá el hilo de ejecución justo **antes** de procesarla.
-* **Punto de ruptura condicional:** Clic derecho sobre el punto rojo del breakpoint. Permite definir una expresión lógica booleana en Java (por ejemplo, `tempVestibulo > 37.5` o `aforoDisponible <= 0`). El programa solo se detendrá cuando la condición sea verdadera, evitando detenerse manualmente en accesos rutinarios válidos.
+* **Punto de ruptura estándar.** Se activa haciendo clic en el canal lateral izquierdo (*gutter*) junto al número de línea. Marca una línea donde la JVM suspenderá el hilo de ejecución justo **antes** de procesarla.
+* **Punto de ruptura condicional.** Clic derecho sobre el punto rojo del breakpoint. Permite definir una expresión lógica booleana en Java (por ejemplo, `tempVestibulo > 37.5` o `aforoDisponible <= 0`). El programa solo se detendrá cuando la condición sea verdadera, evitando detenerse manualmente en accesos rutinarios válidos.
 
 ---
 
@@ -131,20 +132,26 @@ if (!temperaturaApta) {
 ```
 
 *Los estudiantes analizan el fragmento durante 3 minutos en su puesto de trabajo:*
-1. **Trazado mental de predicados booleanos:**
-    - ¿Qué valor exacto tiene `temperaturaApta`? (`true`).
-    - ¿Qué valor evalúa `!aforoSuficiente`? (`true`, ya que el aforo es `0`).
-2. **Evaluación de prioridades de salto:**
-    - ¿Por qué el mensaje de fiebre no se ejecuta pero sí el de aforo?
-3. **Puesta en común en la pizarra:** Un estudiante voluntario marca con el rotulador en qué línea exacta colocaría el punto de ruptura para comprobar si las variables contienen los datos esperados antes de que la consola imprima el veredicto.
+
+1. **Trazado mental de predicados booleanos.**
+
+    - ¿Qué valor exacto tiene `temperaturaApta`? (`true`).  
+    - ¿Qué valor evalúa `!aforoSuficiente`? (`true`, ya que el aforo es `0`).  
+
+2. **Evaluación de prioridades de salto.**
+
+    - ¿Por qué el mensaje de fiebre no se ejecuta pero sí el de aforo?  
+
+3. **Puesta en común en la pizarra.** Un estudiante voluntario marca con el rotulador en qué línea exacta colocaría el punto de ruptura para comprobar si las variables contienen los datos esperados antes de que la consola imprima el veredicto.  
 
 ---
 
 #### Segunda sesión: dojo de herramientas y katas
 
 > **Dinámica del dojo de entrenamiento:**
-> * La **Kata 1 es de realización obligatoria** para todo el grupo: constituye el núcleo técnico imprescindible y la base del entregable de la jornada.
-> * Las **Katas 2 y 3 son optativas y de ampliación**: están diseñadas para que los estudiantes que resuelvan rápidamente la primera práctica no se queden inactivos, permitiéndoles subir de nivel y adquirir competencias avanzadas en depuración profesional.
+> 
+> * La **Kata 1 es de realización obligatoria** para todo el grupo: constituye el núcleo técnico imprescindible y la base del entregable de la jornada.  
+> * Las **Katas 2 y 3 son optativas y de ampliación**: están diseñadas para que los estudiantes que resuelvan rápidamente la primera práctica no se queden inactivos, permitiéndoles subir de nivel y adquirir competencias avanzadas en depuración profesional.  
 
 ---
 
@@ -152,10 +159,10 @@ if (!temperaturaApta) {
 
 * **Objetivo.** Iniciar el proyecto bajo el control del depurador, fijar puntos de ruptura en las estructuras de selección condicional e inspeccionar el estado de las variables locales desde la pestaña **Variables** de IntelliJ IDEA sin recurrir a impresiones por consola.
 * **Misión según tu proyecto elegido:**
-    * **En Aventura conversacional:** Pon un punto de ruptura en la línea del condicional de combate `if (vidaActual <= 0)`. Lanza la aplicación en modo Debug (`Shift + F9`). Comprueba en el panel lateral el valor de `vidaActual` y el nombre del arma activa antes de ramificar la escena hacia la victoria o la derrota.
-    * **En Motor de recomendación:** Coloca el breakpoint en la condición de afinidad `if (afinidad >= 75.0)`. Inspecciona el valor de punto flotante de `afinidad` y confirma en memoria qué etiqueta de recomendación se asignará al usuario.
-    * **En Simulador de físicas 2D:** Sitúa el breakpoint en la condición de frontera `if (posicionX >= LIMITE_DERECHO)`. Observa el valor de la coordenada horizontal y el signo de la velocidad antes de ejecutarse el rebote.
-    * **En Bóveda de contraseñas:** Pon el breakpoint en la validación de formato `if (password.length() >= 8)`. Inspecciona el contenido del texto en memoria y el valor booleano resultante.
+    * **En Aventura conversacional.** Pon un punto de ruptura en la línea del condicional de combate `if (vidaActual <= 0)`. Lanza la aplicación en modo Debug (`Shift + F9`). Comprueba en el panel lateral el valor de `vidaActual` y el nombre del arma activa antes de ramificar la escena hacia la victoria o la derrota.
+    * **En Motor de recomendación.** Coloca el breakpoint en la condición de afinidad `if (afinidad >= 75.0)`. Inspecciona el valor de punto flotante de `afinidad` y confirma en memoria qué etiqueta de recomendación se asignará al usuario.
+    * **En Simulador de físicas 2D.** Sitúa el breakpoint en la condición de frontera `if (posicionX >= LIMITE_DERECHO)`. Observa el valor de la coordenada horizontal y el signo de la velocidad antes de ejecutarse el rebote.
+    * **En Bóveda de contraseñas.** Pon el breakpoint en la validación de formato `if (password.length() >= 8)`. Inspecciona el contenido del texto en memoria y el valor booleano resultante.
 
 ---
 
@@ -192,7 +199,7 @@ if (!temperaturaApta) {
 
 #### Entregables de la sesión
 
-Al concluir el trabajo en el dojo, debesy dejar consolidada la preparación de tu código fuente en el repositorio personal:
+Al concluir el trabajo en el dojo, debes dejar consolidada la preparación de tu código fuente en el repositorio personal:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
