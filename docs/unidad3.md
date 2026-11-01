@@ -2,7 +2,7 @@
 
 ---
 
-## Semana 7. Depuracion interactiva e inspección de memoria
+## Semana 7. Depuración interactiva y Call Stack
 
 ---
 
@@ -10,29 +10,29 @@
 
 ---
 
-#### Sesión 1. Teoría. La radiografía del código en ejecución: del print casero a la depuración interactiva
+#### Primera sesión: teoría. La radiografía del código en ejecución: del print casero a la depuración interactiva en memoria RAM
 
 ---
 
 #### 1. Caso guía en AzaharTech
 
-Son las tres de la tarde del lunes 26 de octubre de 2026. En la sede de **AzaharTech** en Castellón de la Plana, arranca formalmente la primera jornada del **Sprint 3**.
+Son las tres de la tarde del lunes 26 de octubre de 2026. En la sede de **AzaharTech** en Castellón de la Plana, arranca formalmente la primera jornada del **Sprint 3: «El ciclo del error: pruebas y depuración»**.
 
-Tras haber consolidado la gestión de paquetes, compilación y dependencias con Maven en el Sprint anterior, el equipo se reúne en la sala principal. En la pantalla de proyección, **Laia Claramunt** muestra una captura del panel de incidencias enviado de urgencia a primera hora de la mañana por el coordinador TIC del **IES El Caminàs**:
+Tras haber consolidado la estructura estándar del proyecto, la compilación y la integración de librerías externas de Maven en el ciclo anterior, el equipo técnico se reúne en la sala de operaciones. En la pantalla de proyección, **Laia Claramunt** muestra una captura del panel de incidencias remitido a primera hora por el coordinador de infraestructuras del **IES El Caminàs**:
 
-> *«Equipo, entramos de lleno en el corazón de la lógica de programación. Durante estas semanas, en el módulo de Programación estáis implementando estructuras de control complejas: bucles anidados (`for`, `while`), bifurcaciones condicionales (`if`/`else`, `switch`) y control de excepciones.*
+> *«Equipo, entramos en una de las fases más decisivas de la ingeniería de software: el diagnóstico y control del error. La aplicación de control de acceso al centro (`ControlAccesoQR`) ha incorporado lógica de decisión condicional (`if-else`, operadores lógicos combinados y bifurcaciones con `switch`) para evaluar a los visitantes en los tornos del vestíbulo.*
 >
-> *La aplicación del IES El Caminàs ya cuenta con su primer prototipo de validación de códigos QR en bucle continuo para procesar la cola de alumnos en el vestíbulo. Sin embargo, esta mañana el sistema ha entrado en un bloqueo total: tras procesar al décimo alumno, la aplicación se congela consumiendo el 100 % de la CPU de los terminales de conserjería, o bien asigna faltas injustificadas a estudiantes que sí habían registrado el código.*
+> *Sin embargo, esta mañana el sistema ha comenzado a fallar de forma errática: personas con temperatura corporal normal y DNI válido están siendo rechazadas en pantalla con el aviso de 'Fiebre o lectura anómala', mientras que en otros momentos el terminal franquea el torno aunque el aforo del edificio figure como completamente agotado.*
 >
-> *El impulso natural de un programador principiante es llenar el código de sentencias `System.out.println("Pasa por aquí 1")`, `System.out.println("Variable x = " + x)` y `System.out.println("Pasa por aquí 2")`. En la industria del software profesional, esa práctica es un antipatrón ineficiente, peligroso y que ensucia el repositorio.*
+> *El impulso natural del desarrollador principiante ante un fallo lógico es llenar el código fuente de impresiones por consola: `System.out.println("Pasa por el if 1")`, `System.out.println("Variable temp = " + temp)` y `System.out.println("Pasa por aquí 2")`. En la industria del software profesional, esa práctica es un antipatrón ineficiente, peligroso y sucio que degrada el repositorio y no permite interactuar con la máquina virtual.*
 >
-> *Tanto en el caso del IES El Caminàs como en los proyectos singulares de vuestros equipos (**Aventura conversacional**, **Motor de recomendación**, **Simulador de físicas 2D** o **Bóveda de contraseñas**), hoy aprenderemos a congelar el tiempo: usaremos el* *depurador interactivo (Debugger)* *de IntelliJ IDEA para pausar la ejecución de la JVM, examinar la memoria RAM en vivo y alterar el comportamiento del programa sin tocar una sola línea de código fuente»*.
+> *Tanto en el sistema del IES El Caminàs como en vuestros proyectos singulares (**Aventura conversacional**, **Motor de recomendación**, **Simulador de físicas 2D** y **Bóveda de contraseñas**), hoy aprenderemos a congelar el tiempo: utilizaremos el* *depurador interactivo (Debugger)* *de IntelliJ IDEA para detener la JVM, examinar el estado exacto de la memoria RAM, evaluar predicados lógicos en caliente y alterar variables sin modificar ni una sola línea de código fuente»*.
 
 ---
 
 #### 2. La naturaleza de los errores y las limitaciones del «Print Debugging»
 
-En el ciclo de vida del software, encontrar errores no es una anomalía, sino una certeza estadística. Sin embargo, para erradicarlos con rigor técnico, primero debemos categorizarlos:
+En el ciclo de vida del software, los fallos no son accidentes aislados: son una consecuencia directa de la complejidad lógica. Para erradicarlos con rigor técnico, primero debemos clasificarlos según su comportamiento en el sistema:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -49,35 +49,35 @@ En el ciclo de vida del software, encontrar errores no es una anomalía, sino un
 │                     │                                 │ (NullPointerException, etc.).  │
 ├─────────────────────┼─────────────────────────────────┼────────────────────────────────┤
 │ 3. Lógico           │ El programa compila y corre sin │ El software hace exactamente   │
-│    (Semántico)      │ romperse, pero da un resultado  │ lo que se escribió, pero no lo │
-│                     │ funcional incorrecto o cuelgue. │ que el negocio requería.       │
+│    (Semántico)      │ romperse, pero produce un       │ lo que se programó, pero no lo │
+│                     │ resultado funcional incorrecto. │ que las reglas exigían.        │
 └─────────────────────┴─────────────────────────────────┴────────────────────────────────┘
 ```
 
-##### El problema del «Print Debugging»
-Llenar el código con instrucciones de consola para rastrear variables presenta graves desventajas de ingeniería:
-1. **Contaminación de código:** Obliga a modificar el archivo fuente, rompiendo la trazabilidad limpia de commits en Git.
-2. **Coste temporal:** Requiere recompilar con Maven y relanzar la JVM cada vez que queremos observar una variable diferente.
-3. **Pérdida de contexto:** Un `System.out.println` muestra una foto aislada en texto plano, pero oculta la pila de llamadas (*Call Stack*), los objetos en segundo plano y el estado global de la memoria.
-4. **Riesgo en producción:** Olvidar trazas de depuración en despliegues reales puede filtrar contraseñas, tokens y saturar los ficheros de log de la empresa.
+##### Las cuatro trampas de ingeniería del «Print Debugging»
+Llenar el código con instrucciones de consola para rastrear variables presenta graves problemas en el entorno profesional:
+1. **Contaminación del repositorio:** Obliga a modificar archivos fuente funcionales solo para depurar, ensuciando los commits con líneas provisionales que luego hay que recordar borrar a mano.
+2. **Coste temporal de recompilación:** Cada vez que queremos inspeccionar una variable nueva o cambiar el texto de un print, debemos guardar, reconstruir el proyecto con Maven y reiniciar la ejecución desde cero.
+3. **Pérdida de dimensionalidad y contexto:** Un `System.out.println` muestra únicamente una foto plana de texto en la consola, pero oculta la pila de llamadas (*Call Stack*), los objetos en segundo plano y el estado global de la memoria.
+4. **Riesgo crítico de fuga de datos en producción:** Olvidar trazas de depuración en despliegues reales puede filtrar contraseñas en texto plano, datos personales de usuarios o saturar el almacenamiento de logs del servidor.
 
 ```
-COMPARATIVA METODOLÓGICA:
+COMPARATIVA METODOLÓGICA EN INGENIERÍA:
 
-A) Depuración primitiva (Print Debugging):
-   [Modificar código] ──► [Recompilar] ──► [Ejecutar] ──► [Leer consola] ──► [Borrar print]
-   (Ciclo lento, destructivo y ciego ante bucles complejos)
+A) Depuración artesanal primitiva (Print Debugging):
+   [Modificar código] ──► [Recompilar] ──► [Lanzar app] ──► [Leer consola] ──► [Borrar print]
+   (Flujo lento, destructivo y completamente ciego ante bifurcaciones complejas)
 
 B) Depuración interactiva profesional (IDE Debugger):
-   [Poner Breakpoint] ──► [Lanzar Debug] ──► [Congelar JVM] ──► [Inspeccionar / Modificar RAM]
-   (Sin tocar código, inspección multidimensional e inmediata)
+   [Poner Breakpoint] ──► [Lanzar Debug] ──► [Congelar JVM] ──► [Inspeccionar / Alterar RAM]
+   (Sin tocar código, inspección multidimensional e inmediata del estado interno)
 ```
 
 ---
 
 #### 3. Anatomía del depurador interactivo en IntelliJ IDEA
 
-Cuando lanzamos nuestro software mediante el botón de depuración (**Debug** o `Shift + F9`), IntelliJ no invoca a la JVM de forma estándar: la arranca comunicándose mediante el protocolo **JDWP** (*Java Debug Wire Protocol*). Esto permite al IDE tomar el control absoluto del hilo de ejecución.
+Cuando lanzamos nuestro software mediante el botón de depuración (**Debug** o `Shift + F9`), IntelliJ no invoca a la JVM de forma estándar: la arranca comunicándose mediante el protocolo **JDWP** (*Java Debug Wire Protocol*). Esto permite al IDE tomar el control absoluto del hilo de ejecución en memoria.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -85,14 +85,14 @@ Cuando lanzamos nuestro software mediante el botón de depuración (**Debug** o 
 ├──────────────┬──────────────┬──────────────────────────────────────────┤
 │ Acción       │ Atajo        │ Propósito técnico                        │
 ├──────────────┼──────────────┼──────────────────────────────────────────┤
-│ Step Over    │ F8           │ Avanza a la siguiente línea del método   │
-│              │              │ actual sin entrar dentro de funciones.   │
+│ Step Over    │ F8           │ Avanza a la siguiente instrucción sin    │
+│              │              │ entrar al interior de las funciones.     │
 ├──────────────┼──────────────┼──────────────────────────────────────────┤
-│ Step Into    │ F7           │ Entra al interior del método invocado    │
-│              │              │ en la línea actual para ver su lógica.   │
+│ Step Into    │ F7           │ Entra dentro del método invocado en esa  │
+│              │              │ línea para auditar su lógica interna.    │
 ├──────────────┼──────────────┼──────────────────────────────────────────┤
 │ Step Out     │ Shift + F8   │ Sale del método actual y regresa a la    │
-│              │              │ línea del método llamador.               │
+│              │              │ línea del método que lo llamó en el main.│
 ├──────────────┼──────────────┼──────────────────────────────────────────┤
 │ Resume       │ F9           │ Reanuda la ejecución libre hasta topar   │
 │ Program      │              │ con el siguiente punto de ruptura.       │
@@ -102,202 +102,264 @@ Cuando lanzamos nuestro software mediante el botón de depuración (**Debug** o 
 └──────────────┴──────────────┴──────────────────────────────────────────┘
 ```
 
-##### Puntos de ruptura (*Breakpoints*)
+##### Tipos de puntos de ruptura (*Breakpoints*)
 * **Punto de ruptura estándar:** Se activa haciendo clic en el canal lateral izquierdo (*gutter*) junto al número de línea. Marca una línea donde la JVM suspenderá el hilo de ejecución justo **antes** de procesarla.
-* **Punto de ruptura condicional:** Clic derecho sobre el punto rojo del breakpoint. Permite definir una expresión lógica booleana en Java (por ejemplo, `alumnoId == 10` o `intentos > 3`). El programa solo se detendrá cuando la condición sea verdadera, evitando pulsar manualmente *Step Over* cientos de veces en bucles largos.
+* **Punto de ruptura condicional:** Clic derecho sobre el punto rojo del breakpoint. Permite definir una expresión lógica booleana en Java (por ejemplo, `tempVestibulo > 37.5` o `aforoDisponible <= 0`). El programa solo se detendrá cuando la condición sea verdadera, evitando detenerse manualmente en accesos rutinarios válidos.
 
 ---
 
-#### 4. Actividad activa interactiva: Caza visual del bug en la pizarra
+#### 4. Actividad activa interactiva: Caza visual del fallo en la pizarra
 
-Alba Torres y Pau Ferrer proyectan un extracto de código con la lógica de control del vestíbulo del IES El Caminàs que presenta una anomalía en un bucle:
+Alba Torres y Pau Ferrer proyectan un extracto de la lógica condicional del terminal del IES El Caminàs que presenta una anomalía en la toma de decisiones:
 
 ```java
-int totalLecturasValidas = 0;
-int[] marcasHorarias = { 480, 482, 485, 495, 510 }; // Minutos desde medianoche (8:00 a 8:30)
-int limiteRetraso = 485; // 8:05 h
+// Estado de la memoria RAM en el momento de la evaluación:
+double tempVestibulo = 36.8;
+int aforoDisponible = 0;
+String dni = "12345678Z";
 
-for (int i = 0; i <= marcasHorarias.length; i++) {
-    if (marcasHorarias[i] > limiteRetraso) {
-        System.out.println("Acceso registrado con retraso.");
-    } else {
-        totalLecturasValidas++;
-    }
+boolean temperaturaApta = (tempVestibulo >= 35.0 && tempVestibulo <= 37.5);
+boolean aforoSuficiente = (aforoDisponible > 0);
+
+if (!temperaturaApta) {
+    System.out.println("RECHAZADO: Fiebre o lectura anómala.");
+} else if (!aforoSuficiente) {
+    System.out.println("RECHAZADO: Aforo saturado.");
+} else {
+    System.out.println("ACCESO AUTORIZADO - TORNO ABIERTO");
 }
 ```
 
-*Los estudiantes analizan el fragmento durante 3 minutos en su libreta técnica:*
-1. **Identificación de defectos:**
-    - ¿Qué excepción arrojará la JVM en la última iteración del bucle? Un error de desbordamiento: `ArrayIndexOutOfBoundsException` provocado por la condición de parada incorrecta `i <= marcasHorarias.length` en lugar de `i < marcasHorarias.length`.
-2. **Trazado de variables en tabla mental:**
-    - ¿Qué valor acumulado tiene `totalLecturasValidas` en el instante inmediatamente anterior a que el programa colapse?
-3. **Puesta en común:** Un estudiante voluntario marca en la pizarra en qué línea colocaría el punto de ruptura estratégico para interceptar el error antes de que la aplicación aborte la ejecución.
+*Los estudiantes analizan el fragmento durante 3 minutos en su puesto de trabajo:*
+1. **Trazado mental de predicados booleanos:**
+    - ¿Qué valor exacto tiene `temperaturaApta`? (`true`).
+    - ¿Qué valor evalúa `!aforoSuficiente`? (`true`, ya que el aforo es `0`).
+2. **Evaluación de prioridades de salto:**
+    - ¿Por qué el mensaje de fiebre no se ejecuta pero sí el de aforo?
+3. **Puesta en común en la pizarra:** Un estudiante voluntario marca con el rotulador en qué línea exacta colocaría el punto de ruptura para comprobar si las variables contienen los datos esperados antes de que la consola imprima el veredicto.
 
 ---
 
-#### Sesión 2. Dojo de entrenamiento y katas de herramientas
+#### Segunda sesión: dojo de herramientas y katas
 
-Pasamos al dojo de herramientas. Afrontaremos tres **katas de depuración interactiva, control de ejecución paso a paso e inspección de memoria** sobre el proyecto propio de cada equipo, trabajando la sinergia directa con las estructuras algorítmicas de control:
-
----
-
-##### Kata 1 (Cinturón blanco / Nivel base). Diagnóstico con puntos de ruptura e inspección de variables en tu proyecto propio
-
-* **Objetivo.** Iniciar tu proyecto bajo el control del depurador, fijar puntos de ruptura estratégicos en bucles o bloques condicionales y auditar el valor de los datos almacenados en las variables locales desde la pestaña **Variables** de IntelliJ IDEA sin recurrir a impresiones por consola.
-* **Aplicación según tu proyecto de la bolsa:**
-    * En **Aventura conversacional**. Colocar un punto de ruptura al inicio del bucle del menú de decisiones del jugador. Verificar en el panel *Variables* cómo cambian los puntos de vida (`hp`) y el objeto seleccionado en el inventario antes de ramificar la escena.
-    * En **Motor de recomendación**. Situar el breakpoint en el bucle que recorre la matriz de valoraciones de ítems. Observar en tiempo real la variación del sumatorio de afinidad y el identificador de usuario activo en cada iteración.
-    * En **Simulador de físicas 2D**. Marcar un punto de ruptura dentro del bucle de cálculo temporal (`dt`). Comprobar la evolución de las componentes de velocidad `vx`, `vy` y las coordenadas `x`, `y` del cuerpo en colisión.
-    * En **Bóveda de contraseñas**. Poner el breakpoint en el bucle que valida la política de seguridad (longitud, caracteres especiales, mayúsculas). Constatar cómo cambian las banderas booleanas (`tieneMayuscula`, `tieneNumero`) al evaluar cada carácter.
+> **Dinámica del dojo de entrenamiento:**
+> * La **Kata 1 es de realización obligatoria** para todo el grupo: constituye el núcleo técnico imprescindible y la base del entregable de la jornada.
+> * Las **Katas 2 y 3 son optativas y de ampliación**: están diseñadas para que los estudiantes que resuelvan rápidamente la primera práctica no se queden inactivos, permitiéndoles subir de nivel y adquirir competencias avanzadas en depuración profesional.
 
 ---
 
-##### Kata 2 (Cinturón marrón / Nivel avanzado). Navegación táctica (Step Over / Step Into) y evaluación de expresiones al vuelo (`Alt + F8`)
+##### Kata 1 · Obligatoria (cinturón blanco / nivel base). Diagnóstico de bifurcaciones e inspección de variables
 
-* **Contexto técnico.** Cuando un algoritmo falla en una rama condicional interna o en una llamada auxiliar, avanzar ciegamente es inútil. El desarrollador debe dominar la entrada y salida de funciones y calcular predicados lógicos sin reiniciar el software.
+* **Objetivo.** Iniciar el proyecto bajo el control del depurador, fijar puntos de ruptura en las estructuras de selección condicional e inspeccionar el estado de las variables locales desde la pestaña **Variables** de IntelliJ IDEA sin recurrir a impresiones por consola.
+* **Misión según tu proyecto elegido:**
+    * **En Aventura conversacional:** Pon un punto de ruptura en la línea del condicional de combate `if (vidaActual <= 0)`. Lanza la aplicación en modo Debug (`Shift + F9`). Comprueba en el panel lateral el valor de `vidaActual` y el nombre del arma activa antes de ramificar la escena hacia la victoria o la derrota.
+    * **En Motor de recomendación:** Coloca el breakpoint en la condición de afinidad `if (afinidad >= 75.0)`. Inspecciona el valor de punto flotante de `afinidad` y confirma en memoria qué etiqueta de recomendación se asignará al usuario.
+    * **En Simulador de físicas 2D:** Sitúa el breakpoint en la condición de frontera `if (posicionX >= LIMITE_DERECHO)`. Observa el valor de la coordenada horizontal y el signo de la velocidad antes de ejecutarse el rebote.
+    * **En Bóveda de contraseñas:** Pon el breakpoint en la validación de formato `if (password.length() >= 8)`. Inspecciona el contenido del texto en memoria y el valor booleano resultante.
+
+---
+
+##### Kata 2 · Optativa (cinturón marrón / nivel avanzado). Navegación táctica (Step Over / Step Into) y evaluación al vuelo (`Alt + F8`)
+
+* **Contexto técnico.** Cuando una condición invoca un método auxiliar (por ejemplo, una función que calcula un descuento, valida un perfil o realiza una operación matemática), saltar la línea a ciegas no es suficiente: debemos zambullirnos en su interior y comprobar qué parámetros recibe.
 * **Misión de la kata:**
-    1. En una zona de bifurcaciones (`if`/`else` o `switch`), coloca un punto de ruptura justo en la cabecera de la condición.
+    1. Sitúa un punto de ruptura en la cabecera de la llamada a una función auxiliar dentro de tu bifurcación condicional.
     2. Arranca en modo depuración (`Shift + F9`).
-    3. Utiliza **Step Over (`F8`)** para seguir el avance secuencial. Al llegar a una invocación a un método de cálculo o validación, pulsa **Step Into (`F7`)** para zambullirte en su interior y comprobar qué parámetros recibe.
-    4. Una vez verificada la primera línea, utiliza **Step Out (`Shift + F8`)** para retornar al flujo principal limpiamente.
-    5. En una línea con variables numéricas o booleanas, abre la herramienta de evaluación interactiva mediante **`Alt + F8` (Evaluate Expression)**.
-    6. Escribe en el cuadro de diálogo una consulta en vivo (por ejemplo, comprobar si una cadena cumple cierta condición o calcular una operación aritmética con las variables actuales). Verifica que IntelliJ evalúa y devuelve el resultado exacto consultando directamente la RAM del hilo en pausa.
-    7. Convierte uno de tus breakpoints en **Breakpoint condicional** (clic derecho sobre el punto rojo) para que la ejecución solo se congele cuando el contador de iteraciones supere un valor determinado (por ejemplo, `i == 3` o `reintentos > 2`).
+    3. Utiliza **Step Over (`F8`)** para avanzar línea a línea. Al llegar a la llamada del método auxiliar, pulsa **Step Into (`F7`)** para saltar dentro de su código y revisar sus variables locales.
+    4. Una vez auditada la primera instrucción interna, utiliza **Step Out (`Shift + F8`)** para regresar limpiamente a la línea de llamada en el método `main`.
+    5. En una línea de bifurcación, pulsa **`Alt + F8` (Evaluate Expression)**.
+    6. Escribe una fórmula de consulta en vivo en el cuadro emergente (por ejemplo, evaluar una comparación compuesta como `vidaActual > 0 && tieneArma`). Comprueba que IntelliJ evalúa la condición consultando directamente la RAM del hilo en pausa.
+    7. Convierte el breakpoint en **Breakpoint condicional** (clic derecho sobre el punto rojo) para que la ejecución solo se congele cuando una variable tome un valor crítico (por ejemplo: `aforoDisponible == 0` o `vidaActual < 10`).
 
 ---
 
-##### Kata 3 (Cinturón negro / «Hacker AzaharTech»). Mutación de variables en memoria en caliente (*Set Value*) y depuración de excepciones sin tocar código
+##### Kata 3 · Optativa (cinturón negro / «hacker AzaharTech»). Mutación de variables en memoria (*Set Value*) y Exception Breakpoint
 
-* **Contexto de arquitectura.** Reproducir fallos intermitentes de red, límites de desbordamiento o entradas anómalas en el cliente puede requerir horas de simulación. Un desarrollador senior altera el estado interno de la memoria durante la propia ejecución para someter al software a pruebas de estrés inmediatas.
+* **Contexto de arquitectura.** Reproducir situaciones límite de error o permisos administrativos puede requerir múltiples entradas por teclado. Un desarrollador profesional altera el estado interno de la memoria durante la propia ejecución para someter al software a pruebas de estrés inmediatas.
 * **Misión de la kata:**
-    1. Pausa tu programa en un punto de ruptura antes de una bifurcación crítica (por ejemplo, la condición de si el usuario es administrador o si una cola de datos está llena).
+    1. Pausa el programa en un punto de ruptura antes de una bifurcación condicional crítica.
     2. En el panel **Variables**, haz clic derecho sobre la variable objetivo y selecciona **Set Value...** (o pulsa **`F2`**).
-    3. Modifica su valor directamente en la RAM (por ejemplo, cambia un valor `false` a `true`, o un identificador numérico por un límite negativo `-1`).
-    4. Pulsa `Intro` y avanza con `F8`: observa cómo el programa toma la rama lógica alternativa sin que hayas tenido que reescribir código ni recompilar el proyecto con Maven.
+    3. Modifica su valor directamente en la RAM (por ejemplo, cambia un valor `false` por `true`, o una variable de aforo de `0` a `50`).
+    4. Pulsa `Intro` y avanza con **`F8`**: observa cómo el programa toma la rama lógica alternativa sin que hayas tenido que reescribir código ni recompilar el proyecto con Maven.
     5. **Configuración de un Exception Breakpoint:**
-        * Abre el gestor de puntos de ruptura (**`Ctrl + Shift + F8`** o Menú *Run -> View Breakpoints...*).
-        * Pulsa el icono `+` (Add) en la esquina superior izquierda y selecciona **Java Exception Breakpoint**.
-        * Escribe en el buscador `java.lang.NullPointerException` (o la excepción que desees monitorizar) y confirma.
-        * Retira todos los demás puntos de ruptura de tu código y pulsa **Resume Program (`F9`)**.
-    6. Comprueba que, en caso de desencadenarse dicha excepción en cualquier rincón del código, la JVM se congelará de forma quirúrgica en la línea exacta que originó el fallo antes de abortar el programa, permitiéndote examinar la pila de llamadas (*Frames*) con total precisión.
+        * Abre el gestor de puntos de ruptura (**`Ctrl + Shift + F8`** o menú *Run -> View Breakpoints...*).
+        * Pulsa el icono `+` (Add) y selecciona **Java Exception Breakpoint**.
+        * Escribe en el buscador `java.lang.NullPointerException` o `java.lang.NumberFormatException`.
+        * Retira los demás breakpoints de tu código y pulsa **Resume Program (`F9`)**.
+        * Comprueba que, en caso de desencadenarse dicha excepción, la JVM se detendrá quirúrgicamente en la línea exacta que originó el fallo antes de abortar el programa.
+
+---
+
+#### Entregables de la sesión
+
+Al concluir el trabajo en el dojo, debesy dejar consolidada la preparación de tu código fuente en el repositorio personal:
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                               ENTREGABLES DEL DÍA 13                                   │
+├─────────────────────┬──────────────────────────────────────────────────────────────────┤
+│ Archivo modificado  │ src/main/java/... (Clase principal o validadora de tu proyecto)  │
+├─────────────────────┼──────────────────────────────────────────────────────────────────┤
+│ Trabajo exigido     │ 1. Limpieza de código: erradicar cualquier sentencia residual de │
+│ (Mínimo obligatorio)│    "System.out.println" utilizada como depuración improvisada.   │
+│                     │ 2. Modularización: asegurar que la condición lógica principal    │
+│                     │    está encapsulada en un método auxiliar para permitir la       │
+│                     │    navegación con Step Into (F7).                                │
+├─────────────────────┼──────────────────────────────────────────────────────────────────┤
+│ Operación en el IDE │ Commit visual en IntelliJ IDEA (Ctrl + K):                       │
+│                     │ Mensaje: refactor(core): modularizada seleccion condicional      │
+│                     │          para depuracion interactiva                             │
+└─────────────────────┴──────────────────────────────────────────────────────────────────┘
+```
+
+##### Pasos visuales paso a paso en IntelliJ IDEA:
+1. Pulsa **`Ctrl + K`** (o abre la pestaña lateral vertical **Commit** / `Alt + 0`).
+2. En la lista de archivos modificados, haz doble clic sobre tu clase Java para verificar con el visor comparativo (*Diff Viewer*) que se han eliminado las impresiones provisionales de consola.
+3. Marca únicamente la casilla de verificación de tu archivo fuente Java.
+4. Redacta el mensaje formal estructurado:
+   `refactor(core): modularizada seleccion condicional para depuracion interactiva`
+5. Haz clic en el botón azul **Commit** (sin Push todavía; la subida remota se formalizará junto con la documentación de la siguiente sesión).
+
+---
 
 ### Día 14 - 1 sesión
 
 ---
 
-#### Sesión única. Taller práctico: Navegación por la pila de llamadas (*Call Stack*) y protocolo de informe técnico de incidencias (*Bug Report*)
+#### Sesión única. Taller práctico: La pila de llamadas (*Call Stack*), diagnóstico de excepciones y registro del primer defecto técnico
 
 ---
 
 #### 1. Caso guía en AzaharTech
 
-Es la mañana del miércoles 28 de octubre de 2026. En la sala de integración de **AzaharTech**, el desarrollador junior se encuentra frente a la pantalla con el semblante desencajado: la consola de IntelliJ IDEA acaba de escupir una cascada de más de treinta líneas de texto en color rojo brillante tras procesar un lote de prueba de carnés digitales del **IES El Caminàs**.
+Miércoles 28 de octubre de 2026. Es la segunda jornada de la **Semana 7** en AzaharTech. El equipo ha modularizado el código del sistema de accesos del **IES El Caminàs** mediante funciones auxiliares que encapsulan la evaluación de tipos de usuario con `switch` (`obtenerDescripcionPerfil`, `determinarZonaAutorizada`, etc.).
 
-**Pau Ferrer** se acerca con una sonrisa comprensiva y apoya una taza de café sobre la mesa:
+Al ejecutar el terminal de acceso con una entrada de usuario imprevista, la consola de IntelliJ arroja una cascada de más de treinta líneas de texto en color rojo:
 
-> *«No te asustes. El primer reflejo al ver una traza roja es cerrar la terminal o hacer scroll frenético buscando una palabra conocida. Los programadores novatos ven un error catastrófico; los profesionales vemos una autopsia perfecta.*
+```text
+Exception in thread "main" java.lang.StringIndexOutOfBoundsException: String index out of range: 0
+    at java.base/java.lang.StringLatin1.charAt(StringLatin1.java:48)
+    at java.base/java.lang.String.charAt(String.java:1517)
+    at es.azahartech.caminas.ControlAccesoQR.determinarPerfil(ControlAccesoQR.java:82)
+    at es.azahartech.caminas.ControlAccesoQR.main(ControlAccesoQR.java:134)
+```
+
+**Pau Ferrer** se acerca a la mesa del desarrollador júnior:
+
+> *«No te asustes ni cierres la consola. El primer reflejo del programador novato al ver una traza roja es hacer scroll frenético buscando una palabra conocida o borrar código a ciegas. Los inexpertos ven un fallo catastrófico; los profesionales vemos una autopsia perfecta.*
 >
-> *Ese bloque de texto no es ruido: es el mapa exacto del hilo de ejecución. Nos indica qué método llamó a qué otro método y en qué línea exacta la máquina virtual se quedó sin instrucciones válidas. Hoy aprenderemos a viajar hacia atrás en el tiempo utilizando el panel de marcos de ejecución (**Frames / Call Stack**) de IntelliJ y a redactar un informe formal de incidencia técnica. Porque en un equipo de consultoría como AzaharTech, un bug que no se puede reproducir ni documentar con rigor simplemente no existe»*.
+> *Ese bloque de texto es el mapa exacto del hilo de ejecución: la pila de llamadas (**Call Stack**). Nos dice que en la línea 134 del `main`, invocamos a `determinarPerfil`, y que este intentó ejecutar `charAt(0)` sobre un String que el usuario había introducido completamente vacío al pulsar directamente la tecla Intro.*
+>
+> *Hoy aprenderemos a viajar hacia atrás en el tiempo por los marcos de la pila (**Frames**) en IntelliJ y crearemos el documento técnico oficial del Sprint 3: `ed/docs/ciclo-error.md`, donde redactaremos el primer informe formal de incidencia técnica (Bug Report)»*.
 
 ---
 
-#### 2. La Pila de Llamadas (*Call Stack*): Viajando entre dimensiones del código
+#### 2. La Pila de Llamadas (*Call Stack*) y los marcos de ejecución (*Frames*)
 
-Cuando un programa Java se ejecuta, la JVM gestiona la memoria de ejecución mediante una estructura de pila **LIFO** (*Last In, First Out*). Cada vez que un método invoca a otro, se apila un nuevo **marco de pila (*Stack Frame*)** que contiene sus parámetros, variables locales y el contador de programa. Cuando el método termina con un `return`, su marco se destruye y el control regresa al nivel inmediatamente inferior.
+Cuando un programa Java se ejecuta, la máquina virtual gestiona la memoria de ejecución mediante una estructura de pila **LIFO** (*Last In, First Out*). Cada vez que un método llama a otro, se apila un nuevo **marco de pila (*Stack Frame*)** que contiene sus parámetros, variables locales y el contador de programa. Cuando el método termina, su marco se destruye y el control regresa a la línea del método llamador.
 
 ```
        FLUJO DE APILAMIENTO EN LA JVM (CALL STACK)
        
-       ┌──────────────────────────────────────────┐  ▲  Cima de la pila
-       │  Frame 3: ValidadorQR.esFormatoValido()  │  │  (Lugar exacto del fallo)
-       ├──────────────────────────────────────────┤  │
-       │  Frame 2: GestorAcceso.registrarEntrada()│  │  (Método intermedio)
-       ├──────────────────────────────────────────┤  │
-       │  Frame 1: Main.main(String[] args)       │  │  (Punto de entrada)
-       └──────────────────────────────────────────┘  │
-                                                     
-       ◄─── Retorno del control / Destrucción del frame
+       ┌────────────────────────────────────────────────────────┐ ▲ Cima de la pila
+       │ Frame 3: StringLatin1.charAt(0)                        │ │ (Lugar exacto del fallo)
+       ├────────────────────────────────────────────────────────┤ │
+       │ Frame 2: ControlAccesoQR.determinarPerfil(perfilBruto) │ │ (Método auxiliar con switch)
+       ├────────────────────────────────────────────────────────┤ │
+       │ Frame 1: ControlAccesoQR.main(args)                    │ │ (Punto de entrada de la app)
+       └────────────────────────────────────────────────────────┘ │
+                                                                  
+       ◄─── Retorno del control / Destrucción del marco
 ```
 
-##### Navegación interactiva en el panel *Frames* de IntelliJ
-Cuando la ejecución está pausada en un punto de ruptura (o interceptada por un *Exception Breakpoint*):
-1. **La columna izquierda de la pestaña Debug muestra los *Frames*:** En la parte superior aparece el método en el que estamos detenidos en este milisegundo; debajo, el método que lo invocó, y así sucesivamente hasta llegar al `main`.
-2. **Viaje en el tiempo sin alterar el flujo:** Si haces clic en `Frame 2` o `Frame 1`, el editor de código saltará automáticamente a esa línea y el panel **Variables** se actualizará al instante para mostrar cómo estaban las variables en ese método superior, permitiéndote comprobar qué argumentos le envió al método fallido.
+##### Navegación interactiva por Frames en IntelliJ IDEA
+Cuando la ejecución está detenida en un punto de ruptura o interceptada por una excepción:
+1. **La columna izquierda de la pestaña Debug lista los Frames:** En la parte superior aparece el método en el que estamos detenidos en este milisegundo; debajo, el método que lo invocó, y así sucesivamente hasta llegar al `main`.
+2. **Viaje en el tiempo sin alterar el flujo:** Si haces clic en `Frame 2` o `Frame 1`, el editor de código saltará automáticamente a esa línea y el panel **Variables** se actualizará al instante para mostrar cómo estaban las variables en ese método superior, permitiéndote comprobar qué argumentos le envió al método que falló.
 
 ---
 
-#### 3. Estándar AzaharTech para el Registro de Incidencias Técnicas
+#### 3. Laboratorio práctico. Provocación de fallo y auditoría en tu proyecto
 
-En el ciclo de desarrollo profesional regulado por metodologías ágiles, cualquier error detectado durante las sesiones de depuración que no pueda subsanarse en el acto debe registrarse formalmente en el sistema de seguimiento de incidencias (*Issue Tracker* del repositorio Git).
+> **Dinámica de laboratorio:**
+> * La **actividad principal (diagnóstico y redacción del informe)** es obligatoria para todos los alumnos.
+> * **Ampliación para quienes terminen antes:** Configura filtros en la pestaña Debug de IntelliJ (*Settings -> Build, Execution, Deployment -> Debugger -> Stepping*) para activar *Do not step into library classes* y omite automáticamente clases internas de Java (`java.*`, `javax.*`), observando cómo se limpia la vista de frames.
 
-Un informe técnico de incidencia (*Bug Report*) riguroso debe responder al siguiente estándar:
-
-```markdown
-### [BUG] Desbordamiento de índice al escanear lote con identificador vacío
-
-**1. Entorno de ejecución:**
-- Versión del software: v0.1-sprint3 (commit `a4f82bc`)
-- Entorno: OpenJDK 21 LTS / IntelliJ IDEA 2026.2 / Linux x86_64
-- Módulo afectado: Núcleo de validación de accesos
-
-**2. Descripción concisa:**
-La aplicación aborta de forma inesperada cuando la cola de escaneo procesa un registro
-cuyo campo de datos biométricos o identificador de matrícula contiene una cadena vacía.
-
-**3. Pasos precisos para reproducir (Steps to Reproduce):**
-1. Iniciar la aplicación en modo Debug con el dataset de prueba `test_alumnos_v1.csv`.
-2. Introducir por consola la opción 2 ("Validación por lotes").
-3. Asignar un tamaño de lote de 5 elementos incluyendo un registro sin identificador.
-
-**4. Comportamiento observado (Actual Behavior):**
-La JVM lanza una excepción `StringIndexOutOfBoundsException: Index 0 out of bounds for length 0`
-y la aplicación finaliza abruptamente.
-
-**5. Comportamiento esperado (Expected Behavior):**
-El sistema debería capturar la anomalía, marcar el registro como inválido en el log
-y continuar procesando los restantes alumnos de la cola sin abortar.
-
-**6. Diagnóstico técnico y Call Stack:**
-- Punto de interrupción: `ValidadorQR.java:38`
-- Pila de llamadas:
-    `at es.azahartech.caminas.ValidadorQR.comprobarPrefijo(ValidadorQR.java:38)`
-    `at es.azahartech.caminas.GestorAcceso.procesarRegistro(GestorAcceso.java:74)`
-    `at es.azahartech.caminas.Main.main(Main.java:21)`
-- Inspección de memoria: Variable `qrData = ""` (longitud 0).
-```
+Durante los primeros 20 minutos de la sesión, provoca deliberadamente una excepción en tu software suministrando una entrada inesperada por teclado para auditarla mediante el depurador:
+* **En Aventura conversacional:** Pulsa directamente la tecla Intro sin escribir ningún comando en la selección de acción del menú. Pausa la ejecución con el depurador y diagnostica en el panel *Frames* por qué `comando.charAt(0)` falla cuando la cadena está vacía.
+* **En Motor de recomendación:** Introduce texto alfabético en un campo numérico procesado con `Integer.parseInt(teclado.nextLine())`. Rastrear en el *Call Stack* qué método de captura originó el `NumberFormatException`.
+* **En Simulador de físicas 2D:** Pasa un valor nulo o no inicializado a una función cinemática y comprueba en los marcos de pila qué método propagó el cálculo erróneo.
+* **En Bóveda de contraseñas:** Genera un fallo al evaluar la longitud de una contraseña nula o vacía (`password.length()`) y examina las variables del método llamador.
 
 ---
 
-#### 4. Dinámica de laboratorio: Simulación de fallo en cascada y auditoría cruzada
+#### Entregables de la sesión (Día 14)
 
-Durante los últimos 30 minutos de la sesión, cada estudiante pondrá a prueba la solidez de las estructuras de control que ha estado programando durante la semana:
+En esta sesión **todo el alumnado debe crear obligatoriamente** en su repositorio el documento técnico oficial del Sprint 3: **`ed/docs/ciclo-error.md`**, y redactar su primer apartado formal:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                        FASES DEL LABORATORIO PRÁCTICO (DÍA 14)                         │
-├──────────────┬──────────────────┬──────────────────────────────────────────────────────┤
-│ Tiempo       │ Fase             │ Operación técnica requerida                          │
-├──────────────┼──────────────────┼──────────────────────────────────────────────────────┤
-│ Min 00 – 10  │ 1. Provocación   │ Forzar deliberadamente una excepción de ejecución en │
-│              │    del fallo     │ un método auxiliar profundo (por ejemplo, enviando   │
-│              │                  │ un parámetro nulo, una cadena vacía o índice fuera). │
-├──────────────┼──────────────────┼──────────────────────────────────────────────────────┤
-│ Min 10 – 20  │ 2. Exploración   │ Pausar con *Exception Breakpoint*, navegar hacia     │
-│              │    de Frames     │ atrás por los 3 primeros marcos en el panel *Frames* │
-│              │                  │ y localizar en qué línea se originó el dato corrupto.│
-├──────────────┼──────────────────┼──────────────────────────────────────────────────────┤
-│ Min 20 – 30  │ 3. Redacción     │ Crear el fichero `docs/incidencias/INCIDENCIA-01.md` │
-│              │    del informe   │ en el repositorio con la plantilla formal de bug.    │
-└──────────────┴──────────────────┴──────────────────────────────────────────────────────┘
+│                               ENTREGABLES DEL DÍA 14                                   │
+├─────────────────────┬──────────────────────────────────────────────────────────────────┤
+│ Archivo creado      │ ed/docs/ciclo-error.md                                           │
+├─────────────────────┼──────────────────────────────────────────────────────────────────┤
+│ Ubicación exacta    │ azahartech/tu-equipo/tus-apellidos-nombre/ed/docs/ciclo-error.md │
+├─────────────────────┼──────────────────────────────────────────────────────────────────┤
+│ Apartado a redactar │ APARTADO 1: Ficha técnica de la incidencia (Bug Report)          │
+│ (Obligatorio)       │ Completar la ficha técnica oficial del fallo detectado (INC-01): │
+│                     │ • Entorno técnico (OpenJDK 21, IntelliJ IDEA, Maven).            │
+│                     │ • Pasos exactos para reproducir el fallo.                        │
+│                     │ • Comportamiento observado vs. comportamiento esperado.          │
+│                     │ • Diagnóstico del Call Stack (Frames inspeccionados).            │
+│                     │ • Estado actual de la incidencia: EN RESOLUCIÓN (In Progress).   │
+├─────────────────────┼──────────────────────────────────────────────────────────────────┤
+│ Operación en el IDE │ Commit visual en IntelliJ IDEA (Ctrl + K):                       │
+│                     │ Mensaje: docs(qa): creado ciclo-error.md con apartado 1          │
+│                     │          de incidencia tecnica INC-01                            │
+└─────────────────────┴──────────────────────────────────────────────────────────────────┘
 ```
 
-##### Adaptación inmediata según el proyecto de la bolsa:
-* **En Aventura conversacional:** Provocar un fallo al intentar acceder a la posición `[0]` de un inventario vacío dentro del método `consultarPrimerObjeto()`. Utilizar el panel *Frames* para retroceder hasta la llamada en `procesarAccionJugador()` y comprobar qué comando escribió el usuario.
-* **En Motor de recomendación:** Provocar una división por cero (`ArithmeticException`) o un cálculo indefinido al promediar valoraciones de un usuario sin histórico. Rastrear en los marcos de pila qué filtro condicional falló en validar el divisor.
-* **En Simulador de físicas 2D:** Forzar un parámetro de tiempo transcurrido negativo (`dt < 0`) y verificar a través de los *Frames* qué método de la física propagó el valor erróneo antes de que el motor actualizara las coordenadas de pantalla.
-* **En Bóveda de contraseñas:** Generar un puntero nulo (`NullPointerException`) al intentar cifrar una contraseña que no ha sido inicializada en el formulario de registro. Inspeccionar el marco del método llamador para comprobar por qué el objeto llegó sin instanciar.
+##### Plantilla obligatoria a incluir en `ed/docs/ciclo-error.md`:
 
-Al sonar el timbre, los estudiantes dejan confirmado su primer informe técnico de incidencia en Git. El código aún no es perfecto, pero el equipo dispone ya de los ojos de diagnóstico necesarios para abordar la construcción formal de casos de prueba y matrices de riesgo en las próximas semanas.
+```markdown
+# Memoria Técnica - Sprint 3: El ciclo del error: pruebas y depuración
+
+## Apartado 1: Ficha técnica de la incidencia (Bug Report)
+
+- **Identificador de incidencia:** INC-01
+- **Módulo afectado:** [Indicar el método, clase o componente donde ocurrió el fallo]
+- **Entorno de ejecución:** OpenJDK 21 LTS / IntelliJ IDEA Community / Apache Maven 3.9
+- **Estado inicial:** EN RESOLUCIÓN (In Progress)
+
+### 1. Descripción concisa del defecto
+[Explicar con precisión qué ocurre cuando se introduce una entrada inválida o anómala]
+
+### 2. Pasos exactos para reproducir
+1. Ejecutar la aplicación en modo depuración (`Shift + F9`).
+2. Introducir los datos previos requeridos por el programa.
+3. [Describir la acción exacta que detona el error, ej: presionar Enter sin escribir texto].
+
+### 3. Comportamiento observado frente a comportamiento esperado
+- **Comportamiento observado:** La aplicación se interrumpe de forma no controlada con la excepción `[NombreDeLaExcepcion]` en la consola.
+- **Comportamiento esperado:** El programa debe validar previamente los datos mediante una bifurcación condicional, mostrar un mensaje de aviso amigable y permitir continuar la ejecución sin colapsar.
+
+### 4. Diagnóstico técnico con el depurador y Call Stack
+- **Punto de interrupción:** Archivo `[NombreArchivo.java]`, línea `[Nº]`.
+- **Inspección de memoria (panel Variables):** La variable `[nombreVariable]` contenía el valor `[valor observado en RAM]`.
+- **Trazabilidad en la pila de llamadas (Frames):**
+    - `Frame 1 (origen):` Método `main` en la línea `[Nº]`.
+    - `Frame 2 (llamada):` Método `[nombreMetodo]` en la línea `[Nº]`.
+    - `Frame 3 (fallo):` Instrucción interna donde la JVM aborta la ejecución.
+```
+
+##### Pasos visuales para el commit en IntelliJ IDEA:
+1. Abre la herramienta visual de control de versiones pulsando **`Ctrl + K`** (o haz clic en la pestaña lateral izquierda **Commit**).
+2. En la lista de archivos, selecciona únicamente **`ed/docs/ciclo-error.md`**.
+3. Redacta el mensaje formal estructurado:
+   `docs(qa): creado ciclo-error.md con apartado 1 de incidencia tecnica INC-01`
+4. Haz clic en el botón azul **Commit**.
+
+El primer defecto técnico queda así formalmente registrado y diagnosticado en la memoria de ingeniería del proyecto. La próxima semana (Semana 8) diseñaremos formalmente la batería de pruebas de caja negra (clases de equivalencia y valores límite) para blindar el código de forma sistemática.
 
 ## Semana 8. Clases de equivalencia y cobertura
 
