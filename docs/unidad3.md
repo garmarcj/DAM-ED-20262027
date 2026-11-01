@@ -10,7 +10,7 @@
 
 ---
 
-#### Primera sesión: teoría. La radiografía del código en ejecución: del print casero a la depuración interactiva en memoria RAM
+#### Sesión 1. Teoría. La radiografía del código en ejecución: del print casero a la depuración interactiva en memoria RAM
 
 ---
 
@@ -109,7 +109,7 @@ Cuando lanzamos nuestro software mediante el botón de depuración (**Debug** o 
 
 ---
 
-#### 4. Actividad activa interactiva: Caza visual del fallo en la pizarra
+#### 4. Actividad activa interactiva: caza visual del fallo en la pizarra
 
 Alba Torres y Pau Ferrer proyectan un extracto de la lógica condicional del terminal del IES El Caminàs que presenta una anomalía en la toma de decisiones:
 
@@ -146,11 +146,11 @@ if (!temperaturaApta) {
 
 ---
 
-#### Segunda sesión: dojo de herramientas y katas
+#### Sesión 2. Dojo de entrenamiento y katas de herramientas
 
 > **Dinámica del dojo de entrenamiento:**
 > 
-> * La **Kata 1 es de realización obligatoria** para todo el grupo: constituye el núcleo técnico imprescindible y la base del entregable de la jornada.  
+> * La **Kata 1 es de realización obligatoria** para todo el grupo: constituye el núcleo técnico imprescindible y la base del entregable de la sesión.  
 > * Las **Katas 2 y 3 son optativas y de ampliación**: están diseñadas para que los estudiantes que resuelvan rápidamente la primera práctica no se queden inactivos, permitiéndoles subir de nivel y adquirir competencias avanzadas en depuración profesional.  
 
 ---
@@ -315,7 +315,7 @@ En esta sesión debes crear en tu repositorio el documento técnico del Sprint 3
 ├─────────────────────┼──────────────────────────────────────────────────────────────────┤
 │ Ubicación           │ azahartech/tu-equipo/tus-apellidos-nombre/ed/docs/ciclo-error.md │
 ├─────────────────────┼──────────────────────────────────────────────────────────────────┤
-│ Apartado a redactar │ APARTADO 1: Ficha técnica de la incidencia (Bug Report)          │
+│ Apartado a redactar │ APARTADO 1. Ficha técnica de la incidencia (Bug Report)          │
 │                     │ Completar la ficha técnica oficial del fallo detectado (INC-01): │
 │                     │ • Entorno técnico (OpenJDK 21, IntelliJ IDEA, Maven).            │
 │                     │ • Pasos exactos para reproducir el fallo.                        │
@@ -385,11 +385,11 @@ El primer defecto técnico queda así formalmente registrado y diagnosticado en 
 
 #### 1. Caso guía en AzaharTech
 
-Lunes 2 de noviembre de 2026. Tras una primera semana de inmersión en el depurador interactivo, el equipo de primer curso de DAM regresa a las instalaciones de **AzaharTech** en Castellón de la Plana.
+Lunes 2 de noviembre de 2026. Tras una primera semana de inmersión en el depurador interactivo, el equipo entra en las instalaciones de **AzaharTech**.
 
 En la pantalla de la sala de reuniones, **Laia Claramunt** proyecta un formulario simple de la aplicación del **IES El Caminàs**: la ventana de registro de carnés temporales de visitante. El formulario solicita dos campos: la **edad del visitante** (de 12 a 99 años para acceder sin acompañante adulto) y un **código PIN de seguridad** de 4 dígitos (de `1000` a `9999`).
 
-Laia mira a los estudiantes y lanza una pregunta directa:
+Laia mira a los desarrolladores y lanza una pregunta directa:
 
 > *«Si quisiéramos demostrar matemáticamente que esta pequeña pantalla no tiene ningún fallo lógico, ¿cuántas combinaciones tendríamos que probar a mano?*
 >
@@ -399,7 +399,7 @@ Laia mira a los estudiantes y lanza una pregunta directa:
 
 ---
 
-#### 2. Metodología de caja negra: Partición de Clases de Equivalencia
+#### 2. Metodología de caja negra: partición de clases de equivalencia
 
 En las pruebas de **caja negra** (*Black-Box Testing*), nos centramos exclusivamente en las entradas y salidas del sistema según sus especificaciones funcionales, sin preocuparnos por cómo está escrito el código fuente por dentro.
 
@@ -407,7 +407,7 @@ En las pruebas de **caja negra** (*Black-Box Testing*), nos centramos exclusivam
                    MODELO DE CAJA NEGRA (BLACK-BOX)
                    
                      ┌───────────────────────────┐
-  [Datos de Entrada] │    Módulo / Algoritmo     │ [Resultado Observado]
+  [Datos de entrada] │    Módulo / Algoritmo     │ [Resultado observado]
   ──────────────────►│  (Lógica interna oculta)  ├──────────────────────►
                      └───────────────────────────┘
                                    │
@@ -419,32 +419,34 @@ En las pruebas de **caja negra** (*Black-Box Testing*), nos centramos exclusivam
 Esta técnica asume que el conjunto total de entradas posibles puede dividirse en grupos llamados **clases de equivalencia**. Si el programa trata correctamente un valor representativo de una clase, con alta probabilidad tratará igual a todos los demás valores de esa misma clase.
 
 Para cada dato de entrada debemos identificar dos tipos de clases:
-1. **Clases de equivalencia válidas:** Valores que cumplen las reglas de negocio y deben procesarse satisfactoriamente.
-2. **Clases de equivalencia inválidas:** Valores incorrectos, fuera de rango o con formatos anómalos que el sistema debe rechazar de forma controlada (sin abortar el hilo de ejecución).
+
+1. **Clases de equivalencia válidas:** Valores que cumplen las reglas de negocio y deben procesarse satisfactoriamente.  
+2. **Clases de equivalencia inválidas:** Valores incorrectos, fuera de rango o con formatos anómalos que el sistema debe rechazar de forma controlada (sin abortar el hilo de ejecución).  
 
 ```
-DIVISIÓN DE ESPACIO DE ENTRADAS (Ejemplo: Edad válida entre 12 y 99 años):
+DIVISIÓN DE ESPACIO DE ENTRADAS (Ejemplo: edad válida entre 12 y 99 años):
 
-    Clase Inválida 1          Clase Válida            Clase Inválida 2
+    Clase inválida 1          Clase válida            Clase inválida 2
     (Menores de 12)        (Rango permitido)           (Mayores de 99)
 ◄─────────────────────────┬──────────────────────────┬────────────────────────►
  ... -5, 0, 1, ..., 11    │   12, 13, ..., 98, 99    │ 100, 101, 150 ...
                           │                          │
   Representante: 8        │   Representante: 25      │ Representante: 105
-  (Espera: Rechazo)       │   (Espera: Aceptado)     │ (Espera: Rechazo)
+  (Espera: rechazo)       │   (Espera: aceptado)     │ (Espera: rechazo)
 ```
 
 ---
 
-#### 3. Análisis de Valores Límite (*Boundary Value Analysis - BVA*)
+#### 3. Análisis de valores límite (*Boundary Value Analysis - BVA*)
 
 La experiencia en ingeniería del software demuestra que la inmensa mayoría de los defectos lógicos no ocurren en el centro de las clases de equivalencia (probar la edad `25` rara vez hace fallar a un algoritmo), sino **justo en los bordes de decisión**.
 
 En Programación, los fallos en estructuras condicionales suelen deberse a confusiones sintácticas entre operadores: escribir `<` en lugar de `<=`, o arrancar un bucle en `0` en vez de `1` (*errores off-by-one*).
 
 El **análisis de valores límite** complementa a las clases de equivalencia obligando a probar:
-* El valor mínimo y el valor máximo permitidos en la frontera.
-* Los valores inmediatamente adyacentes a cada frontera (justo por debajo y justo por encima).
+
+* El valor mínimo y el valor máximo permitidos en la frontera.  
+* Los valores inmediatamente adyacentes a cada frontera (justo por debajo y justo por encima).  
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -496,64 +498,131 @@ En el estándar corporativo de AzaharTech, cada prueba formal de caja negra se d
 
 ---
 
-#### 5. Actividad activa interactiva: Caza de fronteras en la pizarra
+#### 5. Actividad activa interactiva: caza de fronteras en la pizarra
 
-Alba Torres plantea en la pizarra el requisito del identificador temporal de visitante para el IES El Caminàs:
+Alba Torres y Pau Ferrer plantean en la pizarra el requisito del identificador temporal de visitante para el IES El Caminàs:
 > *«El sistema genera una clave de acceso temporal de 4 cifras numéricas. Para evitar códigos triviales de prueba de fábrica, el valor del PIN debe estar comprendido estrictamente entre `1000` y `9999` (ambos inclusive)»*.
 
-Durante 5 minutos, los alumnos debaten y completan en la pizarra la tabla de valores críticos:
-1. ¿Cuáles son los **valores límite** exactos que hay que probar? (`999`, `1000`, `1001`, `9998`, `9999`, `10000`).
-2. ¿Qué ocurre con los casos especiales de frontera cualitativa? (por ejemplo, valor nulo `null`, cadena vacía `""` o texto con letras `"100A"`).
-3. Conclusión guiada: *«Con solo 6 pruebas numéricas y 2 cualitativas cubrimos con rigor técnico el comportamiento de miles de combinaciones posibles»*.
+Durante 5 minutos, los estudiantes debaten y completan en la pizarra la tabla de valores críticos:
+
+1. ¿Cuáles son los **valores límite** exactos que hay que probar? (`999`, `1000`, `1001`, `9998`, `9999`, `10000`).  
+2. ¿Qué ocurre con los casos especiales de frontera cualitativa? (por ejemplo, valor nulo `null`, cadena vacía `""` o texto con letras `"100A"`).  
+3. Conclusión guiada: *«Con solo 6 pruebas numéricas y 2 cualitativas cubrimos con rigor técnico el comportamiento de miles de combinaciones posibles»*.  
 
 ---
 
 #### Sesión 2. Dojo de entrenamiento y katas de herramientas
 
-Nos trasladamos a los puestos de trabajo para ejecutar las katas prácticas de diseño formal de pruebas sobre los módulos que cada estudiante está construyendo en su proyecto individual:
+> **Dinámica del dojo de entrenamiento:**
+>
+> * La **Kata 1 es de realización obligatoria** para todo el grupo: constituye el núcleo técnico imprescindible y la base del entregable de la sesión.
+> * Las **Katas 2 y 3 son optativas y de ampliación**: están diseñadas para que los estudiantes que resuelvan rápidamente la primera práctica no se queden inactivos, permitiéndoles subir de nivel y adquirir competencias avanzadas en depuración profesional.
 
 ---
 
-##### Kata 1 (Cinturón blanco / Nivel base). Matriz de clases de equivalencia de tu módulo de lógica
+##### Kata 1 · Obligatoria (cinturón blanco / nivel base). Matriz de clases de equivalencia y batería BVA de tu proyecto
 
-* **Objetivo.** Tomar una función crítica de validación o cálculo de tu proyecto y definir formalmente en un documento Markdown (`docs/pruebas/matriz-equivalencia.md`) todas las clases válidas e inválidas posibles, asignando un dato representativo para cada una.
-* **Aplicación según tu proyecto de la bolsa:**
-    * En **Aventura conversacional.** Analizar la función que procesa la compra de pociones en la tienda del juego. Parámetro: `oroDisponible` (debe ser mayor o igual al coste del ítem). Definir clases: saldo suficiente ($> coste$), saldo exacto ($== coste$), saldo insuficiente ($< coste$) y saldo negativo anómalo ($< 0$).
-    * En **Motor de recomendación.** Analizar la función de asignación de puntuaciones de afinidad (escala de 1 a 5 estrellas). Identificar clases válidas (rango entero $[1, 5]$) e inválidas (números $< 1$, números $> 5$, decimales o cadenas de texto no parseables).
-    * En **Simulador de físicas 2D.** Analizar la función que calcula el rebote elástico. Parámetro: coeficiente de restitución `e` (válido en el intervalo real $[0.0, 1.0]$). Definir clases válidas (rebote inelástico a elástico perfecto) e inválidas ($e < 0.0$ o $e > 1.0$).
-    * En **Bóveda de contraseñas.** Analizar la regla de longitud mínima y máxima para la contraseña maestra (longitud válida entre 8 y 32 caracteres). Definir clases válidas (longitud entre 8 y 32) e inválidas (longitud $< 8$, longitud $> 32$, cadena vacía y `null`).
-
----
-
-##### Kata 2 (Cinturón marrón / Nivel avanzado). Batería formal de casos de prueba con análisis de valores límite (BVA)
-
-* **Contexto técnico.** Una vez delimitadas las clases de equivalencia, el desarrollador debe aterrizar los valores frontera en una tabla técnica de casos de prueba ejecutables, detallando entradas exactas y salidas esperadas.
-* **Misión de la kata:**
-    1. Diseña una tabla en Markdown dentro de `docs/pruebas/casos-de-prueba.md` con un mínimo de **6 casos de prueba** derivados del análisis de valores límite de tu regla de negocio (tres para el límite inferior y tres para el límite superior).
-    2. Cada caso de prueba debe incluir: `ID`, `Entrada`, `Tipo de Límite (Inferior / Superior)`, `Resultado Esperado` y `Estado (Pendiente / Pasado / Fallido)`.
-    3. Ejecuta manualmente en tu programa cada uno de los casos diseñados introduciendo los valores por teclado o mediante llamadas en tu método `main`.
-    4. Anota con precisión quirúrgica el resultado obtenido. Si encuentras una discrepancia (por ejemplo, el programa acepta la longitud `7` cuando la especificación marcaba mínimo `8`), marca el caso como **Fallido** y no toques el código fuente todavía: el fallo ha sido formalmente acorralado.
+* **Objetivo.** Tomar una función crítica de validación o cálculo condicional de tu proyecto individual y diseñar su matriz formal de clases de equivalencia y su batería de valores límite en Markdown.
+* **Misión según tu proyecto elegido:**
+    * **En Aventura conversacional:** Analizar la función que procesa la compra de ítems en la tienda del juego. Parámetro: `oroDisponible` (debe ser mayor o igual al coste del ítem). Definir clases: saldo suficiente ($> coste$), saldo exacto ($== coste$), saldo insuficiente ($< coste$) y saldo negativo anómalo ($< 0$).
+    * **En Motor de recomendación:** Analizar la función de asignación de puntuaciones de afinidad o valoración (rango entero válido de 1 a 5 estrellas). Identificar clases válidas (rango entero $[1, 5]$) e inválidas (números $< 1$, números $> 5$ y entradas no numéricas).
+    * **En Simulador de físicas 2D:** Analizar la función que valida el coeficiente de restitución o rebote `e` (válido en el intervalo real $[0.0, 1.0]$). Definir clases válidas (rebote entre 0 y 1) e inválidas ($e < 0.0$ o $e > 1.0$).
+    * **En Bóveda de contraseñas:** Analizar la regla de longitud de la contraseña maestra (longitud válida entre 8 y 32 caracteres). Definir clases válidas (longitud entre 8 y 32) e inválidas (longitud $< 8$, longitud $> 32$, cadena vacía y `null`).
+* **Especificación técnica:** Redactar una tabla con un **mínimo de 6 casos de prueba formales** derivados de los límites inferior y superior, ejecutarlos en el programa y anotar el resultado real obtenido (*Pasado* o *Fallido*).
 
 ---
 
-##### Kata 3 (Cinturón negro / «Hacker AzaharTech»). Trazabilidad de frontera en memoria con depurador y aserciones
+##### Kata 2 · Optativa (cinturón marrón / nivel avanzado). Trazabilidad de frontera en memoria con depurador condicional
 
-* **Contexto de arquitectura.** Comprobar los valores límite por consola puede enmascarar si el programa superó la condición por el camino lógico correcto o por casualidad. En esta kata combinamos el depurador de la Semana 7 con la batería de pruebas de la Semana 8.
+* **Contexto técnico.** Comprobar los valores límite por consola puede enmascarar si el programa superó la condición por el camino lógico correcto o por pura casualidad. En esta kata combinamos el depurador con la batería de pruebas.
 * **Misión de la kata:**
     1. Abre el archivo Java donde reside la condición lógica evaluada en tu batería de pruebas.
     2. Coloca un **punto de ruptura condicional** en la línea exacta del `if`. Configúralo para que se pause únicamente cuando la variable evaluada coincida con los valores límite críticos (por ejemplo: `longitud == 8 || longitud == 7`).
     3. Lanza el programa en modo depuración (**Debug**, `Shift + F9`) y suministra el caso de prueba del límite conflictivo.
     4. Cuando la ejecución se congele en la línea del `if`, abre la consola de evaluación (**`Alt + F8`**) y evalúa la expresión booleana completa de la condición.
     5. Inspecciona paso a paso (**`F8`**) si el salto condicional entra por la rama verdadera o la rama falsa.
-    6. Si detectas un error de frontera (un clásico `<` en vez de `<=`), documenta el diagnóstico en la columna de observaciones de tu batería de pruebas, corrige el operador en el código fuente, recompila con Maven y vuelve a ejecutar la prueba para certificar que el caso cambia de **Fallido** a **Pasado**.
-    7. Haz commit en tu repositorio Git de los nuevos documentos de pruebas y de la corrección realizada bajo el mensaje:
-       `fix(core): corregido error off-by-one en validacion de frontera segun CP-002`.
+    6. Si detectas un error de frontera (un clásico `<` en vez de `<=`), anota la observación en tu tabla de pruebas y corrige el operador en el código fuente.
+
+---
+
+##### Kata 3 · Optativa (cinturón negro / «hacker AzaharTech»). Automatización de aserciones en el método `main`
+
+* **Contexto de arquitectura.** Para no tener que teclear manualmente los 6 casos de prueba cada vez que se modifica el código, los desarrolladores avanzados crean métodos de prueba sencillos con aserciones básicas en consola antes de dar el salto formal a JUnit en trimestres posteriores.
+* **Misión de la kata:**
+    1. Crea un método auxiliar estático `ejecutarPruebasFrontera()` en tu clase de pruebas o en una clase auxiliar.
+    2. Invoca a tu método de validación pasándole directamente los valores límite (por ejemplo: `validarLongitud(7)`, `validarLongitud(8)`, `validarLongitud(32)`, `validarLongitud(33)`).
+    3. Utiliza estructuras `if` para comprobar si el resultado devuelto coincide con el esperado: si coincide, imprime `[PASS] CP-XX superado`; si no, imprime `[FAIL] Discrepancia en límite`.
+    4. Comprueba cómo tu software se auto-evalúa en menos de un segundo al pulsar **Run (`Shift + F10`)**.
+
+---
+
+#### Entregables de la sesión
+
+Al finalizar la sesión, debes actualizar el documento del sprint: **`ed/docs/ciclo-error.md`**, añadiendo el **Apartado 2**:
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                               ENTREGABLES DEL DÍA 15                                   │
+├─────────────────────┬──────────────────────────────────────────────────────────────────┤
+│ Archivo modificado  │ ed/docs/ciclo-error.md                                           │
+├─────────────────────┼──────────────────────────────────────────────────────────────────┤
+│ Ubicación           │ azahartech/tu-equipo/tus-apellidos-nombre/ed/docs/ciclo-error.md │
+├─────────────────────┼──────────────────────────────────────────────────────────────────┤
+│ Apartado a añadir   │ APARTADO 2. Batería de pruebas de caja negra                     │
+│                     │ 1. Tabla de partición en clases de equivalencia (válidas e       │
+│                     │    inválidas con valores representativos).                       │
+│                     │ 2. Tabla de especificación de casos de prueba (mínimo 6 casos)  │
+│                     │    incluyendo ID, entrada, límite evaluado, resultado esperado,  │
+│                     │    resultado obtenido y estado final (Pasado / Fallido).         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────┤
+│ Operación en el IDE │ Commit en IntelliJ IDEA (Ctrl + K):                              │
+│                     │ Mensaje: docs(qa): añadido apartado 2 con clases de equivalencia │
+│                     │          y casos de prueba BVA                                   │
+└─────────────────────┴──────────────────────────────────────────────────────────────────┘
+```
+
+##### Plantilla a incorporar en `ed/docs/ciclo-error.md`:
+
+```markdown
+## Apartado 2. Batería de pruebas de caja negra
+
+### 1. Partición de clases de equivalencia
+- **Parámetro analizado:** `[Nombre del parámetro o variable]`
+- **Rango o especificación válida:** `[Indicar la regla de negocio]`
+
+| Identificador | Tipo de Clase | Rango o Condición | Dato de Prueba | Resultado Esperado |
+| :---: | :---: | :---: | :---: | :---: |
+| CE-01 | Válida | [Rango permitido] | [Ej: 25] | Aceptado / Válido |
+| CE-02 | Inválida | [Límite inferior no permitido] | [Ej: 8] | Rechazado con error |
+| CE-03 | Inválida | [Límite superior no permitido] | [Ej: 105] | Rechazado con error |
+
+### 2. Tabla de casos de prueba con Análisis de Valores Límite (BVA)
+
+| ID Caso | Parámetro Entrada | Tipo de Límite Evaluado | Precondición | Resultado Esperado | Resultado Real | Estado |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| CP-01 | [Dato] | Límite inferior - 1 | Sistema iniciado | Rechazado | Rechazado | Pasado |
+| CP-02 | [Dato] | Límite inferior (Exacto) | Sistema iniciado | Aceptado | Aceptado | Pasado |
+| CP-03 | [Dato] | Límite inferior + 1 | Sistema iniciado | Aceptado | Aceptado | Pasado |
+| CP-04 | [Dato] | Límite superior - 1 | Sistema iniciado | Aceptado | Aceptado | Pasado |
+| CP-05 | [Dato] | Límite superior (Exacto) | Sistema iniciado | Aceptado | Aceptado | Pasado |
+| CP-06 | [Dato] | Límite superior + 1 | Sistema iniciado | Rechazado | Rechazado | Pasado |
+```
+
+##### Pasos visuales para el commit en IntelliJ IDEA:
+1. Abre el panel de control de versiones con **`Ctrl + K`** (o pestaña vertical izquierda **Commit**).
+2. Haz doble clic sobre `ed/docs/ciclo-error.md` para verificar en el visor de diferencias que las dos tablas se han insertado limpiamente tras el Apartado 1.
+3. Marca la casilla de verificación de `ed/docs/ciclo-error.md` (y de tu archivo Java si corregiste algún operador off-by-one).
+4. Escribe el mensaje formal:
+   `docs(qa): añadido apartado 2 con clases de equivalencia y casos de prueba BVA`
+5. Haz clic en el botón azul **Commit**.
+
+---
 
 ### Día 16 - 1 sesión
 
 ---
 
-#### Sesión única. Taller práctico: Medición del cubrimiento de código (*Code Coverage*) y procedimiento de ejecución de pruebas
+#### Sesión única. Taller práctico: medición del cubrimiento de código (*Code Coverage*) y procedimiento de ejecución de pruebas
 
 ---
 
@@ -561,11 +630,11 @@ Nos trasladamos a los puestos de trabajo para ejecutar las katas prácticas de d
 
 Miércoles 4 de noviembre de 2026. En el ecuador de la segunda semana del **Sprint 3**, el equipo de desarrollo se concentra en la sala de operaciones de **AzaharTech**.
 
-Los estudiantes tienen sobre sus pantallas las baterías de casos de prueba diseñadas el lunes mediante partición de equivalencia y valores límite. **Alba Torres** se sitúa junto a la mesa del desarrollador junior y revisa el documento de pruebas del validador de accesos del **IES El Caminàs**:
+**Pau Ferrer** tiene en sus pantallas las baterías de casos de prueba diseñadas el lunes mediante partición de equivalencia y valores límite. **Alba Torres** se sitúa junto a la mesa del desarrollador junior y revisa el documento de pruebas del validador de accesos del **IES El Caminàs**:
 
-> *«Habéis hecho un trabajo excelente acorralando los límites de entrada: el código ya no revienta con edades de 11 o 100 años ni con contraseñas vacías. Sin embargo, os hago una pregunta crítica de aseguramiento de la calidad (QA):*
+> *«Has hecho un trabajo excelente acorralando los límites de entrada: el código ya no revienta con edades de 11 o 100 años ni con contraseñas vacías. Sin embargo, tengo una duda sobre aseguramiento de la calidad (QA):*
 >
-> *¿Estáis seguros de que vuestros casos de prueba han obligado a la JVM a pasar por todas las ramas de vuestro código? ¿O tenéis bloques de sentencias enteras dentro de los `else` o de los `catch` que jamás se han ejecutado en la realidad?*
+> *¿Estás seguro de que los casos de prueba han obligado a la JVM a pasar por todas las ramas de vuestro código? ¿O tienes bloques de sentencias enteras dentro de los `else` o de los `catch` que jamás se han ejecutado en la realidad?*
 >
 > *Si una línea de código no se ejecuta durante las pruebas, es código en la sombra: una bomba de relojería esperando a que un usuario real entre por ese camino en producción. Hoy utilizaremos el motor de* *cubrimiento de código (Code Coverage)* *integrado en IntelliJ IDEA para iluminar visualmente qué partes de nuestro software están blindadas y cuáles permanecen completamente a oscuras»*.
 
@@ -583,17 +652,17 @@ No todas las métricas de cobertura ofrecen el mismo nivel de garantía:
 ├─────────────────────┬─────────────────────────────────┬────────────────────────────────┤
 │ Métrica             │ ¿Qué mide exactamente?          │ Nivel de rigor técnico         │
 ├─────────────────────┼─────────────────────────────────┼────────────────────────────────┤
-│ 1. Cubrimiento de   │ Porcentaje de líneas de código  │ BÁSICO: Garantiza que la JVM   │
+│ 1. Cubrimiento de   │ Porcentaje de líneas de código  │ BÁSICO. Garantiza que la JVM   │
 │    sentencias/líneas│ que han sido ejecutadas al      │ ha pisado la instrucción, pero │
-│    (Line Coverage)  │ menos una vez.                  │ ignora si se probaron todos los│
+│    (line coverage)  │ menos una vez.                  │ ignora si se probaron todos los│
 │                     │                                 │ caminos de una decisión.       │
 ├─────────────────────┼─────────────────────────────────┼────────────────────────────────┤
-│ 2. Cubrimiento de   │ Porcentaje de ramas evaluadas en│ MEDIO-ALTO: En un `if (A)`,    │
+│ 2. Cubrimiento de   │ Porcentaje de ramas evaluadas en│ MEDIO-ALTO. En un `if (A)`,    │
 │    ramas/decisiones │ estructuras condicionales       │ comprueba que se han probado   │
-│    (Branch Coverage)│ (`if`, `switch`, bucles).       │ tanto el camino TRUE como el   │
+│    (branch coverage)│ (`if`, `switch`, bucles).       │ tanto el camino TRUE como el   │
 │                     │                                 │ camino FALSE.                  │
 ├─────────────────────┼─────────────────────────────────┼────────────────────────────────┤
-│ 3. Cubrimiento de   │ Porcentaje de todas las         │ EXHAUSTIVO: En condiciones     │
+│ 3. Cubrimiento de   │ Porcentaje de todas las         │ EXHAUSTIVO. En condiciones     │
 │    condiciones      │ combinaciones booleanas         │ complejas `if (A && B)`, exige │
 │    múltiples        │ posibles dentro de cada rama.   │ probar todas las combinaciones │
 │                     │                                 │ de verdad de A y B.            │
@@ -645,9 +714,9 @@ Además, IntelliJ despliega la ventana acoplable **Coverage**, que desglosa el p
 
 ---
 
-#### 4. Dinámica de laboratorio: Cierre de ángulos muertos (30 minutos)
+#### 4. Laboratorio: cierre de ángulos muertos
 
-Durante la segunda mitad de la sesión, los estudiantes auditan su propio software aplicando la técnica de **pruebas dirigidas por cobertura (*Coverage-Driven Testing*)**:
+Durante el resto de la sesión, los estudiantes auditan su propio software aplicando la técnica de **pruebas dirigidas por cobertura (*Coverage-Driven Testing*)**:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -670,25 +739,69 @@ Durante la segunda mitad de la sesión, los estudiantes auditan su propio softwa
 ```
 
 ##### Casuística según el proyecto de la bolsa:
-* **En Aventura conversacional:** Identificar si la rama que gestiona la muerte del jugador (`hp <= 0`) o el rechazo de comandos desconocidos en el `default` del `switch` está en rojo. Diseñar un caso de prueba con un comando inválido (ej. `"VOLAR"`) para teñir la rama de verde.
-* **En Motor de recomendación:** Comprobar si el bloque de control que gestiona usuarios sin ninguna valoración previa (*cold start*) está desatendido. Introducir un vector de valoraciones vacío para verificar que el mensaje de cortesía se ejecuta correctamente.
-* **En Simulador de físicas 2D:** Verificar si las ramas que controlan la parada por fricción total (`velocidad < 0.001f`) o el choque contra el techo del escenario están sin cobertura. Diseñar una prueba que simule una caída libre prolongada para activar los límites de parada.
-* **En Bóveda de contraseñas:** Comprobar si la rama que captura cadenas con caracteres de escape o espacios en blanco quedó sin evaluar en el bucle de validación. Suministrar una contraseña de prueba con espacios intermedios (ej. `"Admin 2026*"`) para forzar la ejecución del rechazo.
 
-##### Entregable de cierre de sesión
-Cada alumno formaliza el estado de sus pruebas en el archivo `docs/pruebas/informe-cobertura.md`:
+* **En Aventura conversacional:** Identificar si la rama que gestiona la muerte del jugador (`hp <= 0`) o el rechazo de comandos desconocidos en el `default` del `switch` está en rojo. Diseñar un caso de prueba con un comando inválido (ej. `"VOLAR"`) para teñir la rama de verde.  
+* **En Motor de recomendación:** Comprobar si el bloque de control que gestiona usuarios sin ninguna valoración previa (*cold start*) está desatendido. Introducir un vector de valoraciones vacío para verificar que el mensaje de cortesía se ejecuta correctamente.  
+* **En Simulador de físicas 2D:** Verificar si las ramas que controlan la parada por fricción total (`velocidad < 0.001f`) o el choque contra el techo del escenario están sin cobertura. Diseñar una prueba que simule una caída libre prolongada para activar los límites de parada.  
+* **En Bóveda de contraseñas:** Comprobar si la rama que captura cadenas con caracteres de escape o espacios en blanco quedó sin evaluar en el bucle de validación. Suministrar una contraseña de prueba con espacios intermedios (ej. `"Admin 2026*"`) para forzar la ejecución del rechazo.  
 
-```markdown
-### Registro de Ejecución y Cubrimiento de Pruebas (Sprint 3 - Semana 8)
+#### Entregables de la sesión
 
-- **Módulo auditado:** Validador de reglas de negocio
-- **Cubrimiento inicial de líneas:** 68% (Ramas `else` y excepciones no cubiertas)
-- **Ángulo muerto detectado:** La excepción de argumento inválido nunca se disparaba.
-- **Acción correctora:** Se añadió el caso de prueba `CP-VAL-007` con entrada nula.
-- **Cubrimiento final alcanzado:** 92% de líneas / 85% de ramas.
+Al finalizar el taller, debes actualizar **`ed/docs/ciclo-error.md`** incorporando el **Apartado 3**:
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                               ENTREGABLES DEL DÍA 16                                   │
+├─────────────────────┬──────────────────────────────────────────────────────────────────┤
+│ Archivo modificado  │ ed/docs/ciclo-error.md                                           │
+├─────────────────────┼──────────────────────────────────────────────────────────────────┤
+│ Ubicación           │ azahartech/tu-equipo/tus-apellidos-nombre/ed/docs/ciclo-error.md │
+├─────────────────────┼──────────────────────────────────────────────────────────────────┤
+│ Apartado a añadir   │ APARTADO 3. Análisis de cubrimiento de código (Code Coverage)    │
+│                     │ 1. Métricas iniciales obtenidas con IntelliJ Coverage (% líneas).│
+│                     │ 2. Identificación del ángulo muerto (bloque en rojo detectado).  │
+│                     │ 3. Caso de prueba añadido para forzar la ejecución de la rama.   │
+│                     │ 4. Métrica final alcanzada (>= 80% de líneas cubiertas).         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────┤
+│ Operación en el IDE │ Commit en IntelliJ IDEA (Ctrl + K):                              │
+│                     │ Mensaje: docs(qa): añadido apartado 3 con auditoria de cobertura │
+│                     │          y cierre de ramas muertas                               │
+└─────────────────────┴──────────────────────────────────────────────────────────────────┘
 ```
 
-Con la ejecución confirmada y registrada en el control de versiones, el equipo dispone de un código verificado con métricas objetivas, sentando la base para las pruebas estructurales avanzadas y la depuración de algoritmos complejos de la próxima semana.
+##### Plantilla a incorporar en `ed/docs/ciclo-error.md`:
+
+```markdown
+## Apartado 3. Análisis de cubrimiento de código (Code Coverage)
+
+### 1. Métricas de cobertura iniciales
+- **Herramienta empleada:** Motor de cobertura integrado de IntelliJ IDEA.
+- **Clase / Módulo auditado:** `[Nombre de la clase Java]`
+- **Cubrimiento de líneas inicial:** `[Ej: 65%]`
+- **Cubrimiento de ramas inicial:** `[Ej: 50%]`
+
+### 2. Detección de ángulos muertos (bloques no ejecutados)
+- **Líneas o bloques en rojo identificados:** Líneas `[Nº a Nº]` correspondientes a `[describir el bloque, ej: rama else de bloqueo por aforo saturado o default del switch]`.
+- **Causa de la falta de cobertura:** Ninguno de los casos de prueba iniciales suministraba una entrada que cumpliera simultáneamente la condición de fallo.
+
+### 3. Acción correctora y cierre del ángulo muerto
+- **Nuevo caso de prueba diseñado:** `CP-COV-01` con entrada `[especificar datos concretos]`.
+- **Comportamiento obtenido:** La JVM entra en el bloque alternativo, ejecuta las instrucciones de aviso y el margen del editor se ilumina en color verde.
+
+### 4. Métrica de cubrimiento consolidada
+- **Cubrimiento final de líneas:** `[Ej: 88%]` (Objetivo mínimo corporativo superado: >= 80%).
+- **Cubrimiento final de ramas:** `[Ej: 83%]`.
+```
+
+##### Pasos visuales para el commit en IntelliJ IDEA:
+1. Pulsa **`Ctrl + K`** para abrir la herramienta visual de confirmación.
+2. En la lista de cambios, haz doble clic sobre `ed/docs/ciclo-error.md` y revisa que el Apartado 3 contiene los porcentajes reales auditados.
+3. Marca la casilla de `ed/docs/ciclo-error.md`.
+4. Redacta el mensaje formal estructurado:
+   `docs(qa): añadido apartado 3 con auditoria de cobertura y cierre de ramas muertas`
+5. Haz clic en el botón azul **Commit**.
+
+Con la cobertura objetiva verificada y documentada, el equipo dispone de un código contrastado.
 
 ## Semana 9. Complejidad ciclomática y regresión
 
@@ -704,7 +817,7 @@ Con la ejecución confirmada y registrada en el control de versiones, el equipo 
 
 #### 1. Caso guía en AzaharTech
 
-Lunes 9 de noviembre de 2026. Arranca la tercera y última semana del **Sprint 3** en la sede de **AzaharTech** en Castellón de la Plana.
+Lunes 9 de noviembre de 2026. Arranca la tercera y última semana del **Sprint 3** en la sede de **AzaharTech**.
 
 En los módulos troncales, la exigencia técnica se encuentra en su punto álgido: en Programación, los alumnos están implementando algoritmos con bucles anidados (`for`, `while`), menús ramificados con `switch` y filtros encadenados con múltiples operadores lógicos (`&&`, `||`).
 
@@ -856,7 +969,10 @@ Los estudiantes analizan los puntos de decisión del código:
 
 #### Sesión 2. Dojo de entrenamiento y katas de herramientas
 
-Pasamos a los puestos de trabajo para aplicar las técnicas de análisis estructural y depuración avanzada sobre los algoritmos individuales de cada proyecto:
+> **Dinámica del dojo de entrenamiento:**
+>
+> * La **Kata 1 es de realización obligatoria** para todo el grupo: constituye el núcleo técnico imprescindible y la base del entregable de la sesión.
+> * Las **Katas 2 y 3 son optativas y de ampliación**: están diseñadas para que los estudiantes que resuelvan rápidamente la primera práctica no se queden inactivos, permitiéndoles subir de nivel y adquirir competencias avanzadas en depuración profesional.
 
 ---
 
@@ -868,7 +984,7 @@ Pasamos a los puestos de trabajo para aplicar las técnicas de análisis estruct
     * En **Motor de recomendación.** Analizar el algoritmo de ordenación o filtrado condicional por umbral de similitud (bucle que compara vectores de usuarios con condiciones múltiples).
     * En **Simulador de físicas 2D.** Analizar el algoritmo de detección y respuesta de colisiones contra los cuatro bordes de la ventana y otros obstáculos rígidos.
     * En **Bóveda de contraseñas.** Analizar la función de cálculo del nivel de entropía o fortaleza de contraseña (bucle que recorre la cadena comprobando caracteres contiguos repetidos, símbolos y números).
-* **Entregable:** Registrar en `docs/pruebas/complejidad-algoritmo.md` el fragmento de código, el desglose de los puntos de decisión identificados y el valor resultante de $V(G)$.
+* **Entregable:** Registrar en `pruebas.md` el fragmento de código, el desglose de los puntos de decisión identificados y el valor resultante de $V (G)$.
 
 ---
 
@@ -911,7 +1027,7 @@ Pasamos a los puestos de trabajo para aplicar las técnicas de análisis estruct
 
 #### 1. Caso guía en AzaharTech
 
-Viernes 13 de noviembre de 2026. Son las cuatro de la tarde en las oficinas de **AzaharTech** en Castellón de la Plana. La jornada representa un hito fundamental del primer trimestre: hoy concluye formalmente el **Sprint 3: «El ciclo del error: pruebas y depuración»**.
+Viernes 13 de noviembre de 2026. Son las cuatro de la tarde en las oficinas de **AzaharTech**. La jornada representa un hito fundamental del primer trimestre: hoy concluye formalmente el **Sprint 3: «El ciclo del error: pruebas y depuración»**.
 
 A lo largo de las últimas tres semanas, el equipo ha dado un salto cualitativo en su madurez técnica: ha dejado atrás la depuración artesanal basada en imprimir mensajes por consola para dominar el depurador interactivo de IntelliJ IDEA, la inspección de variables en memoria RAM, el análisis de la pila de llamadas (*Frames*), el diseño de pruebas de caja negra (clases de equivalencia y valores límite), la medición de cubrimiento (*Coverage*) y el cálculo de la complejidad ciclomática de McCabe.
 
@@ -1027,7 +1143,7 @@ Durante la parte práctica de la sesión, los desarrolladores trabajan por parej
 * **En Bóveda de contraseñas:** El auditor introduce una contraseña de prueba con la longitud máxima permitida (32 caracteres exactos). Verifica que el algoritmo de cifrado no trunca la cadena ni genera excepciones de desbordamiento de índice en memoria.
 
 ##### Plantilla de cierre técnico
-Cada pareja consolida el informe de calidad en el archivo `docs/pruebas/cierre-sprint3.md`:
+Cada pareja consolida el informe de calidad en el archivo `pruebas.md`:
 
 ```markdown
 ### Acta de Cierre Técnico de Pruebas y Depuración (Sprint 3)
