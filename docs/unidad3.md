@@ -740,10 +740,10 @@ Durante el resto de la sesión, los estudiantes auditan su propio software aplic
 
 ##### Casuística según el proyecto de la bolsa:
 
-* **En Aventura conversacional:** Identificar si la rama que gestiona la muerte del jugador (`hp <= 0`) o el rechazo de comandos desconocidos en el `default` del `switch` está en rojo. Diseñar un caso de prueba con un comando inválido (ej. `"VOLAR"`) para teñir la rama de verde.  
-* **En Motor de recomendación:** Comprobar si el bloque de control que gestiona usuarios sin ninguna valoración previa (*cold start*) está desatendido. Introducir un vector de valoraciones vacío para verificar que el mensaje de cortesía se ejecuta correctamente.  
-* **En Simulador de físicas 2D:** Verificar si las ramas que controlan la parada por fricción total (`velocidad < 0.001f`) o el choque contra el techo del escenario están sin cobertura. Diseñar una prueba que simule una caída libre prolongada para activar los límites de parada.  
-* **En Bóveda de contraseñas:** Comprobar si la rama que captura cadenas con caracteres de escape o espacios en blanco quedó sin evaluar en el bucle de validación. Suministrar una contraseña de prueba con espacios intermedios (ej. `"Admin 2026*"`) para forzar la ejecución del rechazo.  
+* **En Aventura conversacional:** Identificar si la rama que gestiona la derrota del jugador (vida <= 0) o la opción por defecto de un menú (default del switch) está en rojo. Probar introduciendo por consola una opción no contemplada (por ejemplo, teclear un 9) para forzar la ejecución de la rama de error.  
+* **En Motor de recomendación:** Comprobar si la condición que protege contra divisiones por cero (totalValoraciones == 0) está desatendida en rojo. Ejecutar introduciendo un 0 en el contador de valoraciones para verificar que se muestra el mensaje de bienvenida a usuarios nuevos.  
+* **En Simulador de físicas 2D:** Comprobar si la rama que detiene el movimiento cuando la velocidad cae por debajo del umbral de fricción (velocidad < 0.05) está en rojo. Probar introduciendo una velocidad inicial nula (0.0) para iluminar en verde la parada inmediata.  
+* **En Bóveda de contraseñas:** Comprobar si la rama que rechaza cadenas demasiado cortas (password.length() < 8) quedó sin ejecutar. Introducir una contraseña de 3 caracteres (ej. "abc") para comprobar que el bloque de advertencia se ejecuta y se tiñe de verde.  
 
 #### Entregables de la sesión
 
