@@ -1,0 +1,2202 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Cristian Garcia">
+      
+      
+        <link rel="canonical" href="https://garmarcj.github.io/DAM-ED-20262027/unidad4/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>Sprint 4. Ramas y documentación técnica - Entornos de desarrollo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sprint-4-ramas-y-documentacion-tecnica" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Entornos de desarrollo" class="md-header__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Entornos de desarrollo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sprint 4. Ramas y documentación técnica
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Entornos de desarrollo" class="md-nav__button md-logo" aria-label="Entornos de desarrollo" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Entornos de desarrollo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unidad1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unidad2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unidad3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#semana-10-ramas-personales-en-git-y-aislamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 10. Ramas personales en Git y aislamiento
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 10. Ramas personales en Git y aislamiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-19-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 19 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-20-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 20 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semana-11-documentacion-tecnica-javadoc-y-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 11. Documentación técnica: Javadoc y Markdown
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 11. Documentación técnica: Javadoc y Markdown">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-21-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 21 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-22-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 22 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semana-12-versionado-semantico-higiene-y-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semana 12. Versionado semántico, higiene y release
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semana 12. Versionado semántico, higiene y release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dia-23-2-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 23 - 2 sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dia-24-1-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Día 24 - 1 sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sprint-4-ramas-y-documentacion-tecnica">Sprint 4. Ramas y documentación técnica<a class="headerlink" href="#sprint-4-ramas-y-documentacion-tecnica" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="semana-10-ramas-personales-en-git-y-aislamiento">Semana 10. Ramas personales en Git y aislamiento<a class="headerlink" href="#semana-10-ramas-personales-en-git-y-aislamiento" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="dia-19-2-sesiones">Día 19 - 2 sesiones<a class="headerlink" href="#dia-19-2-sesiones" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="primera-sesion-teoria-trabajar-sin-red-de-seguridad-la-rama-como-espacio-de-trabajo-aislado">Primera sesión: teoría. Trabajar sin red de seguridad: la rama como espacio de trabajo aislado<a class="headerlink" href="#primera-sesion-teoria-trabajar-sin-red-de-seguridad-la-rama-como-espacio-de-trabajo-aislado" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="1-caso-guia-en-azahartech">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech" title="Permanent link">&para;</a></h4>
+<p>Lunes 16 de noviembre de 2026. Son las tres de la tarde en la sede de <strong>AzaharTech</strong> en Castellón de la Plana. Tras el cierre del Sprint 3, arranca formalmente el <strong>Sprint 4</strong>. En el módulo de Programación se produce un cambio de ritmo significativo: el grupo comienza a programar <strong>clases propias</strong> con atributos privados, constructores y métodos. El código fuente va a cambiar con rapidez.</p>
+<p>Por ese motivo, <strong>Laia Claramunt</strong> convoca al equipo antes de que nadie cree una clase nueva. En la pantalla proyecta el historial del repositorio del <strong>IES El Caminàs</strong>, donde dos desarrolladores júnior han trabajado a la vez directamente sobre la rama <code>main</code>:</p>
+<blockquote>
+<p><em>«Equipo, ayer por la tarde Alba subió a <code>main</code> una clase <code>Credencial</code> a medias, con el constructor a medio escribir, porque terminaba su turno y quería guardar su avance. Pau hizo <code>pull</code> a las nueve de la mañana y el proyecto del instituto dejó de compilar a escasos minutos de la reunión con el coordinador de infraestructuras.</em></p>
+<p><em>Nadie ha actuado de mala fe: el problema es que <code>main</code> era el único sitio donde registrar cambios. Y en la industria profesional, <code>main</code> es la rama de producción: la que se entrega al cliente, la que compila siempre y la que nunca puede romperse. No es un bloc de borradores.</em></p>
+<p><em>Para que experimentar y cometer errores sea seguro y barato, aprenderemos a trabajar en</em> <strong><em>ramas personales (<code>feature/</code>)</em></strong> <em>: líneas temporales aisladas donde podéis programar, probar y rehacer sin alterar el trabajo de los demás. Y, siguiendo el estándar de AzaharTech, todas las operaciones las realizaremos exclusivamente mediante la</em> <strong><em>interfaz gráfica de IntelliJ IDEA</em></strong> <em>, sin tocar la consola»</em>.</p>
+</blockquote>
+<p><strong>Alba Torres</strong> interviene aliviada: <em>«Entonces, ¿guardar mi avance no era el error, sino hacerlo directamente en <code>main</code>?»</em>. <strong>Pau Ferrer</strong> asiente: <em>«Exacto. Registrar el progreso es una buena práctica; comprometerlo en la rama principal sin estar terminado es lo que rompe el proyecto»</em>.</p>
+<hr />
+<h4 id="2-la-rama-como-puntero-movil-aislamiento-nomenclatura-y-ciclo-de-vida">2. La rama como puntero móvil: aislamiento, nomenclatura y ciclo de vida<a class="headerlink" href="#2-la-rama-como-puntero-movil-aislamiento-nomenclatura-y-ciclo-de-vida" title="Permanent link">&para;</a></h4>
+<h5 id="los-riesgos-del-desarrollo-lineal-sobre-main">Los riesgos del desarrollo lineal sobre <code>main</code><a class="headerlink" href="#los-riesgos-del-desarrollo-lineal-sobre-main" title="Permanent link">&para;</a></h5>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Peligros["Riesgos del desarrollo lineal directo en main"]
+        direction LR
+        P1["Commit incompleto"] --&gt; P2["Fallo de compilación"]
+        P2 --&gt; P3["main bloqueada"]
+        P3 --&gt; P4["Entrega rota al cliente"]
+    end</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Riesgo técnico</th>
+<th style="text-align: left;">Qué sucede en el repositorio</th>
+<th style="text-align: left;">Impacto en AzaharTech</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Código a medias publicado</strong></td>
+<td style="text-align: left;">Se confirma una clase no terminada en <code>main</code>.</td>
+<td style="text-align: left;">El proyecto no compila y la demo con el cliente falla.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pérdida de reversibilidad</strong></td>
+<td style="text-align: left;">Se mezclan experimentos fallidos con código estable.</td>
+<td style="text-align: left;">Revertir cambios obliga a deshacer commits manualmente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Colisiones de equipo</strong></td>
+<td style="text-align: left;">Dos personas modifican el mismo archivo en <code>main</code>.</td>
+<td style="text-align: left;">Conflictos de fusión imprevistos y bloqueos de entrega.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Historial degradado</strong></td>
+<td style="text-align: left;">Mensajes como <em>"guardo avance"</em> conviven con entregas.</td>
+<td style="text-align: left;">Auditoría técnica confusa e inviable.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="que-es-realmente-una-rama-en-git">¿Qué es realmente una rama en Git?<a class="headerlink" href="#que-es-realmente-una-rama-en-git" title="Permanent link">&para;</a></h5>
+<p>Una rama <strong>no duplica la carpeta ni los archivos del proyecto</strong>. Es simplemente un <strong>puntero móvil de 41 bytes</strong> que referencia a un commit concreto. Cuando se realiza un nuevo commit en esa rama, el puntero avanza automáticamente. El puntero especial <strong><code>HEAD</code></strong> señala la rama y el commit en el que se encuentra situado el espacio de trabajo en cada instante.</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "C1-init"
+   commit id: "C2-v0.3.0" tag: "v0.3.0-sprint3"
+   branch "feature/modulo-seguridad"
+   checkout "feature/modulo-seguridad"
+   commit id: "C3-avance-1"
+   commit id: "C4-avance-2"
+   checkout main</code></pre>
+<p>Mientras la rama <code>feature/modulo-seguridad</code> avanza acumulando trabajo, la rama <code>main</code> permanece inalterada en <code>C2</code>, garantizando que el software entregable siga compilando.</p>
+<h5 id="nomenclatura-corporativa-de-ramas">Nomenclatura corporativa de ramas<a class="headerlink" href="#nomenclatura-corporativa-de-ramas" title="Permanent link">&para;</a></h5>
+<p>AzaharTech exige una convención predecible para identificar de inmediato el propósito de cada rama:</p>
+<p>$$\text{Patrón obligatorio:} \quad \mathbf{feature/nombre-tarea}$$</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Regla</th>
+<th style="text-align: left;">Formato correcto</th>
+<th style="text-align: left;">Formato incorrecto</th>
+<th style="text-align: left;">Justificación técnica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Prefijo identificador</strong></td>
+<td style="text-align: left;"><code>feature/modulo-seguridad</code></td>
+<td style="text-align: left;"><code>modulo-seguridad</code></td>
+<td style="text-align: left;">Distingue ramas temporales de la rama principal.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Minúsculas estrictas</strong></td>
+<td style="text-align: left;"><code>feature/clase-credencial</code></td>
+<td style="text-align: left;"><code>feature/ClaseCredencial</code></td>
+<td style="text-align: left;">Evita inconsistencias entre sistemas de archivos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Separación por guiones</strong></td>
+<td style="text-align: left;"><code>feature/validar-dni</code></td>
+<td style="text-align: left;"><code>feature/validar dni</code>, <code>feature/validación</code></td>
+<td style="text-align: left;">Elimina caracteres especiales y espacios conflictivos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Orientada a la tarea</strong></td>
+<td style="text-align: left;"><code>feature/ajuste-aforo</code></td>
+<td style="text-align: left;"><code>feature/lo-de-alba</code>, <code>feature/prueba2</code></td>
+<td style="text-align: left;">Describe el componente técnico, no a la persona.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="ciclo-de-vida-de-una-rama-de-desarrollo">Ciclo de vida de una rama de desarrollo<a class="headerlink" href="#ciclo-de-vida-de-una-rama-de-desarrollo" title="Permanent link">&para;</a></h5>
+<pre class="mermaid"><code>flowchart TD
+    A["Tarea asignada en el Sprint"] --&gt; B["Crear rama feature/nombre-tarea desde main"]
+    B --&gt; C["Desarrollar y hacer commits atómicos en la rama"]
+    C --&gt; D{"¿Compila y pasa las pruebas?"}
+    D -- No --&gt; C
+    D -- Sí --&gt; E["Revisar diferencias (Diff Viewer) con main"]
+    E --&gt; F["Fusionar en main (Merge into Current)"]
+    F --&gt; G["Verificar compilación limpia en main"]
+    G --&gt; H["Eliminar rama temporal local"]</code></pre>
+<hr />
+<h4 id="3-actividad-activa-interactiva-en-que-rama-estoy-en-la-pizarra">3. Actividad activa interactiva: «¿En qué rama estoy?» en la pizarra<a class="headerlink" href="#3-actividad-activa-interactiva-en-que-rama-estoy-en-la-pizarra" title="Permanent link">&para;</a></h4>
+<p>Alba y Pau proyectan un historial con dos ramas de desarrollo abiertas de forma simultánea. El grupo debe resolver las cuestiones planteadas antes de continuar:</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "Base-0.3.0"
+   branch "feature/validar-dni"
+   branch "feature/clase-credencial"
+   checkout "feature/validar-dni"
+   commit id: "Metodo validarDni()"
+   checkout "feature/clase-credencial"
+   commit id: "Atributos privados"
+   checkout main
+   commit id: "Ajuste urgente torno"</code></pre>
+<p><em>Dinámica en parejas (10 minutos):</em></p>
+<ol>
+<li><strong>Lectura del grafo (3 min):</strong><ul>
+<li>¿Cuántas ramas existen en el repositorio y cuál es el último commit de cada una?</li>
+<li>¿Se ha modificado <code>main</code> tras la creación de las ramas de características?</li>
+<li>Si fusionáramos <code>feature/validar-dni</code> en <code>main</code>, ¿afectaría a los archivos de <code>feature/clase-credencial</code>? ¿Por qué?</li>
+</ul>
+</li>
+<li><strong>Propuesta de nomenclatura (3 min):</strong> Definir el nombre corporativo correcto para tres tareas:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tarea técnica planteada</th>
+<th style="text-align: left;">Nombre de rama propuesto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Implementar constructor con validación en <code>Usuario</code></td>
+<td style="text-align: left;"><em>(a completar por la pareja)</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">Corregir el umbral de aforo máximo en el vestíbulo</td>
+<td style="text-align: left;"><em>(a completar por la pareja)</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">Probar un prototipo experimental de física de rebote</td>
+<td style="text-align: left;"><em>(a completar por la pareja)</em></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong>Puesta en común (4 min):</strong> Un estudiante voluntario señala en la pizarra en qué punto exacto se bifurcaría el puntero <code>HEAD</code> y dónde existiría riesgo de conflicto si dos ramas tocaran el mismo archivo.</li>
+</ol>
+<hr />
+<h4 id="segunda-sesion-dojo-de-herramientas-y-katas">Segunda sesión: dojo de herramientas y katas<a class="headerlink" href="#segunda-sesion-dojo-de-herramientas-y-katas" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Dinámica del dojo de entrenamiento:</strong></p>
+<ul>
+<li>La <strong>Kata 1 es obligatoria</strong> para todo el grupo: enseña a crear ramas, aislar commits y verificar la estabilidad de <code>main</code> en IntelliJ IDEA.</li>
+<li>Las <strong>Katas 2 y 3 son optativas y de ampliación</strong>: permiten profundizar en la inspección visual de diferencias (<em>Diff Viewer</em>) y en la integración rápida (<em>Fast-Forward</em>).</li>
+</ul>
+<pre class="mermaid"><code>flowchart LR
+    W["Widget de Git (nombre de rama actual)"] --&gt; N["New Branch..."]
+    W --&gt; CO["Checkout"]
+    W --&gt; CB["Compare with Branch"]
+    W --&gt; MG["Merge into Current"]
+    W --&gt; DL["Delete"]</code></pre>
+</blockquote>
+<hr />
+<h5 id="kata-1-obligatoria-cinturon-blanco-nivel-base-rama-featuremodulo-seguridad-commit-visual-y-comprobacion-de-aislamiento">Kata 1. Obligatoria (cinturón blanco / nivel base). Rama <code>feature/modulo-seguridad</code>, commit visual y comprobación de aislamiento<a class="headerlink" href="#kata-1-obligatoria-cinturon-blanco-nivel-base-rama-featuremodulo-seguridad-commit-visual-y-comprobacion-de-aislamiento" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Objetivo:</strong> crear una rama personal desde <code>main</code> con la herramienta gráfica del IDE, aplicar un cambio aislado y comprobar en <strong>Git Log</strong> que la rama principal no se ha modificado.</li>
+<li><strong>Misión:</strong><ol>
+<li><strong>Comprobar el punto de partida.</strong> Abre el proyecto en IntelliJ IDEA y verifica en el widget de Git (esquina inferior izquierda) que estás ubicado en <code>main</code> y que la pestaña <strong>Commit</strong> (<code>Alt + 0</code>) no tiene cambios pendientes de confirmación.</li>
+<li><strong>Crear la rama.</strong> Haz clic en el widget de Git ➔ <strong>New Branch...</strong> ➔ introduce el nombre <code>feature/modulo-seguridad</code> ➔ deja marcada la opción <strong>Checkout branch</strong> ➔ pulsa <strong>Create</strong>. Observa cómo el widget pasa a mostrar el nuevo nombre de rama.</li>
+<li><strong>Aplicar un cambio sencillo.</strong> Con la rama activa, abre una clase o archivo de configuración de tu proyecto y añade un comentario Javadoc formal o una constante de configuración (por ejemplo, <code>public static final int NIVEL_SEGURIDAD = 1;</code>).</li>
+<li><strong>Commit visual.</strong> Pulsa <strong><code>Ctrl + K</code></strong>, marca únicamente el archivo modificado, revisa el <em>Diff</em> haciendo doble clic sobre él y escribe el mensaje:<br />
+<code>feat(seguridad): primer avance del modulo de seguridad</code><br />
+   Pulsa el botón <strong>Commit</strong> (sin Push).</li>
+<li><strong>Verificación visual en Git Log.</strong> Abre la pestaña inferior <strong>Git</strong> (<code>Alt + 9</code>) ➔ <strong>Log</strong>. Comprueba visualmente que:<ul>
+<li>La etiqueta <code>feature/modulo-seguridad</code> (junto al indicador amarillo <code>HEAD</code>) apunta al commit recién creado.</li>
+<li>La etiqueta <code>main</code> se mantiene en el commit previo, <strong>sin el cambio realizado</strong>.</li>
+</ul>
+</li>
+<li><strong>Prueba práctica de aislamiento.</strong> Cambia a <code>main</code> desde el widget de Git (<strong>main ➔ Checkout</strong>). Comprueba que el archivo en el editor recupera su estado anterior y la constante desaparece. Vuelve a cambiar a tu rama (<strong>feature/modulo-seguridad ➔ Checkout</strong>) y confirma que el cambio reaparece intacto.</li>
+</ol>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Elemento verificado en Git Log</th>
+<th style="text-align: left;">Estado esperado tras la Kata 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Etiqueta <code>feature/modulo-seguridad</code> (<code>HEAD</code>)</td>
+<td style="text-align: left;">Apunta al commit nuevo recién realizado.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Etiqueta <code>main</code></td>
+<td style="text-align: left;">Permanece en el commit anterior, inalterada.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Contenido del archivo al hacer checkout a <code>main</code></td>
+<td style="text-align: left;">Vuelve a su estado original previo al cambio.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h5 id="kata-2-optativa-cinturon-marron-nivel-avanzado-inspeccion-con-compare-with-branch-diff-viewer">Kata 2. Optativa (cinturón marrón / nivel avanzado). Inspección con <em>Compare with Branch</em> (Diff Viewer)<a class="headerlink" href="#kata-2-optativa-cinturon-marron-nivel-avanzado-inspeccion-con-compare-with-branch-diff-viewer" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto técnico:</strong> antes de integrar una rama, el desarrollador debe revisar con exactitud qué líneas van a incorporarse a <code>main</code>.</li>
+<li><strong>Misión:</strong><ol>
+<li>Estando en <code>feature/modulo-seguridad</code>, añade un segundo ajuste menor (por ejemplo, documentar la constante introducida) y realiza un nuevo commit:<br />
+<code>docs(seguridad): documentada constante de nivel de acceso</code>.</li>
+<li>Despliega el widget de Git, selecciona la rama <code>main</code> y haz clic en <strong>Compare with Current</strong>.</li>
+<li>En la ventana <strong>Differences</strong>, haz doble clic sobre el archivo modificado para abrir el visor comparativo (<em>Diff Viewer</em>).</li>
+<li>Interpreta los colores del visor:</li>
+</ol>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Color en el Diff Viewer</th>
+<th style="text-align: left;">Significado técnico del cambio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Verde</strong></td>
+<td style="text-align: left;">Nuevas líneas agregadas en la rama de trabajo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Azul</strong></td>
+<td style="text-align: left;">Líneas preexistentes que han sido modificadas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gris</strong></td>
+<td style="text-align: left;">Líneas eliminadas respecto a la rama comparada.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h5 id="kata-3-optativa-cinturon-negro-hacker-azahartech-fusion-fast-forward-visual-y-borrado-seguro">Kata 3. Optativa (cinturón negro / «hacker AzaharTech»). Fusión Fast-Forward visual y borrado seguro<a class="headerlink" href="#kata-3-optativa-cinturon-negro-hacker-azahartech-fusion-fast-forward-visual-y-borrado-seguro" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto de arquitectura:</strong> cuando una tarea en rama está terminada y validada, se fusiona en <code>main</code> y la rama temporal se elimina para mantener la higiene del repositorio.</li>
+<li><strong>Misión:</strong><ol>
+<li>Cambia tu espacio de trabajo a la rama de destino: haz clic en el widget de Git ➔ <strong>main ➔ Checkout</strong>.</li>
+<li>Despliega de nuevo el widget de Git, haz clic sobre <code>feature/modulo-seguridad</code> y selecciona <strong>Merge into Current</strong>.</li>
+<li>Comprueba en <strong>Git Log</strong> que Git realiza un avance rápido (<em>Fast-Forward</em>): los punteros <code>main</code> y <code>feature/modulo-seguridad</code> señalan ahora al mismo commit.</li>
+<li>Verifica la compilación limpia del proyecto mediante el menú <strong>Build ➔ Build Project</strong>.</li>
+<li>Despliega el widget de Git, haz clic sobre <code>feature/modulo-seguridad</code> y selecciona <strong>Delete</strong>.</li>
+<li>Confirma que el commit permanece visible en el historial de <code>main</code> aunque la etiqueta de la rama haya desaparecido.</li>
+</ol>
+</li>
+</ul>
+<pre class="mermaid"><code>flowchart TD
+    A["Checkout a main"] --&gt; B["Merge feature/modulo-seguridad into main"]
+    B --&gt; C{"¿Compilación limpia?"}
+    C -- Sí --&gt; D["Delete rama feature"]
+    C -- No --&gt; E["Detenerse: auditar cambios"]</code></pre>
+<hr />
+<h4 id="entregables-de-la-sesion">Entregables de la sesión<a class="headerlink" href="#entregables-de-la-sesion" title="Permanent link">&para;</a></h4>
+<p>Al finalizar la sesión, el repositorio local debe mostrar el trabajo aislado en la rama correspondiente:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Elemento afectado en el proyecto</th>
+<th style="text-align: left;">Contenido técnico aportado</th>
+<th style="text-align: left;">Operación gráfica en IntelliJ IDEA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Archivo de código o configuración de tu proyecto</td>
+<td style="text-align: left;">Modificación aislada (comentario Javadoc o constante) realizada en la rama <code>feature/modulo-seguridad</code>.</td>
+<td style="text-align: left;">Widget de Git ➔ <strong>New Branch...</strong> ➔ <code>Ctrl + K</code> ➔ <strong>Commit</strong>. Mensaje: <code>feat(seguridad): primer avance del modulo de seguridad</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Estado del historial en Git Log</td>
+<td style="text-align: left;"><code>feature/modulo-seguridad</code> contiene el nuevo commit mientras <code>main</code> permanece intacta (o fusionada si se completó la Kata 3).</td>
+<td style="text-align: left;">Inspección visual en pestaña <strong>Git ➔ Log</strong> (<code>Alt + 9</code>).</td>
+</tr>
+</tbody>
+</table>
+<h5 id="pasos-visuales-paso-a-paso-en-intellij-idea">Pasos visuales paso a paso en IntelliJ IDEA:<a class="headerlink" href="#pasos-visuales-paso-a-paso-en-intellij-idea" title="Permanent link">&para;</a></h5>
+<ol>
+<li><strong>Verificar el contexto de trabajo.</strong> Comprueba en el widget de Git (esquina inferior derecha) que estás en <code>feature/modulo-seguridad</code>.</li>
+<li><strong>Abrir el panel de confirmación.</strong> Pulsa <strong><code>Ctrl + K</code></strong> (o pestaña lateral <strong>Commit</strong> / <code>Alt + 0</code>).</li>
+<li><strong>Auditoría visual previa.</strong> Haz doble clic sobre el archivo modificado para abrir el <em>Diff Viewer</em> y revisar los cambios.</li>
+<li><strong>Mensaje estructurado.</strong> Marca la casilla del archivo e introduce el mensaje con Conventional Commits:<br />
+<code>feat(seguridad): primer avance del modulo de seguridad</code></li>
+<li><strong>Confirmar commit local.</strong> Pulsa <strong>Commit</strong> (el cambio queda registrado exclusivamente en tu rama personal local).</li>
+</ol>
+<pre class="mermaid"><code>flowchart LR
+    S1["Widget: New Branch"] --&gt; S2["Aplicar cambio ligero"]
+    S2 --&gt; S3["Ctrl + K: Commit local"]
+    S3 --&gt; S4["Git Log: verificar aislamiento"]
+    S4 --&gt; S5["Opcional: Compare / Merge / Delete"]</code></pre>
+<hr />
+<h3 id="dia-20-1-sesion">Día 20 - 1 sesión<a class="headerlink" href="#dia-20-1-sesion" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="sesion-unica-taller-practico-dos-ramas-concurrentes-primer-conflicto-de-fusion-y-resolucion-visual">Sesión única. Taller práctico: dos ramas concurrentes, primer conflicto de fusión y resolución visual<a class="headerlink" href="#sesion-unica-taller-practico-dos-ramas-concurrentes-primer-conflicto-de-fusion-y-resolucion-visual" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="1-caso-guia-en-azahartech_1">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_1" title="Permanent link">&para;</a></h4>
+<p>Miércoles 18 de noviembre de 2026. Son las tres de la tarde en las oficinas de <strong>AzaharTech</strong>. Durante la jornada anterior, el equipo dominó la creación de ramas <code>feature/</code> y la verificación de aislamiento en <code>main</code>.</p>
+<p>Al iniciar la sesión, <strong>Laia Claramunt</strong> proyecta una incidencia real registrada en el repositorio del <strong>IES El Caminàs</strong>:</p>
+<blockquote>
+<p><em>«Ayer por la tarde, Alba y Pau trabajaron simultáneamente en dos ramas distintas para ajustar el archivo de configuración de seguridad. Alba cambió la directiva de acceso para indicar "Nivel: Restringido". Pau, en su propia rama, cambió esa misma línea por "Nivel: Solo personal docente". Cuando intentaron fusionar la segunda rama en <code>main</code>, Git se detuvo y mostró un aviso de</em> <strong><em>conflicto de fusión</em></strong>.*</p>
+<p><em>Un conflicto no es un error de programación ni un fallo del sistema. Aparece cuando dos ramas han modificado exactamente las mismas líneas de un archivo y Git no puede decidir de forma automática cuál debe prevalecer.</em></p>
+<p><em>Lo que distingue a un desarrollador profesional es no entrar en pánico: un conflicto en pausa no rompe nada en el disco. Hoy provocaremos un conflicto de forma controlada en nuestro proyecto y aprenderemos a resolverlo con el</em> <strong><em>asistente visual de tres paneles de IntelliJ IDEA</em></strong>, <em>registrando la experiencia en el documento técnico oficial del sprint:</em> <em><code>ed/docs/control-versiones.md</code>»</em>.</p>
+</blockquote>
+<hr />
+<h4 id="2-anatomia-de-un-conflicto-de-fusion-y-el-asistente-visual">2. Anatomía de un conflicto de fusión y el asistente visual<a class="headerlink" href="#2-anatomia-de-un-conflicto-de-fusion-y-el-asistente-visual" title="Permanent link">&para;</a></h4>
+<h5 id="cuando-se-produce-un-conflicto">¿Cuándo se produce un conflicto?<a class="headerlink" href="#cuando-se-produce-un-conflicto" title="Permanent link">&para;</a></h5>
+<p>Git integra ramas automáticamente cuando los cambios afectan a archivos distintos o a líneas separadas del mismo fichero. El conflicto surge exclusivamente ante modificaciones incompatibles sobre la misma zona:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Escenario de integración</th>
+<th style="text-align: center;">¿Provoca conflicto?</th>
+<th style="text-align: left;">Motivo técnico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Rama A edita <code>Archivo1</code>, Rama B edita <code>Archivo2</code></td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Cambios en ficheros independientes.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rama A y Rama B editan líneas distintas del mismo archivo</td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Git combina ambos bloques automáticamente.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rama A y Rama B editan <strong>la misma línea de texto</strong></td>
+<td style="text-align: center;"><strong>Sí</strong></td>
+<td style="text-align: left;">Ambigüedad: Git requiere criterio humano.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rama A modifica un archivo y Rama B lo elimina</td>
+<td style="text-align: center;"><strong>Sí</strong></td>
+<td style="text-align: left;">Incompatibilidad estructural directa.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="representacion-grafica-del-escenario-del-taller">Representación gráfica del escenario del taller<a class="headerlink" href="#representacion-grafica-del-escenario-del-taller" title="Permanent link">&para;</a></h5>
+<pre class="mermaid"><code>gitGraph
+   commit id: "Cierre Dia 19"
+   branch "feature/nivel-acceso-alba"
+   branch "feature/nivel-acceso-pau"
+   checkout "feature/nivel-acceso-alba"
+   commit id: "Nivel: Restringido"
+   checkout "feature/nivel-acceso-pau"
+   commit id: "Nivel: Solo docentes"
+   checkout main
+   merge "feature/nivel-acceso-alba" id: "Merge limpio (Alba)"
+   merge "feature/nivel-acceso-pau" id: "Conflicto resuelto (Pau)"</code></pre>
+<h5 id="flujo-de-resolucion-con-el-asistente-visual">Flujo de resolución con el asistente visual<a class="headerlink" href="#flujo-de-resolucion-con-el-asistente-visual" title="Permanent link">&para;</a></h5>
+<pre class="mermaid"><code>flowchart TD
+    A["Merge into Current"] --&gt; B{"¿Conflicto detectado?"}
+    B -- No --&gt; C["Fusión completada limpiamente"]
+    B -- Sí --&gt; D["IntelliJ abre cuadro Conflicts"]
+    D --&gt; E["Pulsar Merge... sobre el archivo"]
+    E --&gt; F["Asistente de 3 paneles (Left - Result - Right)"]
+    F --&gt; G{"Criterio técnico de integración"}
+    G -- Mantener versión actual --&gt; H["Accept Left"]
+    G -- Aceptar rama entrante --&gt; I["Accept Right"]
+    G -- Consensuar solución --&gt; J["Editar panel central Result a mano"]
+    H --&gt; K["Pulsar Apply"]
+    I --&gt; K
+    J --&gt; K
+    K --&gt; L["Commit de fusión verificado en Git Log"]</code></pre>
+<h5 id="el-asistente-de-resolucion-de-tres-paneles">El asistente de resolución de tres paneles<a class="headerlink" href="#el-asistente-de-resolucion-de-tres-paneles" title="Permanent link">&para;</a></h5>
+<p>Al pulsar el botón <strong>Merge...</strong> en la ventana de conflictos, IntelliJ IDEA abre su herramienta visual especializada:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Panel visual</th>
+<th style="text-align: left;">Denominación</th>
+<th style="text-align: left;">Qué representa en la integración</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Columna izquierda</strong></td>
+<td style="text-align: left;"><em>Left (Your Version)</em></td>
+<td style="text-align: left;">El estado actual de la rama en la que estás situado (<code>main</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Columna central</strong></td>
+<td style="text-align: left;"><em>Result</em></td>
+<td style="text-align: left;">El resultado final editable que se consolidará en el proyecto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Columna derecha</strong></td>
+<td style="text-align: left;"><em>Right (Their Version)</em></td>
+<td style="text-align: left;">El cambio que proviene de la rama que estás intentando fusionar.</td>
+</tr>
+</tbody>
+</table>
+<p>Mediante los botones <code>&gt;&gt;</code> y <code>&lt;&lt;</code> se incorporan cambios parciales al centro. Una vez que el panel central refleja la versión consensuada, se pulsa <strong>Apply</strong> para cerrar el conflicto limpiamente.</p>
+<hr />
+<h4 id="3-laboratorio-practico-provocacion-y-resolucion-de-conflicto-en-tu-proyecto">3. Laboratorio práctico. Provocación y resolución de conflicto en tu proyecto<a class="headerlink" href="#3-laboratorio-practico-provocacion-y-resolucion-de-conflicto-en-tu-proyecto" title="Permanent link">&para;</a></h4>
+<h5 id="fase-1-estado-inicial-en-main">Fase 1. Estado inicial en <code>main</code><a class="headerlink" href="#fase-1-estado-inicial-en-main" title="Permanent link">&para;</a></h5>
+<p>Asegúrate de estar en <code>main</code> sin cambios pendientes. Abre una clase de configuración o un archivo de tu proyecto y define una variable o comentario base:
+<code>// Nivel de acceso: PENDIENTE_CONFIGURAR</code><br />
+Haz commit en <code>main</code>: <code>chore(config): definida directiva base de acceso</code>.</p>
+<h5 id="fase-2-dos-ramas-desde-el-mismo-commit">Fase 2. Dos ramas desde el mismo commit<a class="headerlink" href="#fase-2-dos-ramas-desde-el-mismo-commit" title="Permanent link">&para;</a></h5>
+<ol>
+<li>Widget de Git ➔ <strong>New Branch...</strong> ➔ <code>feature/nivel-acceso-alba</code> ➔ <strong>Create</strong>.</li>
+<li>Modifica la línea por:<br />
+<code>// Nivel de acceso: RESTRINGIDO</code></li>
+<li>Haz commit (<code>Ctrl + K</code>): <code>feat(seguridad): configurado nivel restringido por alba</code>.</li>
+<li>Vuelve a <code>main</code> desde el widget (<strong>main ➔ Checkout</strong>).</li>
+<li>Widget de Git ➔ <strong>New Branch...</strong> ➔ <code>feature/nivel-acceso-pau</code> ➔ <strong>Create</strong>.</li>
+<li>Modifica exactamente la misma línea por:<br />
+<code>// Nivel de acceso: SOLO_DOCENTES</code></li>
+<li>Haz commit (<code>Ctrl + K</code>): <code>feat(seguridad): configurado nivel docentes por pau</code>.</li>
+</ol>
+<h5 id="fase-3-primera-fusion-limpia-y-segunda-fusion-con-conflicto">Fase 3. Primera fusión limpia y segunda fusión con conflicto<a class="headerlink" href="#fase-3-primera-fusion-limpia-y-segunda-fusion-con-conflicto" title="Permanent link">&para;</a></h5>
+<ol>
+<li>Haz checkout a <strong><code>main</code></strong>.</li>
+<li>Fusiona la rama de Alba: widget de Git ➔ <code>feature/nivel-acceso-alba</code> ➔ <strong>Merge into Current</strong>. La fusión se aplica sin problemas (<em>Fast-Forward</em>).</li>
+<li>Intenta fusionar la rama de Pau: widget de Git ➔ <code>feature/nivel-acceso-pau</code> ➔ <strong>Merge into Current</strong>.</li>
+<li>IntelliJ interrumpe el proceso y muestra la ventana emergente <strong>Conflicts</strong>.</li>
+</ol>
+<h5 id="fase-4-resolucion-visual-en-el-asistente">Fase 4. Resolución visual en el asistente<a class="headerlink" href="#fase-4-resolucion-visual-en-el-asistente" title="Permanent link">&para;</a></h5>
+<ol>
+<li>En el diálogo de conflictos, haz clic sobre el archivo afectado y pulsa <strong>Merge...</strong></li>
+<li>Se abrirá la vista de tres columnas (<em>Left</em>, <em>Result</em>, <em>Right</em>).</li>
+<li>En el panel central (<em>Result</em>), redacta la solución consensuada por el equipo:<br />
+<code>// Nivel de acceso: RESTRINGIDO_PERSONAL_DOCENTE</code></li>
+<li>Pulsa el botón <strong>Apply</strong>. El conflicto queda resuelto sin marcas residuales (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>).</li>
+<li>IntelliJ formaliza el <em>Merge Commit</em> automáticamente.</li>
+</ol>
+<h5 id="fase-5-limpieza-de-ramas-locales">Fase 5. Limpieza de ramas locales<a class="headerlink" href="#fase-5-limpieza-de-ramas-locales" title="Permanent link">&para;</a></h5>
+<ol>
+<li>Widget de Git ➔ <code>feature/nivel-acceso-alba</code> ➔ <strong>Delete</strong>.</li>
+<li>Widget de Git ➔ <code>feature/nivel-acceso-pau</code> ➔ <strong>Delete</strong>.</li>
+<li>Abre <strong>Git ➔ Log</strong> (<code>Alt + 9</code>) y comprueba el commit de fusión con dos líneas convergentes.</li>
+</ol>
+<hr />
+<h4 id="entregables-de-la-sesion_1">Entregables de la sesión<a class="headerlink" href="#entregables-de-la-sesion_1" title="Permanent link">&para;</a></h4>
+<p>Al finalizar la sesión, debes crear el documento técnico oficial del sprint en la ruta estándar del módulo: <strong><code>ed/docs/control-versiones.md</code></strong>, completando los Apartados 1 y 2:</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Entregable["Entregables del Día 20"]
+        D1["ed/docs/control-versiones.md"]
+        D2["Apartado 1: Aislamiento con ramas feature/"]
+        D3["Apartado 2: Resolucion visual de conflictos"]
+        D4["Commit y Push visual a main (Ctrl + Alt + K)"]
+    end
+    D1 --&gt; D2
+    D1 --&gt; D3
+    D2 --&gt; D4
+    D3 --&gt; D4</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Archivo en el repositorio</th>
+<th style="text-align: left;">Apartados a cumplimentar</th>
+<th style="text-align: left;">Operación gráfica en IntelliJ IDEA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>ed/docs/control-versiones.md</code></strong></td>
+<td style="text-align: left;"><strong>Apartado 1.</strong> Justificación del aislamiento con ramas.<br><strong>Apartado 2.</strong> Registro del conflicto provocado y resolución visual aplicada.</td>
+<td style="text-align: left;"><code>Ctrl + K</code> ➔ redacción de mensaje ➔ desplegar flecha ➔ <strong>Commit and Push...</strong> (<code>Ctrl + Alt + K</code>).</td>
+</tr>
+</tbody>
+</table>
+<h5 id="plantilla-obligatoria-a-incorporar-en-eddocscontrol-versionesmd">Plantilla obligatoria a incorporar en <code>ed/docs/control-versiones.md</code>:<a class="headerlink" href="#plantilla-obligatoria-a-incorporar-en-eddocscontrol-versionesmd" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="gh"># Memoria Técnica - Sprint 4: Control de versiones individual y documentación técnica</span>
+
+<span class="gu">## Apartado 1: Aislamiento funcional con ramas locales (`feature/`)</span>
+
+<span class="gu">### 1. Justificación técnica del principio de aislamiento</span>
+El desarrollo directo sobre la rama <span class="sb">`main`</span> compromete la estabilidad del proyecto entregable.
+El uso de ramas de características (<span class="sb">`feature/`</span>) permite aislar cambios en progreso, asegurando
+que la rama principal siempre compile limpiamente y esté disponible para el cliente.
+
+<span class="gu">### 2. Ciclo de vida y nomenclatura aplicada</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Patrón corporativo:**</span> <span class="sb">`feature/nombre-tarea`</span> (minúsculas y guiones).
+<span class="k">-</span><span class="w"> </span><span class="gs">**Ramas utilizadas en la sesión:**</span> <span class="sb">`feature/modulo-seguridad`</span>, <span class="sb">`feature/nivel-acceso-alba`</span>, <span class="sb">`feature/nivel-acceso-pau`</span>.
+
+---
+
+<span class="gu">## Apartado 2: Gestión y resolución visual de conflictos de fusión</span>
+
+<span class="gu">### 1. Origen del conflicto provocado</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Archivo afectado:**</span> <span class="sb">`[Ruta del archivo modificado, ej. src/main/java/.../Config.java]`</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Rama A (Alba):**</span> Modificó la línea con el valor <span class="sb">`RESTRINGIDO`</span>.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Rama B (Pau):**</span> Modificó exactamente la misma línea con el valor <span class="sb">`SOLO_DOCENTES`</span>.
+
+<span class="gu">### 2. Proceso de resolución con el asistente visual</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Herramienta empleada:**</span> Asistente de fusión de 3 paneles (<span class="ge">*Merge Tool*</span>) de IntelliJ IDEA.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Decisión técnica adoptada:**</span> Consensuar la integración combinando ambos requisitos.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Resultado consolidado en el panel Result:**</span> <span class="sb">`RESTRINGIDO_PERSONAL_DOCENTE`</span>.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Verificación posterior:**</span> Fusión cerrada sin marcas textuales de conflicto y compilación verificada.
+
+<span class="gu">### 3. Diagrama del historial consolidado (Mermaid)</span>
+
+```mermaid
+gitGraph
+   commit id: "Base inicial"
+   branch feature/alba
+   branch feature/pau
+   checkout feature/alba
+   commit id: "Cambio Alba"
+   checkout feature/pau
+   commit id: "Cambio Pau"
+   checkout main
+   merge feature/alba id: "Merge Alba"
+   merge feature/pau id: "Merge conflicto resuelto"
+</code></pre></div>
+<h5 id="pasos-visuales-para-el-commit-y-push-en-intellij-idea">Pasos visuales para el commit y push en IntelliJ IDEA:<a class="headerlink" href="#pasos-visuales-para-el-commit-y-push-en-intellij-idea" title="Permanent link">&para;</a></h5>
+<ol>
+<li>Verifica en el widget de Git que estás situado en <strong><code>main</code></strong>.</li>
+<li>Pulsa <strong><code>Ctrl + K</code></strong> (o pestaña lateral <strong>Commit</strong>).</li>
+<li>Marca la casilla del nuevo archivo <code>ed/docs/control-versiones.md</code>.</li>
+<li>Escribe el mensaje formal estructurado:<br />
+<code>docs(git): creado control-versiones.md con apartados 1 y 2 de ramas y conflictos</code></li>
+<li>Despliega la flecha del botón azul y selecciona <strong>Commit and Push...</strong> (<code>Ctrl + Alt + K</code>).</li>
+<li>En el cuadro de diálogo <em>Push Commits</em>, confirma que el destino remoto es <code>origin/main</code> y pulsa el botón azul <strong>Push</strong>.</li>
+</ol>
+<pre class="mermaid"><code>flowchart LR
+    S1["Fusión de Alba en main"] --&gt; S2["Fusión de Pau (Conflicto)"]
+    S2 --&gt; S3["Asistente 3 paneles: Apply"]
+    S3 --&gt; S4["Crear ed/docs/control-versiones.md"]
+    S4 --&gt; S5["Commit and Push visual a main"]</code></pre>
+<h2 id="semana-11-documentacion-tecnica-javadoc-y-markdown">Semana 11. Documentación técnica: Javadoc y Markdown<a class="headerlink" href="#semana-11-documentacion-tecnica-javadoc-y-markdown" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="dia-21-2-sesiones">Día 21 - 2 sesiones<a class="headerlink" href="#dia-21-2-sesiones" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="primera-sesion-teoria-el-codigo-que-se-explica-solo-javadoc-y-documentacion-de-api">Primera sesión. Teoría. El código que se explica solo: Javadoc y documentación de API<a class="headerlink" href="#primera-sesion-teoria-el-codigo-que-se-explica-solo-javadoc-y-documentacion-de-api" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="1-caso-guia-en-azahartech_2">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_2" title="Permanent link">&para;</a></h4>
+<p>Lunes 23 de noviembre de 2026. Son las tres de la tarde en la sede de <strong>AzaharTech</strong> en Castellón de la Plana. Tras haber superado la semana anterior la resolución visual de conflictos, el equipo encara la segunda semana del <strong>Sprint 4</strong>.</p>
+<p>Al abrir la jornada técnica, <strong>Laia Claramunt</strong> proyecta un correo urgente remitido por el coordinador de infraestructuras del <strong>IES El Caminàs</strong>:</p>
+<blockquote>
+<p><em>«Equipo, el instituto ha incorporado hoy a un técnico informático para mantener el módulo de accesos. Al revisar la clase <code>Credencial</code> que programasteis, se ha encontrado con métodos sin documentar: no sabe qué rango de valores admite el constructor, qué formato devuelve <code>permiteAcceso()</code> ni por qué el atributo <code>nivelAcceso</code> es privado. Ha perdido dos horas deduciéndolo leyendo el código línea a línea.</em></p>
+<p><em>Esa pérdida de tiempo es el síntoma inequívoco de un proyecto con <strong>deuda técnica documental</strong>. En Programación ya estáis creando clases propias con constructores, atributos y métodos <code>public</code> y <code>private</code>. Cada línea de código que escribáis hoy será leída mañana por otra persona, o por vosotros mismos dentro de tres meses.</em></p>
+<p><em>Hoy aprenderemos a documentar con <strong>Javadoc</strong>, el estándar oficial de Java, y a generar la documentación técnica navegable desde IntelliJ IDEA. Y lo haremos aplicando el flujo profesional que aprendisteis la semana pasada: trabajando en una rama aislada, <strong><code>feature/documentacion-javadoc</code></strong>, sin tocar jamás directamente la rama <code>main</code>»</em>.</p>
+</blockquote>
+<p><strong>Alba Torres</strong> pregunta con curiosidad: <em>«¿Y no bastaría con poner comentarios de una línea con <code>//</code>?»</em>. <strong>Pau Ferrer</strong> niega con la cabeza: <em>«Un comentario <code>//</code> solo lo lee quien abre el archivo y se pone a bucear en su código fuente. Un bloque Javadoc lo interpreta el propio IDE, lo muestra al pasar el ratón por encima del método y es capaz de compilar un sitio web interactivo para el cliente»</em>.</p>
+<hr />
+<h4 id="2-tres-niveles-de-documentacion-y-anatomia-de-un-bloque-javadoc">2. Tres niveles de documentación y anatomía de un bloque Javadoc<a class="headerlink" href="#2-tres-niveles-de-documentacion-y-anatomia-de-un-bloque-javadoc" title="Permanent link">&para;</a></h4>
+<p>En el desarrollo de software industrial coexisten tres niveles documentales complementarios:</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Niveles["Los tres niveles documentales del software"]
+        N1["1. Comentario de línea //"] --&gt;|"Dirigido a: desarrollador interno"| U1["Explica el PORQUÉ de un cálculo delicado"]
+        N2["2. Documentación Javadoc /** */"] --&gt;|"Dirigido a: desarrollador cliente / API"| U2["Define el CONTRATO público (qué hace y cómo se usa)"]
+        N3["3. Portal README.md"] --&gt;|"Dirigido a: usuario y técnicos externos"| U3["Describe el PROYECTO, requisitos y compilación"]
+    end</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nivel documental</th>
+<th style="text-align: left;">Herramienta</th>
+<th style="text-align: left;">A quien va dirigido</th>
+<th style="text-align: left;">Ubicación física</th>
+<th style="text-align: left;">Propósito técnico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Comentario de línea</strong></td>
+<td style="text-align: left;"><code>// texto</code></td>
+<td style="text-align: left;">Desarrollador que modifica el interior del método.</td>
+<td style="text-align: left;">En el cuerpo del algoritmo.</td>
+<td style="text-align: left;">Justificar una optimización o un algoritmo complejo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Documentación de API</strong></td>
+<td style="text-align: left;">Javadoc <code>/** ... */</code></td>
+<td style="text-align: left;">Desarrollador que consume la clase desde fuera.</td>
+<td style="text-align: left;">Antes de clases, constructores y métodos.</td>
+<td style="text-align: left;">Definir el contrato de uso sin mostrar el código fuente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Documentación de proyecto</strong></td>
+<td style="text-align: left;">Markdown (<code>README.md</code>)</td>
+<td style="text-align: left;">Quien clona o evalúa el repositorio por primera vez.</td>
+<td style="text-align: left;">En la raíz del proyecto.</td>
+<td style="text-align: left;">Explicar arquitectura, requisitos y comandos de construcción.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="anatomia-y-etiquetas-esenciales-de-javadoc">Anatomía y etiquetas esenciales de Javadoc<a class="headerlink" href="#anatomia-y-etiquetas-esenciales-de-javadoc" title="Permanent link">&para;</a></h5>
+<p>Un bloque Javadoc se coloca inmediatamente encima de la cabecera de la clase o método que documenta, iniciándose con <code>/**</code> y empleando etiquetas normalizadas que comienzan por <code>@</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Representa la credencial de acceso para los usuarios del IES El Caminàs.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Alba Torres (AzaharTech)</span>
+<span class="cm"> * @version 1.0.0</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Credencial</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">dni</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nivelAcceso</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Construye una credencial validando los datos obligatorios de entrada.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param dni Documento de identidad del usuario; no puede ser nulo ni vacío.</span>
+<span class="cm">     * @param nivelAcceso Nivel asignado entre 1 (restringido) y 3 (total).</span>
+<span class="cm">     * @throws IllegalArgumentException Si el DNI está vacío o el nivel fuera de rango.</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Credencial</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">dni</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nivelAcceso</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dni</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">dni</span><span class="p">.</span><span class="na">isBlank</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nivelAcceso</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nivelAcceso</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Datos de credencial no válidos."</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">dni</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dni</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">nivelAcceso</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nivelAcceso</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Evalúa si la credencial autoriza la apertura de un torno con un nivel dado.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param nivelTorno Nivel mínimo de seguridad exigido por el torno.</span>
+<span class="cm">     * @return {@code true} si el nivel de la credencial es igual o superior; {@code false} en caso contrario.</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">permiteAcceso</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nivelTorno</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">nivelAcceso</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">nivelTorno</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h5 id="criterios-de-calidad-que-documentar-y-que-omitir">Criterios de calidad: qué documentar y qué omitir<a class="headerlink" href="#criterios-de-calidad-que-documentar-y-que-omitir" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Elemento Java</th>
+<th style="text-align: center;">¿Requiere Javadoc?</th>
+<th style="text-align: left;">Criterio técnico corporativo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Clase <code>public</code></strong></td>
+<td style="text-align: center;"><strong>Obligatorio</strong></td>
+<td style="text-align: left;">Describe el propósito de la entidad en el dominio del negocio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Constructores y métodos <code>public</code></strong></td>
+<td style="text-align: center;"><strong>Obligatorio</strong></td>
+<td style="text-align: left;">Forman el contrato de uso para el resto del equipo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Métodos y atributos <code>private</code></strong></td>
+<td style="text-align: center;"><strong>Opcional</strong></td>
+<td style="text-align: left;">Son detalles internos de implementación; basta un comentario <code>//</code> si son complejos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Getters / Setters triviales</strong></td>
+<td style="text-align: center;"><strong>Mínimo</strong></td>
+<td style="text-align: left;">Evitar redundancias obvias (por ejemplo: <code>getNombre()</code> no necesita tres párrafos; una línea basta).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="3-el-ciclo-de-vida-de-la-documentacion-en-ramas-de-git">3. El ciclo de vida de la documentación en ramas de Git<a class="headerlink" href="#3-el-ciclo-de-vida-de-la-documentacion-en-ramas-de-git" title="Permanent link">&para;</a></h4>
+<p>En AzaharTech la documentación no se añade de forma desordenada en producción. Se aísla en su propia rama de característica:</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "Cierre Dia 20"
+   branch "feature/documentacion-javadoc"
+   checkout "feature/documentacion-javadoc"
+   commit id: "docs: javadoc clase principal"
+   commit id: "docs: javadoc constructores y metodos"
+   checkout main</code></pre>
+<pre class="mermaid"><code>flowchart LR
+    A["src/main/java/*.java (Javadoc)"] --&gt; B["IntelliJ IDEA (Quick Doc: Ctrl + Q)"]
+    A --&gt; C["Tools -&gt; Generate JavaDoc..."]
+    C --&gt; D["target/site/apidocs/index.html (Web estática navegable)"]</code></pre>
+<hr />
+<h4 id="4-actividad-activa-interactiva-detective-de-documentacion-en-la-pizarra">4. Actividad activa interactiva: «Detective de documentación» en la pizarra<a class="headerlink" href="#4-actividad-activa-interactiva-detective-de-documentacion-en-la-pizarra" title="Permanent link">&para;</a></h4>
+<p>Alba y Pau proyectan un extracto de código con Javadoc defectuoso extraído de un commit de prueba:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Comprueba el acceso.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param nivel el nivel</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">permiteAcceso</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nivelTorno</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">nivelAcceso</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">nivelTorno</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><em>Dinámica en parejas (10 minutos):</em></p>
+<ol>
+<li><strong>Caza de defectos (4 min).</strong> Cada pareja detecta y anota los tres errores del bloque:<ul>
+<li>El nombre de <code>@param nivel</code> no coincide con el identificador real del parámetro (<code>nivelTorno</code>).</li>
+<li>Falta la etiqueta obligatoria <code>@return</code>.</li>
+<li>La descripción «Comprueba el acceso» no explica el criterio de evaluación ni las condiciones booleanas de salida.</li>
+</ul>
+</li>
+<li><strong>Reescritura técnica (4 min).</strong> Cada pareja redacta la versión corregida definiendo precondiciones y el significado de los valores devueltos.</li>
+<li><strong>Puesta en común (2 min).</strong> Un voluntario escribe la solución en la pizarra y el grupo comprueba que, al pasar el ratón en IntelliJ (o pulsar <strong><code>Ctrl + Q</code></strong>), el IDE interpreta el formato sin advertencias.</li>
+</ol>
+<hr />
+<h4 id="segunda-sesion-dojo-de-herramientas-y-katas_1">Segunda sesión: dojo de herramientas y katas<a class="headerlink" href="#segunda-sesion-dojo-de-herramientas-y-katas_1" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Dinámica del dojo de entrenamiento:</strong></p>
+<ul>
+<li>La <strong>Kata 1 es obligatoria</strong>: crea la rama <code>feature/documentacion-javadoc</code>, documenta formalmente una clase de tu proyecto y verifica la ayuda contextual en el IDE.</li>
+<li>Las <strong>Katas 2 y 3 son optativas y de ampliación</strong>: permiten compilar la documentación web completa y depurar advertencias mediante las inspecciones automáticas de IntelliJ IDEA.</li>
+</ul>
+</blockquote>
+<hr />
+<h5 id="kata-1-obligatoria-cinturon-blanco-nivel-base-documentacion-formal-en-la-rama-featuredocumentacion-javadoc">Kata 1. Obligatoria (cinturón blanco / nivel base). Documentación formal en la rama <code>feature/documentacion-javadoc</code><a class="headerlink" href="#kata-1-obligatoria-cinturon-blanco-nivel-base-documentacion-formal-en-la-rama-featuredocumentacion-javadoc" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Objetivo:</strong> crear una rama de desarrollo, documentar con sintaxis Javadoc una clase propia de tu proyecto y verificar su visualización en IntelliJ IDEA mediante <em>Quick Documentation</em>.</li>
+<li><strong>Misión:</strong><ol>
+<li>Comprueba en el widget de Git (esquina inferior derecha) que estás ubicado en <strong><code>main</code></strong> y sin cambios pendientes.</li>
+<li>Haz clic en el widget de Git ➔ <strong>New Branch...</strong> ➔ introduce el nombre <code>feature/documentacion-javadoc</code> ➔ pulsa <strong>Create</strong>.</li>
+<li>Abre la clase principal de tu proyecto (o la clase de dominio que estás programando en Programación).</li>
+<li>En la línea superior a la clase, escribe <code>/**</code> y pulsa <strong>Intro</strong>: IntelliJ generará automáticamente el esqueleto con <code>@author</code> y <code>@version</code>.</li>
+<li>Repite la operación encima del constructor y de al menos dos métodos públicos: completa las etiquetas <code>@param</code>, <code>@return</code> y <code>@throws</code> detallando rangos y condiciones.</li>
+<li><strong>Verificación interactiva:</strong> Pasa el ratón sobre una llamada al método o sitúa el cursor en él y pulsa <strong><code>Ctrl + Q</code></strong> (en Windows/Linux) o <strong><code>F1</code></strong> (en macOS). Verifica que la ventana flotante renderiza el texto formateado con sus parámetros.</li>
+<li><strong>Commit visual:</strong> Pulsa <strong><code>Ctrl + K</code></strong>, marca el archivo de la clase y confirma localmente con el mensaje:<br />
+<code>docs(javadoc): documentada la api publica de la clase principal</code>.</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h5 id="kata-2-optativa-cinturon-marron-nivel-avanzado-generacion-del-portal-html-con-generate-javadoc">Kata 2. Optativa (cinturón marrón / nivel avanzado). Generación del portal HTML con <em>Generate JavaDoc...</em><a class="headerlink" href="#kata-2-optativa-cinturon-marron-nivel-avanzado-generacion-del-portal-html-con-generate-javadoc" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto técnico:</strong> el Javadoc se compila como un sitio web estático navegable que se entrega al cliente como documentación viva de la API.</li>
+<li><strong>Misión:</strong><ol>
+<li>Ve al menú superior <strong>Tools ➔ Generate JavaDoc...</strong></li>
+<li>En <em>Scope</em>, selecciona <strong>Current File</strong> o tu paquete principal.</li>
+<li>En <em>Output directory</em>, selecciona la ruta estándar de construcción: <code>target/site/apidocs</code>.</li>
+<li>En el selector de visibilidad, marca <strong>Public</strong> (para que solo documente la API accesible y no los detalles privados).</li>
+<li>Pulsa <strong>Generate</strong>.</li>
+<li>Una vez completado, localiza el archivo <code>target/site/apidocs/index.html</code> en el árbol de archivos, haz clic derecho ➔ <strong>Open in ➔ Browser</strong>.</li>
+<li>Navega por las páginas generadas y audita que tu clase y sus métodos aparecen con descripciones nítidas.</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h5 id="kata-3-optativa-cinturon-negro-hacker-azahartech-auditoria-automatica-con-inspecciones-de-codigo">Kata 3. Optativa (cinturón negro / «hacker AzaharTech»). Auditoría automática con inspecciones de código<a class="headerlink" href="#kata-3-optativa-cinturon-negro-hacker-azahartech-auditoria-automatica-con-inspecciones-de-codigo" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto de arquitectura:</strong> en equipos profesionales, nadie revisa etiquetas a mano; IntelliJ IDEA incluye un motor de inspección estática que detecta discrepancias documentales en tiempo real.</li>
+<li><strong>Misión:</strong><ol>
+<li>Introduce deliberadamente un error de prueba en tu clase: cambia el nombre de una etiqueta <code>@param</code> para que no coincida con el argumento real del método. Observa el subrayado amarillo de advertencia.</li>
+<li>Ve al menú <strong>Code ➔ Inspect Code...</strong> ➔ selecciona <strong>Whole project</strong> ➔ pulsa <strong>Analyze</strong>.</li>
+<li>En la ventana inferior de resultados, despliega la sección <strong>Java ➔ Javadoc</strong>.</li>
+<li>Haz clic en cada aviso y pulsa <strong><code>Alt + Intro</code></strong> para aplicar las soluciones rápidas automáticas sugeridas por el IDE.</li>
+<li>Vuelve a ejecutar la inspección hasta obtener <strong>0 avisos de Javadoc</strong> en tus clases.</li>
+<li>Haz un commit local en tu rama: <code>docs(javadoc): subsanadas advertencias de la inspeccion estatica</code>.</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h4 id="entregables-de-la-sesion_2">Entregables de la sesión<a class="headerlink" href="#entregables-de-la-sesion_2" title="Permanent link">&para;</a></h4>
+<p>Al finalizar el taller, el repositorio debe reflejar el trabajo aislado en la rama de documentación:</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Entregable["Entregables del Día 21"]
+        E1["src/main/java/... (Clase con Javadoc formal)"]
+        E2["ed/docs/control-versiones.md (Apartado 3)"]
+        E3["Rama activa: feature/documentacion-javadoc"]
+        E4["Commit local visual en la rama (Ctrl + K)"]
+    end
+    E1 --&gt; E4
+    E2 --&gt; E4
+    E3 --&gt; E4</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Elemento en el proyecto</th>
+<th style="text-align: left;">Contenido técnico aportado</th>
+<th style="text-align: left;">Operación gráfica en IntelliJ IDEA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Clase Java documentada</strong></td>
+<td style="text-align: left;">Cabecera de clase, constructor y al menos dos métodos <code>public</code> documentados con <code>@param</code>, <code>@return</code> y <code>@throws</code>.</td>
+<td style="text-align: left;">Edición asistida con <code>/**</code> + Intro ➔ verificación con <code>Ctrl + Q</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ed/docs/control-versiones.md</code></strong></td>
+<td style="text-align: left;"><strong>Apartado 3.</strong> Registro de etiquetas utilizadas, clase documentada y verificación con <em>Quick Documentation</em>.</td>
+<td style="text-align: left;">Edición de Markdown ➔ <code>Ctrl + K</code> ➔ <strong>Commit</strong> local en la rama <code>feature/documentacion-javadoc</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Historial en Git Log</strong></td>
+<td style="text-align: left;">La rama <code>feature/documentacion-javadoc</code> contiene los nuevos commits, mientras <code>main</code> permanece intacta.</td>
+<td style="text-align: left;">Comprobación visual en pestaña <strong>Git ➔ Log</strong> (<code>Alt + 9</code>).</td>
+</tr>
+</tbody>
+</table>
+<h5 id="plantilla-obligatoria-a-incorporar-en-eddocscontrol-versionesmd_1">Plantilla obligatoria a incorporar en <code>ed/docs/control-versiones.md</code>:<a class="headerlink" href="#plantilla-obligatoria-a-incorporar-en-eddocscontrol-versionesmd_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="gu">## Apartado 3: Documentación técnica del código con Javadoc</span>
+
+<span class="gu">### 1. Clase documentada y contexto de trabajo</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Clase auditada:**</span> <span class="sb">`[Nombre de la clase Java de tu proyecto]`</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Rama de trabajo activa:**</span> <span class="sb">`feature/documentacion-javadoc`</span>
+
+<span class="gu">### 2. Elementos documentados y etiquetas aplicadas</span>
+| Elemento Java | Visibilidad | Etiquetas Javadoc empleadas | Propósito técnico |
+| :--- | :--- | :--- | :--- |
+| Clase | <span class="sb">`public`</span> | <span class="sb">`@author`</span>, <span class="sb">`@version`</span> | Identificación del módulo y versión semántica. |
+| Constructor | <span class="sb">`public`</span> | <span class="sb">`@param`</span>, <span class="sb">`@throws`</span> | Validación de parámetros de entrada obligatorios. |
+| Método <span class="sb">`[nombre1]`</span> | <span class="sb">`public`</span> | <span class="sb">`@param`</span>, <span class="sb">`@return`</span> | Contrato de cálculo o verificación de estado. |
+| Método <span class="sb">`[nombre2]`</span> | <span class="sb">`public`</span> | <span class="sb">`@param`</span>, <span class="sb">`@return`</span>, <span class="sb">`@throws`</span> | Lógica de negocio con control de excepciones. |
+
+<span class="gu">### 3. Verificación de calidad en el entorno</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Visualización contextual (Ctrl + Q):**</span> [Confirmar que la ventana Quick Documentation renderiza el formato correctamente].
+<span class="k">-</span><span class="w"> </span><span class="gs">**Inspección de código (Code Inspect):**</span> [Indicar si se superó con 0 advertencias o qué discrepancias se corrigieron].
+</code></pre></div>
+<h5 id="pasos-visuales-paso-a-paso-en-intellij-idea_1">Pasos visuales paso a paso en IntelliJ IDEA:<a class="headerlink" href="#pasos-visuales-paso-a-paso-en-intellij-idea_1" title="Permanent link">&para;</a></h5>
+<ol>
+<li><strong>Verificar rama activa.</strong> Confirma en el widget de Git inferior que estás en <code>feature/documentacion-javadoc</code> y <strong>no</strong> en <code>main</code>.</li>
+<li><strong>Abrir ventana de confirmación.</strong> Pulsa <strong><code>Ctrl + K</code></strong> (o pestaña lateral izquierda <strong>Commit</strong>).</li>
+<li><strong>Auditoría visual (Diff Viewer).</strong> Haz doble clic sobre los archivos modificados para verificar que solo se han añadido comentarios Javadoc y el Apartado 3 de la memoria.</li>
+<li><strong>Mensaje formal.</strong> Introduce el mensaje estructurado con Conventional Commits:<br />
+<code>docs(javadoc): documentada la api publica de la clase principal</code></li>
+<li><strong>Confirmar commit local.</strong> Haz clic en el botón azul <strong>Commit</strong> (sin Push; la integración en <code>main</code> se completará en la siguiente sesión).</li>
+</ol>
+<pre class="mermaid"><code>flowchart LR
+    S1["Widget: New Branch feature/documentacion-javadoc"] --&gt; S2["Escribir Javadoc y Apartado 3"]
+    S2 --&gt; S3["Ctrl + Q: Validar tooltips"]
+    S3 --&gt; S4["Ctrl + K: Commit local en rama"]
+    S4 --&gt; S5["Git Log: Verificar main intacta"]</code></pre>
+<hr />
+<h3 id="dia-22-1-sesion">Día 22 - 1 sesión<a class="headerlink" href="#dia-22-1-sesion" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="sesion-unica-taller-practico-readme-corporativo-integracion-multiple-de-ramas-y-verificacion-en-main">Sesión única. Taller práctico: README corporativo, integración múltiple de ramas y verificación en <code>main</code><a class="headerlink" href="#sesion-unica-taller-practico-readme-corporativo-integracion-multiple-de-ramas-y-verificacion-en-main" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="1-caso-guia-en-azahartech_3">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_3" title="Permanent link">&para;</a></h4>
+<p>Miércoles 25 de noviembre de 2026. Son las tres de la tarde en las oficinas de <strong>AzaharTech</strong>.</p>
+<p>Laia Claramunt y Pau Ferrer proyectan en pantalla la vista web del repositorio del <strong>IES El Caminàs</strong> en GitHub. La portada muestra únicamente un archivo <code>README.md</code> desactualizado desde el Sprint 2:</p>
+<blockquote>
+<p><em>«Mirad la pantalla principal de nuestro repositorio. Si un evaluador externo o el coordinador del centro clona el proyecto, se encuentra con carpetas de código pero sin ninguna explicación de qué resuelve el sistema, qué requisitos técnicos exige o cómo se compila.</em></p>
+<p><em>El archivo <strong><code>README.md</code> es la puerta de entrada y la tarjeta de presentación</strong> de cualquier desarrollo profesional. Hoy completaremos una práctica de integración real de ingeniería:</em>
+1. <em>Redactaremos un <code>README.md</code> profesional en una rama independiente:</em> <em><code>feature/readme</code>.</em>
+2. <em>Haremos checkout a <code>main</code> e integraremos de forma secuencial <strong>ambas ramas</strong> (la de Javadoc del lunes y la del README de hoy).</em>
+3. <em>Verificaremos que <code>main</code> compila limpiamente de extremo a extremo sin advertencias.</em>
+4. <em>Registraremos el hito documental mediante el Apartado 4 en nuestro documento oficial:</em> <em><code>ed/docs/control-versiones.md</code>»</em> [10].</p>
+</blockquote>
+<hr />
+<h4 id="2-la-puerta-de-entrada-al-repositorio-y-la-integracion-secuencial">2. La puerta de entrada al repositorio y la integración secuencial<a class="headerlink" href="#2-la-puerta-de-entrada-al-repositorio-y-la-integracion-secuencial" title="Permanent link">&para;</a></h4>
+<h5 id="estructura-minima-de-un-readmemd-corporativo-en-azahartech">Estructura mínima de un <code>README.md</code> corporativo en AzaharTech<a class="headerlink" href="#estructura-minima-de-un-readmemd-corporativo-en-azahartech" title="Permanent link">&para;</a></h5>
+<p>Un <code>README.md</code> profesional debe resolver de forma inmediata las necesidades de instalación y uso de cualquier técnico:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sección obligatoria</th>
+<th style="text-align: left;">Pregunta técnica que responde</th>
+<th style="text-align: left;">Contenido esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Título y descripción</strong></td>
+<td style="text-align: left;">¿Qué es este sistema y a quién sirve?</td>
+<td style="text-align: left;">Nombre oficial, descripción ejecutiva del reto y vinculación con el cliente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Requisitos de entorno</strong></td>
+<td style="text-align: left;">¿Qué herramientas necesito para ejecutarlo?</td>
+<td style="text-align: left;">Versión del JDK (OpenJDK 21 LTS) y versión mínima de Maven (3.9+).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Estructura del proyecto</strong></td>
+<td style="text-align: left;">¿Dónde reside cada elemento de la solución?</td>
+<td style="text-align: left;">Diagrama de directorios respetando la convención Maven (<code>src/</code>, <code>ed/docs/</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Compilación y ejecución</strong></td>
+<td style="text-align: left;">¿Cómo se construye el software sin depender del IDE?</td>
+<td style="text-align: left;">Comandos Maven estándar (<code>mvn clean compile</code>, <code>mvn javadoc:javadoc</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Estado y trazabilidad</strong></td>
+<td style="text-align: left;">¿En qué hito del desarrollo nos encontramos?</td>
+<td style="text-align: left;">Indicación del Sprint 4 en curso y estado de verificación.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="el-plan-de-integracion-de-multiples-ramas">El plan de integración de múltiples ramas<a class="headerlink" href="#el-plan-de-integracion-de-multiples-ramas" title="Permanent link">&para;</a></h5>
+<p>Durante esta sesión consolidaremos dos líneas de desarrollo concurrentes hacia la rama principal:</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "Cierre Dia 20"
+   branch "feature/documentacion-javadoc"
+   checkout "feature/documentacion-javadoc"
+   commit id: "docs: Javadoc clase"
+   checkout main
+   branch "feature/readme"
+   checkout "feature/readme"
+   commit id: "docs: README corporativo"
+   checkout main
+   merge "feature/documentacion-javadoc" id: "1. Integra Javadoc"
+   merge "feature/readme" id: "2. Integra README"
+   commit id: "docs: Apartado 4 completado"</code></pre>
+<pre class="mermaid"><code>flowchart TD
+    A["Verificar estado limpio en main"] --&gt; B["Crear rama feature/readme"]
+    B --&gt; C["Redactar README.md y commit local"]
+    C --&gt; D["Checkout a main"]
+    D --&gt; E["Merge into Current: feature/documentacion-javadoc"]
+    E --&gt; F["Merge into Current: feature/readme"]
+    F --&gt; G{"¿Compilación limpia en main?"}
+    G -- Fallo --&gt; H["Corregir antes de continuar"]
+    G -- Éxito --&gt; I["Redactar Apartado 4 en control-versiones.md"]
+    I --&gt; J["Commit and Push visual a origin/main"]
+    J --&gt; K["Eliminar ramas temporales locales"]</code></pre>
+<hr />
+<h4 id="3-laboratorio-practico-construccion-en-rama-y-fusion-doble-en-main">3. Laboratorio práctico: Construcción en rama y fusión doble en <code>main</code><a class="headerlink" href="#3-laboratorio-practico-construccion-en-rama-y-fusion-doble-en-main" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Dinámica de laboratorio:</strong></p>
+<ul>
+<li>La actividad se ejecuta individualmente en el repositorio personal siguiendo el protocolo de cuatro fases.</li>
+<li>Las ramas tocan archivos distintos (<code>src/</code> y la raíz), por lo que la integración se aplicará de forma limpia sin colisiones de texto.</li>
+</ul>
+</blockquote>
+<h5 id="fase-1-redaccion-del-readme-en-la-rama-featurereadme">Fase 1. Redacción del README en la rama <code>feature/readme</code><a class="headerlink" href="#fase-1-redaccion-del-readme-en-la-rama-featurereadme" title="Permanent link">&para;</a></h5>
+<ol>
+<li>Comprueba en el widget de Git que estás en <code>main</code>.</li>
+<li>Widget de Git ➔ <strong>New Branch...</strong> ➔ <code>feature/readme</code> ➔ <strong>Create</strong>.</li>
+<li>Abre el archivo <code>README.md</code> situado en la raíz de tu proyecto (o créalo si no existiera mediante clic derecho en la raíz ➔ <strong>New ➔ File ➔ README.md</strong>).</li>
+<li>Activa la vista dividida (<em>Split Editor</em>) en IntelliJ IDEA para previsualizar el formato mientras escribes.</li>
+<li>Completa la estructura técnica adaptándola a tu proyecto de la bolsa:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="gh"># [Nombre del Proyecto] — AzaharTech</span>
+
+<span class="k">&gt; </span><span class="ge">Incremento de software correspondiente al **Sprint 4 (Semana 11)**.  </span>
+<span class="k">&gt; </span><span class="ge">Módulo desarrollado para el cliente **IES El Caminàs**.</span>
+
+---
+
+<span class="gu">## 1. Descripción del proyecto</span>
+[Breve descripción de 3 o 4 líneas resumiendo el problema que resuelve la aplicación y sus características principales].
+
+<span class="gu">## 2. Requisitos de entorno</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Java Development Kit:**</span> OpenJDK 21 LTS.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Herramienta de construcción:**</span> Apache Maven 3.9+.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Entorno de desarrollo:**</span> IntelliJ IDEA Community / Ultimate 2026.2+.
+
+<span class="gu">## 3. Estructura del repositorio</span>
+```text
+azahartech/tu-equipo/tus-apellidos-nombre/
+├── README.md                          &lt;-- Portal técnico de aterrizaje
+├── pom.xml                            &lt;-- Descriptor Maven y dependencias
+├── .gitignore                         &lt;-- Exclusión de target/ y temporales
+├── ed/
+│   └── docs/
+│       ├── marco-scrum.md             &lt;-- Documentación Sprint 1
+│       ├── viaje-codigo.md            &lt;-- Documentación Sprint 2
+│       ├── ciclo-error.md             &lt;-- Documentación Sprint 3
+│       └── control-versiones.md       &lt;-- Documentación Sprint 4
+└── src/
+    └── main/
+        └── java/                      &lt;-- Código fuente con Javadoc formal
+
+
+<span class="gu">## 4. Compilación y generación técnica</span>
+Para construir y verificar el software de forma automatizada mediante Maven:
+
+
+<span class="gh"># Limpiar binarios y compilar el código fuente</span>
+mvn clean compile
+
+<span class="gh"># Generar el portal web estático de Javadoc</span>
+mvn javadoc:javadoc
+
+
+<span class="gu">## 5. Realiza el commit en la rama: pulsa **`Ctrl + K`**, marca `README.md` y confirma con el mensaje:  </span>
+   <span class="sb">`docs(readme): anadido portal tecnico corporativo del proyecto`</span>.
+</code></pre></div>
+<h5 id="fase-2-fusion-secuencial-de-ambas-ramas-en-main">Fase 2. Fusión secuencial de ambas ramas en <code>main</code><a class="headerlink" href="#fase-2-fusion-secuencial-de-ambas-ramas-en-main" title="Permanent link">&para;</a></h5>
+<ol>
+<li>Cambia tu espacio de trabajo a la rama principal: widget de Git ➔ <strong>main ➔ Checkout</strong>.</li>
+<li><strong>Primera integración (Javadoc).</strong> Widget de Git ➔ haz clic en <code>feature/documentacion-javadoc</code> ➔ selecciona <strong>Merge into Current</strong>.</li>
+<li><strong>Segunda integración (README).</strong> Widget de Git ➔ haz clic en <code>feature/readme</code> ➔ selecciona <strong>Merge into Current</strong>.</li>
+<li>Al afectar a archivos diferentes, IntelliJ completa ambas integraciones sin conflictos.</li>
+</ol>
+<h5 id="fase-3-verificacion-de-compilacion-y-limpieza">Fase 3. Verificación de compilación y limpieza<a class="headerlink" href="#fase-3-verificacion-de-compilacion-y-limpieza" title="Permanent link">&para;</a></h5>
+<ol>
+<li>Comprueba que el proyecto compila íntegramente en <code>main</code>: menú superior <strong>Build ➔ Build Project</strong> (o ejecuta la fase <code>compile</code> desde la ventana lateral de Maven).</li>
+<li>Elimina las ramas locales que ya han sido integradas:</li>
+<li>Widget de Git ➔ <code>feature/documentacion-javadoc</code> ➔ <strong>Delete</strong>.</li>
+<li>Widget de Git ➔ <code>feature/readme</code> ➔ <strong>Delete</strong>.</li>
+<li>Abre <strong>Git ➔ Log</strong> (<code>Alt + 9</code>) y confirma que el historial de <code>main</code> muestra la incorporación limpia de ambas líneas de trabajo.</li>
+</ol>
+<hr />
+<h4 id="entregables-de-la-sesion_3">Entregables de la sesión<a class="headerlink" href="#entregables-de-la-sesion_3" title="Permanent link">&para;</a></h4>
+<p>Al finalizar la sesión, la rama <code>main</code> del repositorio debe contener el <code>README.md</code> corporativo, el código documentado con Javadoc y el <strong>Apartado 4</strong> formalizado en <code>ed/docs/control-versiones.md</code>:</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Entregable["Entregables del Día 22"]
+        D1["README.md (Portada raíz integrada en main)"]
+        D2["ed/docs/control-versiones.md (Apartado 4)"]
+        D3["src/main/java/... (Javadoc integrado en main)"]
+        D4["Commit and Push visual a origin/main (Ctrl + Alt + K)"]
+    end
+    D1 --&gt; D4
+    D2 --&gt; D4
+    D3 --&gt; D4</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Elemento en el proyecto</th>
+<th style="text-align: left;">Apartado o contenido</th>
+<th style="text-align: left;">Operación gráfica en IntelliJ IDEA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>README.md</code> (raíz)</strong></td>
+<td style="text-align: left;">Descripción, requisitos, estructura Maven y comandos de compilación.</td>
+<td style="text-align: left;">Creado en <code>feature/readme</code> y fusionado en <code>main</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ed/docs/control-versiones.md</code></strong></td>
+<td style="text-align: left;"><strong>Apartado 4:</strong> Registro de la integración secuencial de ramas y verificación de compilación.</td>
+<td style="text-align: left;"><code>Ctrl + K</code> ➔ redacción de mensaje ➔ <strong>Commit and Push...</strong> (<code>Ctrl + Alt + K</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Estado de ramas locales</strong></td>
+<td style="text-align: left;">Ramas <code>feature/</code> temporales eliminadas tras la fusión; <code>main</code> limpia y sincronizada con GitHub.</td>
+<td style="text-align: left;">Widget de Git ➔ <strong>Delete</strong> de ramas temporales.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="plantilla-a-incorporar-en-eddocscontrol-versionesmd">Plantilla a incorporar en <code>ed/docs/control-versiones.md</code>:<a class="headerlink" href="#plantilla-a-incorporar-en-eddocscontrol-versionesmd" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="gu">## Apartado 4: Integración secuencial de ramas y documentación externa</span>
+
+<span class="gu">### 1. Registro de ramas integradas en `main`</span>
+| Rama de trabajo | Contenido incorporado | Tipo de fusión aplicado | Resultado en el IDE |
+| :--- | :--- | :--- | :--- |
+| <span class="sb">`feature/documentacion-javadoc`</span> | Javadoc de la clase principal | Fast-Forward / Merge commit | Integración limpia sin conflictos. |
+| <span class="sb">`feature/readme`</span> | README.md corporativo en raíz | Merge commit automático | Integración limpia sin colisiones. |
+
+<span class="gu">### 2. Estructura aplicada en el README.md corporativo</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Información de contexto:**</span> Identificación del reto de software y cliente asignado.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Requisitos de infraestructura:**</span> Especificación del JDK 21 LTS y Apache Maven 3.9+.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Arquitectura de directorios:**</span> Mapa de carpetas respetando el estándar del proyecto.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Instrucciones de compilación:**</span> Guía de construcción automatizada mediante Maven.
+
+<span class="gu">### 3. Verificación de compilación en `main`</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Resultado de compilación:**</span> Confirmada satisfactoriamente mediante <span class="ge">*Build Project*</span> / Maven compile.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Higiene del repositorio:**</span> Ramas temporales eliminadas localmente tras la fusión.
+</code></pre></div>
+<h5 id="pasos-visuales-paso-a-paso-para-el-commit-y-push-en-intellij-idea">Pasos visuales paso a paso para el commit y push en IntelliJ IDEA:<a class="headerlink" href="#pasos-visuales-paso-a-paso-para-el-commit-y-push-en-intellij-idea" title="Permanent link">&para;</a></h5>
+<ol>
+<li>Asegúrate de estar situado en la rama <strong><code>main</code></strong> (comprueba el widget inferior).</li>
+<li>Pulsa <strong><code>Ctrl + K</code></strong> (o pestaña lateral <strong>Commit</strong>).</li>
+<li>Marca la casilla de verificación de <code>ed/docs/control-versiones.md</code>.</li>
+<li>Escribe el mensaje formal estructurado con Conventional Commits:<br />
+<code>docs(git): anadido apartado 4 y completada integracion secuencial de documentacion</code></li>
+<li>Haz clic en la flecha del botón azul y selecciona <strong>Commit and Push...</strong> (<code>Ctrl + Alt + K</code>).</li>
+<li>En la ventana emergente <em>Push Commits</em>, comprueba que el destino es <code>origin/main</code> y haz clic en el botón azul <strong>Push</strong>.</li>
+</ol>
+<pre class="mermaid"><code>flowchart LR
+    S1["feature/readme: Commit"] --&gt; S2["Checkout main"]
+    S2 --&gt; S3["Merge Javadoc + Merge README"]
+    S3 --&gt; S4["Build Project: Verificado"]
+    S4 --&gt; S5["Redactar Apartado 4 en control-versiones.md"]
+    S5 --&gt; S6["Commit and Push visual a origin/main"]
+    S6 --&gt; S7["Delete ramas temporales"]</code></pre>
+<h2 id="semana-12-versionado-semantico-higiene-y-release">Semana 12. Versionado semántico, higiene y release<a class="headerlink" href="#semana-12-versionado-semantico-higiene-y-release" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="dia-23-2-sesiones">Día 23 - 2 sesiones<a class="headerlink" href="#dia-23-2-sesiones" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="primera-sesion-teoria-ponerle-numero-a-lo-que-entregas-versionado-semantico-higiene-del-repositorio-y-etiquetas-de-release">Primera sesión. Teoría. Ponerle número a lo que entregas: versionado semántico, higiene del repositorio y etiquetas de release<a class="headerlink" href="#primera-sesion-teoria-ponerle-numero-a-lo-que-entregas-versionado-semantico-higiene-del-repositorio-y-etiquetas-de-release" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="1-caso-guia-en-azahartech_4">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_4" title="Permanent link">&para;</a></h4>
+<p>Lunes 30 de noviembre de 2026. Son las tres de la tarde en la sede de <strong>AzaharTech</strong> en Castellón de la Plana. Arranca la tercera y última semana del <strong>Sprint 4</strong>.</p>
+<p><strong>Laia Claramunt</strong> proyecta en la pantalla de la sala de reuniones el repositorio del cliente y señala tres problemas técnicos antes de dar paso al correo del coordinador del <strong>IES El Caminàs</strong>:</p>
+<blockquote>
+<p><em>«Equipo, el viernes cerramos el Sprint 4 y el instituto necesita una entrega congelada que pueda almacenar, citar y, en caso de fallo, restaurar de inmediato en el torno de conserjería. Ahora mismo nuestro repositorio arrastra tres deficiencias graves:</em></p>
+<p><em>1. Nadie sabe con certeza qué versión está instalada: el descriptor <code>pom.xml</code> sigue indicando <code>0.3.0-SNAPSHOT</code> desde octubre.</em>
+<em>2. En algunos equipos la carpeta <code>target/</code> con los binarios <code>.class</code> compilados y metadatos del IDE (<code>.idea/</code>, <code>*.iml</code>) siguen apareciendo como pendientes en Git, ensuciando el historial.</em>
+<em>3. Cuando la dirección del centro nos pregunta qué novedades incorpora el sistema respecto al mes pasado, la única respuesta disponible es obligarles a leer una lista dispersa de cuarenta commits.</em></p>
+<p><em>Una entrega profesional de ingeniería exige un número de versión matemático, un repositorio 100% higiénico y un registro de cambios legible para seres humanos. Esta semana resolveremos las tres cuestiones y, siguiendo nuestra disciplina metodológica, lo haremos desde una rama aislada:</em> <em><code>feature/preparar-release</code></em>, <em>sin tocar jamás <code>main</code> directamente»</em>.</p>
+</blockquote>
+<p><strong>Alba Torres</strong> pregunta con curiosidad: <em>«¿Y la versión no puede ser simplemente un número correlativo como 1, 2, 3 o 4?»</em>. <strong>Pau Ferrer</strong> niega con la cabeza: <em>«Si solo sumas números al azar, no le comunicas nada al cliente. Con el versionado semántico, un simple vistazo al número le indica si puede actualizar con total tranquilidad o si la actualización romperá la compatibilidad de su sistema»</em>.</p>
+<hr />
+<h4 id="2-versionado-semantico-semver-y-su-relacion-con-los-conventional-commits">2. Versionado semántico (<em>SemVer</em>) y su relación con los Conventional Commits<a class="headerlink" href="#2-versionado-semantico-semver-y-su-relacion-con-los-conventional-commits" title="Permanent link">&para;</a></h4>
+<p>El estándar internacional <strong>SemVer (Semantic Versioning 2.0.0)</strong> establece que toda versión de software se estructura mediante tres números enteros separados por puntos:</p>
+<p>$$\mathbf{MAJOR.MINOR.PATCH}$$</p>
+<pre class="mermaid"><code>flowchart LR
+    V["v0.4.0"] --&gt; MA["MAJOR = 0"]
+    V --&gt; MI["MINOR = 4"]
+    V --&gt; PA["PATCH = 0"]
+    MA --&gt; MA2["Fase inicial de desarrollo (API provisional)"]
+    MI --&gt; MI2["Nueva funcionalidad compatible (Clases de dominio + Javadoc)"]
+    PA --&gt; PA2["Corrección de fallos compatible (Bugfixes)"]</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Componente</th>
+<th style="text-align: left;">Cuándo se incrementa</th>
+<th style="text-align: left;">Impacto en quien consume el software</th>
+<th style="text-align: left;">Ejemplo práctico en el IES El Caminàs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>MAJOR</code> (Mayor)</strong></td>
+<td style="text-align: left;">Cambios incompatibles en la API pública (<em>breaking changes</em>).</td>
+<td style="text-align: left;">Quien consume la clase debe adaptar o reescribir su código.</td>
+<td style="text-align: left;"><code>1.0.0</code> ➔ <code>2.0.0</code>: <code>permiteAcceso(int)</code> pasa a exigir un objeto complejo <code>Torno</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>MINOR</code> (Menor)</strong></td>
+<td style="text-align: left;">Nuevas funcionalidades que mantienen la compatibilidad previa.</td>
+<td style="text-align: left;">El cliente puede incorporar lo nuevo sin que lo anterior falle.</td>
+<td style="text-align: left;"><code>0.3.0</code> ➔ <code>0.4.0</code>: nuevas clases de dominio (<code>Credencial</code>) y Javadoc de API.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>PATCH</code> (Parche)</strong></td>
+<td style="text-align: left;">Corrección de defectos (<em>bugs</em>) sin añadir nuevas funciones.</td>
+<td style="text-align: left;">Riesgo cero de actualización: el software es más robusto.</td>
+<td style="text-align: left;"><code>0.4.0</code> ➔ <code>0.4.1</code>: corregido el límite de temperatura del sensor en el torno.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="reglas-de-versionado-en-azahartech">Reglas de versionado en AzaharTech<a class="headerlink" href="#reglas-de-versionado-en-azahartech" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>La serie <code>0.y.z</code>.</strong> Indica que el producto se encuentra en fase de construcción inicial (nuestro MVP del primer trimestre). La API aún evoluciona hasta consolidar la futura <code>1.0.0</code>.</li>
+<li><strong>El sufijo <code>-SNAPSHOT</code> en Maven.</strong> Indica una versión <em>en construcción activa</em>, inestable y sujeta a cambios diarios. <strong>Una versión de release oficial jamás lleva <code>-SNAPSHOT</code> en su descriptor.</strong></li>
+<li><strong>Inmutabilidad.</strong> Una vez publicada una versión con su etiqueta Git, el código asociado no se modifica jamás. Si se detecta un error, se incrementa el parche (<code>0.4.1</code>) en una nueva entrega.</li>
+</ul>
+<h5 id="conexion-directa-de-los-conventional-commits-al-incremento-semver">Conexión directa: de los Conventional Commits al incremento SemVer<a class="headerlink" href="#conexion-directa-de-los-conventional-commits-al-incremento-semver" title="Permanent link">&para;</a></h5>
+<p>Los prefijos estandarizados en los mensajes de confirmación permiten deducir mecánicamente la versión de release:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Prefijo del commit</th>
+<th style="text-align: left;">Tipo de cambio aportado</th>
+<th style="text-align: center;">Incremento SemVer asociado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>fix:</code></td>
+<td style="text-align: left;">Corrección de un defecto o bug</td>
+<td style="text-align: center;"><strong><code>PATCH</code></strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>feat:</code></td>
+<td style="text-align: left;">Incorporación de nueva funcionalidad compatible</td>
+<td style="text-align: center;"><strong><code>MINOR</code></strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>feat!:</code> o pie <code>BREAKING CHANGE:</code></td>
+<td style="text-align: left;">Modificación que rompe compatibilidad previa</td>
+<td style="text-align: center;"><strong><code>MAJOR</code></strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>docs:</code>, <code>refactor:</code>, <code>test:</code>, <code>chore:</code></td>
+<td style="text-align: left;">Mantenimiento interno sin impacto en el comportamiento</td>
+<td style="text-align: center;">Sin salto de versión (se agrupan)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="3-higiene-tecnica-del-repositorio-que-se-versiona-y-que-se-ignora">3. Higiene técnica del repositorio: qué se versiona y qué se ignora<a class="headerlink" href="#3-higiene-tecnica-del-repositorio-que-se-versiona-y-que-se-ignora" title="Permanent link">&para;</a></h4>
+<p>La máxima directriz de un desarrollador profesional es clara: <strong>en Git solo se versiona aquello que no se puede regenerar automáticamente</strong>.</p>
+<pre class="mermaid"><code>flowchart TD
+    A["Archivo nuevo en el espacio de trabajo"] --&gt; B{"¿Se puede reconstruir con mvn clean compile?"}
+    B -- Sí --&gt; C["NUNCA se versiona: va a .gitignore (target/)"]
+    B -- No --&gt; D{"¿Es configuración privada del IDE o del sistema operativo?"}
+    D -- Sí --&gt; C
+    D -- No --&gt; E["Se versiona: código fuente src/, pom.xml, docs/"]</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Elemento en el proyecto</th>
+<th style="text-align: center;">¿Se versiona en Git?</th>
+<th style="text-align: left;">Motivo técnico de ingeniería</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>src/</code>, <code>pom.xml</code>, <code>README.md</code>, <code>ed/docs/</code></td>
+<td style="text-align: center;"><strong>SÍ</strong></td>
+<td style="text-align: left;">Constituyen el código fuente original y la memoria técnica del software.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>target/</code></td>
+<td style="text-align: center;"><strong>NO</strong></td>
+<td style="text-align: left;">Contiene binarios regenerables; versionarlos provoca colisiones y satura el repositorio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>.idea/</code>, <code>*.iml</code></td>
+<td style="text-align: center;"><strong>NO</strong></td>
+<td style="text-align: left;">Metadatos locales del IDE de cada programador; incompatibles entre diferentes máquinas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>.DS_Store</code>, <code>Thumbs.db</code></td>
+<td style="text-align: center;"><strong>NO</strong></td>
+<td style="text-align: left;">Residuos temporales de índices del explorador del sistema operativo.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Contraseñas o credenciales</td>
+<td style="text-align: center;"><strong>NUNCA</strong></td>
+<td style="text-align: left;">Una vez confirmadas en Git, se consideran comprometidas de por vida.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Aviso de auditoría.</strong> El archivo <code>.gitignore</code> solo surte efecto sobre archivos que <strong>no hayan sido rastreados previamente</strong>. Si la carpeta <code>target/</code> se confirmó por descuido en el Sprint 1 o 2, Git seguirá vigilándola hasta que se elimine expresamente del índice del repositorio.</p>
+</blockquote>
+<h5 id="contenido-corporativo-del-archivo-gitignore">Contenido corporativo del archivo <code>.gitignore</code><a class="headerlink" href="#contenido-corporativo-del-archivo-gitignore" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code># Directorio de construcción y binarios generados por Maven
+target/
+
+# Metadatos del entorno de desarrollo (IntelliJ IDEA)
+.idea/
+*.iml
+out/
+
+# Residuos del sistema operativo y logs
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+</code></pre></div>
+<hr />
+<h4 id="4-etiquetas-de-version-git-tags-y-el-registro-de-cambios-changelogmd">4. Etiquetas de versión (<em>Git Tags</em>) y el registro de cambios (<em>CHANGELOG.md</em>)<a class="headerlink" href="#4-etiquetas-de-version-git-tags-y-el-registro-de-cambios-changelogmd" title="Permanent link">&para;</a></h4>
+<p>Mientras que una <strong>rama</strong> es un puntero móvil que avanza con cada nueva instrucción confirmada, una <strong>etiqueta (<em>Tag</em>)</strong> es un ancla fija e inmutable colocada sobre un commit exacto:</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "Cierre Sprint 3" tag: "v0.3.0-sprint3"
+   commit id: "feat: modelo Credencial"
+   commit id: "docs: Javadoc API"
+   commit id: "docs: README corporativo"
+   commit id: "chore: version 0.4.0" tag: "v0.4.0-sprint4"</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tipo de etiqueta</th>
+<th style="text-align: left;">Contenido que registra</th>
+<th style="text-align: left;">Ámbito de uso en AzaharTech</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Etiqueta ligera (<em>Lightweight</em>)</strong></td>
+<td style="text-align: left;">Puntero simple al identificador del commit.</td>
+<td style="text-align: left;">Marcas personales efímeras de depuración.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Etiqueta anotada (<em>Annotated</em>)</strong></td>
+<td style="text-align: left;">Puntero, autor, fecha, firma y mensaje descriptivo formal.</td>
+<td style="text-align: left;"><strong>Obligatoria para todas las releases oficiales de sprint.</strong></td>
+</tr>
+</tbody>
+</table>
+<h5 id="el-archivo-changelogmd">El archivo <code>CHANGELOG.md</code><a class="headerlink" href="#el-archivo-changelogmd" title="Permanent link">&para;</a></h5>
+<p>El <code>CHANGELOG.md</code> es el documento de cara al cliente que recopila de manera ordenada y legible qué ha cambiado entre versiones, evitando que el usuario deba interpretar los mensajes internos de los commits:</p>
+<div class="highlight"><pre><span></span><code><span class="gh"># Registro de Cambios (Changelog)</span>
+
+Todos los cambios notables de este proyecto se documentan en este archivo.
+El formato se basa en [<span class="nt">Keep a Changelog</span>](<span class="na">https://keepachangelog.com/es-ES/1.1.0/</span>).
+
+<span class="gu">## [0.4.0] - 2026-12-02</span>
+<span class="gu">### Añadido</span>
+<span class="k">-</span><span class="w"> </span>Clase <span class="sb">`Credencial`</span> con validación de nivel de acceso y atributos privados.
+<span class="k">-</span><span class="w"> </span>Documentación técnica interna de la API pública mediante bloques Javadoc.
+<span class="k">-</span><span class="w"> </span>Portal corporativo <span class="sb">`README.md`</span> con requisitos de entorno y comandos de construcción.
+
+<span class="gu">### Modificado</span>
+<span class="k">-</span><span class="w"> </span>Descriptor <span class="sb">`pom.xml`</span> actualizado a la versión estable <span class="sb">`0.4.0`</span> (eliminado sufijo <span class="sb">`-SNAPSHOT`</span>).
+
+<span class="gu">### Corregido</span>
+<span class="k">-</span><span class="w"> </span>Resuelto defecto en la validación de límites térmicos del torno de acceso.
+</code></pre></div>
+<hr />
+<h4 id="5-actividad-activa-interactiva-que-numero-le-toca-en-la-pizarra">5. Actividad activa interactiva: «¿Qué número le toca?» en la pizarra<a class="headerlink" href="#5-actividad-activa-interactiva-que-numero-le-toca-en-la-pizarra" title="Permanent link">&para;</a></h4>
+<p>Alba y Pau proyectan el historial reciente de commits desde la versión <code>v0.3.2</code> para resolver en la pizarra:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Secuencia de commits recientes</th>
+<th style="text-align: left;">Mensaje descriptivo del commit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Commit 1</td>
+<td style="text-align: left;"><code>fix(torno): corregido error de redondeo en el calculo de minutos</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">Commit 2</td>
+<td style="text-align: left;"><code>docs(readme): anadidos requisitos minimos de memoria RAM</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">Commit 3</td>
+<td style="text-align: left;"><code>feat(acceso): incorporada lectura de codigo de barras secundario</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">Commit 4</td>
+<td style="text-align: left;"><code>refactor(core): reorganizada visibilidad de variables auxiliares</code></td>
+</tr>
+</tbody>
+</table>
+<p><em>Dinámica en parejas (10 minutos):</em></p>
+<ol>
+<li><strong>Decisión conjunta (4 min).</strong> Cada pareja anota en su libreta qué versión SemVer corresponde publicar y la justifica técnicamente.<br />
+<em>Solución:</em> <strong><code>0.4.0</code></strong>, porque el cambio de mayor peso es un <code>feat</code> compatible hacia atrás (<code>MINOR</code>), lo que reinicia el dígito <code>PATCH</code> a <code>0</code>.</li>
+<li><strong>Giro imprevisto (3 min).</strong> Laia añade un nuevo commit:<br />
+<em><code>feat!(api): eliminada la compatibilidad con el formato antiguo de DNI sin letra</code></em>.<br />
+   ¿Qué número corresponde ahora?<br />
+<em>Solución:</em> Rompe el contrato previo (<code>BREAKING CHANGE</code>), por lo que exige un salto de <code>MAJOR</code> (hacia <code>1.0.0</code> o <code>0.5.0</code> en fase provisional).</li>
+<li><strong>Puesta en común (3 min).</strong> Un estudiante voluntario transcribe en la pizarra qué secciones del <code>CHANGELOG.md</code> se alimentarían con estos cambios y descarta las que no interesan al cliente (por ejemplo, el <code>refactor</code> interno).</li>
+</ol>
+<hr />
+<h4 id="segunda-sesion-dojo-de-herramientas-y-katas_2">Segunda sesión: dojo de herramientas y katas<a class="headerlink" href="#segunda-sesion-dojo-de-herramientas-y-katas_2" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Dinámica del dojo de entrenamiento:</strong></p>
+<ul>
+<li>La <strong>Kata 1 es obligatoria</strong>: aislar la preparación de la release en la rama <code>feature/preparar-release</code>, sanear el archivo <code>.gitignore</code>, actualizar la versión en el <code>pom.xml</code> y redactar el <code>CHANGELOG.md</code>.</li>
+<li>Las <strong>Katas 2 y 3 son optativas y de ampliación</strong>: permiten dominar la creación visual de etiquetas anotadas y su sincronización remota con GitHub.</li>
+</ul>
+</blockquote>
+<hr />
+<h5 id="kata-1-obligatoria-cinturon-blanco-nivel-base-repositorio-higienico-version-040-y-changelogmd-en-rama-aislada">Kata 1. Obligatoria (cinturón blanco / nivel base). Repositorio higiénico, versión <code>0.4.0</code> y <code>CHANGELOG.md</code> en rama aislada<a class="headerlink" href="#kata-1-obligatoria-cinturon-blanco-nivel-base-repositorio-higienico-version-040-y-changelogmd-en-rama-aislada" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Objetivo:</strong> crear una rama de desarrollo dedicada a la release, eliminar del seguimiento de Git cualquier binario no deseado, fijar la versión oficial sin <code>-SNAPSHOT</code> en Maven y formalizar el registro de cambios.</li>
+<li><strong>Misión:</strong><ol>
+<li>Comprueba en el widget de Git de IntelliJ IDEA (esquina inferior derecha) que estás en la rama <strong><code>main</code></strong> y que la pestaña <strong>Commit</strong> (<code>Alt + 0</code>) no tiene cambios pendientes.</li>
+<li>Haz clic en el widget de Git ➔ <strong>New Branch...</strong> ➔ introduce el nombre:<br />
+<code>feature/preparar-release</code> ➔ pulsa <strong>Create</strong>.</li>
+<li><strong>Auditoría de higiene (.gitignore):</strong> Abre o crea el archivo <code>.gitignore</code> en la raíz de tu proyecto. Asegúrate de que contiene las exclusiones de <code>target/</code>, <code>.idea/</code>, <code>*.iml</code>, <code>.DS_Store</code> y residuos temporales.</li>
+<li>Comprueba en el explorador de proyectos que la carpeta <code>target/</code> se visualiza en color <strong>naranja oscuro o gris atenuado</strong> (<em>ignored</em>). Si apareciera en blanco o azul (rastreada por error en commits antiguos), elimínala del índice mediante clic derecho sobre <code>target/</code> ➔ <strong>Git ➔ Remove from VCS</strong> (conservando los archivos locales).</li>
+<li><strong>Fijar versión de release en Maven:</strong> Abre el archivo <code>pom.xml</code> y actualiza la etiqueta de versión sustituyendo <code>0.3.0-SNAPSHOT</code> (o la que tuvieras) por la versión estable oficial:<br />
+<code>&lt;version&gt;0.4.0&lt;/version&gt;</code><br />
+   Pulsa el icono flotante de recarga de Maven (<strong>Load Maven Changes</strong> o <code>Ctrl + Shift + O</code>).</li>
+<li><strong>Registro de cambios:</strong> Crea en la raíz de tu proyecto el archivo <code>CHANGELOG.md</code> y completa la entrada <code>[0.4.0]</code> documentando las novedades de las clases y del Javadoc según el trabajo real de tu proyecto.</li>
+<li><strong>Commit visual en la rama:</strong> Pulsa <strong><code>Ctrl + K</code></strong>, marca exclusivamente <code>.gitignore</code>, <code>pom.xml</code> y <code>CHANGELOG.md</code>, y confirma localmente con el mensaje:<br />
+<code>chore(release): preparada version 0.4.0 y repositorio saneado</code>.</li>
+<li>Abre <strong>Git ➔ Log</strong> (<code>Alt + 9</code>) y verifica que <code>main</code> permanece intacta y que el commit reside únicamente en tu rama de trabajo.</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h5 id="kata-2-optativa-cinturon-marron-nivel-avanzado-creacion-visual-de-la-etiqueta-anotada-v040-sprint4">Kata 2. Optativa (cinturón marrón / nivel avanzado). Creación visual de la etiqueta anotada <code>v0.4.0-sprint4</code><a class="headerlink" href="#kata-2-optativa-cinturon-marron-nivel-avanzado-creacion-visual-de-la-etiqueta-anotada-v040-sprint4" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto técnico:</strong> una etiqueta anotada sella formalmente el commit, vinculando autoría, fecha y resumen técnico inmutable.</li>
+<li><strong>Misión:</strong><ol>
+<li>En la pestaña <strong>Git ➔ Log</strong> (<code>Alt + 9</code>), haz clic derecho sobre el commit <code>chore(release): preparada version 0.4.0...</code> recién creado.</li>
+<li>Selecciona la opción <strong>New Tag...</strong></li>
+<li>En el campo <em>Tag Name</em>, introduce: <code>v0.4.0-sprint4</code>.</li>
+<li>En el campo <em>Message</em>, redacta el resumen formal:<br />
+<code>Release oficial Sprint 4: Clases de dominio, aislamiento con ramas y documentacion Javadoc</code>.</li>
+<li>Pulsa <strong>Create Tag</strong>.</li>
+<li>Comprueba que el grafo de commits de IntelliJ dibuja la insignia de etiqueta amarilla junto al commit.</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h5 id="kata-3-optativa-cinturon-negro-hacker-azahartech-publicacion-remota-con-push-tags-y-auditoria-web">Kata 3. Optativa (cinturón negro / «hacker AzaharTech»). Publicación remota con <em>Push Tags</em> y auditoría web<a class="headerlink" href="#kata-3-optativa-cinturon-negro-hacker-azahartech-publicacion-remota-con-push-tags-y-auditoria-web" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Contexto de arquitectura:</strong> las etiquetas no viajan a GitHub mediante un Push ordinario; requieren una instrucción de sincronización explícita.</li>
+<li><strong>Misión:</strong><ol>
+<li>Haz checkout a <code>main</code> desde el widget de Git e integra la rama mediante <strong><code>feature/preparar-release</code> ➔ Merge into Current</strong> (practicando el flujo previo a la sesión de consolidación del Día 24).</li>
+<li>Abre la ventana de subida mediante <strong>Git ➔ Push...</strong> (<code>Ctrl + Shift + K</code>).</li>
+<li>En la esquina inferior izquierda del diálogo, despliega la opción <strong>Push Tags</strong> y marca <strong>All</strong> (o la etiqueta recién creada).</li>
+<li>Pulsa el botón azul <strong>Push</strong>.</li>
+<li>Abre tu repositorio en el navegador web y entra en el apartado <strong>Tags</strong> (o <em>Releases</em>). Verifica que la etiqueta <code>v0.4.0-sprint4</code> figura publicada con sus metadatos y mensaje intactos.</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h4 id="entregables-de-la-sesion_4">Entregables de la sesión<a class="headerlink" href="#entregables-de-la-sesion_4" title="Permanent link">&para;</a></h4>
+<p>Al finalizar el dojo, el repositorio local debe mostrar la preparación de la versión en la rama correspondiente:</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Entregable["Entregables del Día 23"]
+        E1[".gitignore saneado (raíz)"]
+        E2["pom.xml con versión 0.4.0 oficial"]
+        E3["CHANGELOG.md con entrada 0.4.0 (raíz)"]
+        E4["Rama activa: feature/preparar-release"]
+        E5["Commit visual local (Ctrl + K)"]
+    end
+    E1 --&gt; E5
+    E2 --&gt; E5
+    E3 --&gt; E5
+    E4 --&gt; E5</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Elemento técnico</th>
+<th style="text-align: left;">Contenido aportado</th>
+<th style="text-align: left;">Operación gráfica en IntelliJ IDEA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>.gitignore</code></strong></td>
+<td style="text-align: left;">Exclusión estricta de <code>target/</code>, <code>.idea/</code>, <code>*.iml</code> y residuos temporales.</td>
+<td style="text-align: left;">Menú contextual ➔ <strong>New ➔ File</strong> ➔ comprobación en panel Commit.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>pom.xml</code></strong></td>
+<td style="text-align: left;">Versión semántica fijada en <code>0.4.0</code> (sin <code>-SNAPSHOT</code>).</td>
+<td style="text-align: left;">Edición de etiqueta <code>&lt;version&gt;</code> ➔ <strong>Load Maven Changes</strong> (<code>Ctrl + Shift + O</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>CHANGELOG.md</code></strong></td>
+<td style="text-align: left;">Registro ordenado de cambios para la versión <code>[0.4.0]</code> (<em>Añadido</em>, <em>Modificado</em>, <em>Corregido</em>).</td>
+<td style="text-align: left;">Creación de archivo en raíz ➔ previsualización en Markdown Split View.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Historial en Git Log</strong></td>
+<td style="text-align: left;">Commit formal de release aislado en <code>feature/preparar-release</code>, con <code>main</code> inalterada.</td>
+<td style="text-align: left;">Comprobación visual en pestaña <strong>Git ➔ Log</strong> (<code>Alt + 9</code>).</td>
+</tr>
+</tbody>
+</table>
+<h5 id="pasos-visuales-paso-a-paso-en-intellij-idea_2">Pasos visuales paso a paso en IntelliJ IDEA:<a class="headerlink" href="#pasos-visuales-paso-a-paso-en-intellij-idea_2" title="Permanent link">&para;</a></h5>
+<ol>
+<li><strong>Verificar rama de trabajo:</strong> Comprueba en el widget de Git (esquina inferior derecha) que estás situado en <code>feature/preparar-release</code> y <strong>no</strong> en <code>main</code>.</li>
+<li><strong>Abrir panel de confirmación:</strong> Pulsa <strong><code>Ctrl + K</code></strong> (o pestaña lateral <strong>Commit</strong> / <code>Alt + 0</code>).</li>
+<li><strong>Auditoría visual de diferencias:</strong> Haz doble clic sobre cada archivo para revisar el <em>Diff Viewer</em> y verificar que no hay archivos de <code>target/</code> marcados por error.</li>
+<li><strong>Mensaje formal estructurado:</strong> Introduce el mensaje con Conventional Commits:<br />
+<code>chore(release): preparada version 0.4.0 y repositorio saneado</code></li>
+<li><strong>Confirmar commit local:</strong> Haz clic en el botón azul <strong>Commit</strong> (sin Push; la integración en <code>main</code> y la publicación de la release se formalizarán en el Día 24).</li>
+</ol>
+<pre class="mermaid"><code>flowchart LR
+    S1["Widget: New Branch feature/preparar-release"] --&gt; S2[".gitignore + pom.xml 0.4.0 + CHANGELOG.md"]
+    S2 --&gt; S3["Ctrl + K: Commit local en rama"]
+    S3 --&gt; S4["Git Log: Verificar main intacta"]
+    S4 --&gt; S5["Opcional: Kata 2 New Tag v0.4.0-sprint4"]</code></pre>
+<hr />
+<h3 id="dia-24-1-sesion">Día 24 - 1 sesión<a class="headerlink" href="#dia-24-1-sesion" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="sesion-unica-taller-practico-integracion-en-main-empaquetado-del-artefacto-jar-github-releases-y-cierre-del-sprint-4">Sesión única. Taller práctico: integración en <code>main</code>, empaquetado del artefacto <code>.jar</code>, GitHub Releases y cierre del Sprint 4<a class="headerlink" href="#sesion-unica-taller-practico-integracion-en-main-empaquetado-del-artefacto-jar-github-releases-y-cierre-del-sprint-4" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="1-caso-guia-en-azahartech_5">1. Caso guía en AzaharTech<a class="headerlink" href="#1-caso-guia-en-azahartech_5" title="Permanent link">&para;</a></h4>
+<p>Miércoles 2 de diciembre de 2026. Son las tres de la tarde en las oficinas de <strong>AzaharTech</strong>. Faltan cuarenta y ocho horas para cerrar formalmente el <strong>Sprint 4</strong> antes del periodo de consolidación y exámenes del trimestre.</p>
+<p>Laia Claramunt y Pau Ferrer proyectan la sección de <strong>Releases</strong> de un proyecto de código abierto de referencia en GitHub, llamando la atención del equipo sobre sus elementos visibles: un número de versión matemático, un registro de cambios estructurado y un <strong>archivo binario ejecutable descargable</strong>:</p>
+<blockquote>
+<p><em>«Equipo, así es como se entrega software en el mundo real. Un cliente de consultoría no descarga código fuente para compilarlo con Maven ni inspecciona ramas de Git: <strong>descarga una release empaquetada y lista para funcionar</strong>.</em></p>
+<p><em>Hoy completaremos el ciclo de vida de entrega de AzaharTech de principio a fin:</em>
+1. <em>Fusionaremos la rama <code>feature/preparar-release</code> en <code>main</code>.</em>
+2. <em>Construiremos el artefacto ejecutable distribuible (<code>.jar</code>) mediante el ciclo de vida de Maven.</em>
+3. <em>Crearemos la etiqueta anotada oficial <strong><code>v0.4.0-sprint4</code></strong> y la publicaremos en GitHub.</em>
+4. <em>Publicaremos la <strong>GitHub Release</strong> en la web adjuntando el binario <code>.jar</code> para el cliente.</em>
+5. <em>Cerraremos el sprint cumplimentando los Apartados 5 y 6 en nuestro documento oficial:</em> <em><code>ed/docs/control-versiones.md</code>»</em>.</p>
+</blockquote>
+<hr />
+<h4 id="2-el-flujo-integral-de-una-release-profesional">2. El flujo integral de una release profesional<a class="headerlink" href="#2-el-flujo-integral-de-una-release-profesional" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>gitGraph
+   commit id: "Cierre Dia 22"
+   branch "feature/preparar-release"
+   checkout "feature/preparar-release"
+   commit id: ".gitignore + CHANGELOG"
+   commit id: "chore: version 0.4.0"
+   checkout main
+   merge "feature/preparar-release" id: "1. Integracion release"
+   commit id: "2. Build verificado" tag: "v0.4.0-sprint4"</code></pre>
+<pre class="mermaid"><code>flowchart TD
+    A["Verificar estado limpio en main"] --&gt; B["Merge into Current: feature/preparar-release"]
+    B --&gt; C["Maven Lifecycle: clean package"]
+    C --&gt; D{"¿BUILD SUCCESS y target/*.jar?"}
+    D -- Fallo --&gt; E["Detenerse: subsanar en rama temporal"]
+    D -- Éxito --&gt; F["Crear Tag anotado v0.4.0-sprint4"]
+    F --&gt; G["Push a GitHub con Push Tags activado"]
+    G --&gt; H["Crear Release en GitHub y adjuntar el archivo .jar"]
+    H --&gt; I["Redactar Apartados 5 y 6 en control-versiones.md"]
+    I --&gt; J["Eliminar rama feature/preparar-release"]</code></pre>
+<h5 id="lista-de-control-previa-a-la-publicacion-de-la-release">Lista de control previa a la publicación de la release<a class="headerlink" href="#lista-de-control-previa-a-la-publicacion-de-la-release" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Verificación técnica</th>
+<th style="text-align: left;">Dónde se comprueba</th>
+<th style="text-align: left;">Criterio de aceptación estricto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Rama activa</strong></td>
+<td style="text-align: left;">Widget de Git</td>
+<td style="text-align: left;">Situado en <code>main</code>, sin archivos pendientes ni ramas sucias.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Versión estable</strong></td>
+<td style="text-align: left;">Archivo <code>pom.xml</code></td>
+<td style="text-align: left;"><code>&lt;version&gt;0.4.0&lt;/version&gt;</code> (sin sufijo <code>-SNAPSHOT</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Construcción limpia</strong></td>
+<td style="text-align: left;">Pestaña <strong>Maven ➔ Lifecycle ➔ package</strong></td>
+<td style="text-align: left;">Mensaje <code>BUILD SUCCESS</code> y archivo <code>.jar</code> generado en <code>target/</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Registro de cambios</strong></td>
+<td style="text-align: left;">Archivo <code>CHANGELOG.md</code></td>
+<td style="text-align: left;">Sección <code>[0.4.0]</code> completa con novedades y correcciones.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Higiene del repositorio</strong></td>
+<td style="text-align: left;">Panel <strong>Commit</strong> (<code>Alt + 0</code>)</td>
+<td style="text-align: left;">Carpeta <code>target/</code> y metadatos <code>.idea/</code> totalmente excluidos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Etiqueta anotada</strong></td>
+<td style="text-align: left;">Pestaña <strong>Git ➔ Log</strong> (<code>Alt + 9</code>)</td>
+<td style="text-align: left;">Tag <code>v0.4.0-sprint4</code> fijado en el commit final de <code>main</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="3-laboratorio-practico-de-la-rama-de-trabajo-al-artefacto-distribuido">3. Laboratorio práctico: de la rama de trabajo al artefacto distribuido<a class="headerlink" href="#3-laboratorio-practico-de-la-rama-de-trabajo-al-artefacto-distribuido" title="Permanent link">&para;</a></h4>
+<h5 id="fase-1-fusion-de-la-release-en-main">Fase 1. Fusión de la release en <code>main</code><a class="headerlink" href="#fase-1-fusion-de-la-release-en-main" title="Permanent link">&para;</a></h5>
+<ol>
+<li>Cambia tu espacio de trabajo a la rama principal: widget de Git ➔ <strong>main ➔ Checkout</strong>.</li>
+<li>Despliega el widget de Git, haz clic sobre <code>feature/preparar-release</code> y selecciona <strong>Merge into Current</strong>.</li>
+<li>Abre <strong>Git ➔ Log</strong> (<code>Alt + 9</code>) y comprueba que <code>main</code> ha avanzado incorporando el saneamiento y el <code>CHANGELOG.md</code>.</li>
+</ol>
+<h5 id="fase-2-empaquetado-del-artefacto-ejecutable-con-maven">Fase 2. Empaquetado del artefacto ejecutable con Maven<a class="headerlink" href="#fase-2-empaquetado-del-artefacto-ejecutable-con-maven" title="Permanent link">&para;</a></h5>
+<ol>
+<li>Abre la ventana lateral derecha <strong>Maven</strong> (icono con la «m» azul).</li>
+<li>Despliega la carpeta <strong>Lifecycle</strong>.</li>
+<li>Haz doble clic en la fase <strong>clean</strong> y, a continuación, doble clic en la fase <strong>package</strong>.</li>
+<li>Comprueba en la consola inferior de ejecución el mensaje final:<br />
+<code>[INFO] BUILD SUCCESS</code>.</li>
+<li>Abre el explorador del proyecto y despliega la carpeta <code>target/</code>: comprueba que existe el archivo empaquetado:<br />
+<code>target/&lt;artifactId&gt;-0.4.0.jar</code>.</li>
+</ol>
+<h5 id="fase-3-etiquetado-y-publicacion-de-la-github-release">Fase 3. Etiquetado y publicación de la GitHub Release<a class="headerlink" href="#fase-3-etiquetado-y-publicacion-de-la-github-release" title="Permanent link">&para;</a></h5>
+<ol>
+<li><strong>Etiquetado.</strong> En <strong>Git ➔ Log</strong>, haz clic derecho sobre el último commit de <code>main</code> ➔ <strong>New Tag...</strong> ➔ introduce el nombre <code>v0.4.0-sprint4</code> y el mensaje formal de release. Pulsa <strong>Create Tag</strong>.</li>
+<li><strong>Sincronización remota.</strong> Pulsa <strong><code>Ctrl + Shift + K</code></strong> (<em>Push</em>), activa la casilla <strong>Push Tags</strong> en la esquina inferior izquierda y haz clic en el botón azul <strong>Push</strong>.</li>
+<li><strong>Publicación de la Release en la web:</strong><ul>
+<li>Abre tu repositorio en el navegador web en GitHub.</li>
+<li>En el menú lateral derecho, haz clic en <strong>Releases ➔ Draft a new release</strong>.</li>
+<li>En el desplegable <em>Choose a tag</em>, selecciona <strong><code>v0.4.0-sprint4</code></strong>.</li>
+<li>En <em>Release title</em>, escribe: <code>Release v0.4.0 - Sprint 4 (AzaharTech)</code>.</li>
+<li>En la caja de descripción, pega el texto correspondiente a la entrada <code>[0.4.0]</code> de tu <code>CHANGELOG.md</code>.</li>
+<li><strong>Adjuntar el binario:</strong> Arrastra el archivo <code>.jar</code> generado en tu carpeta local <code>target/</code> al recuadro de archivos adjuntos (<em>Attach binaries by dropping them here</em>).</li>
+<li>Pulsa el botón verde <strong>Publish release</strong>.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>Regla de oro de AzaharTech:</strong><br />
+El archivo <code>.jar</code> se adjunta directamente a la Release en la interfaz web de GitHub; <strong>jamás se versiona ni se sube con un commit a Git</strong>. Por ese motivo la carpeta <code>target/</code> permanece ignorada en el <code>.gitignore</code>.</p>
+</blockquote>
+<h5 id="fase-4-limpieza-de-ramas-locales">Fase 4. Limpieza de ramas locales<a class="headerlink" href="#fase-4-limpieza-de-ramas-locales" title="Permanent link">&para;</a></h5>
+<ol>
+<li>En IntelliJ IDEA, despliega el widget de Git, haz clic sobre <code>feature/preparar-release</code> y selecciona <strong>Delete</strong>.</li>
+<li>Confirma en <strong>Git ➔ Log</strong> que <code>main</code> y <code>origin/main</code> apuntan al mismo commit y que la etiqueta es visible en ambos.</li>
+</ol>
+<hr />
+<h4 id="4-dinamica-de-cierre-auditoria-cruzada-por-parejas">4. Dinámica de cierre: auditoría cruzada por parejas<a class="headerlink" href="#4-dinamica-de-cierre-auditoria-cruzada-por-parejas" title="Permanent link">&para;</a></h4>
+<p>Los estudiantes intercambian sus puestos de trabajo en parejas. Cada compañero adopta el rol de <strong>técnico de infraestructuras del IES El Caminàs</strong> y debe auditar la entrega <strong>exclusivamente desde la página web de GitHub, sin abrir IntelliJ</strong>:</p>
+<pre class="mermaid"><code>flowchart LR
+    Auditor["Compañero (Técnico del IES)"] --&gt; A1["1. Abrir GitHub Releases"]
+    A1 --&gt; A2["2. Descargar archivo .jar"]
+    A2 --&gt; A3["3. Leer Changelog de la versión"]
+    A3 --&gt; A4["4. Comprobar que target/ no está en el código"]
+    A4 --&gt; A5["5. Firmar Acta de Cierre en control-versiones.md"]</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Criterio técnico auditado en GitHub</th>
+<th style="text-align: center;">Estado verificado</th>
+<th style="text-align: left;">Observación técnica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Versión sin <code>-SNAPSHOT</code></strong></td>
+<td style="text-align: center;">[ ] Conforme</td>
+<td style="text-align: left;">La versión es <code>0.4.0</code> limpia en el <code>pom.xml</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Binario <code>.jar</code> descargable</strong></td>
+<td style="text-align: center;">[ ] Conforme</td>
+<td style="text-align: left;">El ejecutable está adjunto en la Release web.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>CHANGELOG.md</code> estructurado</strong></td>
+<td style="text-align: center;">[ ] Conforme</td>
+<td style="text-align: left;">Describe qué hay de nuevo sin abrir el código fuente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Higiene de <code>.gitignore</code></strong></td>
+<td style="text-align: center;">[ ] Conforme</td>
+<td style="text-align: left;">La carpeta <code>target/</code> y archivos <code>.class</code> no existen en GitHub.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Etiqueta anotada publicada</strong></td>
+<td style="text-align: center;">[ ] Conforme</td>
+<td style="text-align: left;">El tag <code>v0.4.0-sprint4</code> está publicado y visible.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="entregables-de-la-sesion_5">Entregables de la sesión<a class="headerlink" href="#entregables-de-la-sesion_5" title="Permanent link">&para;</a></h4>
+<p>Al finalizar la sesión, el repositorio remoto debe tener la release publicada con su <code>.jar</code>, las ramas temporales eliminadas y el documento oficial <strong><code>ed/docs/control-versiones.md</code></strong> completado con los <strong>Apartados 5 y 6</strong>:</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Entregable["Entregables del Día 24 (Cierre Sprint 4)"]
+        R1["main integrada y limpia en origin/main"]
+        R2["Tag anotado v0.4.0-sprint4 publicado"]
+        R3["GitHub Release publicada con el archivo .jar adjunto"]
+        R4["ed/docs/control-versiones.md (Apartados 5 y 6)"]
+        R5["Commit and Push visual a main (Ctrl + Alt + K)"]
+    end
+    R1 --&gt; R5
+    R2 --&gt; R5
+    R3 --&gt; R5
+    R4 --&gt; R5</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Elemento técnico</th>
+<th style="text-align: left;">Contenido aportado</th>
+<th style="text-align: left;">Operación gráfica en IntelliJ IDEA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Rama <code>main</code></strong></td>
+<td style="text-align: left;">Integración limpia de la release y artefacto <code>.jar</code> empaquetado.</td>
+<td style="text-align: left;">Widget de Git ➔ <strong>Merge into Current</strong>; panel Maven ➔ <strong>package</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>GitHub Release</strong></td>
+<td style="text-align: left;">Título, descripción del <code>CHANGELOG.md</code> y archivo <code>.jar</code> adjunto.</td>
+<td style="text-align: left;">Interfaz web de GitHub ➔ <strong>Releases ➔ Publish release</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ed/docs/control-versiones.md</code></strong></td>
+<td style="text-align: left;"><strong>Apartado 5:</strong> Justificación SemVer y release.<br><strong>Apartado 6:</strong> Acta técnica de cierre del Sprint 4.</td>
+<td style="text-align: left;"><code>Ctrl + K</code> ➔ redacción de mensaje ➔ <strong>Commit and Push...</strong> (<code>Ctrl + Alt + K</code>).</td>
+</tr>
+</tbody>
+</table>
+<h5 id="plantilla-a-incorporar-en-eddocscontrol-versionesmd_1">Plantilla a incorporar en <code>ed/docs/control-versiones.md</code>:<a class="headerlink" href="#plantilla-a-incorporar-en-eddocscontrol-versionesmd_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="gu">## Apartado 5: Versionado semántico, higiene y release</span>
+
+<span class="gu">### 1. Decisión técnica de versión</span>
+| Parámetro | Valor asignado | Justificación técnica |
+| :--- | :--- | :--- |
+| <span class="gs">**Versión oficial publicada**</span> | <span class="sb">`0.4.0`</span> | Cierre del Sprint 4: incorporación de clases de dominio y Javadoc de API pública. |
+| <span class="gs">**Identificador SemVer**</span> | Incremento <span class="sb">`MINOR`</span> | Ampliación funcional manteniendo compatibilidad hacia atrás. |
+| <span class="gs">**Etiqueta de Git**</span> | <span class="sb">`v0.4.0-sprint4`</span> | Tag anotado con autoría, fecha y mensaje formal de entrega. |
+
+<span class="gu">### 2. Informe de higiene técnica del repositorio</span>
+| Elemento verificado | Estado de exclusión | Criterio de aseguramiento de calidad |
+| :--- | :---: | :--- |
+| Directorio <span class="sb">`target/`</span> | Conforme | Verificado que ningún binario <span class="sb">`.class`</span> está versionado en Git. |
+| Configuración local <span class="sb">`.idea/`</span> y <span class="sb">`*.iml`</span> | Conforme | Parámetros específicos del entorno personal ignorados. |
+| Limpieza de ramas temporales | Conforme | Rama <span class="sb">`feature/preparar-release`</span> eliminada tras su fusión. |
+
+<span class="gu">### 3. Publicación del artefacto distribuible</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Artefacto empaquetado:**</span> <span class="sb">`target/[nombre-proyecto]-0.4.0.jar`</span> mediante <span class="sb">`mvn clean package`</span>.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Publicación en GitHub Releases:**</span> Release oficial creada asociando la etiqueta <span class="sb">`v0.4.0-sprint4`</span> con el archivo <span class="sb">`.jar`</span> adjunto como binario descargable.
+
+---
+
+<span class="gu">## Apartado 6: Acta de cierre técnico del Sprint 4</span>
+
+| Hito técnico del Sprint 4 | Criterio de evaluación | Estado verificado |
+| :--- | :--- | :---: |
+| <span class="gs">**Aislamiento en ramas**</span> | Uso sistemático de ramas <span class="sb">`feature/`</span> para nuevas tareas | Conforme (Git Log) |
+| <span class="gs">**Resolución de conflictos**</span> | Uso del asistente visual de 3 paneles en IntelliJ IDEA | Conforme (Apartado 2) |
+| <span class="gs">**Documentación de API**</span> | Javadoc formal con <span class="sb">`@param`</span>, <span class="sb">`@return`</span> y <span class="sb">`@throws`</span> | Conforme (Apartado 3) |
+| <span class="gs">**Documentación externa**</span> | <span class="sb">`README.md`</span> corporativo y <span class="sb">`CHANGELOG.md`</span> en raíz | Conforme (Apartado 4) |
+| <span class="gs">**Release oficial**</span> | Tag anotado <span class="sb">`v0.4.0-sprint4`</span> y binario publicado en GitHub | Conforme (Apartado 5) |
+
+<span class="k">-</span><span class="w"> </span><span class="gs">**Desarrollador responsable:**</span> [Nombre del Alumno]
+<span class="k">-</span><span class="w"> </span><span class="gs">**Auditor técnico asignado:**</span> [Nombre del Compañero]
+<span class="k">-</span><span class="w"> </span><span class="gs">**Dictamen técnico final:**</span> APTO para evaluación trimestral del Sprint 4.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Aprendizaje clave del sprint:**</span> [Una frase de síntesis técnica propia].
+</code></pre></div>
+<h5 id="pasos-visuales-paso-a-paso-para-el-commit-y-push-final-en-intellij-idea">Pasos visuales paso a paso para el commit y push final en IntelliJ IDEA:<a class="headerlink" href="#pasos-visuales-paso-a-paso-para-el-commit-y-push-final-en-intellij-idea" title="Permanent link">&para;</a></h5>
+<ol>
+<li>Asegúrate de estar situado en la rama <strong><code>main</code></strong> (comprueba el widget de Git).</li>
+<li>Pulsa <strong><code>Ctrl + K</code></strong> (o pestaña lateral <strong>Commit</strong>).</li>
+<li>Marca la casilla de <code>ed/docs/control-versiones.md</code>.</li>
+<li>Cerciórate en el panel de cambios de que ningún archivo dentro de <code>target/</code> ni <code>.idea/</code> aparece pendiente de confirmación.</li>
+<li>Redacta el mensaje formal estructurado con Conventional Commits:<br />
+<code>docs(release): anadidos apartados 5 y 6 y cierre formal del sprint 4</code></li>
+<li>Haz clic en la flecha del botón azul y selecciona <strong>Commit and Push...</strong> (<code>Ctrl + Alt + K</code>).</li>
+<li>En el cuadro de diálogo <em>Push Commits</em>, confirma el envío y haz clic en el botón azul <strong>Push</strong>.</li>
+</ol>
+<pre class="mermaid"><code>flowchart LR
+    S1["Merge feature/preparar-release"] --&gt; S2["Maven: clean package"]
+    S2 --&gt; S3["New Tag v0.4.0-sprint4"]
+    S3 --&gt; S4["Push con Push Tags"]
+    S4 --&gt; S5["GitHub: Publish Release con .jar"]
+    S5 --&gt; S6["Apartados 5 y 6 en control-versiones.md"]
+    S6 --&gt; S7["Commit and Push final a main"]
+    S7 --&gt; S8["Delete rama temporal"]</code></pre>
+<hr />
+<h5 id="cierre-oficial-del-sprint-4">Cierre oficial del Sprint 4<a class="headerlink" href="#cierre-oficial-del-sprint-4" title="Permanent link">&para;</a></h5>
+<p>Al mostrarse la notificación emergente verde en IntelliJ IDEA (<em>«Pushed 1 commit to origin/main»</em>), el <strong>Sprint 4: «Ramas y documentación técnica»</strong> queda oficialmente completado y registrado.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.top", "navigation.sections", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="https://unpkg.com"></script>
+      
+    
+  </body>
+</html>
