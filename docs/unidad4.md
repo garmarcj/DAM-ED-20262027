@@ -931,3 +931,500 @@ flowchart LR
     S6 --> S7["Delete ramas temporales"]
 ```
 
+## Semana 12. Versionado semántico, higiene y release
+
+---
+
+### Día 23 - 2 sesiones
+
+---
+
+#### Primera sesión. Teoría. Ponerle número a lo que entregas: versionado semántico, higiene del repositorio y etiquetas de release
+
+---
+
+#### 1. Caso guía en AzaharTech
+
+Lunes 30 de noviembre de 2026. Son las tres de la tarde en la sede de **AzaharTech** en Castellón de la Plana. Arranca la tercera y última semana del **Sprint 4**.
+
+**Laia Claramunt** proyecta en la pantalla de la sala de reuniones el repositorio del cliente y señala tres problemas técnicos antes de dar paso al correo del coordinador del **IES El Caminàs**:
+
+> *«Equipo, el viernes cerramos el Sprint 4 y el instituto necesita una entrega congelada que pueda almacenar, citar y, en caso de fallo, restaurar de inmediato en el torno de conserjería. Ahora mismo nuestro repositorio arrastra tres deficiencias graves:*
+>
+> *1. Nadie sabe con certeza qué versión está instalada: el descriptor `pom.xml` sigue indicando `0.3.0-SNAPSHOT` desde octubre.*
+> *2. En algunos equipos la carpeta `target/` con los binarios `.class` compilados y metadatos del IDE (`.idea/`, `*.iml`) siguen apareciendo como pendientes en Git, ensuciando el historial.*
+> *3. Cuando la dirección del centro nos pregunta qué novedades incorpora el sistema respecto al mes pasado, la única respuesta disponible es obligarles a leer una lista dispersa de cuarenta commits.*
+>
+> *Una entrega profesional de ingeniería exige un número de versión matemático, un repositorio 100% higiénico y un registro de cambios legible para seres humanos. Esta semana resolveremos las tres cuestiones y, siguiendo nuestra disciplina metodológica, lo haremos desde una rama aislada:* *`feature/preparar-release`*, *sin tocar jamás `main` directamente»*.
+
+**Alba Torres** pregunta con curiosidad: *«¿Y la versión no puede ser simplemente un número correlativo como 1, 2, 3 o 4?»*. **Pau Ferrer** niega con la cabeza: *«Si solo sumas números al azar, no le comunicas nada al cliente. Con el versionado semántico, un simple vistazo al número le indica si puede actualizar con total tranquilidad o si la actualización romperá la compatibilidad de su sistema»*.
+
+---
+
+#### 2. Versionado semántico (*SemVer*) y su relación con los Conventional Commits
+
+El estándar internacional **SemVer (Semantic Versioning 2.0.0)** establece que toda versión de software se estructura mediante tres números enteros separados por puntos:
+
+$$\mathbf{MAJOR.MINOR.PATCH}$$
+
+```mermaid
+flowchart LR
+    V["v0.4.0"] --> MA["MAJOR = 0"]
+    V --> MI["MINOR = 4"]
+    V --> PA["PATCH = 0"]
+    MA --> MA2["Fase inicial de desarrollo (API provisional)"]
+    MI --> MI2["Nueva funcionalidad compatible (Clases de dominio + Javadoc)"]
+    PA --> PA2["Corrección de fallos compatible (Bugfixes)"]
+```
+
+| Componente | Cuándo se incrementa | Impacto en quien consume el software | Ejemplo práctico en el IES El Caminàs |
+| :--- | :--- | :--- | :--- |
+| **`MAJOR` (Mayor)** | Cambios incompatibles en la API pública (*breaking changes*). | Quien consume la clase debe adaptar o reescribir su código. | `1.0.0` ➔ `2.0.0`: `permiteAcceso(int)` pasa a exigir un objeto complejo `Torno`. |
+| **`MINOR` (Menor)** | Nuevas funcionalidades que mantienen la compatibilidad previa. | El cliente puede incorporar lo nuevo sin que lo anterior falle. | `0.3.0` ➔ `0.4.0`: nuevas clases de dominio (`Credencial`) y Javadoc de API. |
+| **`PATCH` (Parche)** | Corrección de defectos (*bugs*) sin añadir nuevas funciones. | Riesgo cero de actualización: el software es más robusto. | `0.4.0` ➔ `0.4.1`: corregido el límite de temperatura del sensor en el torno. |
+
+##### Reglas de versionado en AzaharTech
+
+* **La serie `0.y.z`.** Indica que el producto se encuentra en fase de construcción inicial (nuestro MVP del primer trimestre). La API aún evoluciona hasta consolidar la futura `1.0.0`.
+* **El sufijo `-SNAPSHOT` en Maven.** Indica una versión *en construcción activa*, inestable y sujeta a cambios diarios. **Una versión de release oficial jamás lleva `-SNAPSHOT` en su descriptor.**
+* **Inmutabilidad.** Una vez publicada una versión con su etiqueta Git, el código asociado no se modifica jamás. Si se detecta un error, se incrementa el parche (`0.4.1`) en una nueva entrega.
+
+##### Conexión directa: de los Conventional Commits al incremento SemVer
+
+Los prefijos estandarizados en los mensajes de confirmación permiten deducir mecánicamente la versión de release:
+
+| Prefijo del commit | Tipo de cambio aportado | Incremento SemVer asociado |
+| :--- | :--- | :---: |
+| `fix:` | Corrección de un defecto o bug | **`PATCH`** |
+| `feat:` | Incorporación de nueva funcionalidad compatible | **`MINOR`** |
+| `feat!:` o pie `BREAKING CHANGE:` | Modificación que rompe compatibilidad previa | **`MAJOR`** |
+| `docs:`, `refactor:`, `test:`, `chore:` | Mantenimiento interno sin impacto en el comportamiento | Sin salto de versión (se agrupan) |
+
+---
+
+#### 3. Higiene técnica del repositorio: qué se versiona y qué se ignora
+
+La máxima directriz de un desarrollador profesional es clara: **en Git solo se versiona aquello que no se puede regenerar automáticamente**.
+
+```mermaid
+flowchart TD
+    A["Archivo nuevo en el espacio de trabajo"] --> B{"¿Se puede reconstruir con mvn clean compile?"}
+    B -- Sí --> C["NUNCA se versiona: va a .gitignore (target/)"]
+    B -- No --> D{"¿Es configuración privada del IDE o del sistema operativo?"}
+    D -- Sí --> C
+    D -- No --> E["Se versiona: código fuente src/, pom.xml, docs/"]
+```
+
+| Elemento en el proyecto | ¿Se versiona en Git? | Motivo técnico de ingeniería |
+| :--- | :---: | :--- |
+| `src/`, `pom.xml`, `README.md`, `ed/docs/` | **SÍ** | Constituyen el código fuente original y la memoria técnica del software. |
+| `target/` | **NO** | Contiene binarios regenerables; versionarlos provoca colisiones y satura el repositorio. |
+| `.idea/`, `*.iml` | **NO** | Metadatos locales del IDE de cada programador; incompatibles entre diferentes máquinas. |
+| `.DS_Store`, `Thumbs.db` | **NO** | Residuos temporales de índices del explorador del sistema operativo. |
+| Contraseñas o credenciales | **NUNCA** | Una vez confirmadas en Git, se consideran comprometidas de por vida. |
+
+> **Aviso de auditoría.** El archivo `.gitignore` solo surte efecto sobre archivos que **no hayan sido rastreados previamente**. Si la carpeta `target/` se confirmó por descuido en el Sprint 1 o 2, Git seguirá vigilándola hasta que se elimine expresamente del índice del repositorio.
+
+##### Contenido corporativo del archivo `.gitignore`
+
+```text
+# Directorio de construcción y binarios generados por Maven
+target/
+
+# Metadatos del entorno de desarrollo (IntelliJ IDEA)
+.idea/
+*.iml
+out/
+
+# Residuos del sistema operativo y logs
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+```
+
+---
+
+#### 4. Etiquetas de versión (*Git Tags*) y el registro de cambios (*CHANGELOG.md*)
+
+Mientras que una **rama** es un puntero móvil que avanza con cada nueva instrucción confirmada, una **etiqueta (*Tag*)** es un ancla fija e inmutable colocada sobre un commit exacto:
+
+```mermaid
+gitGraph
+   commit id: "Cierre Sprint 3" tag: "v0.3.0-sprint3"
+   commit id: "feat: modelo Credencial"
+   commit id: "docs: Javadoc API"
+   commit id: "docs: README corporativo"
+   commit id: "chore: version 0.4.0" tag: "v0.4.0-sprint4"
+```
+
+| Tipo de etiqueta | Contenido que registra | Ámbito de uso en AzaharTech |
+| :--- | :--- | :--- |
+| **Etiqueta ligera (*Lightweight*)** | Puntero simple al identificador del commit. | Marcas personales efímeras de depuración. |
+| **Etiqueta anotada (*Annotated*)** | Puntero, autor, fecha, firma y mensaje descriptivo formal. | **Obligatoria para todas las releases oficiales de sprint.** |
+
+##### El archivo `CHANGELOG.md`
+
+El `CHANGELOG.md` es el documento de cara al cliente que recopila de manera ordenada y legible qué ha cambiado entre versiones, evitando que el usuario deba interpretar los mensajes internos de los commits:
+
+```markdown
+# Registro de Cambios (Changelog)
+
+Todos los cambios notables de este proyecto se documentan en este archivo.
+El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
+
+## [0.4.0] - 2026-12-02
+### Añadido
+- Clase `Credencial` con validación de nivel de acceso y atributos privados.
+- Documentación técnica interna de la API pública mediante bloques Javadoc.
+- Portal corporativo `README.md` con requisitos de entorno y comandos de construcción.
+
+### Modificado
+- Descriptor `pom.xml` actualizado a la versión estable `0.4.0` (eliminado sufijo `-SNAPSHOT`).
+
+### Corregido
+- Resuelto defecto en la validación de límites térmicos del torno de acceso.
+```
+
+---
+
+#### 5. Actividad activa interactiva: «¿Qué número le toca?» en la pizarra
+
+Alba y Pau proyectan el historial reciente de commits desde la versión `v0.3.2` para resolver en la pizarra:
+
+| Secuencia de commits recientes | Mensaje descriptivo del commit |
+| :---: | :--- |
+| Commit 1 | `fix(torno): corregido error de redondeo en el calculo de minutos` |
+| Commit 2 | `docs(readme): anadidos requisitos minimos de memoria RAM` |
+| Commit 3 | `feat(acceso): incorporada lectura de codigo de barras secundario` |
+| Commit 4 | `refactor(core): reorganizada visibilidad de variables auxiliares` |
+
+*Dinámica en parejas (10 minutos):*
+
+1. **Decisión conjunta (4 min).** Cada pareja anota en su libreta qué versión SemVer corresponde publicar y la justifica técnicamente.  
+   *Solución:* **`0.4.0`**, porque el cambio de mayor peso es un `feat` compatible hacia atrás (`MINOR`), lo que reinicia el dígito `PATCH` a `0`.
+2. **Giro imprevisto (3 min).** Laia añade un nuevo commit:  
+   *`feat!(api): eliminada la compatibilidad con el formato antiguo de DNI sin letra`*.  
+   ¿Qué número corresponde ahora?  
+   *Solución:* Rompe el contrato previo (`BREAKING CHANGE`), por lo que exige un salto de `MAJOR` (hacia `1.0.0` o `0.5.0` en fase provisional).
+3. **Puesta en común (3 min).** Un estudiante voluntario transcribe en la pizarra qué secciones del `CHANGELOG.md` se alimentarían con estos cambios y descarta las que no interesan al cliente (por ejemplo, el `refactor` interno).
+
+---
+
+#### Segunda sesión: dojo de herramientas y katas
+
+> **Dinámica del dojo de entrenamiento:**
+>
+> * La **Kata 1 es obligatoria**: aislar la preparación de la release en la rama `feature/preparar-release`, sanear el archivo `.gitignore`, actualizar la versión en el `pom.xml` y redactar el `CHANGELOG.md`.
+> * Las **Katas 2 y 3 son optativas y de ampliación**: permiten dominar la creación visual de etiquetas anotadas y su sincronización remota con GitHub.
+
+---
+
+##### Kata 1. Obligatoria (cinturón blanco / nivel base). Repositorio higiénico, versión `0.4.0` y `CHANGELOG.md` en rama aislada
+
+* **Objetivo:** crear una rama de desarrollo dedicada a la release, eliminar del seguimiento de Git cualquier binario no deseado, fijar la versión oficial sin `-SNAPSHOT` en Maven y formalizar el registro de cambios.
+* **Misión:**
+    1. Comprueba en el widget de Git de IntelliJ IDEA (esquina inferior derecha) que estás en la rama **`main`** y que la pestaña **Commit** (`Alt + 0`) no tiene cambios pendientes.
+    2. Haz clic en el widget de Git ➔ **New Branch...** ➔ introduce el nombre:  
+       `feature/preparar-release` ➔ pulsa **Create**.
+    3. **Auditoría de higiene (.gitignore):** Abre o crea el archivo `.gitignore` en la raíz de tu proyecto. Asegúrate de que contiene las exclusiones de `target/`, `.idea/`, `*.iml`, `.DS_Store` y residuos temporales.
+    4. Comprueba en el explorador de proyectos que la carpeta `target/` se visualiza en color **naranja oscuro o gris atenuado** (*ignored*). Si apareciera en blanco o azul (rastreada por error en commits antiguos), elimínala del índice mediante clic derecho sobre `target/` ➔ **Git ➔ Remove from VCS** (conservando los archivos locales).
+    5. **Fijar versión de release en Maven:** Abre el archivo `pom.xml` y actualiza la etiqueta de versión sustituyendo `0.3.0-SNAPSHOT` (o la que tuvieras) por la versión estable oficial:  
+       `<version>0.4.0</version>`  
+       Pulsa el icono flotante de recarga de Maven (**Load Maven Changes** o `Ctrl + Shift + O`).
+    6. **Registro de cambios:** Crea en la raíz de tu proyecto el archivo `CHANGELOG.md` y completa la entrada `[0.4.0]` documentando las novedades de las clases y del Javadoc según el trabajo real de tu proyecto.
+    7. **Commit visual en la rama:** Pulsa **`Ctrl + K`**, marca exclusivamente `.gitignore`, `pom.xml` y `CHANGELOG.md`, y confirma localmente con el mensaje:  
+       `chore(release): preparada version 0.4.0 y repositorio saneado`.
+    8. Abre **Git ➔ Log** (`Alt + 9`) y verifica que `main` permanece intacta y que el commit reside únicamente en tu rama de trabajo.
+
+---
+
+##### Kata 2. Optativa (cinturón marrón / nivel avanzado). Creación visual de la etiqueta anotada `v0.4.0-sprint4`
+
+* **Contexto técnico:** una etiqueta anotada sella formalmente el commit, vinculando autoría, fecha y resumen técnico inmutable.
+* **Misión:**
+    1. En la pestaña **Git ➔ Log** (`Alt + 9`), haz clic derecho sobre el commit `chore(release): preparada version 0.4.0...` recién creado.
+    2. Selecciona la opción **New Tag...**
+    3. En el campo *Tag Name*, introduce: `v0.4.0-sprint4`.
+    4. En el campo *Message*, redacta el resumen formal:  
+       `Release oficial Sprint 4: Clases de dominio, aislamiento con ramas y documentacion Javadoc`.
+    5. Pulsa **Create Tag**.
+    6. Comprueba que el grafo de commits de IntelliJ dibuja la insignia de etiqueta amarilla junto al commit.
+
+---
+
+##### Kata 3. Optativa (cinturón negro / «hacker AzaharTech»). Publicación remota con *Push Tags* y auditoría web
+
+* **Contexto de arquitectura:** las etiquetas no viajan a GitHub mediante un Push ordinario; requieren una instrucción de sincronización explícita.
+* **Misión:**
+    1. Haz checkout a `main` desde el widget de Git e integra la rama mediante **`feature/preparar-release` ➔ Merge into Current** (practicando el flujo previo a la sesión de consolidación del Día 24).
+    2. Abre la ventana de subida mediante **Git ➔ Push...** (`Ctrl + Shift + K`).
+    3. En la esquina inferior izquierda del diálogo, despliega la opción **Push Tags** y marca **All** (o la etiqueta recién creada).
+    4. Pulsa el botón azul **Push**.
+    5. Abre tu repositorio en el navegador web y entra en el apartado **Tags** (o *Releases*). Verifica que la etiqueta `v0.4.0-sprint4` figura publicada con sus metadatos y mensaje intactos.
+
+---
+
+#### Entregables de la sesión
+
+Al finalizar el dojo, el repositorio local debe mostrar la preparación de la versión en la rama correspondiente:
+
+```mermaid
+flowchart TD
+    subgraph Entregable["Entregables del Día 23"]
+        E1[".gitignore saneado (raíz)"]
+        E2["pom.xml con versión 0.4.0 oficial"]
+        E3["CHANGELOG.md con entrada 0.4.0 (raíz)"]
+        E4["Rama activa: feature/preparar-release"]
+        E5["Commit visual local (Ctrl + K)"]
+    end
+    E1 --> E5
+    E2 --> E5
+    E3 --> E5
+    E4 --> E5
+```
+
+| Elemento técnico | Contenido aportado | Operación gráfica en IntelliJ IDEA |
+| :--- | :--- | :--- |
+| **`.gitignore`** | Exclusión estricta de `target/`, `.idea/`, `*.iml` y residuos temporales. | Menú contextual ➔ **New ➔ File** ➔ comprobación en panel Commit. |
+| **`pom.xml`** | Versión semántica fijada en `0.4.0` (sin `-SNAPSHOT`). | Edición de etiqueta `<version>` ➔ **Load Maven Changes** (`Ctrl + Shift + O`). |
+| **`CHANGELOG.md`** | Registro ordenado de cambios para la versión `[0.4.0]` (*Añadido*, *Modificado*, *Corregido*). | Creación de archivo en raíz ➔ previsualización en Markdown Split View. |
+| **Historial en Git Log** | Commit formal de release aislado en `feature/preparar-release`, con `main` inalterada. | Comprobación visual en pestaña **Git ➔ Log** (`Alt + 9`). |
+
+##### Pasos visuales paso a paso en IntelliJ IDEA:
+
+1. **Verificar rama de trabajo:** Comprueba en el widget de Git (esquina inferior derecha) que estás situado en `feature/preparar-release` y **no** en `main`.
+2. **Abrir panel de confirmación:** Pulsa **`Ctrl + K`** (o pestaña lateral **Commit** / `Alt + 0`).
+3. **Auditoría visual de diferencias:** Haz doble clic sobre cada archivo para revisar el *Diff Viewer* y verificar que no hay archivos de `target/` marcados por error.
+4. **Mensaje formal estructurado:** Introduce el mensaje con Conventional Commits:  
+   `chore(release): preparada version 0.4.0 y repositorio saneado`
+5. **Confirmar commit local:** Haz clic en el botón azul **Commit** (sin Push; la integración en `main` y la publicación de la release se formalizarán en el Día 24).
+
+```mermaid
+flowchart LR
+    S1["Widget: New Branch feature/preparar-release"] --> S2[".gitignore + pom.xml 0.4.0 + CHANGELOG.md"]
+    S2 --> S3["Ctrl + K: Commit local en rama"]
+    S3 --> S4["Git Log: Verificar main intacta"]
+    S4 --> S5["Opcional: Kata 2 New Tag v0.4.0-sprint4"]
+```
+
+---
+
+### Día 24 - 1 sesión
+
+---
+
+#### Sesión única. Taller práctico: integración en `main`, empaquetado del artefacto `.jar`, GitHub Releases y cierre del Sprint 4
+
+---
+
+#### 1. Caso guía en AzaharTech
+
+Miércoles 2 de diciembre de 2026. Son las tres de la tarde en las oficinas de **AzaharTech**. Faltan cuarenta y ocho horas para cerrar formalmente el **Sprint 4** antes del periodo de consolidación y exámenes del trimestre.
+
+Laia Claramunt y Pau Ferrer proyectan la sección de **Releases** de un proyecto de código abierto de referencia en GitHub, llamando la atención del equipo sobre sus elementos visibles: un número de versión matemático, un registro de cambios estructurado y un **archivo binario ejecutable descargable**:
+
+> *«Equipo, así es como se entrega software en el mundo real. Un cliente de consultoría no descarga código fuente para compilarlo con Maven ni inspecciona ramas de Git: **descarga una release empaquetada y lista para funcionar**.*
+>
+> *Hoy completaremos el ciclo de vida de entrega de AzaharTech de principio a fin:*
+> 1. *Fusionaremos la rama `feature/preparar-release` en `main`.*
+> 2. *Construiremos el artefacto ejecutable distribuible (`.jar`) mediante el ciclo de vida de Maven.*
+> 3. *Crearemos la etiqueta anotada oficial **`v0.4.0-sprint4`** y la publicaremos en GitHub.*
+> 4. *Publicaremos la **GitHub Release** en la web adjuntando el binario `.jar` para el cliente.*
+> 5. *Cerraremos el sprint cumplimentando los Apartados 5 y 6 en nuestro documento oficial:* *`ed/docs/control-versiones.md`»*.
+
+---
+
+#### 2. El flujo integral de una release profesional
+
+```mermaid
+gitGraph
+   commit id: "Cierre Dia 22"
+   branch "feature/preparar-release"
+   checkout "feature/preparar-release"
+   commit id: ".gitignore + CHANGELOG"
+   commit id: "chore: version 0.4.0"
+   checkout main
+   merge "feature/preparar-release" id: "1. Integracion release"
+   commit id: "2. Build verificado" tag: "v0.4.0-sprint4"
+```
+
+```mermaid
+flowchart TD
+    A["Verificar estado limpio en main"] --> B["Merge into Current: feature/preparar-release"]
+    B --> C["Maven Lifecycle: clean package"]
+    C --> D{"¿BUILD SUCCESS y target/*.jar?"}
+    D -- Fallo --> E["Detenerse: subsanar en rama temporal"]
+    D -- Éxito --> F["Crear Tag anotado v0.4.0-sprint4"]
+    F --> G["Push a GitHub con Push Tags activado"]
+    G --> H["Crear Release en GitHub y adjuntar el archivo .jar"]
+    H --> I["Redactar Apartados 5 y 6 en control-versiones.md"]
+    I --> J["Eliminar rama feature/preparar-release"]
+```
+
+##### Lista de control previa a la publicación de la release
+
+| Verificación técnica | Dónde se comprueba | Criterio de aceptación estricto |
+| :--- | :--- | :--- |
+| **Rama activa** | Widget de Git | Situado en `main`, sin archivos pendientes ni ramas sucias. |
+| **Versión estable** | Archivo `pom.xml` | `<version>0.4.0</version>` (sin sufijo `-SNAPSHOT`). |
+| **Construcción limpia** | Pestaña **Maven ➔ Lifecycle ➔ package** | Mensaje `BUILD SUCCESS` y archivo `.jar` generado en `target/`. |
+| **Registro de cambios** | Archivo `CHANGELOG.md` | Sección `[0.4.0]` completa con novedades y correcciones. |
+| **Higiene del repositorio** | Panel **Commit** (`Alt + 0`) | Carpeta `target/` y metadatos `.idea/` totalmente excluidos. |
+| **Etiqueta anotada** | Pestaña **Git ➔ Log** (`Alt + 9`) | Tag `v0.4.0-sprint4` fijado en el commit final de `main`. |
+
+---
+
+#### 3. Laboratorio práctico: de la rama de trabajo al artefacto distribuido
+
+##### Fase 1. Fusión de la release en `main`
+1. Cambia tu espacio de trabajo a la rama principal: widget de Git ➔ **main ➔ Checkout**.
+2. Despliega el widget de Git, haz clic sobre `feature/preparar-release` y selecciona **Merge into Current**.
+3. Abre **Git ➔ Log** (`Alt + 9`) y comprueba que `main` ha avanzado incorporando el saneamiento y el `CHANGELOG.md`.
+
+##### Fase 2. Empaquetado del artefacto ejecutable con Maven
+1. Abre la ventana lateral derecha **Maven** (icono con la «m» azul).
+2. Despliega la carpeta **Lifecycle**.
+3. Haz doble clic en la fase **clean** y, a continuación, doble clic en la fase **package**.
+4. Comprueba en la consola inferior de ejecución el mensaje final:  
+   `[INFO] BUILD SUCCESS`.
+5. Abre el explorador del proyecto y despliega la carpeta `target/`: comprueba que existe el archivo empaquetado:  
+   `target/<artifactId>-0.4.0.jar`.
+
+##### Fase 3. Etiquetado y publicación de la GitHub Release
+1. **Etiquetado.** En **Git ➔ Log**, haz clic derecho sobre el último commit de `main` ➔ **New Tag...** ➔ introduce el nombre `v0.4.0-sprint4` y el mensaje formal de release. Pulsa **Create Tag**.
+2. **Sincronización remota.** Pulsa **`Ctrl + Shift + K`** (*Push*), activa la casilla **Push Tags** en la esquina inferior izquierda y haz clic en el botón azul **Push**.
+3. **Publicación de la Release en la web:**
+    * Abre tu repositorio en el navegador web en GitHub.
+    * En el menú lateral derecho, haz clic en **Releases ➔ Draft a new release**.
+    * En el desplegable *Choose a tag*, selecciona **`v0.4.0-sprint4`**.
+    * En *Release title*, escribe: `Release v0.4.0 - Sprint 4 (AzaharTech)`.
+    * En la caja de descripción, pega el texto correspondiente a la entrada `[0.4.0]` de tu `CHANGELOG.md`.
+    * **Adjuntar el binario:** Arrastra el archivo `.jar` generado en tu carpeta local `target/` al recuadro de archivos adjuntos (*Attach binaries by dropping them here*).
+    * Pulsa el botón verde **Publish release**.
+
+> **Regla de oro de AzaharTech:**  
+> El archivo `.jar` se adjunta directamente a la Release en la interfaz web de GitHub; **jamás se versiona ni se sube con un commit a Git**. Por ese motivo la carpeta `target/` permanece ignorada en el `.gitignore`.
+
+##### Fase 4. Limpieza de ramas locales
+1. En IntelliJ IDEA, despliega el widget de Git, haz clic sobre `feature/preparar-release` y selecciona **Delete**.
+2. Confirma en **Git ➔ Log** que `main` y `origin/main` apuntan al mismo commit y que la etiqueta es visible en ambos.
+
+---
+
+#### 4. Dinámica de cierre: auditoría cruzada por parejas
+
+Los estudiantes intercambian sus puestos de trabajo en parejas. Cada compañero adopta el rol de **técnico de infraestructuras del IES El Caminàs** y debe auditar la entrega **exclusivamente desde la página web de GitHub, sin abrir IntelliJ**:
+
+```mermaid
+flowchart LR
+    Auditor["Compañero (Técnico del IES)"] --> A1["1. Abrir GitHub Releases"]
+    A1 --> A2["2. Descargar archivo .jar"]
+    A2 --> A3["3. Leer Changelog de la versión"]
+    A3 --> A4["4. Comprobar que target/ no está en el código"]
+    A4 --> A5["5. Firmar Acta de Cierre en control-versiones.md"]
+```
+
+| Criterio técnico auditado en GitHub | Estado verificado | Observación técnica |
+| :--- | :---: | :--- |
+| **Versión sin `-SNAPSHOT`** | [ ] Conforme | La versión es `0.4.0` limpia en el `pom.xml`. |
+| **Binario `.jar` descargable** | [ ] Conforme | El ejecutable está adjunto en la Release web. |
+| **`CHANGELOG.md` estructurado** | [ ] Conforme | Describe qué hay de nuevo sin abrir el código fuente. |
+| **Higiene de `.gitignore`** | [ ] Conforme | La carpeta `target/` y archivos `.class` no existen en GitHub. |
+| **Etiqueta anotada publicada** | [ ] Conforme | El tag `v0.4.0-sprint4` está publicado y visible. |
+
+---
+
+#### Entregables de la sesión
+
+Al finalizar la sesión, el repositorio remoto debe tener la release publicada con su `.jar`, las ramas temporales eliminadas y el documento oficial **`ed/docs/control-versiones.md`** completado con los **Apartados 5 y 6**:
+
+```mermaid
+flowchart TD
+    subgraph Entregable["Entregables del Día 24 (Cierre Sprint 4)"]
+        R1["main integrada y limpia en origin/main"]
+        R2["Tag anotado v0.4.0-sprint4 publicado"]
+        R3["GitHub Release publicada con el archivo .jar adjunto"]
+        R4["ed/docs/control-versiones.md (Apartados 5 y 6)"]
+        R5["Commit and Push visual a main (Ctrl + Alt + K)"]
+    end
+    R1 --> R5
+    R2 --> R5
+    R3 --> R5
+    R4 --> R5
+```
+
+| Elemento técnico | Contenido aportado | Operación gráfica en IntelliJ IDEA |
+| :--- | :--- | :--- |
+| **Rama `main`** | Integración limpia de la release y artefacto `.jar` empaquetado. | Widget de Git ➔ **Merge into Current**; panel Maven ➔ **package**. |
+| **GitHub Release** | Título, descripción del `CHANGELOG.md` y archivo `.jar` adjunto. | Interfaz web de GitHub ➔ **Releases ➔ Publish release**. |
+| **`ed/docs/control-versiones.md`** | **Apartado 5:** Justificación SemVer y release.<br>**Apartado 6:** Acta técnica de cierre del Sprint 4. | `Ctrl + K` ➔ redacción de mensaje ➔ **Commit and Push...** (`Ctrl + Alt + K`). |
+
+##### Plantilla a incorporar en `ed/docs/control-versiones.md`:
+
+```markdown
+## Apartado 5: Versionado semántico, higiene y release
+
+### 1. Decisión técnica de versión
+| Parámetro | Valor asignado | Justificación técnica |
+| :--- | :--- | :--- |
+| **Versión oficial publicada** | `0.4.0` | Cierre del Sprint 4: incorporación de clases de dominio y Javadoc de API pública. |
+| **Identificador SemVer** | Incremento `MINOR` | Ampliación funcional manteniendo compatibilidad hacia atrás. |
+| **Etiqueta de Git** | `v0.4.0-sprint4` | Tag anotado con autoría, fecha y mensaje formal de entrega. |
+
+### 2. Informe de higiene técnica del repositorio
+| Elemento verificado | Estado de exclusión | Criterio de aseguramiento de calidad |
+| :--- | :---: | :--- |
+| Directorio `target/` | Conforme | Verificado que ningún binario `.class` está versionado en Git. |
+| Configuración local `.idea/` y `*.iml` | Conforme | Parámetros específicos del entorno personal ignorados. |
+| Limpieza de ramas temporales | Conforme | Rama `feature/preparar-release` eliminada tras su fusión. |
+
+### 3. Publicación del artefacto distribuible
+- **Artefacto empaquetado:** `target/[nombre-proyecto]-0.4.0.jar` mediante `mvn clean package`.
+- **Publicación en GitHub Releases:** Release oficial creada asociando la etiqueta `v0.4.0-sprint4` con el archivo `.jar` adjunto como binario descargable.
+
+---
+
+## Apartado 6: Acta de cierre técnico del Sprint 4
+
+| Hito técnico del Sprint 4 | Criterio de evaluación | Estado verificado |
+| :--- | :--- | :---: |
+| **Aislamiento en ramas** | Uso sistemático de ramas `feature/` para nuevas tareas | Conforme (Git Log) |
+| **Resolución de conflictos** | Uso del asistente visual de 3 paneles en IntelliJ IDEA | Conforme (Apartado 2) |
+| **Documentación de API** | Javadoc formal con `@param`, `@return` y `@throws` | Conforme (Apartado 3) |
+| **Documentación externa** | `README.md` corporativo y `CHANGELOG.md` en raíz | Conforme (Apartado 4) |
+| **Release oficial** | Tag anotado `v0.4.0-sprint4` y binario publicado en GitHub | Conforme (Apartado 5) |
+
+- **Desarrollador responsable:** [Nombre del Alumno]
+- **Auditor técnico asignado:** [Nombre del Compañero]
+- **Dictamen técnico final:** APTO para evaluación trimestral del Sprint 4.
+- **Aprendizaje clave del sprint:** [Una frase de síntesis técnica propia].
+```
+
+##### Pasos visuales paso a paso para el commit y push final en IntelliJ IDEA:
+
+1. Asegúrate de estar situado en la rama **`main`** (comprueba el widget de Git).
+2. Pulsa **`Ctrl + K`** (o pestaña lateral **Commit**).
+3. Marca la casilla de `ed/docs/control-versiones.md`.
+4. Cerciórate en el panel de cambios de que ningún archivo dentro de `target/` ni `.idea/` aparece pendiente de confirmación.
+5. Redacta el mensaje formal estructurado con Conventional Commits:  
+   `docs(release): anadidos apartados 5 y 6 y cierre formal del sprint 4`
+6. Haz clic en la flecha del botón azul y selecciona **Commit and Push...** (`Ctrl + Alt + K`).
+7. En el cuadro de diálogo *Push Commits*, confirma el envío y haz clic en el botón azul **Push**.
+
+```mermaid
+flowchart LR
+    S1["Merge feature/preparar-release"] --> S2["Maven: clean package"]
+    S2 --> S3["New Tag v0.4.0-sprint4"]
+    S3 --> S4["Push con Push Tags"]
+    S4 --> S5["GitHub: Publish Release con .jar"]
+    S5 --> S6["Apartados 5 y 6 en control-versiones.md"]
+    S6 --> S7["Commit and Push final a main"]
+    S7 --> S8["Delete rama temporal"]
+```
+
+---
+
+##### Cierre oficial del Sprint 4
+
+Al mostrarse la notificación emergente verde en IntelliJ IDEA (*«Pushed 1 commit to origin/main»*), el **Sprint 4: «Ramas y documentación técnica»** queda oficialmente completado y registrado.
