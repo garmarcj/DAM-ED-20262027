@@ -887,11 +887,16 @@ La **Complejidad Ciclomática** ($V(G)$) cuantifica la complejidad lógica de un
 
 Se puede calcular de dos formas equivalentes:
 1. **Fórmula topológica:**
+
    $$V(G) = E - N + 2P$$
-   *(Donde $E$ es el número de aristas, $N$ el de nodos y $P$ el número de componentes conexos, normalmente $P = 1$ para un único método).*
+
+   *(donde $E$ es el número de aristas, $N$ el de nodos y $P$ el número de componentes conexos, normalmente $P = 1$ para un único método).*
+
 2. **Regla de las regiones o puntos de decisión:**
+
    $$V(G) = \text{Número de puntos de decisión} + 1$$
-   *(Cada `if`, `while`, `for`, `case` o condición booleana compuesta con `&&` o `||` añade un punto de decisión).*
+
+   *(cada `if`, `while`, `for`, `case` o condición booleana compuesta con `&&` o `||` añade un punto de decisión).*
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -900,16 +905,16 @@ Se puede calcular de dos formas equivalentes:
 │ Valor V(G)   │ Nivel de riesgo  │ Mantenibilidad       │ Recomendación técnica         │
 ├──────────────┼──────────────────┼──────────────────────┼───────────────────────────────┤
 │ 1 – 10       │ Código simple    │ Alta mantenibilidad  │ Módulo bien estructurado.     │
-│              │ (Riesgo bajo)    │ Fácil de probar      │ Diseño limpio y legible.      │
+│              │ (riesgo bajo)    │ Fácil de probar      │ Diseño limpio y legible.      │
 ├──────────────┼──────────────────┼──────────────────────┼───────────────────────────────┤
 │ 11 – 20      │ Complejidad      │ Moderada dificultad  │ Requiere atención. Conviene   │
 │              │ moderada         │ de seguimiento       │ extraer métodos auxiliares.   │
 ├──────────────┼──────────────────┼──────────────────────┼───────────────────────────────┤
-│ 21 – 50      │ Alta complejidad │ Código inestable     │ ALERTA: Muy difícil de testear│
-│              │ (Riesgo alto)    │ Propensión a bugs    │ Refactorización prioritaria.  │
+│ 21 – 50      │ Alta complejidad │ Código inestable     │ ALERTA: muy difícil de testear│
+│              │ (riesgo alto)    │ Propensión a bugs    │ Refactorización prioritaria.  │
 ├──────────────┼──────────────────┼──────────────────────┼───────────────────────────────┤
 │ > 50         │ Inasumible       │ Intesteable          │ Código no aceptable según los │
-│              │ (Riesgo crítico) │ "Código espagueti"   │ estándares de AzaharTech.     │
+│              │ (riesgo crítico) │ "código espagueti"   │ estándares de AzaharTech.     │
 └──────────────┴──────────────────┴──────────────────────┴───────────────────────────────┘
 ```
 
@@ -925,12 +930,13 @@ En la pestaña **Variables** del panel Debug, podemos pulsar el icono `+` (**New
 
 ##### B) Puntos de traza silenciosos (*Logpoints / Tracepoints*)
 Los **Logpoints** resuelven de raíz la tentación de meter sentencias `System.out.println` en el código fuente:
-1. Coloca un punto de ruptura normal en el margen lateral.
-2. Haz clic derecho sobre el punto rojo para abrir sus propiedades avanzadas.
-3. **Desmarca** la casilla **Suspend** (para que la JVM **no detenga** la ejecución del programa).
-4. **Marca** la casilla **Evaluate and log** (o *Breakpoint hit message*) y escribe una expresión Java entrecomillada o una variable:
-   `"Iteración: " + i + " | Minutos acumulados: " + totalMinutos`
-5. Al ejecutar con Debug, IntelliJ imprimirá ese mensaje directamente en la consola de depuración cada vez que el hilo pase por esa línea, a máxima velocidad y sin haber modificado ni una sola coma del archivo fuente.
+
+1. Coloca un punto de ruptura normal en el margen lateral.  
+2. Haz clic derecho sobre el punto rojo para abrir sus propiedades avanzadas.  
+3. **Desmarca** la casilla **Suspend** (para que la JVM **no detenga** la ejecución del programa).  
+4. **Marca** la casilla **Evaluate and log** (o *Breakpoint hit message*) y escribe una expresión Java entrecomillada o una variable:  
+   `"Iteración: " + i + " | Minutos acumulados: " + totalMinutos`  
+5. Al ejecutar con Debug, IntelliJ imprimirá ese mensaje directamente en la consola de depuración cada vez que el hilo pase por esa línea, a máxima velocidad y sin haber modificado ni una sola coma del archivo fuente.  
 
 ```
 VENTANA DE CONFIGURACIÓN DE UN LOGPOINT EN INTELLIJ:
@@ -938,7 +944,7 @@ VENTANA DE CONFIGURACIÓN DE UN LOGPOINT EN INTELLIJ:
     ┌────────────────────────────────────────────────────────┐
     │ Breakpoint: GestorAcceso.java:45                       │
     ├────────────────────────────────────────────────────────┤
-    │ [ ] Suspend   ◄── (Desmarcado: NO detiene el programa) │
+    │ [ ] Suspend   ◄── (desmarcado: NO detiene el programa) │
     │                                                        │
     │ Log:                                                   │
     │ [x] "Breakpoint hit" message                           │
@@ -951,14 +957,16 @@ VENTANA DE CONFIGURACIÓN DE UN LOGPOINT EN INTELLIJ:
 
 ---
 
-#### 4. Actividad activa interactiva: Cálculo de caminos en la pizarra
+#### 4. Laboratorio práctico guiado. Cálculo de caminos en la pizarra
 
 Alba Torres retoma el método `calcularEstadoAsistencia` presentado al inicio.
+
 Los estudiantes analizan los puntos de decisión del código:
-1. Condición 1: `if (minutosRetraso > 0)` (+1)
-2. Condición 2: `if (!esJustificado)` (+1)
-3. Condición 3: `if (minutosRetraso > 30)` (+1)
-4. Condición 4: `if (faltasPrevias >= 3 || esReincidente)` (Contiene un operador `||`, sumando dos caminos booleanos: +2)
+
+1. Condición 1: `if (minutosRetraso > 0)` (+1)  
+2. Condición 2: `if (!esJustificado)` (+1)  
+3. Condición 3: `if (minutosRetraso > 30)` (+1)  
+4. Condición 4: `if (faltasPrevias >= 3 || esReincidente)` (Contiene un operador `||`, sumando dos caminos booleanos: +2)  
 
 * **Cálculo:**
   $$\text{Puntos de decisión} = 1 + 1 + 1 + 2 = 5$$
@@ -1021,13 +1029,13 @@ Los estudiantes analizan los puntos de decisión del código:
 
 ---
 
-#### Sesión única. Taller de consolidación: El ciclo de vida del defecto (*Bug Lifecycle*), verificación de regresión y cierre formal del Sprint 3
+#### Taller de consolidación: el ciclo de vida del defecto (*Bug Lifecycle*), verificación de regresión y cierre formal del Sprint 3
 
 ---
 
 #### 1. Caso guía en AzaharTech
 
-Viernes 13 de noviembre de 2026. Son las cuatro de la tarde en las oficinas de **AzaharTech**. La jornada representa un hito fundamental del primer trimestre: hoy concluye formalmente el **Sprint 3: «El ciclo del error: pruebas y depuración»**.
+Viernes 13 de noviembre de 2026. Son las cuatro de la tarde en las oficinas de **AzaharTech**. La jornada representa un hito fundamental del primer trimestre: hoy concluye formalmente el **Sprint 3**.
 
 A lo largo de las últimas tres semanas, el equipo ha dado un salto cualitativo en su madurez técnica: ha dejado atrás la depuración artesanal basada en imprimir mensajes por consola para dominar el depurador interactivo de IntelliJ IDEA, la inspección de variables en memoria RAM, el análisis de la pila de llamadas (*Frames*), el diseño de pruebas de caja negra (clases de equivalencia y valores límite), la medición de cubrimiento (*Coverage*) y el cálculo de la complejidad ciclomática de McCabe.
 
@@ -1035,17 +1043,17 @@ En la pantalla principal, **Laia Claramunt** y **Pau Ferrer** abren el tablero d
 
 Laia se dirige a los desarrolladores del equipo:
 
-> *«Habéis transformado un código frágil e inestable en un producto predecible y blindado contra entradas inesperadas. Sin embargo, en el desarrollo profesional de software corporativo existe una regla inquebrantable:* *un fallo no está solucionado simplemente porque el programador que lo escribió diga 'en mi ordenador ya no falla'»* [10, 12].
+> *«Habéis transformado un código frágil e inestable en un producto predecible y blindado contra entradas inesperadas. Sin embargo, en el desarrollo profesional de software corporativo existe una regla inquebrantable:* *un fallo no está solucionado simplemente porque el programador que lo escribió diga 'en mi ordenador ya no falla'»*.
 >
 > *Para dar por cerrado un defecto, debemos someterlo a una* *prueba de regresión* *—garantizando que el arreglo no ha destruido accidentalmente una funcionalidad previa—, verificarlo mediante una auditoría técnica cruzada con otro compañero de consultoría y actualizar formalmente su estado en el ciclo de vida de la incidencia.*
 >
-> *Hoy cerraremos el ciclo completo del Sprint 3: formalizaremos la* *matriz de trazabilidad de pruebas*, *auditaremos por parejas los módulos desarrollados y utilizaremos la* *interfaz gráfica de IntelliJ IDEA* *para realizar el commit y push visual definitivo que dejará el repositorio sellado antes de iniciar el lunes el Sprint 4: la programación orientada a objetos propia y la gestión de ramas en Git»* [4, 11].
+> *Hoy cerraremos el ciclo completo del Sprint 3: formalizaremos la* *matriz de trazabilidad de pruebas*, *auditaremos por parejas los módulos desarrollados y utilizaremos la* *interfaz gráfica de IntelliJ IDEA* *para realizar el commit y push visual definitivo que dejará el repositorio registrado antes de iniciar el lunes el Sprint 4.*.
 
 ---
 
 #### 2. El Ciclo de Vida del Defecto (*Bug Lifecycle*) y las Pruebas de Regresión
 
-En la ingeniería de software profesional regulada por estándares de calidad, un error o defecto técnico (*bug*) no es una simple anotación en una libreta: es una entidad con ciclo de vida propio que atraviesa estados unívocos desde que se detecta hasta que se certifica su corrección definitiva [3, 4].
+En la ingeniería de software profesional regulada por estándares de calidad, un error o defecto técnico (*bug*) no es una simple anotación en una libreta: es una entidad con ciclo de vida propio que atraviesa estados unívocos desde que se detecta hasta que se certifica su corrección definitiva.
 
 ```
                   EL CICLO DE VIDA FORMAL DE UNA INCIDENCIA
@@ -1070,20 +1078,21 @@ En la ingeniería de software profesional regulada por estándares de calidad, u
 ```
 
 ##### Los estados de una incidencia técnica
-1. **Nuevo (*Open*):** La anomalía ha sido detectada y registrada formalmente con su plantilla de informe técnico (*Bug Report*), detallando pasos para reproducirla y captura del comportamiento observado.
-2. **Asignado (*Assigned*):** El equipo asigna la incidencia al desarrollador responsable de ese componente de software.
-3. **En resolución (*In Progress*):** El desarrollador analiza el fallo con el depurador, identifica la causa raíz en memoria y modifica la lógica algorítmica.
-4. **Resuelto (*Resolved*):** Se ha aplicado una corrección técnica en el código que supera el caso de prueba conflictivo.
-5. **Verificado (*Verified / Re-test*):** Un segundo desarrollador (auditor de aseguramiento de calidad) reproduce de nuevo la prueba de forma independiente para certificar la corrección.
-6. **Cerrado (*Closed*):** El defecto se archiva formalmente en el sistema documental tras superar las pruebas de regresión.
-7. **Reabierto (*Reopened*):** Si la verificación falla o la corrección introduce nuevos fallos colaterales, la incidencia vuelve a asignarse al programador.
+1. **Nuevo (*Open*).** La anomalía ha sido detectada y registrada formalmente con su plantilla de informe técnico (*Bug Report*), detallando pasos para reproducirla y captura del comportamiento observado.
+2. **Asignado (*Assigned*).** El equipo asigna la incidencia al desarrollador responsable de ese componente de software.
+3. **En resolución (*In Progress*).** El desarrollador analiza el fallo con el depurador, identifica la causa raíz en memoria y modifica la lógica algorítmica.
+4. **Resuelto (*Resolved*).** Se ha aplicado una corrección técnica en el código que supera el caso de prueba conflictivo.
+5. **Verificado (*Verified / Re-test*).** Un segundo desarrollador (auditor de aseguramiento de calidad) reproduce de nuevo la prueba de forma independiente para certificar la corrección.
+6. **Cerrado (*Closed*).** El defecto se archiva formalmente en el sistema documental tras superar las pruebas de regresión.
+7. **Reabierto (*Reopened*).** Si la verificación falla o la corrección introduce nuevos fallos colaterales, la incidencia vuelve a asignarse al programador.
 
 ##### Las Pruebas de Regresión (*Regression Testing*)
 Cuando se altera una línea de código para subsanar un fallo (por ejemplo, corregir un operador relacional `<` por `<=` en una condición de parada), existe siempre el peligro inminente de causar **regresión**: romper caminos lógicos o casos de uso que antes funcionaban a la perfección.
 
 Una **prueba de regresión** consiste en volver a ejecutar de forma íntegra **toda** la batería de casos de prueba previamente aprobados tras aplicar el parche. Solo si se cumplen dos condiciones simultáneas se valida el cambio:
-* El nuevo caso de prueba que antes fallaba ahora se ejecuta con éxito.
-* Todos los casos de prueba históricos antiguos continúan pasando sin ninguna alteración ni degradación.
+
+* El nuevo caso de prueba que antes fallaba ahora se ejecuta con éxito.  
+* Todos los casos de prueba históricos antiguos continúan pasando sin ninguna alteración ni degradación.  
 
 ---
 
@@ -1110,7 +1119,7 @@ Para certificar ante el cliente (en nuestro caso, el IES El Caminàs) que el sof
 
 ---
 
-#### 4. Dinámica de laboratorio: Auditoría técnica cruzada por pares (30 minutos)
+#### 4. Laboratorio: auditoría técnica cruzada por pares
 
 Durante la parte práctica de la sesión, los desarrolladores trabajan por parejas intercambiando sus puestos de trabajo para realizar una **Auditoría Técnica Cruzada (*Peer QA Review*)**:
 
@@ -1137,19 +1146,19 @@ Durante la parte práctica de la sesión, los desarrolladores trabajan por parej
 ```
 
 ##### Guía de verificación según el proyecto de la bolsa:
-* **En Aventura conversacional:** El auditor introduce el valor de daño crítico exacto que reduce la vida del personaje a `0` puntos. Comprueba que el juego redirige a la escena de derrota limpiamente, sin excepciones de puntero nulo y confirmando que el inventario no se desborda en el bucle principal.
-* **En Motor de recomendación:** El auditor ejecuta el cálculo de afinidad suministrando un vector de usuario con `0` valoraciones coincidentes. Verifica que el algoritmo maneja la división sin generar valores indefinidos (`NaN`) y que la lista ordenada final no se rompe.
-* **En Simulador de físicas 2D:** El auditor simula una partícula impactando a velocidad máxima contra la esquina superior derecha ($x_{max}, y_{max}$). Confirma bajo el depurador que las dos componentes de aceleración y rebote se recalculan simultáneamente sin atrapar la simulación en un bucle infinito de colisión.
-* **En Bóveda de contraseñas:** El auditor introduce una contraseña de prueba con la longitud máxima permitida (32 caracteres exactos). Verifica que el algoritmo de cifrado no trunca la cadena ni genera excepciones de desbordamiento de índice en memoria.
+* **En Aventura conversacional.** El auditor introduce el valor de daño crítico exacto que reduce la vida del personaje a `0` puntos. Comprueba que el juego redirige a la escena de derrota limpiamente, sin excepciones de puntero nulo y confirmando que el inventario no se desborda en el bucle principal.
+* **En Motor de recomendación.** El auditor ejecuta el cálculo de afinidad suministrando un vector de usuario con `0` valoraciones coincidentes. Verifica que el algoritmo maneja la división sin generar valores indefinidos (`NaN`) y que la lista ordenada final no se rompe.
+* **En Simulador de físicas 2D.** El auditor simula una partícula impactando a velocidad máxima contra la esquina superior derecha ($x_{max}, y_{max}$). Confirma bajo el depurador que las dos componentes de aceleración y rebote se recalculan simultáneamente sin atrapar la simulación en un bucle infinito de colisión.
+* **En Bóveda de contraseñas.** El auditor introduce una contraseña de prueba con la longitud máxima permitida (32 caracteres exactos). Verifica que el algoritmo de cifrado no trunca la cadena ni genera excepciones de desbordamiento de índice en memoria.
 
 ##### Plantilla de cierre técnico
-Cada pareja consolida el informe de calidad en el archivo `pruebas.md`:
+Cada pareja redacta el informe de calidad en el archivo `pruebas.md`:
 
 ```markdown
-### Acta de Cierre Técnico de Pruebas y Depuración (Sprint 3)
+### Acta de cierre técnico de pruebas y depuración (Sprint 3)
 
-- **Desarrollador responsable:** [Nombre del Alumno]
-- **Auditor de calidad asignado:** [Nombre del Compañero]
+- **Desarrollador responsable:** [Nombre del alumno]
+- **Auditor de calidad asignado:** [Nombre del compañero]
 - **Estado de incidencias registradas:** 100% resueltas y verificadas (0 incidencias abiertas).
 - **Métrica de cubrimiento alcanzada:** >= 85% de líneas / >= 80% de ramas.
 - **Complejidad Ciclomática máxima auditada:** V(G) <= 6 (Módulo estructurado según estándares).
@@ -1161,33 +1170,11 @@ Cada pareja consolida el informe de calidad en el archivo `pruebas.md`:
 
 #### 5. Cierre formal mediante Commit y Push visual en IntelliJ IDEA
 
-En cumplimiento de las directrices metodológicas de AzaharTech para los primeros sprints, **todas las operaciones de control de versiones con Git se realizan exclusivamente a través del entorno gráfico de IntelliJ IDEA**, utilizándolo como un buzón visual de subida seguro y trazable [10]:
-
-```
-                VENTANA VISUAL DE COMMIT EN INTELLIJ IDEA (Ctrl + K)
-                
- ┌────────────────────────────────────────────────────────────────────────┐
- │ Commit: Local Changes                                                  │
- ├────────────────────────────────────────────────────────────────────────┤
- │ Changes (3 files)                                                      │
- │  [x] docs/pruebas/cierre-sprint3.md       (acta de cierre y auditoría) │
- │  [x] docs/incidencias/INCIDENCIA-01.md    (estado cambiado a CERRADO)  │
- │  [x] src/core/ValidadorLogica.java        (algoritmo blindado final)   │
- ├────────────────────────────────────────────────────────────────────────┤
- │ Mensaje de confirmación:                                               │
- │ ┌────────────────────────────────────────────────────────────────────┐ │
- │ │ docs(qa): auditoria cruzada completada y cierre formal del sprint 3│ │
- │ └────────────────────────────────────────────────────────────────────┘ │
- │                                                                        │
- │ [ Commit v ]  ──► Desplegar flecha: [ Commit and Push... ]            │
- └────────────────────────────────────────────────────────────────────────┘
-```
-
-##### Pasos visuales paso a paso:
+##### Paso a paso:
 1. **Abrir el panel de confirmación:**
-    * Pulsa el atajo universal **`Ctrl + K`** (en Windows/Linux) o haz clic directo en la pestaña vertical izquierda **Commit** (`Alt + 0`).
+    * Pulsa el atajo universal **`Ctrl + K`** (en GNU/Linux) o haz clic directo en la pestaña vertical izquierda **Commit** (`Alt + 0`).
 2. **Auditoría visual de diferencias (*Diff Viewer*):**
-    * En la lista de archivos modificados (*Changes*), haz doble clic sobre `cierre-sprint3.md` y `ValidadorLogica.java`. Comprueba en el panel comparativo que las líneas agregadas coinciden con el acta y las correcciones de frontera.
+    * En la lista de archivos modificados (*changes*), haz doble clic sobre `cierre-sprint3.md` y `ValidadorLogica.java`. Comprueba en el panel comparativo que las líneas agregadas coinciden con el acta y las correcciones de frontera.
 3. **Selección de casillas de verificación:**
     * Marca con un visto bueno (`[x]`) los archivos documentales y de código validados durante la sesión.
 4. **Redacción del mensaje de commit:**
@@ -1197,6 +1184,5 @@ En cumplimiento de las directrices metodológicas de AzaharTech para los primero
     * Haz clic sobre la pequeña flecha desplegable situada en el botón azul inferior de **Commit** y selecciona la opción **Commit and Push...** (o pulsa **`Ctrl + Alt + K`**).
     * Se abrirá el cuadro de diálogo de confirmación de subida (*Push Commits*). Verifica que el destino sea tu repositorio remoto personal en GitHub y pulsa el botón azul **Push**.
 
-Al aparecer la notificación flotante de confirmación en verde en la esquina inferior del IDE (*«Pushed 1 commit to origin/main»*), el **Sprint 3: «El ciclo del error: pruebas y depuración»** queda oficialmente completado y auditado [10, 11]. El equipo está preparado para comenzar el próximo lunes el **Sprint 4**, donde nos adentraremos en el diseño de clases orientadas a objetos propias y el flujo de ramas de Git [4, 11].
-
+Al aparecer la notificación flotante de confirmación en verde en la esquina inferior del IDE (*«Pushed 1 commit to origin/main»*), el **Sprint 3** queda oficialmente completado y auditado. El equipo está preparado para comenzar el próximo lunes el **Sprint 4**, donde nos adentraremos en el diseño de clases orientadas a objetos propias y el flujo de ramas de Git.
 
